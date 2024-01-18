@@ -4,7 +4,7 @@ import Header from "./components/Header";
 
 import "./index.css";
 import Conocimientos from "./components/Conocimientos";
-import Knowledge from "./components/knowledge";
+import Knowledge from "./components/Knowledge";
 
 /* IMAGES */
 
