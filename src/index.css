@@ -1,0 +1,42 @@
+*, *::before, *::after {
+ box-sizing: border-box;
+ font-family: poppins;
+margin:0;
+/* remove TouchMobile */
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-tap-highlight-color: transparent;
+}
+:root{
+    --main-pink-50:#fffdfd;
+    --main-pink-100:#fbf6f7;
+    --main-pink-200:#fdf3f5;
+    --main-pink-250:#ffd6dd;
+    --main-pink-300:#ff8fa2;
+    --main-pink-400:#ff5e78;
+    --main-pink-500:#fd3657;
+    --main-pink-600:#b01c34;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+width: 14px;
+background-color:var(--main-pink-200) ;
+}
+::-webkit-scrollbar-thumb {
+background-color: var(--main-pink-300);
+border: 3px solid var(--main-pink-200);
+
+}
+::-webkit-scrollbar-thumb:hover {
+background-color: var(--main-pink-500);
+
+}
+/* SELECTION */
+::selection {
+color: white;
+background: var(--main-pink-300);
+}
+
+body{
+    background-color: var(--main-pink-0);
+}
