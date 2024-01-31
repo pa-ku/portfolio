@@ -58,15 +58,17 @@ function App() {
         <ProyectosContainer>
           <Knowledge
             description={Proyects[1].description}
-            $color={"#fcfc695d "}
+            $color={"#fdfd2a5d "}
             ImgSrc={ErideLogo}
             href={"https://eridestore.netlify.app/"}
+            title={Proyects[1].title}
           />
           <Knowledge
             description={Proyects[0].description}
             $color={"#ffc13b5d "}
             ImgSrc={FlyLogo}
             href={"https://cloneflybondi.netlify.app/"}
+            title={Proyects[0].title}
           />
 
           <Knowledge
@@ -74,12 +76,14 @@ function App() {
             $color={"#f891d65d "}
             ImgSrc={RoscoLogo}
             href={"https://rosquewe.netlify.app/"}
+            title={Proyects[2].title}
           />
           <Knowledge
             description={Proyects[3].description}
             $color={"#c4e9735d "}
             ImgSrc={HuingLogo}
             href={"https://huinganquito.netlify.app/"}
+            title={Proyects[3].title}
           />
         </ProyectosContainer>
         <ConocimientosContainer>

@@ -1,5 +1,7 @@
 import { React, useState } from "react";
 import styled from "styled-components";
+import Subtitle from "./Subtitle";
+import { Title } from "@mui/icons-material";
 
 const Container = styled.div`
   width: 700px;
@@ -8,10 +10,11 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   box-shadow: 10px 10px 10px 1px #f7f7f7;
   transition: 500ms;
   position: relative;
-background-color: #ffffff;
+  background-color: #ffffff;
   &:hover {
     cursor: pointer;
 
@@ -50,10 +53,11 @@ const Image = styled.img`
 
 const Description = styled.p`
   animation: 400ms show forwards;
-  text-align: center;
+  text-align: start;
   font-size: 16px;
   color: #333;
   padding-inline: 1em;
+  
   text-decoration: dotted;
 
   @keyframes show {
@@ -67,10 +71,23 @@ const Description = styled.p`
 `;
 
 const Anchor = styled.a`
-text-decoration: none;
-`
+  text-decoration: none;
+`;
 
-export default function Knowledge({ description, ImgSrc, alt, $color, href }) {
+const ProyectTitle = styled.h2`
+color: var(--main-pink-300);
+padding: 5px;
+z-index: 1;
+`;
+
+export default function Knowledge({
+  title,
+  description,
+  ImgSrc,
+  alt,
+  $color,
+  href,
+}) {
   const [hover, setHover] = useState(false);
 
   return (
@@ -81,7 +98,10 @@ export default function Knowledge({ description, ImgSrc, alt, $color, href }) {
         $color={$color}
       >
         {hover ? (
-          <Description>{description}</Description>
+          <>
+            <ProyectTitle>{title}</ProyectTitle>
+            <Description>{description}</Description>
+          </>
         ) : (
           <Image src={ImgSrc} alt={alt} />
         )}
