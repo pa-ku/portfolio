@@ -10,13 +10,8 @@ import crownSound from "../assets/sound/crownSound.mp3";
 /* Icon */
 import pigIcon from "../assets/img/pig/pig.webp";
 import coinIcon from "../assets/img/pig/coin.webp";
+import hearth from "../assets/img/pig/hearth.webp";
 /* Accesories */
-import gorra from "../assets/img/pig/gorra.webp";
-import glasses from "../assets/img/pig/glasses.webp";
-import colege from "../assets/img/pig/colege.webp";
-import apple from "../assets/img/pig/apple.webp";
-import gentle from "../assets/img/pig/hat.webp";
-import threeD from "../assets/img/pig/3d.webp";
 
 const Wrapper = styled.div`
   right: 0px;
@@ -25,7 +20,9 @@ const Wrapper = styled.div`
   justify-content: center;
   transition: 0.2s;
   user-select: none;
-
+  &:hover {
+    scale: 1.05;
+  }
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
@@ -46,23 +43,21 @@ const Wrapper = styled.div`
 `;
 
 const PigIcon = styled.img`
-  width: 100px;
-height: 100px;
-  top: 0px;
+  width: 120px;
+  top: 10px;
   right: 0px;
   opacity: 1;
   z-index: 10;
   cursor: pointer;
-
   filter: grayscale(${(props) => props.$grayScale});
   animation: 2s startPig forwards 300ms;
 `;
 
 const Coin = styled.img`
-  width: 30px;
+  width: 48px;
   z-index: -1;
   position: absolute;
-  top: 20px;
+  top: 15px;
   right: 40px;
   opacity: 0;
   animation: ${(props) => props.$animation};
@@ -89,22 +84,25 @@ const Coin = styled.img`
 `;
 
 const Crown = styled.img`
-  width: 100px;
+  width: 127px;
   z-index: 20;
   position: absolute;
-  top: 0px;
+  left: -3px;
   opacity: 0;
   right: 0px;
   pointer-events: none;
   translate: 0px -30px;
   animation: ${(props) => props.$animation};
+
   @keyframes crown {
     0% {
-      translate: 0px -30px;
+      translate: 0px 0px;
+      scale: 0.7;
     }
     100% {
       translate: 0px 0px;
       opacity: 1;
+      scale: 1;
     }
   }
 `;
@@ -119,8 +117,6 @@ export default function FlyingPig() {
   const [playPig] = useSound(pigSound, { playbackRate, volume: 0.5 });
   const [playCoin] = useSound(coinSound, { playbackRate, volume: 0.1 });
   const [playCrown] = useSound(crownSound, { volume: 0.1 });
-  const [hat, setHat] = useState();
-  const [rollDice, setRolldice] = useState(Math.floor(Math.random() * 6));
 
   function handlePig() {
     if (pigCounter < 21) {
@@ -152,28 +148,7 @@ export default function FlyingPig() {
       case 20:
         setCoinAnimation("none");
         playCrown();
-        setCrownAnimation("4s crown forwards");
-        break;
-    }
-
-    switch (rollDice) {
-      case 0:
-        setHat(gorra);
-        break;
-      case 1:
-        setHat(glasses);
-        break;
-      case 2:
-        setHat(colege);
-        break;
-      case 3:
-        setHat(apple);
-        break;
-      case 4:
-        setHat(gentle);
-        break;
-      case 5:
-        setHat(threeD);
+        setCrownAnimation("500ms crown forwards");
         break;
     }
   }
@@ -182,9 +157,7 @@ export default function FlyingPig() {
     <>
       <Wrapper>
         <Coin $animation={coinAnimation} src={coinIcon}></Coin>
-
-        <Crown $animation={crownAnimation} src={hat}></Crown>
-
+        <Crown $animation={crownAnimation} src={hearth}></Crown>
         <PigIcon
           $grayScale={pigColor}
           onClick={handlePig}

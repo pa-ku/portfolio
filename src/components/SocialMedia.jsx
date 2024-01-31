@@ -13,22 +13,32 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 10px;
+
   position: relative;
 `;
+
+const LinkContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+background-color: var(--main-pink-200);
+`;
+
 const Link = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  cursor: pointer;
 
+  cursor: pointer;
   transition: 0.3s;
 `;
 const MsjToolkit = styled.p`
   background-color: #0daabf;
   padding: 2px 8px;
-
   color: white;
+  width: max-content;
   font-weight: 800;
   position: absolute;
   right: 100px;
@@ -77,7 +87,7 @@ export default function SocialBar() {
   return (
     <>
       <Wrapper>
-        {toolkit === true && <MsjToolkit>Copiado!</MsjToolkit>}
+        {toolkit === true && <MsjToolkit>Email Copiado!</MsjToolkit>}
         <LinkContainer>
           <Link onClick={handleCopy} title="Copiar Email">
             <Icon src={emailSvg} alt="" />
@@ -101,11 +111,3 @@ export default function SocialBar() {
     </>
   );
 }
-
-const LinkContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 13px;
-  background-color: #fff;
-`;

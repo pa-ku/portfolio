@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 import Subtitle from "./Subtitle";
 
 import FlyingPig from "./FlyingPig";
-import SocialBar from "./SocialMedia";
+import SocialMedia from "./SocialMedia";
 
 const Wrapper = styled.div`
   display: flex;
@@ -41,7 +41,6 @@ const Container = styled.div`
   }
 `;
 
-
 const PigContainer = styled.div`
   margin-left: auto;
   margin-block: auto;
@@ -66,11 +65,11 @@ const Title = styled.p`
   justify-content: center;
   position: relative;
   pointer-events: none;
-letter-spacing: -2px;
+  letter-spacing: -2px;
   &::before {
     content: "";
     position: absolute;
-    background-color: #fff;
+    background-color: var(--main-pink-200);
     width: 300px;
     height: 100%;
     animation: 2s titleanimation forwards;
@@ -89,7 +88,7 @@ letter-spacing: -2px;
   }
 `;
 
-export default function Header({ description,subtitle }) {
+export default function Header({ description, subtitle }) {
   return (
     <>
       <Wrapper>
@@ -97,12 +96,12 @@ export default function Header({ description,subtitle }) {
           <Title>Pablo Kuhn</Title>
           <Subtitle $delay={"0.9s"} $fontsize={"1.3rem"} text={subtitle} />
           <Subtitle
-            $color={"#888"}
+            $color={"#111"}
             $delay={"1s"}
             $fontsize={"1rem"}
             text={description}
           />
-            <SocialBar />
+          <SocialMedia />
         </Container>
         <PigContainer>
           <FlyingPig />

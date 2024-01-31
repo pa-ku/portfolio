@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Grid from "./components/Grid";
 import Header from "./components/Header";
 
 import "./index.css";
@@ -12,8 +11,8 @@ import FlyLogo from "./assets/img/fly-logo.svg";
 import XtremeLogo from "./assets/img/xtreme.webp";
 import RoscoLogo from "./assets/img/dice.webp";
 import HuingLogo from "./assets/img/huin.webp";
-
 import { Proyects } from "./Proyects";
+import Wave from "./components/Wave";
 
 const Wrapper = styled.div`
   display: flex;
@@ -43,10 +42,12 @@ const ConocimientosContainer = styled.div`
   justify-content: center;
   flex-direction: column;
 `;
+
 function App() {
   return (
     <>
       <Wrapper>
+        <Wave />
         <Header
           subtitle={"FullStack developer"}
           description={
@@ -56,17 +57,18 @@ function App() {
 
         <ProyectosContainer>
           <Knowledge
+            description={Proyects[1].description}
+            $color={"#fcfc695d "}
+            ImgSrc={XtremeLogo}
+            href={"https://eridestore.netlify.app/"}
+          />
+          <Knowledge
             description={Proyects[0].description}
             $color={"#ffc13b5d "}
             ImgSrc={FlyLogo}
             href={"https://cloneflybondi.netlify.app/"}
           />
-          <Knowledge
-            description={Proyects[1].description}
-            $color={"#fcfc695d "}
-            ImgSrc={XtremeLogo}
-            href={"https://xtremestore.netlify.app/"}
-          />
+
           <Knowledge
             description={Proyects[2].description}
             $color={"#f891d65d "}
