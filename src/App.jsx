@@ -8,7 +8,7 @@ import Knowledge from "./components/Knowledge";
 /* IMAGES */
 
 import FlyLogo from "./assets/img/fly-logo.svg";
-import XtremeLogo from "./assets/img/xtreme.webp";
+import ErideLogo from "./assets/img/eride.webp";
 import RoscoLogo from "./assets/img/dice.webp";
 import HuingLogo from "./assets/img/huin.webp";
 import { Proyects } from "./Proyects";
@@ -59,7 +59,7 @@ function App() {
           <Knowledge
             description={Proyects[1].description}
             $color={"#fcfc695d "}
-            ImgSrc={XtremeLogo}
+            ImgSrc={ErideLogo}
             href={"https://eridestore.netlify.app/"}
           />
           <Knowledge
