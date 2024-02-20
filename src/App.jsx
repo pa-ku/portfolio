@@ -8,13 +8,15 @@ import Conocimientos from "./components/Conocimientos";
 import Wave from "./components/Wave";
 import ProyectLayout from "./components/ProyectLayout";
 import Title from "./components/Title";
+import Loader from "./components/proyects_codepen/Loader";
+import CodepenLayout from "./components/proyects_codepen/CodepenLayout";
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
   padding-top: 6em;
-  gap: 10em;
+  gap: 7em;
   flex-direction: column;
   overflow: hidden;
   width: 100%;
@@ -37,7 +39,7 @@ const ConocimientosContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 50px;
+  gap: 70px;
 `;
 
 function App() {
@@ -55,9 +57,10 @@ function App() {
           <ProyectLayout />
         </ProyectosContainer>
         <ConocimientosContainer>
-          <Title $altButton>Conocimientos</Title>
+        <Title $altButton>Conocimientos</Title>
           <Conocimientos />
         </ConocimientosContainer>
+        <CodepenLayout />
       </Wrapper>
     </>
   );

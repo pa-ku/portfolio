@@ -70,7 +70,7 @@ const Icon = styled.img`
   accent-color: #444;
   &:hover {
     scale: 1.1;
-    filter: drop-shadow(0 0mm 2mm rgb(156, 217, 255));
+    filter: drop-shadow(0 0mm 2mm #9cd9ff);
   }
 `;
 

@@ -14,7 +14,6 @@ const TitleStyle = styled.p`
   position: relative;
   pointer-events: none;
   letter-spacing: -2px;
-  margin-bottom: 5px;
   z-index: 1;
   &::after {
     content: "";
