@@ -14,10 +14,10 @@ const Wrapper = styled.div`
   width: 730px;
   height: 250px;
   opacity: 0;
-translate: -90px;
-  animation: 800ms Show forwards ;
+  translate: -90px;
+  animation: 800ms Show forwards;
   @keyframes Show {
-    100%{
+    100% {
       opacity: 1;
       translate: 0px;
     }
@@ -29,16 +29,17 @@ const LogoContainer = styled.a`
   border-radius: 50%;
   background-color: #2f2f2f;
   position: absolute;
-  transition: 300ms;
+  transition: 400ms;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
     width: 730px;
-    height: 260px;
+    height: 270px;
     border-radius: 20px;
     cursor: pointer;
+
   }
 
   &:hover .logo-img {
@@ -47,9 +48,11 @@ const LogoContainer = styled.a`
   &:hover .page-img {
     opacity: 1;
     z-index: 10;
-
-    box-shadow: 0px 0px 10px 0px #80d8ff;
+    border-radius: 20px;  
+    
+    outline: 4px solid #c4edff;
   }
+
 `;
 
 const InfoContainer = styled.div`
@@ -80,15 +83,15 @@ const MainImage = styled.img`
   object-fit: cover;
   opacity: 0;
   position: absolute;
-  transition: 200ms;
-  border-radius: 20px;
+  transition: 400ms;
+  border-radius: 50%;
   object-position: top;
   pointer-events: none;
+  
 `;
 
 const TextContainer = styled.div`
   margin-left: 120px;
-
   height: 100%;
   width: 100%;
   text-align: start;

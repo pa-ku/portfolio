@@ -69,7 +69,7 @@ const Title = styled.p`
   z-index: 1;
   &::after {
     content: "";
-    width: 70%;
+    width: 52%;
     height: 2px;
     bottom: -2px;
     left: 0px;
