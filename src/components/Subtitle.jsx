@@ -4,7 +4,6 @@ import styled from 'styled-components'
 const Text = styled.p`
 opacity: 1;
 animation: 1s subtitleAnimation forwards ;
-
 font-size: ${props => props.$fontsize};
 color: ${props => props.$color};
 `

@@ -15,13 +15,7 @@ const TitleStyle = styled.p`
   pointer-events: none;
   font-weight: ${(props) => props.$weight};
 `;
-export default function Title({
-  weight,
-  text,
-  $fontsize,
-  $maintitle,
-  $color,
-}) {
+export default function Title({ weight, children, $fontsize, $maintitle, $color }) {
   return (
     <>
       <TitleStyle
@@ -30,7 +24,7 @@ export default function Title({
         $maintitle={$maintitle}
         $fontSize={$fontsize}
       >
-        {text}
+        {children}
       </TitleStyle>
     </>
   );

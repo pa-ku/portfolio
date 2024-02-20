@@ -15,8 +15,8 @@ z-index: -1;
 const Svg = styled.svg`
   position: relative;
   display: block;
-  width: 130%;
-  height: 437px;
+
+  height: 1000px;
 `;
 
 const Path = styled.path`

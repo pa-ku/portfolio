@@ -9,8 +9,8 @@ margin:0;
 :root{
     --main-pink-50:#fffdfd;
     --main-pink-100:#fbf6f7;
-    --main-pink-200:#fffcfd;
-    --main-pink-250:#ffd6dd;
+    --main-pink-200:#fff9f9;
+    --main-pink-250:rgb(255, 207, 211);
     --main-pink-300:#ff8fa2;
     --main-pink-400:#ff5e78;
     --main-pink-500:#fd3657;

@@ -1,24 +1,24 @@
 export const Proyects = [
   {
     name: "Flybondi",
-    title:"Clon de Aerolineas",
+    title: "Clon de Aerolineas",
     description: "Un Clon de flybondi, con pequeños cambos en la UI",
   },
   {
     name: "Eride",
-    title:"Eride Store",
+    title: "Eride Store",
     description:
-      "E-commerce de Monopatines, utiliza la Api de MercadoPago para las transacciones, Vercel y una base de datos estatica",
+      "Un E-commerce de Monopatines, utiliza la Api de MercadoPago para las transacciones, Vercel y una base de datos estatica para mejor carga de la pagina",
   },
   {
     name: "Dice",
-    title:"Rosco Like ",
+    title: "Rosco ",
     description:
-      "Juego estilo el 'Rosco' diseñado con React, Para controlar el contexto de la app se utilizaron componentes Provider",
+      "Enfocado en el juego local, imitando ser el anitrion de una partida. Para controlar las configuracion y puntajes del juego se utilizaron Providers, facilitando compartir el estado entre componentes",
   },
   {
     name: "Huinganco",
-    title:"Sitio turistico",
+    title: "Sitio turistico",
     description: "Sitio de Turismo Utiliza React Router para manejar ",
   },
 ];

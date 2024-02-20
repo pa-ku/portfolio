@@ -3,14 +3,14 @@ import { styled } from "styled-components";
 
 import Subtitle from "./Subtitle";
 
-import FlyingPig from "./FlyingPig";
 import SocialMedia from "./SocialMedia";
 
 const Wrapper = styled.div`
   display: flex;
-  align-items: start;
-  justify-content: start;
-  width: 70ch;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 40ch;
 
   @media (max-width: 1200px) {
     width: 100%;
@@ -25,11 +25,12 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   display: flex;
-  align-items: start;
-  justify-content: start;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
 
-  width: 50ch;
+  width: 100%;
+
   @media (max-width: 1200px) {
     width: 100%;
     display: flex;
@@ -41,21 +42,9 @@ const Container = styled.div`
   }
 `;
 
-const PigContainer = styled.div`
-  margin-left: auto;
-  margin-block: auto;
-
-  height: 100%;
-  @media (max-width: 700px) {
-    margin-left: 0px;
-    margin-block: 0px;
-    margin-top: 4em;
-  }
-`;
-
 const Title = styled.p`
   text-align: center;
-  font-size: 3.2rem;
+  font-size: 3.5rem;
   font-weight: 300;
   padding: 0px;
   background-color: var(--main-pink-200);
@@ -66,6 +55,18 @@ const Title = styled.p`
   position: relative;
   pointer-events: none;
   letter-spacing: -2px;
+  margin-bottom: 5px;
+  z-index: 1;
+  &::after {
+    content: "";
+    width: 70%;
+    height: 2px;
+    bottom: -2px;
+    left: 0px;
+    border-radius: 0px 20px 0px 0px;
+    position: absolute;
+    background-color: var(--main-pink-300);
+  }
   &::before {
     content: "";
     position: absolute;
@@ -94,18 +95,20 @@ export default function Header({ description, subtitle }) {
       <Wrapper>
         <Container>
           <Title>Pablo Kuhn</Title>
-          <Subtitle $delay={"0.9s"} $fontsize={"1.3rem"} text={subtitle} />
           <Subtitle
-            $color={"#111"}
+            $color={"#222"}
+            $delay={"0.9s"}
+            $fontsize={" 1.5rem"}
+            text={subtitle}
+          />
+          <Subtitle
+            $color={"#333"}
             $delay={"1s"}
             $fontsize={"1rem"}
             text={description}
           />
           <SocialMedia />
         </Container>
-        <PigContainer>
-          <FlyingPig />
-        </PigContainer>
       </Wrapper>
     </>
   );

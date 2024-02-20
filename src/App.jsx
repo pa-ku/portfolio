@@ -3,16 +3,10 @@ import Header from "./components/Header";
 
 import "./index.css";
 import Conocimientos from "./components/Conocimientos";
-import Knowledge from "./components/Knowledge";
 
 /* IMAGES */
-
-import FlyLogo from "./assets/img/fly-logo.svg";
-import ErideLogo from "./assets/img/eride.webp";
-import RoscoLogo from "./assets/img/dice.webp";
-import HuingLogo from "./assets/img/huin.webp";
-import { Proyects } from "./Proyects";
 import Wave from "./components/Wave";
+import ProyectLayout from "./components/ProyectLayout";
 
 const Wrapper = styled.div`
   display: flex;
@@ -31,9 +25,7 @@ const ProyectosContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100%;
-  width: 100%;
-  gap: 2em;
+  gap: 50px;
 `;
 
 const ConocimientosContainer = styled.div`
@@ -51,12 +43,14 @@ function App() {
         <Header
           subtitle={"FullStack developer"}
           description={
-            "Soy un desarrollador autodidacta, apasionado por la creación de experiencias digitales a través de la accesibilidad, escalabilidad y usabilidad del diseño."
+            "Soy un desarrollador autodidacta, apasionado por la creación de experiencias digitales"
           }
         />
 
         <ProyectosContainer>
-          <Knowledge
+          <ProyectLayout />
+
+          {/*   <Knowledge
             description={Proyects[1].description}
             $color={"#fdfd2a5d "}
             ImgSrc={ErideLogo}
@@ -84,7 +78,7 @@ function App() {
             ImgSrc={HuingLogo}
             href={"https://huinganquito.netlify.app/"}
             title={Proyects[3].title}
-          />
+          /> */}
         </ProyectosContainer>
         <ConocimientosContainer>
           <Conocimientos />
