@@ -6,6 +6,7 @@ import JsImage from "../assets/stackicons/javascripticon.svg";
 import NodeImage from "../assets/stackicons/nodejsicon.svg";
 import StyledImage from "../assets/stackicons/styledicon.svg";
 import HtmlImage from "../assets/stackicons/htmlicon.svg";
+import GithubIcon from "../assets/stackicons/githubicon.svg";
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,44 +16,49 @@ const Wrapper = styled.div`
   height: 250px;
   opacity: 0;
   translate: -90px;
-  animation: 800ms Show forwards;
+  animation: 100ms Show forwards;
   @keyframes Show {
     100% {
       opacity: 1;
       translate: 0px;
     }
   }
+
+  &:hover .logo-ctn {
+    outline-color: #c4edff;
+  }
 `;
 const LogoContainer = styled.a`
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background-color: #2f2f2f;
+  background-color: #002742;
   position: absolute;
   transition: 400ms;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  outline: 3px solid #fff;
+  outline-offset: 3px;
   &:hover {
     width: 730px;
     height: 270px;
     border-radius: 20px;
     cursor: pointer;
-
+    outline: 0px;
   }
 
   &:hover .logo-img {
     opacity: 0;
   }
+
   &:hover .page-img {
     opacity: 1;
     z-index: 10;
-    border-radius: 20px;  
-    
-    outline: 4px solid #c4edff;
-  }
+    border-radius: 20px;
 
+    outline: 4px solid #d7f3ff;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -87,7 +93,6 @@ const MainImage = styled.img`
   border-radius: 50%;
   object-position: top;
   pointer-events: none;
-  
 `;
 
 const TextContainer = styled.div`
@@ -121,12 +126,37 @@ const InfoTitle = styled.h2`
 
 const InfoDescription = styled.p``;
 
+const GithubCtn = styled.a`
+  background-color: #c4edff;
+  padding: 10px;
+  border-radius: 0px 20px 0px 20px;
+  position: absolute;
+  width: 60px;
+  height: 40px;
+
+  display: flex;
+  right: 0px;
+  align-items: center;
+  justify-content: center;
+
+  object-fit: contain;
+  top: 0px;
+  transition: 400ms;
+  &:hover {
+    background-color: #ade1f8;
+  }
+  & img {
+    height: 30px;
+    width: 30px;
+    object-fit: contain;
+  }
+`;
+
 export default function ProyectTemplate({
   LogoImgSrc,
   ImgAlt,
   BackgroundImg,
   BackgroundAlt,
-  StackIcon,
   ReactIcon,
   MongoIcon,
   NodeIcon,
@@ -136,10 +166,11 @@ export default function ProyectTemplate({
   Description,
   HtmlIcon,
   href,
+  GithubHref,
 }) {
   return (
     <Wrapper>
-      <LogoContainer className="logo-c" href={href} target="_blank">
+      <LogoContainer className="logo-ctn" href={href} target="_blank">
         <LogoImage src={LogoImgSrc} alt={ImgAlt} />
         <MainImage
           className="page-img"
@@ -154,15 +185,28 @@ export default function ProyectTemplate({
           <InfoDescription>{Description}</InfoDescription>
         </TextContainer>
         <StackContainer>
-          {ReactIcon && <img src={ReactImage} alt="Icono React" />}
-          {NodeIcon && <img src={NodeImage} alt="Icono NodeJs" />}
-          {JSIcon && <img src={JsImage} alt="Icono Javascript" />}
+          {ReactIcon && (
+            <img title="React" src={ReactImage} alt="Icono React" />
+          )}
+          {NodeIcon && (
+            <img title="NodeJs" src={NodeImage} alt="Icono NodeJs" />
+          )}
+          {JSIcon && (
+            <img title="Javascript" src={JsImage} alt="Icono Javascript" />
+          )}
           {StyledIcon && (
-            <img src={StyledImage} alt="Icono Styled Components" />
+            <img
+              title="Styled Components"
+              src={StyledImage}
+              alt="Icono Styled Components"
+            />
           )}
           {HtmlIcon && <img src={HtmlImage} alt="Icono Javascript" />}
         </StackContainer>
       </InfoContainer>
+      <GithubCtn href={GithubHref} className="github-ctn">
+        <img src={GithubIcon} alt="" />
+      </GithubCtn>
     </Wrapper>
   );
 }

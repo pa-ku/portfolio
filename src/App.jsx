@@ -7,6 +7,7 @@ import Conocimientos from "./components/Conocimientos";
 /* IMAGES */
 import Wave from "./components/Wave";
 import ProyectLayout from "./components/ProyectLayout";
+import Title from "./components/Title";
 
 const Wrapper = styled.div`
   display: flex;
@@ -33,6 +34,7 @@ const ConocimientosContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 50px;
 `;
 
 function App() {
@@ -50,6 +52,7 @@ function App() {
           <ProyectLayout />
         </ProyectosContainer>
         <ConocimientosContainer>
+          <Title $altButton>Conocimientos</Title>
           <Conocimientos />
         </ConocimientosContainer>
       </Wrapper>

@@ -31,7 +31,8 @@ export default function ProyectLayout() {
     <>
       <ProyectTemplate
         LogoImgSrc={ErideLogo}
-        ImgAlt={"Logo Flybondi"}
+        GithubHref={"https://github.com/pa-ku/FlybondiReact"}
+        ImgAlt={"Logo Eride"}
         Title={Proyects[1].title}
         Description={Proyects[1].description}
         BackgroundImg={EridePageImage}
@@ -45,6 +46,7 @@ export default function ProyectLayout() {
       <ProyectTemplate
         LogoImgSrc={FlyLogo}
         ImgAlt={"Logo Flybondi"}
+        GithubHref={""}
         BackgroundImg={FlybondiPageImage}
         BackgroundAlt={"Imagen pagina web de flybondi"}
         Title={Proyects[0].title}
@@ -63,6 +65,7 @@ export default function ProyectLayout() {
         LogoImgSrc={RoscoLogo}
         ImgAlt={"Logo Rosco"}
         BackgroundImg={RoscoPageImage}
+        GithubHref={"https://github.com/pa-ku/Rosco"}
         BackgroundAlt={"Imagen pagina web de flybondi"}
         Title={Proyects[2].title}
         Description={RoscoArr.map((item) => (
