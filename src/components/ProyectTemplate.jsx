@@ -17,6 +17,12 @@ const Wrapper = styled.div`
   opacity: 0;
   translate: -90px;
   animation: 100ms Show forwards;
+  @media (max-width: 700px) {
+    width: 100%;
+    height: max-content;
+    
+  }
+
   @keyframes Show {
     100% {
       opacity: 1;
@@ -40,24 +46,35 @@ const LogoContainer = styled.a`
   justify-content: center;
   outline: 3px solid #fff;
   outline-offset: 3px;
-  &:hover {
-    width: 730px;
-    height: 270px;
-    border-radius: 20px;
-    cursor: pointer;
-    outline: 0px;
+  @media (max-width: 800px) {
+    bottom: 0px;
+    width: 100%;
+    height: 60px;
+    
+    border-radius: 0px 0px 20px 20px;
   }
 
-  &:hover .logo-img {
-    opacity: 0;
-  }
+  @media (min-width: 700px) {
+    &:hover {
+      width: 730px;
+      height: 270px;
+      
+      border-radius: 20px;
+      cursor: pointer;
+      outline: 0px;
+    }
 
-  &:hover .page-img {
-    opacity: 1;
-    z-index: 10;
-    border-radius: 20px;
+    &:hover .logo-img {
+      opacity: 0;
+    }
 
-    outline: 4px solid #d7f3ff;
+    &:hover .page-img {
+      opacity: 1;
+      z-index: 10;
+      border-radius: 20px;
+
+      outline: 4px solid #d7f3ff;
+    }
   }
 `;
 
@@ -66,21 +83,31 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   width: 650px;
   height: 250px;
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
   box-shadow: 20px 20px 30px 0px #f3f3f3;
+  @media (max-width: 800px) {
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    padding-bottom: 60px;
+    padding-top: 20px;
+    padding-inline: 10px;
+  }
 `;
 
 const LogoImage = styled.img`
   padding: 15px;
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   transition: 300ms;
   pointer-events: none;
+  @media (max-width: 800px) {
+    padding: 10px;
+  }
 `;
 
 const MainImage = styled.img`
@@ -105,6 +132,13 @@ const TextContainer = styled.div`
   align-items: start;
   flex-direction: column;
   justify-content: center;
+  @media (max-width: 800px) {
+    margin: 0px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const StackContainer = styled.div`
@@ -114,6 +148,12 @@ const StackContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 10px;
+  @media (max-width: 800px) {
+    flex-direction: row;
+    padding: 10px;
+    height: max-content;
+    
+  }
   & img {
     width: 35px;
     height: 35px;
@@ -134,15 +174,16 @@ const GithubCtn = styled.a`
   position: absolute;
   width: 60px;
   height: 40px;
-
   display: flex;
   right: 0px;
   align-items: center;
   justify-content: center;
-
   object-fit: contain;
   top: 0px;
   transition: 400ms;
+  @media (max-width: 800px) {
+    width: 50px;
+  }
   &:hover {
     background-color: #ade1f8;
   }
@@ -205,7 +246,11 @@ export default function ProyectTemplate({
           {HtmlIcon && <img src={HtmlImage} alt="Icono Javascript" />}
         </StackContainer>
       </InfoContainer>
-      <GithubCtn href={GithubHref} className="github-ctn">
+      <GithubCtn
+        title="Proyecto en Github"
+        href={GithubHref}
+        className="github-ctn"
+      >
         <img src={GithubIcon} alt="" />
       </GithubCtn>
     </Wrapper>
