@@ -54,12 +54,14 @@ function App() {
           }
         />
         <ProyectosContainer>
+          
           <ProyectLayout />
         </ProyectosContainer>
         <ConocimientosContainer>
         <Title $altButton>Conocimientos</Title>
           <Conocimientos />
         </ConocimientosContainer>
+        
         <CodepenLayout />
       </Wrapper>
     </>

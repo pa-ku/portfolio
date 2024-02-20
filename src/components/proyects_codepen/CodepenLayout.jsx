@@ -3,15 +3,16 @@ import Loader from "./Loader";
 import Title from "../Title";
 import styled from "styled-components";
 import Filter from "./Filter";
+import CheckBox from "../ui/CheckBox";
 
 const Wrapper = styled.div`
   width: 100%;
-height: 300px;
+  height: 460px;
   display: flex;
   align-items: center;
   justify-content: start;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 `;
 const IndexButton = styled.button`
   background-color: #fff;
@@ -35,28 +36,30 @@ const IndexContainer = styled.div`
 `;
 
 const NavContainer = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 `;
 const NavButton = styled.div`
-width: 20px;
-height: 20px;
-border: 2px solid #333;
-background-color: #666;
-border-radius: 50%;
-transition: 100ms;
-cursor: pointer;
-&:hover{
-    background-color: #9cd9ff;
-}
+  width: 20px;
+  height: 20px;
+  border: 2px solid #444;
+  background-color: #9cd9ff;
+  border-radius: 50%;
+  transition: 100ms;
+  cursor: pointer;
+  &:hover {
+    background-color: #39b1fb;
+  }
 `;
 
 export default function CodepenLayout() {
-  const proyects = [<Loader /> ,<Filter />];
+  const proyects = [<Loader />, <Filter />];
+  const proyectsName = ["Loader", "Filtros"];
+
   const [index, setIndex] = useState(0);
-  console.log(proyects.length);
 
   function NextIndex() {
     if (index !== proyects.length - 1) {
@@ -71,16 +74,19 @@ export default function CodepenLayout() {
 
   return (
     <>
-      <Title $altButton>Proyectos Codepen</Title>
-
       <Wrapper>
+        <Title $altButton>Proyectos Codepen</Title>
         <NavContainer>
           {proyects.map((project, index) => (
-            <NavButton onClick={() => setIndex(index)}></NavButton>
+            <CheckBox
+              $text={proyectsName[index]}
+              value={"1"}
+              name={"verduras"}
+              onClick={() => setIndex(index)}
+            ></CheckBox>
           ))}
         </NavContainer>
-
-       {/*  <IndexContainer>
+        {/*  <IndexContainer>
           <IndexButton onClick={PrevIndex}>-</IndexButton>
           <IndexButton onClick={NextIndex}>+</IndexButton>
         </IndexContainer> */}

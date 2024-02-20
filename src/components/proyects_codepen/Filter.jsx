@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import CheckBox from "../ui/CheckBox";
 
 const InputFilter = styled.input`
   border-radius: 10px;
   padding: 10px;
   width: 200px;
+  font-weight: 500;
+  font-size: 18px;
   border: 4px solid #9cd9ff;
-  &:focus{
+  &:focus {
     border-color: #3fb5ff;
     outline: 0px;
   }
@@ -19,7 +22,7 @@ const FilterContainer = styled.div`
   flex-direction: column;
   background-color: var(--main-pink-250);
   width: 200px;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   border-radius: 20px;
   padding: 20px;
@@ -62,14 +65,17 @@ export default function Filter() {
 
   return (
     <>
-      <p>FILTRO DE VERDURAS</p>
+      <InputFilter
+        placeholder="Buscar..."
+        onChange={FilterHandler}
+        type="text"
+      />
+    
 
-      <InputFilter placeholder="Busca tu verdura favorita!" onChange={FilterHandler} type="text" />
       <FilterContainer>
         {query && filteredProducts.map((item) => <p key={item}>{item}</p>)}
-     {query === "" && "Ingresa una verdura!"}
+        {query === "" && "Ingresa una verdura!"}
       </FilterContainer>
-
     </>
   );
 }

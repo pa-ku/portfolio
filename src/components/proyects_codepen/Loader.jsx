@@ -31,14 +31,10 @@ const LoaderStyle = styled.div`
   }
 `;
 
-const ProyectTitle = styled.p`
-
-`;
-
 export default function Loader() {
   return (
     <>
-      <ProyectTitle>BARRA DE CARGA</ProyectTitle>
+ 
       <LoaderStyle></LoaderStyle>
     </>
   );
