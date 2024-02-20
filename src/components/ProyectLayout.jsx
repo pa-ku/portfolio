@@ -5,10 +5,28 @@ import FlybondiPageImage from "../assets/img/backgrounds/PageFlybondi.webp";
 import EridePageImage from "../assets/img/backgrounds/EridePageImage.webp";
 import ErideLogo from "../assets/img/logos/eride-logo.webp";
 import { Proyects } from "../Proyects";
-import RoscoLogo from '../assets/img/logos/rosco-logo.webp'
-import RoscoPageImage from '../assets/img/backgrounds/PageRosco.webp'
+import RoscoLogo from "../assets/img/logos/rosco-logo.webp";
+import RoscoPageImage from "../assets/img/backgrounds/PageRosco.webp";
+
+import styled from "styled-components";
+
+const Dot = styled.span`
+  color: var(--main-pink-400);
+`;
 
 export default function ProyectLayout() {
+  const FlybondiArr = [
+    Proyects[0].description.one,
+    Proyects[0].description.two,
+    Proyects[0].description.tree,
+  ];
+
+  const RoscoArr = [
+    Proyects[2].description.one,
+    Proyects[2].description.two,
+    Proyects[2].description.tree,
+  ];
+
   return (
     <>
       <ProyectTemplate
@@ -30,7 +48,12 @@ export default function ProyectLayout() {
         BackgroundImg={FlybondiPageImage}
         BackgroundAlt={"Imagen pagina web de flybondi"}
         Title={Proyects[0].title}
-        Description={Proyects[0].description}
+        Description={FlybondiArr.map((item) => (
+          <p>
+            <Dot>⏵</Dot>
+            {item}
+          </p>
+        ))}
         href={"https://cloneflybondi.netlify.app/"}
         ReactIcon
         StyledIcon
@@ -38,11 +61,16 @@ export default function ProyectLayout() {
 
       <ProyectTemplate
         LogoImgSrc={RoscoLogo}
-        ImgAlt={"Logo Flybondi"}
+        ImgAlt={"Logo Rosco"}
         BackgroundImg={RoscoPageImage}
         BackgroundAlt={"Imagen pagina web de flybondi"}
         Title={Proyects[2].title}
-        Description={Proyects[2].description}
+        Description={RoscoArr.map((item) => (
+          <p>
+            <Dot>⏵</Dot>
+            {item}
+          </p>
+        ))}
         href={"https://rosquewe.netlify.app/"}
         ReactIcon
         StyledIcon

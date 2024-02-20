@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 import Subtitle from "./Subtitle";
 
 import SocialMedia from "./SocialMedia";
+import MainButton from "./ui/MainButton";
 
 const Wrapper = styled.div`
   display: flex;
@@ -20,6 +21,15 @@ const Wrapper = styled.div`
     text-align: center;
     flex-direction: column;
     scale: 0.9;
+  }
+  
+  opacity: 0;
+  animation: 800ms show forwards;
+
+  @keyframes show {
+   100%{
+    opacity: 1;
+   } 
   }
 `;
 
@@ -108,7 +118,8 @@ export default function Header({ description, subtitle }) {
             text={description}
           />
           <SocialMedia />
-        </Container>
+       {/*    <MainButton  text={"Mas sobre mi"} /> */}
+        </Container> 
       </Wrapper>
     </>
   );

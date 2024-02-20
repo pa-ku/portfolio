@@ -13,12 +13,21 @@ const Wrapper = styled.div`
   gap: 5px;
   width: 730px;
   height: 250px;
+  opacity: 0;
+translate: -90px;
+  animation: 800ms Show forwards ;
+  @keyframes Show {
+    100%{
+      opacity: 1;
+      translate: 0px;
+    }
+  }
 `;
 const LogoContainer = styled.a`
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background-color: #4d3841;
+  background-color: #2f2f2f;
   position: absolute;
   transition: 300ms;
   display: flex;
@@ -57,9 +66,9 @@ const InfoContainer = styled.div`
 `;
 
 const LogoImage = styled.img`
-  padding: 20px;
-  width: 100px;
-  height: 200px;
+  padding: 15px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
   transition: 300ms;
   pointer-events: none;
