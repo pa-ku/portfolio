@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 const LogoContainer = styled.a`
   width: 150px;
   height: 150px;
-  border-radius: 50%;
+  border-radius: 50px;
   background-color: #002742;
   position: absolute;
   transition: 400ms;
@@ -88,9 +88,10 @@ const MainImage = styled.img`
   height: 100%;
   object-fit: cover;
   opacity: 0;
+  z-index: 2;
   position: absolute;
   transition: 400ms;
-  border-radius: 50%;
+  border-radius: 50px;
   object-position: top;
   pointer-events: none;
 `;
