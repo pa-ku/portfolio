@@ -76,7 +76,7 @@ opacity: 1;
 top: -55px;
 border-radius: 10px ;
 left: 0px;
-writing-mode: vertical-rl;
+
 z-index: -1;
 width: 250px;
 height: 355px;
@@ -88,16 +88,17 @@ box-shadow: -7px 7px 0px 1px #641010;
 width: 100%;
 height: 200px;
 box-shadow: -7px 7px 0px 1px #641010;
-writing-mode: horizontal-tb;
+
 }
 
 `
 const PokeTitle = styled.h2`
-font-size: 50px;
-color: #ff9c9c;
-z-index: 1;
-height: 355px;
-width: 355px;
+font-size: 20px;
+color: #ffd6d6;
+z-index: 5;
+height: 100%;
+padding-top: 40px;
+padding-left: 45px;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -114,14 +115,17 @@ border-radius: 50%;
 
 `
 const PokeImg = styled.img`
-width: 200px;
-height: 200px;
-z-index: 2;
+width: 170px;
+height: 170px;
+
 position: absolute;
-top: 0px;
-right: -50px;
+top: 10px;
+right: -40px;
+
 left: 0px;
-bottom: 0px;
+background-color: #e8e8e8;
+border-radius: 20px;
+z-index: -1;
 margin: auto;
 @media(max-width:700px){
   right: 0px;
@@ -130,6 +134,10 @@ margin: auto;
 const PokeWrapper = styled.div`
 width: 100%;
 padding-inline: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
 `
 
 export default function Filter() {
@@ -140,7 +148,7 @@ export default function Filter() {
 
   useEffect(() => {
     const dataPokemon = async () => {
-      const pokeApi = await axios.get(`https://pokeapi.co/api/v2/pokemon/`)
+      const pokeApi = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=150`)
       setPokemon(pokeApi.data.results)
     }
     dataPokemon()
@@ -171,7 +179,7 @@ export default function Filter() {
 
 
         <FilterContainer>
-          {query && filterPoke.map((poke) =>
+          {query && filterPoke.slice(0,6).map((poke) =>
             <>
               <Item key={poke.name}>
                 {poke.name}
