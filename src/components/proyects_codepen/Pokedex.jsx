@@ -19,6 +19,10 @@ const InputFilter = styled.input`
     background-color: #444;
     outline: 0px;
   }
+  @media(max-width:700px){
+width: 100%;
+
+}
 `;
 
 const FilterContainer = styled.div`
@@ -35,9 +39,15 @@ const FilterContainer = styled.div`
   padding: 20px;
 box-shadow: -7px 7px 0px 1px #641010;
 
-  
-  text-align: center;
-  position: relative;
+text-align: center;
+position: relative;
+@media(max-width:700px){
+width: 100%;
+height: 200px;
+padding: 10px;
+border-radius:0px 0px 2px 2px;
+box-shadow: -7px -1px 0px 1px #641010;
+}
 `;
 
 const Item = styled.div`
@@ -51,6 +61,9 @@ letter-spacing: 3px;
 &:hover .poke-card{
 translate: 85%;
 border-radius: 10px 10px 10px 0px;
+@media(max-width:700px){
+  translate: 0px 120%;
+}
 }
 }
 `
@@ -61,8 +74,7 @@ opacity: 1;
 position: absolute;
 opacity: 1;
 top: -55px;
-
-border-radius: 10px 10px 10px 10px;
+border-radius: 10px ;
 left: 0px;
 writing-mode: vertical-rl;
 z-index: -1;
@@ -72,6 +84,12 @@ transition:400ms ease-out;
 pointer-events: none;
 text-align: center;
 box-shadow: -7px 7px 0px 1px #641010;
+@media(max-width:700px){
+width: 100%;
+height: 200px;
+box-shadow: -7px 7px 0px 1px #641010;
+writing-mode: horizontal-tb;
+}
 
 `
 const PokeTitle = styled.h2`
@@ -83,7 +101,9 @@ width: 355px;
 display: flex;
 align-items: center;
 justify-content: center;
-
+@media(max-width:700px){
+width: 100%;
+}
 `
 const PokeLogo = styled.img`
 position: absolute;
@@ -103,6 +123,13 @@ right: -50px;
 left: 0px;
 bottom: 0px;
 margin: auto;
+@media(max-width:700px){
+  right: 0px;
+}
+`
+const PokeWrapper = styled.div`
+width: 100%;
+padding-inline: 20px;
 `
 
 export default function Filter() {
@@ -131,7 +158,7 @@ export default function Filter() {
 
   return (
     <>
-      <div>
+      <PokeWrapper>
 
         <div>
           <PokeLogo src={PokeBallLogo} alt="" />
@@ -162,7 +189,7 @@ export default function Filter() {
 
           }
         </FilterContainer>
-      </div>
+      </PokeWrapper>
     </>
   );
 }
