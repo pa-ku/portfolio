@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Loader from "./Loader";
 import Title from "../Title";
 import styled from "styled-components";
-import Filter from "./Filter";
+import Filter from "./Pokedex";
 import CheckBox from "../ui/CheckBox";
 
 const Wrapper = styled.div`
