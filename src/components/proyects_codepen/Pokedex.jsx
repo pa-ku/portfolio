@@ -11,9 +11,10 @@ const InputFilter = styled.input`
   width: 250px;
   font-weight: 500;
   font-size: 18px;
-  border: 4px solid #111;
+  border: 8px solid #111;
   background-color: #333;
   color: #d9d9d9;
+  font-family: "Pixelify Sans", sans-serif;
   box-shadow: -7px 5px 0px 1px #111;
   &:focus {
     background-color: #444;
@@ -53,9 +54,11 @@ box-shadow: -7px -1px 0px 1px #641010;
 const Item = styled.div`
 color: #fff;
 padding: 10px;
+font-family: "Pixelify Sans", sans-serif;
 cursor: pointer;
 font-weight: 800;
 letter-spacing: 3px;
+font-size: 20px;
 &:hover{
   color: #fff;
 &:hover .poke-card{
@@ -73,13 +76,13 @@ background-color: #ff7171;
 opacity: 1;
 position: absolute;
 opacity: 1;
-top: -55px;
+top: -57px;
 border-radius: 10px ;
 left: 0px;
 
 z-index: -1;
 width: 250px;
-height: 355px;
+height: 357px;
 transition:400ms ease-out;
 pointer-events: none;
 text-align: center;
@@ -96,6 +99,7 @@ const PokeTitle = styled.h2`
 font-size: 20px;
 color: #ffd6d6;
 z-index: 5;
+font-family: "Pixelify Sans", sans-serif;
 height: 100%;
 padding-top: 40px;
 padding-left: 45px;
@@ -123,7 +127,7 @@ top: 10px;
 right: -40px;
 
 left: 0px;
-background-color: #e8e8e8;
+background-color: #fff8f8;
 border-radius: 20px;
 z-index: -1;
 margin: auto;
