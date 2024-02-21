@@ -29,6 +29,7 @@ const ProyectosContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 50px;
+   margin-inline: 15px;
   @media(max-width:800px){
     gap: 80px;
   }

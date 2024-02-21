@@ -56,8 +56,8 @@ const NavButton = styled.div`
 `;
 
 export default function CodepenLayout() {
-  const proyects = [<Loader />, <Filter />];
-  const proyectsName = ["Loader", "Filtros"];
+  const proyects = [ <Filter />,<Loader />,];
+  const proyectsName = ["Pokedex","Loader", ];
 
   const [index, setIndex] = useState(0);
 
@@ -75,7 +75,7 @@ export default function CodepenLayout() {
   return (
     <>
       <Wrapper>
-        <Title $altButton>Proyectos Codepen</Title>
+        <Title $altButton>Proyectos Express</Title>
         <NavContainer>
           {proyects.map((project, index) => (
             <CheckBox
