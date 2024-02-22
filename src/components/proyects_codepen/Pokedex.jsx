@@ -33,7 +33,7 @@ const FilterContainer = styled.div`
   flex-direction: column;
   background-color:#ff6363;
   width: 250px;
-  height: 300px;
+  height: 243px;
   font-weight: 500;
   text-transform: uppercase;
   border-radius:0px 0px 10px 10px;
@@ -82,7 +82,7 @@ left: 0px;
 
 z-index: -1;
 width: 250px;
-height: 357px;
+height: 300px;
 transition:400ms ease-out;
 pointer-events: none;
 text-align: center;
@@ -119,8 +119,8 @@ border-radius: 50%;
 
 `
 const PokeImg = styled.img`
-width: 170px;
-height: 170px;
+width: 150px;
+height: 150px;
 
 position: absolute;
 top: 10px;
@@ -183,7 +183,7 @@ export default function Filter() {
 
 
         <FilterContainer>
-          {query && filterPoke.slice(0,6).map((poke) =>
+          {query && filterPoke.slice(0,5).map((poke) =>
             <>
               <Item key={poke.name}>
                 {poke.name}
