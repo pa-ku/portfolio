@@ -127,7 +127,7 @@ export default function Typing() {
         setCurrentWord('')
         setInputWord('')
         if (score > maxScore) {
-            
+
             setMaxScore(score)
         }
     }

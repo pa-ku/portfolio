@@ -22,7 +22,6 @@ const InputFilter = styled.input`
   }
   @media(max-width:700px){
 width: 100%;
-
 }
 `;
 
@@ -44,7 +43,7 @@ text-align: center;
 position: relative;
 @media(max-width:700px){
 width: 100%;
-height: 200px;
+height: 240px;
 padding: 10px;
 border-radius:0px 0px 2px 2px;
 box-shadow: -7px -1px 0px 1px #641010;
@@ -132,7 +131,12 @@ border-radius: 20px;
 z-index: -1;
 margin: auto;
 @media(max-width:700px){
-  right: 0px;
+
+  top: 65px;
+  width: 130px;
+height: 130px;
+margin: 0px;
+margin-left: 10px;
 }
 `
 const PokeWrapper = styled.div`
@@ -142,6 +146,9 @@ display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
+@media(max-width:700px){
+display: block;
+}
 `
 
 export default function Filter() {
@@ -183,7 +190,7 @@ export default function Filter() {
 
 
         <FilterContainer>
-          {query && filterPoke.slice(0,5).map((poke) =>
+          {query && filterPoke.slice(0, 5).map((poke) =>
             <>
               <Item key={poke.name}>
                 {poke.name}

@@ -166,7 +166,7 @@ const InfoTitle = styled.h2`
   font-size: 20px;
 `;
 
-const InfoDescription = styled.p``;
+const InfoDescription = styled.div``;
 
 const GithubCtn = styled.a`
   background-color: #c4edff;

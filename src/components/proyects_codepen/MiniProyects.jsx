@@ -8,7 +8,7 @@ import Typing from "./Typing";
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 460px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: start;
@@ -38,6 +38,7 @@ export default function MiniProyects() {
         <NavContainer>
           {proyects.map((project, index) => (
             <CheckBox
+              key={index}
               $text={proyectsName[index]}
               value={"1"}
               name={"verduras"}
