@@ -67,12 +67,13 @@ const MsjToolkit = styled.p`
 `;
 
 export default function MainButton({
-  text,
+
   href,
   $delay,
   icon,
   onClick,
   $toolkit,
+  children
 }) {
   const [toolkit, setToolkit] = useState(false);
 
@@ -90,10 +91,11 @@ export default function MainButton({
         $delay={$delay}
         href={href}
         target="_blank"
+     
       >
         {" "}
         {icon}
-        {text}
+        {children}
         {toolkit === true && <MsjToolkit>En proceso!</MsjToolkit>}
       </Button>
     </>

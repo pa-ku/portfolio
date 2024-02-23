@@ -8,8 +8,7 @@ import Conocimientos from "./components/Conocimientos";
 import Wave from "./components/Wave";
 import ProyectLayout from "./components/ProyectLayout";
 import Title from "./components/Title";
-import Loader from "./components/proyects_codepen/Loader";
-import CodepenLayout from "./components/proyects_codepen/CodepenLayout";
+import MiniProyects from "./components/proyects_codepen/MiniProyects";
 
 const Wrapper = styled.div`
   display: flex;
@@ -55,15 +54,15 @@ function App() {
           }
         />
         <ProyectosContainer>
-          
+
           <ProyectLayout />
         </ProyectosContainer>
         <ConocimientosContainer>
-        <Title $altButton>Conocimientos</Title>
+          <Title $altButton>Conocimientos</Title>
           <Conocimientos />
         </ConocimientosContainer>
-        
-        <CodepenLayout />
+
+        <MiniProyects />
       </Wrapper>
     </>
   );
