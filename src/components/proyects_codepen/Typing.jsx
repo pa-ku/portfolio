@@ -5,18 +5,23 @@ import { useCountDown } from '../../hooks/useCountDown'
 import useLocalStorage from 'use-local-storage'
 import axios from 'axios'
 
+
 const GameWrapper = styled.div`
-background-color: #000721;
+ background-color: #000721;  
 border-radius: 10px;
 width: 400px;
+position: relative;
+padding-bottom: 10px;
+
 & *{
     font-family: "Pixelify Sans", sans-serif;
 }
 @media(max-width:800px){
 width: 100%;
 }
-
 `
+
+
 const InputWord = styled.input`
 border: 4px solid #80d8ff;
 width: 100%;
@@ -35,7 +40,7 @@ const Word = styled.p`
 width: 100%;
 height: 100px;
 display: flex;
-padding: 10px;
+padding: 20px;
 justify-content: center;
 text-transform: uppercase;
  
@@ -60,7 +65,8 @@ color: #cacaca;
 text-align: center;
 position: absolute;
 font-size: 25px;
-top: -60px;
+top: -80px;
+padding-inline: 20px;
 animation: 1s start infinite;
 @keyframes start {
     0%{
@@ -84,6 +90,7 @@ flex-direction: column;
 gap: 10px;
 font-size: 20px;
 width: 100%;
+
 padding: 10px;
 position: relative;
 `
@@ -165,7 +172,6 @@ export default function Typing() {
         <>
 
             <GameWrapper>
-
                 <InputWord placeholder='Escribir...' value={inputWord} onChange={inputHandler} type="text" />
                 <Timer>Tiempo: {time}</Timer>
                 <Word>{currentWord}</Word>
