@@ -177,6 +177,8 @@ export default function Filter() {
 
 
   function handleSound() {
+
+    audio.volume = 0.3
     audio.play();
   }
 
