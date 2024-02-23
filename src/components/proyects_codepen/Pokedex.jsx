@@ -156,7 +156,8 @@ export default function Filter() {
   const [pokemon, setPokemon] = useState([])
   const [filterPoke, setFilteredPoke] = useState([])
   const [pokeSound, setPokeSound] = useState(``)
-  const [play] = useSound(pokeSound)
+  const audio = new Audio(pokeSound);
+
 
   useEffect(() => {
     const dataPokemon = async () => {
@@ -176,7 +177,7 @@ export default function Filter() {
 
 
   function handleSound() {
-    play()
+    audio.play();
   }
 
   return (
