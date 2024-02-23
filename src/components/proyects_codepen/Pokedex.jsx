@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CheckBox from "../ui/CheckBox";
 import PokeBallLogo from '../../assets/img/logos/pokeball-logo.svg'
 import axios from "axios";
+import useSound from "use-sound";
 
 const InputFilter = styled.input`
   border-radius: 10px 10px 0px 0px;
@@ -120,7 +121,7 @@ border-radius: 50%;
 const PokeImg = styled.img`
 width: 150px;
 height: 150px;
-
+padding: 15px;
 position: absolute;
 top: 10px;
 right: -40px;
@@ -131,7 +132,6 @@ border-radius: 20px;
 z-index: -1;
 margin: auto;
 @media(max-width:700px){
-
   top: 65px;
   width: 130px;
 height: 130px;
@@ -155,7 +155,8 @@ export default function Filter() {
   const [query, setQuery] = useState("");
   const [pokemon, setPokemon] = useState([])
   const [filterPoke, setFilteredPoke] = useState([])
-
+  const [pokeSound, setPokeSound] = useState(``)
+  const [play] = useSound(pokeSound)
 
   useEffect(() => {
     const dataPokemon = async () => {
@@ -174,6 +175,9 @@ export default function Filter() {
 
 
 
+  function handleSound() {
+    play()
+  }
 
   return (
     <>
@@ -192,14 +196,17 @@ export default function Filter() {
         <FilterContainer>
           {query && filterPoke.slice(0, 5).map((poke) =>
             <>
-              <Item key={poke.name}>
+              <Item onMouseEnter={() => setPokeSound(`https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/legacy/${poke.url.split("/")[6]}.ogg`)} onClick={handleSound} key={poke.name}>
                 {poke.name}
                 <PokeCard className="poke-card">
-                  <PokeTitle >
+                  <PokeTitle  >
                     {poke.name}
 
-                    <PokeImg src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke.url.split("/")[6]}.png`} alt="" />
+                    {/*  <PokeImg src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke.url.split("/")[6]}.png`} alt="" /> */}
+                    <PokeImg src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${poke.url.split("/")[6]}.gif`} alt="" />
+
                   </PokeTitle>
+                  {/*                   https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/1.ogg */}
                 </PokeCard>
               </Item>
 
