@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useCountDown } from '../../hooks/useCountDown'
 import useLocalStorage from 'use-local-storage'
 import axios from 'axios'
-
+import startAudio from '../../assets/sound/startSound.mp3'
 
 const GameWrapper = styled.div`
  background-color: #000721;  
@@ -55,10 +55,10 @@ color: #c8ff9e;
 `
 
 const Timer = styled.p`
-color: var(--main-pink-250);
 text-align: center;
 font-size: 25px;
 padding: 10px;
+color: var(--main-pink-250);
 `
 const Msj = styled.p`
 color: #cacaca;
@@ -96,6 +96,8 @@ position: relative;
 `
 
 export default function Typing() {
+    const startSound = new Audio(startAudio)
+
     const [pokemon, setPokemon] = useState()
 
     useEffect(() => {
@@ -121,6 +123,8 @@ export default function Typing() {
         setCurrentWord(rollWord)
     }
     function startGame() {
+        startSound.volume = 0.5
+        startSound.play()
         resetTimer()
         setScore(0)
         setInputWord('')
@@ -173,7 +177,7 @@ export default function Typing() {
 
             <GameWrapper>
                 <InputWord placeholder='Escribir...' value={inputWord} onChange={inputHandler} type="text" />
-                <Timer>Tiempo: {time}</Timer>
+                <Timer>{time}s</Timer>
                 <Word>{currentWord}</Word>
                 <InfoContainer>
                     {playing == false && <Msj>Escribe START para comenzar</Msj>}

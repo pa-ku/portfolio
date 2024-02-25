@@ -43,6 +43,7 @@ const ConocimientosContainer = styled.div`
 `;
 
 function App() {
+
   return (
     <>
       <Wrapper>

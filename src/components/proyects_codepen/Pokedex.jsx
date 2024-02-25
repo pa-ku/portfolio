@@ -3,8 +3,22 @@ import styled from "styled-components";
 import CheckBox from "../ui/CheckBox";
 import PokeBallLogo from '../../assets/img/logos/pokeball-logo.svg'
 import axios from "axios";
-import useSound from "use-sound";
 
+
+const PokeWrapper = styled.div`
+width: 100%;
+padding-inline: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+& *{
+  font-family: "Pixelify Sans", sans-serif;
+}
+@media(max-width:700px){
+display: block;
+}
+`
 const InputFilter = styled.input`
   border-radius: 10px 10px 0px 0px;
   padding: 10px;
@@ -36,6 +50,7 @@ const FilterContainer = styled.div`
   height: 243px;
   font-weight: 500;
   text-transform: uppercase;
+  
   border-radius:0px 0px 10px 10px;
   padding: 20px;
 box-shadow: -7px 7px 0px 1px #641010;
@@ -54,11 +69,11 @@ box-shadow: -7px -1px 0px 1px #641010;
 const Item = styled.div`
 color: #fff;
 padding: 10px;
-font-family: "Pixelify Sans", sans-serif;
+
 cursor: pointer;
 font-weight: 800;
 letter-spacing: 3px;
-font-size: 20px;
+
 &:hover{
   color: #fff;
 &:hover .poke-card{
@@ -70,6 +85,11 @@ border-radius: 10px 10px 10px 0px;
 }
 }
 `
+const PokeName = styled.p`
+font-size: 20px;
+opacity: 0;
+animation: 500ms opacity forwards;
+`
 
 const PokeCard = styled.div`
 background-color: #ff7171;
@@ -79,7 +99,6 @@ opacity: 1;
 top: -57px;
 border-radius: 10px ;
 left: 0px;
-
 z-index: -1;
 width: 250px;
 height: 300px;
@@ -95,7 +114,7 @@ box-shadow: -7px 7px 0px 1px #641010;
 }
 
 `
-const PokeTitle = styled.h2`
+const PokeCardTitle = styled.h2`
 font-size: 20px;
 color: #ffd6d6;
 z-index: 5;
@@ -139,17 +158,7 @@ margin: 0px;
 margin-left: 10px;
 }
 `
-const PokeWrapper = styled.div`
-width: 100%;
-padding-inline: 20px;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-@media(max-width:700px){
-display: block;
-}
-`
+
 
 export default function Filter() {
   const [query, setQuery] = useState("");
@@ -200,15 +209,19 @@ export default function Filter() {
           {query && filterPoke.slice(0, 5).map((poke) =>
             <>
               <Item onMouseEnter={() => setPokeSound(`https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/legacy/${poke.url.split("/")[6]}.ogg`)} onClick={handleSound} key={poke.name}>
-                {poke.name}
+                <PokeName >
+
+                  {poke.name}
+                </PokeName>
+
                 <PokeCard className="poke-card">
-                  <PokeTitle  >
+                  <PokeCardTitle  >
                     {poke.name}
 
                     {/*  <PokeImg src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke.url.split("/")[6]}.png`} alt="" /> */}
                     <PokeImg src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${poke.url.split("/")[6]}.gif`} alt="" />
 
-                  </PokeTitle>
+                  </PokeCardTitle>
                   {/*                   https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/1.ogg */}
                 </PokeCard>
               </Item>

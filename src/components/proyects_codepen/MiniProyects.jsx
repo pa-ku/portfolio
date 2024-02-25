@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Filter from "./Pokedex";
 import CheckBox from "../ui/CheckBox";
 import Typing from "./Typing";
+import PokeGuess from "./PokeGuess";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -25,9 +26,23 @@ const NavContainer = styled.div`
   margin-bottom: 20px;
 `;
 
+const ProyectContainer = styled.div`
+opacity: 0;
+animation: 1s opacity forwards;
+@keyframes opacity {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity:1;
+  
+  }
+}
+`
+
 export default function MiniProyects() {
-  const proyects = [<Filter />, <Typing />];
-  const proyectsName = ["Pokedex", "Typing"];
+  const proyects = [<Filter />, <Typing />, <PokeGuess />];
+  const proyectsName = ["Pokedex", "Typing", "PokeGuess"];
 
   const [index, setIndex] = useState(0);
 
@@ -46,7 +61,9 @@ export default function MiniProyects() {
             ></CheckBox>
           ))}
         </NavContainer>
-        {proyects[index]}
+        <ProyectContainer>
+          {proyects[index]}
+        </ProyectContainer>
       </Wrapper>
     </>
   );
