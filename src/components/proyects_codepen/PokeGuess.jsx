@@ -25,6 +25,7 @@ text-align: center;
 font-size: 50px;
 color: #999999;
 z-index: -1;
+text-transform: uppercase;
 `
 const ImageContainer = styled.div`
 width: 100%;
@@ -55,7 +56,7 @@ gap: 10px;
 opacity: 0;
 scale: 0;
 flex-wrap: wrap;
-animation: 400ms show forwards;
+animation: 400ms show forwards ;
 @keyframes show {
     100%{
         scale: 1;
@@ -111,7 +112,7 @@ export default function PokeGuess() {
 
 
     const [maxScore, setMaxScore] = useLocalStorage('maxScoreGuessPokemon', answers.right)
-    const { time, startTimer, resetTimer, setTime } = useCountDown(40);
+    const { time, startTimer, resetTimer, setTime } = useCountDown(50);
 
     useEffect(() => {
 
@@ -125,7 +126,7 @@ export default function PokeGuess() {
 
     useEffect(() => {
         setLoading(true)
-        let roll = Math.floor(Math.random() * pokeNames.length)
+        let roll = Math.floor(Math.random() * pokeNames.length) + 1
         axios.get(`https://pokeapi.co/api/v2/pokemon/${roll}`)
             .then(res => {
                 const data = res.data
@@ -151,8 +152,11 @@ export default function PokeGuess() {
         rollNumber()
         setIsPlaying(true)
         startTimer()
-        setTime(40)
-
+        setTime(50)
+        setAnswers({
+            right: 0,
+            wrong: 0,
+        })
     }
 
     function rollNumber() {
@@ -168,18 +172,16 @@ export default function PokeGuess() {
 
     function choiceHandler(e) {
         let value = e.target.value
-        console.log(currentPoke);
+
         setShowImage(true)
         audio.volume = 0.5
         audio.play()
-        console.log(currentPoke.name);
+
         setTimeout(() => {
             setShowImage(false)
             rollNumber()
         }, 3000);
         if (value === currentPoke.name) {
-            console.log("correcto");
-            console.log(currentPoke.name);
             setAnswers(prevState => ({ ...prevState, right: prevState.right + 1 }))
             if (answers.right > maxScore) {
                 setMaxScore(answers.right)
@@ -187,7 +189,6 @@ export default function PokeGuess() {
         }
         else {
             setAnswers(prevState => ({ ...prevState, wrong: prevState.wrong + 1 }))
-            console.log("Incorrecto");
         }
     }
 
@@ -250,11 +251,13 @@ opacity: 0;
 animation: 400ms show forwards 400ms;
 display: flex;
 align-items: start;
+
 justify-content: space-between;
 `
 
 const Answer = styled.p`
 font-size: 20px;
+text-transform: uppercase;
 `
 
 const Timer = styled.p`
