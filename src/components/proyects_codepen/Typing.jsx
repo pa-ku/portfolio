@@ -113,7 +113,7 @@ export default function Typing() {
     const [score, setScore] = useState(0)
     const [inputWord, setInputWord] = useState('')
     const [playing, setPlaying] = useState(false)
-    const { time, startTimer, resetTimer } = useCountDown(30);
+    const { time, startTimer, resetTimer } = useCountDown(40);
     const [maxScore, setMaxScore] = useLocalStorage('maxSore', 0)
 
 

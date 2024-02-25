@@ -4,6 +4,12 @@ import styled from 'styled-components'
 import axios from 'axios'
 import useLocalStorage from 'use-local-storage'
 import { useCountDown } from '../../hooks/useCountDown'
+import payingSound from '../../assets/sound/pokeguess-playing-music.mp3'
+import soundOn from '../../assets/icons/soundOn.svg'
+import soundOff from '../../assets/icons/soundOff.svg'
+import musicOn from '../../assets/icons/musicOn.svg'
+import musicOff from '../../assets/icons/musicOff.svg'
+import useSound from 'use-sound'
 
 const PokeWrapper = styled.div`
 width: 400px;
@@ -12,6 +18,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
+
 & *{
     font-family: "Pixelify Sans", sans-serif;
 }
@@ -22,7 +29,7 @@ width: 100%;
 
 const PokeName = styled.p`
 text-align: center;
-font-size: 50px;
+font-size: 40px;
 color: #999999;
 z-index: -1;
 text-transform: uppercase;
@@ -46,6 +53,10 @@ height: 250px;
 opacity: 0;
 animation: 400ms show forwards;
 filter:${props => props.$show ? ' brightness(1)' : ' brightness(0)'};
+
+@media(max-width:700px){
+width: 100%;
+}
 `
 
 const OptionContainer = styled.div`
@@ -53,6 +64,7 @@ const OptionContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(2,200px);
 gap: 10px;
+
 opacity: 0;
 scale: 0;
 flex-wrap: wrap;
@@ -62,6 +74,9 @@ animation: 400ms show forwards ;
         scale: 1;
         opacity: 1;
     }
+}
+@media(max-width:700px){
+    grid-template-columns: repeat(2,1fr);
 }
 `
 
@@ -73,6 +88,7 @@ border-radius: 10px;
 font-size: 25px;
 color: #fff;
 transition: 200ms;
+padding: 10px;
 text-transform: uppercase;
 cursor: pointer;
 &:hover{
@@ -86,11 +102,36 @@ border: 0px;
 padding: 10px;
 font-size: 27px;
 border-radius: 10px;
+background-color: #a7ecfa;
 cursor: pointer;
 &:hover{
-background-color: #a7ecfa;
+    background-color: #7ee9ff;
 }
 `
+
+export function VolumeLayout({ music, musicOn, musicOff, handleMusic, sound, soundOn, soundOff, setSound }) {
+    return (
+        <>  <VolumeWrapper>
+
+            <VolumeContainer>
+                <VolumeLabel htmlFor="music">
+                    <VolumeIcon src={music ? musicOn : musicOff} alt="" />
+
+                    <VolumeCheckbox id='music' checked={music} onClick={handleMusic} type="checkbox" />
+                </VolumeLabel>
+            </VolumeContainer>
+
+            <VolumeContainer>
+                <VolumeLabel htmlFor="sound">
+                    <VolumeIcon src={sound ? soundOn : soundOff} alt="" />
+                    <VolumeCheckbox id='sound' checked={sound} onClick={() => setSound(sound ? false : true)} type="checkbox" />
+                </VolumeLabel>
+            </VolumeContainer>
+        </VolumeWrapper>
+
+        </>
+    )
+}
 
 export default function PokeGuess() {
     const [pokeNames, setPokeNames] = useState([])
@@ -107,15 +148,18 @@ export default function PokeGuess() {
 
     const [currentSound, setCurrentSound] = useState()
 
-    const audio = new Audio(currentSound);
+    const [sound, setSound] = useState(false)
+    const [music, setMusic] = useState(false)
+    const [playMusic, { stopMusic }] = useSound(payingSound, { volume: music ? 0.3 : 0 })
+    const [pokeSound, { stopSound }] = useSound(currentSound, { volume: sound ? 0.3 : 0 })
+
 
 
 
     const [maxScore, setMaxScore] = useLocalStorage('maxScoreGuessPokemon', answers.right)
-    const { time, startTimer, resetTimer, setTime } = useCountDown(50);
+    const { time, startTimer, resetTimer } = useCountDown(50);
 
     useEffect(() => {
-
         axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=300&offset=0`)
             .then((res) => {
                 setPokeNames([...res.data.results.map(poke => poke.name)
@@ -141,18 +185,21 @@ export default function PokeGuess() {
 
 
     useEffect(() => {
-
         if (time === 0) {
             setIsPlaying(false)
+            resetTimer()
         }
     }, [time])
+
+
 
 
     function startGame() {
         rollNumber()
         setIsPlaying(true)
         startTimer()
-        setTime(50)
+
+        playMusic()
         setAnswers({
             right: 0,
             wrong: 0,
@@ -172,10 +219,8 @@ export default function PokeGuess() {
 
     function choiceHandler(e) {
         let value = e.target.value
-
         setShowImage(true)
-        audio.volume = 0.5
-        audio.play()
+        pokeSound()
 
         setTimeout(() => {
             setShowImage(false)
@@ -208,6 +253,14 @@ export default function PokeGuess() {
     }, [currentPoke])
 
 
+    function handleMusic() {
+        setMusic(music ? false : true)
+
+    }
+
+
+
+
     return (
         <>
             <PokeWrapper>
@@ -216,34 +269,83 @@ export default function PokeGuess() {
 
                         <Answer>Correctas: {answers.right} </Answer>
                         <Answer>Incorrectas: {answers.wrong}</Answer>
+                        <VolumeLayout music={music} setSound={setSound} musicOn={musicOn} musicOff={musicOff} handleMusic={handleMusic} sound={sound} soundOn={soundOn} soundOff={soundOff} />
                     </div>
                     <Timer>{time}s</Timer>
                 </AnswerContainer>}
                 {isPlaying === false && (
                     <>
-                        <StartButton onClick={startGame}>START</StartButton>
-                        <Answer>Mejor Puntaje: {maxScore}</Answer>
-                    </>
-                )}
-                {loading === false && isPlaying && (<>
-                    <ImageContainer >
-                        <PokeImage $show={showImage} src={currentPoke.sprites.front_default} alt="" />
-                        {showImage === true && <PokeName>Es {currentPoke.name}!</PokeName>}
-                    </ImageContainer>
-                    <OptionContainer>
+                        <MenuWrapper>
 
-                        {shuffle && showImage === false && shuffle.map((name, index) => (
-                            <OptionButton key={index} value={name} onClick={choiceHandler}>
-                                {name}
-                            </OptionButton>
-                        ))}
-                    </OptionContainer>
-                </>)}
-            </PokeWrapper>
+                            <VolumeLayout music={music} setSound={setSound} musicOn={musicOn} musicOff={musicOff} handleMusic={handleMusic} sound={sound} soundOn={soundOn} soundOff={soundOff} />
+
+                            <StartButton onClick={startGame}>START</StartButton>
+                            <Answer>Mejor Puntaje: {maxScore}</Answer>
+                        </MenuWrapper>
+                    </>
+                )
+                }
+                {
+                    loading === false && isPlaying && (<>
+                        <ImageContainer >
+                            <PokeImage $show={showImage} src={currentPoke.sprites.front_default} alt="" />
+                            {showImage === true && <PokeName>Es {currentPoke.name}!</PokeName>}
+                        </ImageContainer>
+                        <OptionContainer>
+
+                            {shuffle && showImage === false && shuffle.map((name, index) => (
+                                <OptionButton key={index} value={name} onClick={choiceHandler}>
+                                    {name}
+                                </OptionButton>
+                            ))}
+                        </OptionContainer>
+                    </>)
+                }
+            </PokeWrapper >
         </>
     )
 }
 
+
+const MenuWrapper = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 20px;
+flex-direction:column;
+`
+
+const VolumeWrapper = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+`
+
+const VolumeContainer = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+`
+const VolumeCheckbox = styled.input`
+position: absolute;
+opacity: 0;
+
+`
+const VolumeLabel = styled.label`
+width: 100%;
+height: 100%;
+
+cursor: pointer;
+`
+
+const VolumeIcon = styled.img`
+width: 35px;
+height: 35px;
+display: flex;
+align-items: center;
+justify-content: center;
+`
 
 const AnswerContainer = styled.div`
 width: 100%;
@@ -251,7 +353,6 @@ opacity: 0;
 animation: 400ms show forwards 400ms;
 display: flex;
 align-items: start;
-
 justify-content: space-between;
 `
 
