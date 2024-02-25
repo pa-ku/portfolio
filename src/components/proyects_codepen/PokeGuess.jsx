@@ -102,6 +102,7 @@ export default function PokeGuess() {
         right: 0,
         wrong: 0,
     })
+    const [shuffle, setShuffle] = useState()
 
     const [currentSound, setCurrentSound] = useState()
 
@@ -190,6 +191,22 @@ export default function PokeGuess() {
         }
     }
 
+
+    const shuffleArray = (array) => {
+        const shuffledArray = [...array];
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+        return shuffledArray;
+    };
+
+    // ...
+    useEffect(() => {
+        setShuffle(shuffleArray([currentPoke.name, pokeNames[rolls[0]], pokeNames[rolls[1]], pokeNames[rolls[2]]]))
+    }, [currentPoke])
+
+
     return (
         <>
             <PokeWrapper>
@@ -212,12 +229,14 @@ export default function PokeGuess() {
                         <PokeImage $show={showImage} src={currentPoke.sprites.front_default} alt="" />
                         {showImage === true && <PokeName>Es {currentPoke.name}!</PokeName>}
                     </ImageContainer>
-                    {showImage === false && <OptionContainer>
-                        <OptionButton value={currentPoke.name} onClick={choiceHandler}>{currentPoke.name}</OptionButton>
-                        <OptionButton value={pokeNames[rolls[0]]} onClick={choiceHandler}>{pokeNames[rolls[0]]}</OptionButton>
-                        <OptionButton value={pokeNames[rolls[1]]} onClick={choiceHandler}>{pokeNames[rolls[1]]}</OptionButton>
-                        <OptionButton value={pokeNames[rolls[2]]} onClick={choiceHandler}>{pokeNames[rolls[2]]}</OptionButton>
-                    </OptionContainer>}
+                    <OptionContainer>
+
+                        {shuffle && showImage === false && shuffle.map((name, index) => (
+                            <OptionButton key={index} value={name} onClick={choiceHandler}>
+                                {name}
+                            </OptionButton>
+                        ))}
+                    </OptionContainer>
                 </>)}
             </PokeWrapper>
         </>
