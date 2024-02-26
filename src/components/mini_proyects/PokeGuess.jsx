@@ -285,11 +285,11 @@ position: relative;
 const ScoreUp = styled.p`
 color: var(--pink-400);
 font-weight: 800;
-font-size: 30px;
+font-size: 25px;
 position: absolute;
 transform-origin: bottom right;
-left: -30px;
-top: -10px;
+left: -8px;
+top: -8px;
 scale: 0.5;
 opacity: 0;
 ${props => props.$scoreAnim ? 'animation:1500ms scoreup forwards;' : ''}
@@ -301,10 +301,17 @@ ${props => props.$scoreAnim ? 'animation:1500ms scoreup forwards;' : ''}
         scale: 0.5;
         opacity: 0;
     }
-    50%{
+    30%{
         scale: 1;
         opacity: 1;
         top:-20px;
+    }
+    70%{
+         
+        scale: 1;
+        opacity: 1;
+        top:-20px;
+
     }
     100%{
         scale: 0.5;
@@ -345,9 +352,12 @@ text-transform: uppercase;
 `
 
 const Timer = styled.p`
-font-size: 40px;
+font-size: 30px;
 color:#111;
 width: 70px;
+display: flex;
+align-items: end;
+justify-content: end;
 ${props => props.$scoreAnim ? 'animation:timerColor 1500ms forwards;' : ''}
 @keyframes timerColor {
     0%{
