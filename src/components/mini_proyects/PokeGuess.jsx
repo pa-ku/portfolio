@@ -66,13 +66,15 @@ export default function PokeGuess() {
         }
     }, [time])
 
+
+
     function startGame() {
         rollNumber()
         startSound()
         setIsPlaying(true)
         startTimer()
         setEndMsj('')
-        playMusic()
+
         setAnswers({
             right: 0,
             wrong: 0,
@@ -90,8 +92,7 @@ export default function PokeGuess() {
     }
 
 
-    function timeUp() {
-
+    function correntBonus() {
         setTime(time + 3)
         setScoreUp(true)
         setTimeout(() => {
@@ -110,9 +111,8 @@ export default function PokeGuess() {
             rollNumber()
         }, 2000);
         if (value === currentPoke.name) {
-
             setAnswers(prevState => ({ ...prevState, right: prevState.right + 1 }))
-            timeUp()
+            correntBonus()
         }
         else {
             setAnswers(prevState => ({ ...prevState, wrong: prevState.wrong + 1 }))
@@ -162,8 +162,8 @@ export default function PokeGuess() {
                     <AnswerContainer>
                         <div>
 
-                            <Answer>Correctas: {answers.right} </Answer>
-                            <Answer>Incorrectas: {answers.wrong}</Answer>
+                            <Answer>✓: {answers.right} </Answer>
+                            <Answer>𐌢: {answers.wrong}</Answer>
                             <VolumeIcons sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
                         </div>
                         <TimeContainer>
@@ -330,9 +330,10 @@ flex-direction:column;
 const AnswerContainer = styled.div`
 width: 100%;
 opacity: 1;
-
+position: absolute;
 display: flex;
 align-items: start;
+top: 0px;
 justify-content: space-between;
 @media(max-width:700px){
 width: 300px;
@@ -373,7 +374,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
-
+position: relative;
 & *{
     font-family: "Pixelify Sans", sans-serif;
 }
