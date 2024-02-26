@@ -11,6 +11,7 @@ import musicOn from '../../assets/icons/musicOn.svg'
 import musicOff from '../../assets/icons/musicOff.svg'
 import useSound from 'use-sound'
 import startAudio from '../../assets/sound/clickSound.mp3'
+import { usePokeData } from '../../hooks/usePokeData'
 
 const PokeWrapper = styled.div`
 width: 450px;
@@ -40,7 +41,7 @@ width: 100%;
 display: flex;
 align-items: center;
 justify-content: center;
-position: relative;
+
 pointer-events: none;
 flex-direction: column;
 `
@@ -131,8 +132,10 @@ export function VolumeHandler({ music, setMusic, sound, setSound }) {
     )
 }
 
+
 export default function PokeGuess() {
-    const [pokeNames, setPokeNames] = useState([])
+ const {pokeNames} = usePokeData()
+
     const [currentPoke, setCurrentPoke] = useState('')
     const [rolls, setRolls] = useState([])
     const [showImage, setShowImage] = useState(false)
@@ -153,13 +156,7 @@ export default function PokeGuess() {
 
     const pokeAudio = new Audio(currentPoke && currentPoke.cries.legacy)
 
-    useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=180&offset=0`)
-            .then((res) => {
-                setPokeNames([...res.data.results.map(poke => poke.name)
-                ]);
-            });
-    }, [])
+   
 
 
     useEffect(() => {
@@ -285,6 +282,7 @@ export default function PokeGuess() {
                         <Timer>{time}s</Timer>
                     </AnswerContainer>
                 </>)}
+
                 {isPlaying && loading === false && (
                     <>
 
