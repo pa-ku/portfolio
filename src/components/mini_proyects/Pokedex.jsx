@@ -163,21 +163,22 @@ export default function Filter() {
   const { pokeNames } = usePokeNames(235)
   const [query, setQuery] = useState("");
   const [filterPoke, setFilteredPoke] = useState([])
-  const [currentPoke, setCurrentPoke] = useState()
+  const [currentPoke, setCurrentPoke] = useState('')
+  const [pokeData, setPokeData] = useState({})
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     setLoading(true)
+    console.log(currentPoke);
     if (currentPoke)
-      axios.get(`https://pokeapi.co/api/v2/pokemon/${currentPoke.name}`)
+      axios.get(`https://pokeapi.co/api/v2/pokemon/${currentPoke}`)
         .then(res => {
           const data = res.data
-          setCurrentPoke(data)
+          setPokeData(data)
           setLoading(false)
         })
-        .catch(error => {
-          setIsLoading(false);
-    
+        .catch(err => {
+          console.log(err);
         });
   }, [currentPoke])
 
@@ -189,7 +190,9 @@ export default function Filter() {
   }, [query])
 
 
-
+function handleSelectPoke(poke){
+  setCurrentPoke(poke)
+}
 
 
   return (
@@ -207,9 +210,9 @@ export default function Filter() {
 
 
         <FilterContainer>
-          {query && filterPoke.slice(0, 5).map((poke) =>
+          {query && filterPoke.slice(0, 5).map((poke,index) =>
             <>
-              <Item onClick={() => setCurrentPoke(poke)} key={poke}>
+              <Item onMouseEnter={() => handleSelectPoke(poke)} key={poke}>
                 <PokeName >
 
                   {poke}
@@ -217,8 +220,8 @@ export default function Filter() {
 
                 <PokeCard className="poke-card">
                   <PokeCardTitle  >
-                    {loading ? 'loading' : currentPoke.name}
-                    {loading ? 'loading' : <PokeImg src={currentPoke.sprites.front_default} alt={"poke"} />}
+                    {loading ? 'loading' : pokeData.name}
+                    {loading ? 'loading' : <PokeImg src={pokeData.sprites.front_default} alt={"poke"} />}
 
                   </PokeCardTitle>
                 </PokeCard>

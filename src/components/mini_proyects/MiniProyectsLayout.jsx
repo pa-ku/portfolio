@@ -98,7 +98,7 @@ export default function MiniProyects() {
       <Wrapper>
         <Title $altButton>Proyectos Mini</Title>
         <NavContainer>
-          <Selected  $left={selectedPosition}></Selected>
+          <Selected $left={selectedPosition}></Selected>
           {proyects.map((project, i) => (
             <CheckBox
               key={i}

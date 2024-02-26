@@ -28,7 +28,7 @@ export default function PokeGuess() {
     const [shuffle, setShuffle] = useState()
     const [endMsj, setEndMsj] = useState('')
     const [maxScore, setMaxScore] = useLocalStorage('maxScoreGuessPokemon', answers.right)
-    const { time, startTimer, resetTimer } = useCountDown(49);
+    const { time, setTime, startTimer, resetTimer } = useCountDown(49);
 
     /* SoundBank */
     const [sound, setSound] = useState(true)
@@ -101,6 +101,7 @@ export default function PokeGuess() {
             rollNumber()
         }, 2000);
         if (value === currentPoke.name) {
+            setTime(prevTime => time + 2)
             setAnswers(prevState => ({ ...prevState, right: prevState.right + 1 }))
 
         }
@@ -210,12 +211,12 @@ const Score = styled.p`
 `
 
 const PokeLogo = styled.img`
-width: 30px;
+width: 25px;
 margin: 0px;
-height: 30px;
+height: 25px;
 pointer-events: none;
 object-fit: contain;
-animation: 2s rotate forwards;
+animation: 1000ms rotate forwards;
 @keyframes rotate {
     100%{
         transform: rotate(180deg);
