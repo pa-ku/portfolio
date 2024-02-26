@@ -364,7 +364,7 @@ color:#111;
 `
 
 const PokeWrapper = styled.div`
-width: 450px;
+width: 400px;
 height: 100%;
 display: flex;
 align-items: center;
