@@ -148,7 +148,7 @@ export default function PokeGuess() {
                         <MenuWrapper>
 
                             <VolumeIcons sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
-                            <MainButton $background={'var(--blue-100), var(--blue-800)'} $fontsize={'2rem'} icon={<PokeLogo src={pokeLogo} alt="" />} onClick={startGame} >START</MainButton>
+                            <MainButton $color={'var(--pink-400))'} $background={'var(--blue-100), var(--blue-800)'} $fontsize={'2rem'} icon={<PokeLogo src={pokeLogo} alt="" />} onClick={startGame} >START</MainButton>
                             <Score $scoreAnim={scoreUp} >Mejor Puntaje: {maxScore}</Score>
                             <PopUpText>{endMsj}</PopUpText>
                         </MenuWrapper>
@@ -224,6 +224,7 @@ const Score = styled.p`
 
 const TimeContainer = styled.div`
 position: relative;
+
 `
 
 const ScoreUp = styled.p`
@@ -289,6 +290,9 @@ opacity: 1;
 display: flex;
 align-items: start;
 justify-content: space-between;
+@media(max-width:700px){
+width: 300px;
+}
 `
 
 const Answer = styled.p`
@@ -329,7 +333,7 @@ flex-direction: column;
 & *{
     font-family: "Pixelify Sans", sans-serif;
 }
-@media(max-width:700px){
+@media(max-width:800px){
 width:100%;
 }
 `
@@ -383,7 +387,7 @@ animation: 400ms show forwards ;
     }
 }
 @media(max-width:700px){
-    grid-template-columns: repeat(2,200px);
+    grid-template-columns: repeat(2,1fr);
 }
 `
 

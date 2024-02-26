@@ -15,7 +15,6 @@ const Button = styled.a`
   border-color: #485c66;
   cursor: pointer;
   transition: 300ms;
-
   background-color: ${(props) => props.$backgroundcolor};
   text-decoration: none;
   z-index: 200;
@@ -24,6 +23,7 @@ const Button = styled.a`
   font-weight: 600;
   position: relative;
   gap: 5px;
+  color: ${props => props.$color};
   background: linear-gradient(to right,${props => props.$background}) ;
   
   &:hover {
@@ -78,7 +78,8 @@ export default function MainButton({
   children,
   $fontsize,
   $backgroundcolor,
-  $background
+  $background,
+  $color
 }) {
   const [toolkit, setToolkit] = useState(false);
 
@@ -99,7 +100,7 @@ export default function MainButton({
         $delay={$delay}
         href={href}
         target="_blank"
-
+        $color={$color}
       >
         {icon}
         {children}
