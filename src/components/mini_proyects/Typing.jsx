@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useCountDown } from '../../hooks/useCountDown'
 import useLocalStorage from 'use-local-storage'
 import axios from 'axios'
-import startAudio from '../../assets/sound/startSound.mp3'
+import startAudio from '../../assets/sound/clickSound.mp3'
 
 const GameWrapper = styled.div`
  background-color: #001f3e;  
