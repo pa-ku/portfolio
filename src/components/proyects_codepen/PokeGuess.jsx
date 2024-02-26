@@ -13,7 +13,7 @@ import useSound from 'use-sound'
 import startAudio from '../../assets/sound/clickSound.mp3'
 
 const PokeWrapper = styled.div`
-width: 400px;
+width: 450px;
 height: 100%;
 display: flex;
 align-items: center;
@@ -24,7 +24,7 @@ flex-direction: column;
     font-family: "Pixelify Sans", sans-serif;
 }
 @media(max-width:700px){
-width: 100%;
+width:100%;
 }
 `
 
@@ -53,6 +53,7 @@ width: 250px;
 height: 250px;
 opacity: 0;
 animation: 400ms show forwards;
+object-fit: contain;
 filter:${props => props.$show ? ' brightness(1)' : ' brightness(0)'};
 
 @media(max-width:700px){
@@ -61,13 +62,11 @@ width: 100%;
 `
 
 const OptionContainer = styled.div`
-
 display: grid;
 grid-template-columns: repeat(2,200px);
 gap: 10px;
-
 opacity: 0;
-scale: 0;
+scale: 0.5;
 flex-wrap: wrap;
 animation: 400ms show forwards ;
 @keyframes show {
@@ -77,7 +76,7 @@ animation: 400ms show forwards ;
     }
 }
 @media(max-width:700px){
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2,200px);
 }
 `
 
@@ -155,7 +154,7 @@ export default function PokeGuess() {
     const pokeAudio = new Audio(currentPoke && currentPoke.cries.legacy)
 
     useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=400&offset=0`)
+        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=180&offset=0`)
             .then((res) => {
                 setPokeNames([...res.data.results.map(poke => poke.name)
                 ]);
@@ -181,12 +180,18 @@ export default function PokeGuess() {
 
     useEffect(() => {
         if (time === 0) {
+            if (answers.right >= maxScore) {
+                setMaxScore(answers.right)
+            }
             setIsPlaying(false)
             resetTimer()
             stop()
             setEndMsj('Correctas:' + answers.right + ' Incorrectas: ' + answers.wrong)
         }
     }, [time])
+
+
+
 
 
     function startGame() {
@@ -216,7 +221,7 @@ export default function PokeGuess() {
     function choiceHandler(e) {
         let value = e.target.value
         pokeAudio.volume = sound ? 0.3 : 0
-        pokeAudio.play()
+        isPlaying && pokeAudio.play()
         setShowImage(true)
 
         setTimeout(() => {
@@ -225,9 +230,7 @@ export default function PokeGuess() {
         }, 2000);
         if (value === currentPoke.name) {
             setAnswers(prevState => ({ ...prevState, right: prevState.right + 1 }))
-            if (answers.right > maxScore) {
-                setMaxScore(answers.right)
-            }
+
         }
         else {
             setAnswers(prevState => ({ ...prevState, wrong: prevState.wrong + 1 }))
@@ -270,18 +273,21 @@ export default function PokeGuess() {
                 )
                 }
 
+                {isPlaying && (<>
 
+                    <AnswerContainer>
+                        <div>
+
+                            <Answer>Correctas: {answers.right} </Answer>
+                            <Answer>Incorrectas: {answers.wrong}</Answer>
+                            <VolumeHandler sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
+                        </div>
+                        <Timer>{time}s</Timer>
+                    </AnswerContainer>
+                </>)}
                 {isPlaying && loading === false && (
                     <>
-                        <AnswerContainer>
-                            <div>
 
-                                <Answer>Correctas: {answers.right} </Answer>
-                                <Answer>Incorrectas: {answers.wrong}</Answer>
-                                <VolumeHandler sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
-                            </div>
-                            <Timer>{time}s</Timer>
-                        </AnswerContainer>
 
                         <ImageContainer >
                             <PokeImage $show={showImage} src={currentPoke.sprites.front_default} alt="" />
@@ -346,8 +352,8 @@ justify-content: center;
 
 const AnswerContainer = styled.div`
 width: 100%;
-opacity: 0;
-animation: 400ms show forwards 400ms;
+opacity: 1;
+
 display: flex;
 align-items: start;
 justify-content: space-between;
