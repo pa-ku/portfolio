@@ -18,6 +18,9 @@ transition: 500ms;
   font-size: 1rem;
   border-radius: 6px;
   cursor: pointer;
+  &:checked{
+    color: #fff;
+  }
   &::before {
     font-family:  ${props => props.$font ? '"Pixelify Sans", sans-serif' : ''};
     content: "${(props) => props.$text}";

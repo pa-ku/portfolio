@@ -175,6 +175,10 @@ export default function Filter() {
           setCurrentPoke(data)
           setLoading(false)
         })
+        .catch(error => {
+          setIsLoading(false);
+    
+        });
   }, [currentPoke])
 
   useEffect(() => {
