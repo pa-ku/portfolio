@@ -8,7 +8,7 @@ import Wave from "./components/Wave";
 import ProyectLayout from "./components/ProyectLayout";
 import Title from "./components/Title";
 import MiniProyectsLayout from "./components/mini_proyects/MiniProyectsLayout";
-import Test from "./components/mini_proyects/test";
+
 
 const Wrapper = styled.div`
   display: flex;

@@ -164,7 +164,6 @@ export default function Filter() {
   const [query, setQuery] = useState("");
   const [filterPoke, setFilteredPoke] = useState([])
   const [currentPoke, setCurrentPoke] = useState()
-
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -176,7 +175,6 @@ export default function Filter() {
           setCurrentPoke(data)
           setLoading(false)
         })
-
   }, [currentPoke])
 
   useEffect(() => {
@@ -188,10 +186,7 @@ export default function Filter() {
 
 
 
-  function handleSelect(poke) {
-    console.log(pokeNames[0]);
-    setCurrentPoke(poke)
-  }
+
 
   return (
     <>
@@ -210,7 +205,7 @@ export default function Filter() {
         <FilterContainer>
           {query && filterPoke.slice(0, 5).map((poke) =>
             <>
-              <Item onClick={() => handleSelect(poke)} key={poke}>
+              <Item onClick={() => setCurrentPoke(poke)} key={poke}>
                 <PokeName >
 
                   {poke}
@@ -218,7 +213,7 @@ export default function Filter() {
 
                 <PokeCard className="poke-card">
                   <PokeCardTitle  >
-                    {poke}
+                    {loading ? 'loading' : currentPoke.name}
                     {loading ? 'loading' : <PokeImg src={currentPoke.sprites.front_default} alt={"poke"} />}
 
                   </PokeCardTitle>
