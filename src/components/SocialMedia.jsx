@@ -22,7 +22,7 @@ const LinkContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 13px;
-background-color: var(--main-pink-200);
+background-color: var(--pink-50);
 `;
 
 const Link = styled.a`

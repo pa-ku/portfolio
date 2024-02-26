@@ -1,17 +1,23 @@
-import React from 'react'
-import axios from 'axios'
-import { useEffect,useState } from 'react'
+import { useState,useEffect } from "react"
+import axios from "axios"
 
 
-export const usePokeData= ()=>{
-    const [pokeNames, setPokeNames] = useState([])
+export const usePokeData = (pokeNames, renderCondition) => {
+    const [currentPoke, setCurrentPoke] = useState()
+    const [loading, setLoading] = useState(true)
+
 
     useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=180&offset=0`)
-            .then((res) => {
-                setPokeNames([...res.data.results.map(poke => poke.name)
-                ]);
-            });
-    }, [])
-    return{pokeNames}
+        setLoading(true)
+        let roll = Math.floor(Math.random() * pokeNames.length) + 1
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${roll}`)
+            .then(res => {
+                const data = res.data
+                setCurrentPoke(data)
+                setLoading(false)
+            })
+
+    }, [renderCondition && renderCondition])
+
+    return { currentPoke, loading }
 }

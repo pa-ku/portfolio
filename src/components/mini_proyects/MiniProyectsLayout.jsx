@@ -19,15 +19,21 @@ const Wrapper = styled.div`
 
 
 const NavContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  background-color: #eaeaea;
+  border-radius: 10px;
+
+
 `;
+
+
 
 const ProyectContainer = styled.div`
 opacity: 0;
+
 animation: 1s opacity forwards;
 @keyframes opacity {
   0%{
@@ -41,8 +47,8 @@ animation: 1s opacity forwards;
 `
 
 export default function MiniProyects() {
-  const proyects = [<Filter />, <Typing />, <PokeGuess />];
-  const proyectsName = ["Pokedex", "PokeType", "PokeGuess"];
+  const proyects = [<PokeGuess />, <Typing />, <Filter />];
+  const proyectsName = ["PokeGuess", "PokeType", "Pokedex"];
 
   const [index, setIndex] = useState(0);
 
@@ -51,16 +57,19 @@ export default function MiniProyects() {
       <Wrapper>
         <Title $altButton>Proyectos Mini</Title>
         <NavContainer>
-          {proyects.map((project, index) => (
+          {proyects.map((project, i) => (
             <CheckBox
-       
-              key={index}
-              $text={proyectsName[index]}
+              key={i}
+              $text={proyectsName[i]}
               value={"1"}
               name={"verduras"}
-              onClick={() => setIndex(index)}
+              checked={i === index}
+              onClick={() => setIndex(i)}
+              $backgroundcolor={'var(--pink-250)'}
+              $bordercolor={'var(--pink-700)'}
             ></CheckBox>
           ))}
+
         </NavContainer>
         <ProyectContainer>
           {proyects[index]}

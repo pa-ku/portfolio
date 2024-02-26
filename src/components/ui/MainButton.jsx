@@ -6,26 +6,29 @@ const Button = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  padding: 10px 15px;
+  border-radius: 10px;
+  padding: 8px 15px;
   border: 0px;
-  border-right: 2px;
-  border-bottom: 2px;
+  border-right: 3px;
+  border-bottom: 4px;
   border-style: solid;
   border-color: #485c66;
   cursor: pointer;
   transition: 300ms;
-  color: #485c66;
-  background-color: #80d8ff;
+
+  background-color: ${(props) => props.$backgroundcolor};
   text-decoration: none;
   z-index: 200;
-  font-size: 1rem;
-  font-weight: 800;
+  font-size: 1.5rem;
+  font-size:${props => props.$fontsize};
+  font-weight: 600;
   position: relative;
   gap: 5px;
+  background: linear-gradient(to right,${props => props.$background}) ;
+  
   &:hover {
-filter: brightness(1.1);
-  }
+filter: brightness(1.05);
+}
 `;
 
 const MsjToolkit = styled.p`
@@ -43,7 +46,7 @@ const MsjToolkit = styled.p`
   right: 150px;
   letter-spacing: 2px;
   opacity: 0;
-
+  
   animation: 4s toolkitanimation;
   pointer-events: none;
   @keyframes toolkitanimation {
@@ -67,13 +70,15 @@ const MsjToolkit = styled.p`
 `;
 
 export default function MainButton({
-
   href,
   $delay,
   icon,
   onClick,
   $toolkit,
-  children
+  children,
+  $fontsize,
+  $backgroundcolor,
+  $background
 }) {
   const [toolkit, setToolkit] = useState(false);
 
@@ -87,13 +92,15 @@ export default function MainButton({
   return (
     <>
       <Button
+        $background={$background}
+        $backgroundcolor={$backgroundcolor}
+        $fontsize={$fontsize}
         onClick={$toolkit ? handleCopy : onClick}
         $delay={$delay}
         href={href}
         target="_blank"
-     
+
       >
-        {" "}
         {icon}
         {children}
         {toolkit === true && <MsjToolkit>En proceso!</MsjToolkit>}

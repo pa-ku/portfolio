@@ -7,36 +7,48 @@ margin:0;
 -webkit-tap-highlight-color: transparent;
 }
 :root{
-    --main-pink-50:#fffdfd;
-    --main-pink-100:#fbf6f7;
-    --main-pink-200:#fff9f9;
-    --main-pink-250:rgb(255, 207, 211);
-    --main-pink-300:#ff8fa2;
-    --main-pink-400:#ff5e78;
-    --main-pink-500:#fd3657;
-    --main-pink-600:#b01c34;
+    
+    --blue-100:#d9f4ff;
+    --blue-200:#d1f1ff;
+    --blue-300:#bcebff;
+    --blue-400:#b7e9fe;
+    --blue-500:#b4e8fe;
+    --blue-600:#b8eaff;
+    --blue-700:#a5e3fd;
+    --blue-800:#94ddfc;
+
+    --pink-50:#fff8fa;
+    --pink-100:#fae1e3;
+    --pink-200:#ffdbde;
+    --pink-250:#ffcfd3;
+    --pink-300:#ff8fa2;
+    --pink-400:#ff5e78;
+    --pink-500:#fd3657;
+    --pink-600:#b01c34;
+    --pink-700:#633a41;
+    --pink-800:#700c1c;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
 width: 14px;
-background-color:var(--main-pink-200) ;
+background-color:var(--pink-200) ;
 }
 ::-webkit-scrollbar-thumb {
-background-color: var(--main-pink-300);
-border: 3px solid var(--main-pink-200);
+background-color: var(--pink-300);
+border: 3px solid var(--pink-200);
 
 }
 ::-webkit-scrollbar-thumb:hover {
-background-color: var(--main-pink-500);
+background-color: var(--pink-500);
 
 }
 /* SELECTION */
 ::selection {
 color: white;
-background: var(--main-pink-300);
+background: var(--pink-300);
 }
 
 body{
-    background-color: var(--main-pink-0);
+    background-color: var(--pink-0);
 }

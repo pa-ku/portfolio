@@ -169,7 +169,7 @@ const InfoTitle = styled.h2`
 const InfoDescription = styled.div``;
 
 const GithubCtn = styled.a`
-  background-color: #c4edff;
+  background-color: var(--blue-500);
   padding: 10px;
   border-radius: 0px 20px 0px 20px;
   position: absolute;
@@ -186,7 +186,7 @@ const GithubCtn = styled.a`
     width: 50px;
   }
   &:hover {
-    background-color: #ade1f8;
+    background-color: var(--blue-300);
   }
   & img {
     height: 30px;

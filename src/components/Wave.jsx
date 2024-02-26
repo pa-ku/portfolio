@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
 z-index: -1;
@@ -20,7 +20,7 @@ const Svg = styled.svg`
 `;
 
 const Path = styled.path`
-  fill: var(--main-pink-200);
+  fill: var(--pink-50);
 `;
 
 export default function Wave() {

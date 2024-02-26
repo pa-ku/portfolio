@@ -30,7 +30,7 @@ const IconWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1.5em;
-  background-color: var(--main-pink-100);
+  background-color: var(--pink-50);
   border-radius: 20px;
   padding: 0.8em 2em;
   flex-wrap: wrap;
@@ -47,7 +47,7 @@ const IconContainer = styled.div`
   &:hover img {
     /* animation:1s  iconUp forwards; */
     translate: 0px -15px;
-    background-color: var(--main-pink-100);
+    background-color: var(--pink-100);
   }
 
   &:hover p {

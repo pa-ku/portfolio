@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Header from "./components/Header";
-
 import "./index.css";
 import Conocimientos from "./components/Conocimientos";
 
@@ -8,7 +7,8 @@ import Conocimientos from "./components/Conocimientos";
 import Wave from "./components/Wave";
 import ProyectLayout from "./components/ProyectLayout";
 import Title from "./components/Title";
-import MiniProyects from "./components/proyects_codepen/MiniProyects";
+import MiniProyectsLayout from "./components/mini_proyects/MiniProyectsLayout";
+import Test from "./components/mini_proyects/test";
 
 const Wrapper = styled.div`
   display: flex;
@@ -63,8 +63,10 @@ function App() {
           <Conocimientos />
         </ConocimientosContainer>
 
-        <MiniProyects />
+        <Wave />
+        <MiniProyectsLayout />
       </Wrapper>
+        <Test />
     </>
   );
 }

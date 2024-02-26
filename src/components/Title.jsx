@@ -6,7 +6,7 @@ const TitleStyle = styled.p`
   font-size: ${(props) => (props.$altButton ? "2.5rem" : "3.5rem")};
   font-weight: 300;
   padding: 0px;
-  background-color: ${props => props.$altButton ? '#fff' : 'var(--main-pink-200)'};
+  background-color: ${props => props.$altButton ? '#fff' : 'var(--pink-50)'};
   height: 50px;
   display: flex;
   align-items: center;
@@ -23,12 +23,12 @@ const TitleStyle = styled.p`
     left: 0px;
     border-radius: 0px 20px 0px 0px;
     position: absolute;
-    background-color: var(--main-pink-300);
+    background-color: var(--pink-300);
   }
   &::before {
     content: "";
     position: absolute;
-    background-color: ${props => props.$altButton ? '#fff' : 'var(--main-pink-200)'};
+    background-color: ${props => props.$altButton ? '#fff' : 'var(--pink-50)'};
     width: 300px;
     height: 100%;
     animation: 2s titleanimation forwards;

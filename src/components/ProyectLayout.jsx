@@ -11,7 +11,7 @@ import RoscoPageImage from "../assets/img/backgrounds/PageRosco.webp";
 import styled from "styled-components";
 
 const Dot = styled.span`
-  color: var(--main-pink-400);
+  color: var(--pink-400);
 `;
 
 export default function ProyectLayout() {

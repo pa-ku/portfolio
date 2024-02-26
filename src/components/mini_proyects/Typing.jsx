@@ -58,7 +58,7 @@ const Timer = styled.p`
 text-align: center;
 font-size: 25px;
 padding: 10px;
-color: var(--main-pink-250);
+color: var(--pink-250);
 `
 const Msj = styled.p`
 color: #cacaca;
