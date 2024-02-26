@@ -66,7 +66,6 @@ function App() {
         <Wave />
         <MiniProyectsLayout />
       </Wrapper>
-        <Test />
     </>
   );
 }
