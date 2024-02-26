@@ -44,7 +44,7 @@ const LogoContainer = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  outline: 3px solid #fff;
+  outline: 5px solid #fff;
   padding: 10px;
   outline-offset: 3px;
   @media (max-width: 800px) {
@@ -54,7 +54,6 @@ const LogoContainer = styled.a`
     padding: 0px;
     border-radius: 0px 0px 20px 20px;
   }
-
   @media (min-width: 700px) {
     &:hover {
       width: 730px;
@@ -64,11 +63,9 @@ const LogoContainer = styled.a`
       cursor: pointer;
       outline: 0px;
     }
-
     &:hover .logo-img {
       opacity: 0;
     }
-
     &:hover .page-img {
       opacity: 1;
       z-index: 10;
@@ -169,7 +166,7 @@ const InfoTitle = styled.h2`
 const InfoDescription = styled.div``;
 
 const GithubCtn = styled.a`
-  background-color: var(--blue-500);
+  background-color: var(--blue-800);
   padding: 10px;
   border-radius: 0px 20px 0px 20px;
   position: absolute;
@@ -186,12 +183,14 @@ const GithubCtn = styled.a`
     width: 50px;
   }
   &:hover {
-    background-color: var(--blue-300);
+    background-color: var(--blue-900);
   }
   & img {
     height: 30px;
     width: 30px;
     object-fit: contain;
+    color: #fff;
+    filter: invert(1);
   }
 `;
 

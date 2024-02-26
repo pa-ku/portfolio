@@ -161,7 +161,6 @@ export default function PokeGuess() {
 
                     <AnswerContainer>
                         <div>
-
                             <Answer>✓: {answers.right} </Answer>
                             <Answer>𐌢: {answers.wrong}</Answer>
                             <VolumeIcons sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
