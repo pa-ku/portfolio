@@ -36,7 +36,7 @@ export default function PokeGuess() {
     const [playMusic, { stop }] = useSound(payingSound, { volume: music ? 0.2 : 0 })
     const [startSound] = useSound(startAudio, { volume: sound ? 0.3 : 0 })
     const pokeAudio = new Audio(currentPoke && currentPoke.cries.legacy)
-    const [scoreUp, setScoreUp] = useState('')
+    const [scoreUp, setScoreUp] = useState(false)
 
     useEffect(() => {
         setLoading(true)
@@ -93,9 +93,9 @@ export default function PokeGuess() {
     function timeUp() {
 
         setTime(time + 3)
-        setScoreUp('scoreup')
+        setScoreUp(true)
         setTimeout(() => {
-            setScoreUp('')
+            setScoreUp(false)
         }, 2000)
     }
 
@@ -166,8 +166,8 @@ export default function PokeGuess() {
                             <VolumeIcons sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
                         </div>
                         <TimeContainer>
-                            <ScoreUp $anim={scoreUp}>+3</ScoreUp>
-                            <Timer>{time}s</Timer>
+                            <ScoreUp $scoreAnim={scoreUp}>+3</ScoreUp>
+                            <Timer $scoreAnim={scoreUp}>{time}s</Timer>
                         </TimeContainer>
                     </AnswerContainer>
                 </>)}
@@ -227,33 +227,33 @@ position: relative;
 `
 
 const ScoreUp = styled.p`
-color: var(--pink-500);
+color: var(--pink-400);
 font-weight: 800;
-font-size: 40px;
+font-size: 30px;
 position: absolute;
-transform-origin: bottom;
-right: 0px;
-left: 0px;
+transform-origin: bottom right;
+left: -30px;
 top: -10px;
 scale: 0.5;
 opacity: 0;
-animation:1500ms ${props => props.$anim} forwards ;
+${props => props.$scoreAnim ? 'animation:1500ms scoreup forwards;' : ''}
+
 
 @keyframes scoreup {
     0%{
-        top: -10px;
+        top: -15px;
         scale: 0.5;
         opacity: 0;
     }
     50%{
         scale: 1;
         opacity: 1;
-        top:-30px;
+        top:-20px;
     }
     100%{
         scale: 0.5;
         opacity:0;
-        top:-10px;
+        top:-15px;
     }
 }
 `
@@ -298,6 +298,24 @@ text-transform: uppercase;
 
 const Timer = styled.p`
 font-size: 40px;
+color:#111;
+width: 70px;
+${props => props.$scoreAnim ? 'animation:timerColor 1500ms forwards;' : ''}
+@keyframes timerColor {
+    0%{
+color:#111;
+    }
+ 30%{
+    color: var(--pink-400);
+ }   
+ 60%{
+    color: var(--pink-400);
+ }   
+
+ 100%{
+    color:#111;
+ }
+}
 `
 
 const PokeWrapper = styled.div`
