@@ -7,7 +7,7 @@ import axios from 'axios'
 import startAudio from '../../assets/sound/startSound.mp3'
 
 const GameWrapper = styled.div`
- background-color: #000721;  
+ background-color: #001f3e;  
 border-radius: 10px;
 width: 400px;
 position: relative;

@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 
 const NavContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 120px);
+  grid-template-columns: repeat(2, 120px);
   align-items: center;
   justify-content: center;
   background-color: var(--pink-50);
@@ -67,8 +67,8 @@ left: ${props => props.$left};
 
 
 export default function MiniProyects() {
-  const proyects = [<PokeGuess />, <Typing />, <Filter />];
-  const proyectsName = ["PokeGuess", "PokeType", "Pokedex"];
+  const proyects = [<PokeGuess />, <Typing />];
+  const proyectsName = ["PokeGuess", "PokeType"];
   const [selectedPosition, setSelectedPosition] = useState('')
   const [index, setIndex] = useState(0);
 
