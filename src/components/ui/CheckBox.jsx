@@ -35,6 +35,7 @@ const Input = styled.input`
     background-color: ${(props) => props.$backgroundcolor};
   }
   &::before {
+    font-family:  ${props => props.$font ? '"Pixelify Sans", sans-serif' : ''};
     content: "${(props) => props.$text}";
   }
 `;
@@ -45,6 +46,7 @@ export default function CheckBox({
   name,
   value,
   onClick,
+  $font
 }) {
   return (
     <>

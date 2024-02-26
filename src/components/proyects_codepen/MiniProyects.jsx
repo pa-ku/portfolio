@@ -42,7 +42,7 @@ animation: 1s opacity forwards;
 
 export default function MiniProyects() {
   const proyects = [<Filter />, <Typing />, <PokeGuess />];
-  const proyectsName = ["Pokedex", "Typing", "PokeGuess"];
+  const proyectsName = ["Pokedex", "PokeType", "PokeGuess"];
 
   const [index, setIndex] = useState(0);
 
@@ -53,6 +53,7 @@ export default function MiniProyects() {
         <NavContainer>
           {proyects.map((project, index) => (
             <CheckBox
+       
               key={index}
               $text={proyectsName[index]}
               value={"1"}

@@ -4,12 +4,13 @@ import styled from 'styled-components'
 import axios from 'axios'
 import useLocalStorage from 'use-local-storage'
 import { useCountDown } from '../../hooks/useCountDown'
-import payingSound from '../../assets/sound/pokeguess-playing-music.mp3'
+import payingSound from '../../assets/sound/pokeguess-playing-music2.mp3'
 import soundOn from '../../assets/icons/soundOn.svg'
 import soundOff from '../../assets/icons/soundOff.svg'
 import musicOn from '../../assets/icons/musicOn.svg'
 import musicOff from '../../assets/icons/musicOff.svg'
 import useSound from 'use-sound'
+import startAudio from '../../assets/sound/clickSound.mp3'
 
 const PokeWrapper = styled.div`
 width: 400px;
@@ -109,27 +110,25 @@ cursor: pointer;
 }
 `
 
-export function VolumeLayout({ music, musicOn, musicOff, handleMusic, sound, soundOn, soundOff, setSound }) {
-    return (
-        <>  <VolumeWrapper>
-
+export function VolumeHandler({ music, setMusic, sound, setSound }) {
+    return (<>
+        <VolumeWrapper>
             <VolumeContainer>
                 <VolumeLabel htmlFor="music">
                     <VolumeIcon src={music ? musicOn : musicOff} alt="" />
 
-                    <VolumeCheckbox id='music' checked={music} onClick={handleMusic} type="checkbox" />
+                    <VolumeCheckbox id='music' defaultChecked={music} onClick={() => setMusic(music ? false : true)} type="checkbox" />
                 </VolumeLabel>
             </VolumeContainer>
 
             <VolumeContainer>
                 <VolumeLabel htmlFor="sound">
                     <VolumeIcon src={sound ? soundOn : soundOff} alt="" />
-                    <VolumeCheckbox id='sound' checked={sound} onClick={() => setSound(sound ? false : true)} type="checkbox" />
+                    <VolumeCheckbox id='sound' defaultChecked={sound} onClick={() => setSound(sound ? false : true)} type="checkbox" />
                 </VolumeLabel>
             </VolumeContainer>
         </VolumeWrapper>
-
-        </>
+    </>
     )
 }
 
@@ -145,22 +144,18 @@ export default function PokeGuess() {
         wrong: 0,
     })
     const [shuffle, setShuffle] = useState()
-
-    const [currentSound, setCurrentSound] = useState()
-
-    const [sound, setSound] = useState(false)
+    const [endMsj, setEndMsj] = useState('')
+    const [sound, setSound] = useState(true)
     const [music, setMusic] = useState(false)
-    const [playMusic, { stopMusic }] = useSound(payingSound, { volume: music ? 0.3 : 0 })
-    const [pokeSound, { stopSound }] = useSound(currentSound, { volume: sound ? 0.3 : 0 })
-
-
-
-
+    const [playMusic, { stop }] = useSound(payingSound, { volume: music ? 0.2 : 0 })
+    const [startSound] = useSound(startAudio, { volume: sound ? 0.3 : 0 })
     const [maxScore, setMaxScore] = useLocalStorage('maxScoreGuessPokemon', answers.right)
     const { time, startTimer, resetTimer } = useCountDown(50);
 
+    const pokeAudio = new Audio(currentPoke && currentPoke.cries.legacy)
+
     useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=300&offset=0`)
+        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=400&offset=0`)
             .then((res) => {
                 setPokeNames([...res.data.results.map(poke => poke.name)
                 ]);
@@ -174,31 +169,32 @@ export default function PokeGuess() {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${roll}`)
             .then(res => {
                 const data = res.data
-                setCurrentPoke(prevPoke => data)
-                setCurrentSound(prevPoke => data.cries.legacy)
+                setCurrentPoke(data)
                 setLoading(false)
-                if (loading) {
-                    return 'cargando'
-                }
             })
+
     }, [rolls])
+
+
+
 
 
     useEffect(() => {
         if (time === 0) {
             setIsPlaying(false)
             resetTimer()
+            stop()
+            setEndMsj('Correctas:' + answers.right + ' Incorrectas: ' + answers.wrong)
         }
     }, [time])
 
 
-
-
     function startGame() {
         rollNumber()
+        startSound()
         setIsPlaying(true)
         startTimer()
-
+        setEndMsj('')
         playMusic()
         setAnswers({
             right: 0,
@@ -219,13 +215,14 @@ export default function PokeGuess() {
 
     function choiceHandler(e) {
         let value = e.target.value
+        pokeAudio.volume = sound ? 0.3 : 0
+        pokeAudio.play()
         setShowImage(true)
-        pokeSound()
 
         setTimeout(() => {
             setShowImage(false)
             rollNumber()
-        }, 3000);
+        }, 2000);
         if (value === currentPoke.name) {
             setAnswers(prevState => ({ ...prevState, right: prevState.right + 1 }))
             if (answers.right > maxScore) {
@@ -253,10 +250,7 @@ export default function PokeGuess() {
     }, [currentPoke])
 
 
-    function handleMusic() {
-        setMusic(music ? false : true)
 
-    }
 
 
 
@@ -264,29 +258,31 @@ export default function PokeGuess() {
     return (
         <>
             <PokeWrapper>
-                {isPlaying && <AnswerContainer>
-                    <div>
-
-                        <Answer>Correctas: {answers.right} </Answer>
-                        <Answer>Incorrectas: {answers.wrong}</Answer>
-                        <VolumeLayout music={music} setSound={setSound} musicOn={musicOn} musicOff={musicOff} handleMusic={handleMusic} sound={sound} soundOn={soundOn} soundOff={soundOff} />
-                    </div>
-                    <Timer>{time}s</Timer>
-                </AnswerContainer>}
                 {isPlaying === false && (
                     <>
                         <MenuWrapper>
-
-                            <VolumeLayout music={music} setSound={setSound} musicOn={musicOn} musicOff={musicOff} handleMusic={handleMusic} sound={sound} soundOn={soundOn} soundOff={soundOff} />
-
                             <StartButton onClick={startGame}>START</StartButton>
+                            <VolumeHandler sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
                             <Answer>Mejor Puntaje: {maxScore}</Answer>
+                            {<PokeName>{endMsj}</PokeName>}
                         </MenuWrapper>
                     </>
                 )
                 }
-                {
-                    loading === false && isPlaying && (<>
+
+
+                {isPlaying && loading === false && (
+                    <>
+                        <AnswerContainer>
+                            <div>
+
+                                <Answer>Correctas: {answers.right} </Answer>
+                                <Answer>Incorrectas: {answers.wrong}</Answer>
+                                <VolumeHandler sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
+                            </div>
+                            <Timer>{time}s</Timer>
+                        </AnswerContainer>
+
                         <ImageContainer >
                             <PokeImage $show={showImage} src={currentPoke.sprites.front_default} alt="" />
                             {showImage === true && <PokeName>Es {currentPoke.name}!</PokeName>}
@@ -312,13 +308,14 @@ display: flex;
 align-items: center;
 justify-content: center;
 gap: 20px;
+width: 100%;
 flex-direction:column;
 `
 
 const VolumeWrapper = styled.div`
 display: flex;
-align-items: center;
-justify-content: center;
+align-items: start;
+justify-content: start;
 gap: 10px;
 `
 
@@ -340,8 +337,8 @@ cursor: pointer;
 `
 
 const VolumeIcon = styled.img`
-width: 35px;
-height: 35px;
+width: 25px;
+height: 25px;
 display: flex;
 align-items: center;
 justify-content: center;
