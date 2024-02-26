@@ -47,7 +47,7 @@ const IconContainer = styled.div`
   &:hover img {
     /* animation:1s  iconUp forwards; */
     translate: 0px -15px;
-    background-color: var(--pink-100);
+    background-color: var(--pink-50);
   }
 
   &:hover p {

@@ -6,6 +6,7 @@ import Filter from "./Pokedex";
 import CheckBox from "../ui/CheckBox";
 import Typing from "./Typing";
 import PokeGuess from "./PokeGuess";
+import { useEffect } from "react";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -23,17 +24,19 @@ const NavContainer = styled.div`
   grid-template-columns: repeat(3, 120px);
   align-items: center;
   justify-content: center;
-  background-color: #eaeaea;
+  background-color: var(--pink-50);
+  z-index: 0;
   border-radius: 10px;
-
-
+  position: relative;
+  &:hover .selected{
+scale: 1.1;
+}
 `;
 
 
 
 const ProyectContainer = styled.div`
 opacity: 0;
-
 animation: 1s opacity forwards;
 @keyframes opacity {
   0%{
@@ -46,17 +49,56 @@ animation: 1s opacity forwards;
 }
 `
 
+const Selected = styled.div`
+position: absolute;
+height: 100%;
+border-radius: 10px;
+background-color: var(--pink-400);
+width: 120px;
+z-index: -11;
+bottom: 0px;
+
+transition: all 500ms;
+left: ${props => props.$left};
+
+`
+
+
+
+
 export default function MiniProyects() {
   const proyects = [<PokeGuess />, <Typing />, <Filter />];
   const proyectsName = ["PokeGuess", "PokeType", "Pokedex"];
-
+  const [selectedPosition, setSelectedPosition] = useState('')
   const [index, setIndex] = useState(0);
+
+
+  useEffect(() => {
+    switch (index) {
+      case 0:
+        setSelectedPosition('0px')
+        break;
+
+      case 1:
+        setSelectedPosition('120px')
+        break;
+
+      case 2:
+        setSelectedPosition('240px')
+        break;
+    }
+  }, [index])
+
+  function handleSelected(i) {
+    setIndex(i)
+  }
 
   return (
     <>
       <Wrapper>
         <Title $altButton>Proyectos Mini</Title>
         <NavContainer>
+          <Selected  $left={selectedPosition}></Selected>
           {proyects.map((project, i) => (
             <CheckBox
               key={i}
@@ -64,7 +106,7 @@ export default function MiniProyects() {
               value={"1"}
               name={"verduras"}
               checked={i === index}
-              onClick={() => setIndex(i)}
+              onClick={() => handleSelected(i)}
               $backgroundcolor={'var(--pink-250)'}
               $bordercolor={'var(--pink-700)'}
             ></CheckBox>

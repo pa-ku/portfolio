@@ -1,10 +1,8 @@
 import React from "react";
 import { styled } from "styled-components";
-
 import Subtitle from "./Subtitle";
-
 import SocialMedia from "./SocialMedia";
-import MainButton from "./ui/MainButton";
+
 import Title from "./Title";
 
 const Wrapper = styled.div`
@@ -13,6 +11,7 @@ const Wrapper = styled.div`
   justify-content: center;
   text-align: center;
   width: 40ch;
+  
 
   @media (max-width: 1200px) {
     width: 100%;
@@ -24,14 +23,6 @@ const Wrapper = styled.div`
     scale: 0.9;
   }
   
-  opacity: 0;
-  animation: 800ms show forwards;
-
-  @keyframes show {
-   100%{
-    opacity: 1;
-   } 
-  }
 `;
 
 const Container = styled.div`
@@ -74,8 +65,8 @@ export default function Header({ description, subtitle }) {
             text={description}
           />
           <SocialMedia />
-       {/*    <MainButton  text={"Mas sobre mi"} /> */}
-        </Container> 
+          {/*    <MainButton  text={"Mas sobre mi"} /> */}
+        </Container>
       </Wrapper>
     </>
   );

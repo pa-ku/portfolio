@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import CheckBox from "../ui/CheckBox";
 import PokeBallLogo from '../../assets/img/logos/pokeball-logo.svg'
+import { usePokeNames } from "../../hooks/usePokeNames";
 import axios from "axios";
-
 
 const PokeWrapper = styled.div`
 width: 100%;
@@ -161,34 +160,37 @@ margin-left: 10px;
 
 
 export default function Filter() {
+  const { pokeNames } = usePokeNames(235)
   const [query, setQuery] = useState("");
-  const [pokemon, setPokemon] = useState([])
   const [filterPoke, setFilteredPoke] = useState([])
-  const [pokeSound, setPokeSound] = useState(``)
-  const audio = new Audio(pokeSound);
+  const [currentPoke, setCurrentPoke] = useState()
 
-
-  useEffect(() => {
-    const dataPokemon = async () => {
-      const pokeApi = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=150`)
-      setPokemon(pokeApi.data.results)
-    }
-    dataPokemon()
-  }, [query])
-
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setFilteredPoke(pokemon.filter((pokemon) => {
-      return pokemon.name.toLowerCase().includes(query.toLowerCase());
+    setLoading(true)
+    if (currentPoke)
+      axios.get(`https://pokeapi.co/api/v2/pokemon/${currentPoke.name}`)
+        .then(res => {
+          const data = res.data
+          setCurrentPoke(data)
+          setLoading(false)
+        })
+
+  }, [currentPoke])
+
+  useEffect(() => {
+
+    setFilteredPoke(pokeNames.filter((pokemon) => {
+      return pokemon.toLowerCase().includes(query.toLowerCase());
     }))
   }, [query])
 
 
 
-  function handleSound() {
-
-    audio.volume = 0.3
-    audio.play();
+  function handleSelect(poke) {
+    console.log(pokeNames[0]);
+    setCurrentPoke(poke)
   }
 
   return (
@@ -208,21 +210,18 @@ export default function Filter() {
         <FilterContainer>
           {query && filterPoke.slice(0, 5).map((poke) =>
             <>
-              <Item onMouseEnter={() => setPokeSound(`https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/legacy/${poke.url.split("/")[6]}.ogg`)} onClick={handleSound} key={poke.name}>
+              <Item onClick={() => handleSelect(poke)} key={poke}>
                 <PokeName >
 
-                  {poke.name}
+                  {poke}
                 </PokeName>
 
                 <PokeCard className="poke-card">
                   <PokeCardTitle  >
-                    {poke.name}
-
-                    {/*  <PokeImg src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke.url.split("/")[6]}.png`} alt="" /> */}
-                    <PokeImg src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${poke.url.split("/")[6]}.gif`} alt="" />
+                    {poke}
+                    {loading ? 'loading' : <PokeImg src={currentPoke.sprites.front_default} alt={"poke"} />}
 
                   </PokeCardTitle>
-                  {/*                   https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/1.ogg */}
                 </PokeCard>
               </Item>
 

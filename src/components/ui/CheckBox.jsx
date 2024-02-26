@@ -7,13 +7,9 @@ const Input = styled.input`
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
-  background-color: #eaeaea;
-
-
 transition: 500ms;
-  font-weight: 600;
+  font-weight: 500;
   border-color: #717171;
-  color: #1c2128;
   padding: 3px;
   min-width: 20px;
   padding-inline: 15px;
@@ -22,16 +18,6 @@ transition: 500ms;
   font-size: 1rem;
   border-radius: 6px;
   cursor: pointer;
-  &:hover {
-    filter: brightness(1.05);
-  }
-  &:checked {
-    background-color:  ${(props) => props.$backgroundcolor};
-
-    border-color: ${(props) => props.$bordercolor};
-    border-color: ${(props) => props.$bordercolor};
-    background-color: ${(props) => props.$backgroundcolor};
-  }
   &::before {
     font-family:  ${props => props.$font ? '"Pixelify Sans", sans-serif' : ''};
     content: "${(props) => props.$text}";
@@ -39,7 +25,7 @@ transition: 500ms;
 `;
 export default function CheckBox({
   $text,
-  checked,
+
   onChange,
   name,
   value,
@@ -51,7 +37,7 @@ export default function CheckBox({
     <>
       <Input
         value={value}
-        checked={checked}
+  
         $backgroundcolor={$backgroundcolor}
         name={name}
         type="radio"

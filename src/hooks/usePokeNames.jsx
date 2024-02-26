@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { useEffect,useState } from 'react'
+import { useEffect, useState } from 'react'
 
 
 /**  
@@ -9,7 +9,7 @@ import { useEffect,useState } from 'react'
 
  **/
 
-export const usePokeNames = (mPokemons)=>{
+export const usePokeNames = (mPokemons) => {
     const [pokeNames, setPokeNames] = useState([])
 
     useEffect(() => {
@@ -19,5 +19,5 @@ export const usePokeNames = (mPokemons)=>{
                 ]);
             });
     }, [])
-    return{pokeNames}
+    return { pokeNames }
 }

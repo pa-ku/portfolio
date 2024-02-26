@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   height: 250px;
   opacity: 0;
   translate: -90px;
-  animation: 100ms Show forwards;
+  animation: 1s Show forwards;
   @media (max-width: 700px) {
     width: 100%;
     height: max-content;

@@ -66,10 +66,6 @@ export default function PokeGuess() {
         }
     }, [time])
 
-
-
-
-
     function startGame() {
         rollNumber()
         startSound()
@@ -214,9 +210,9 @@ const Score = styled.p`
 `
 
 const PokeLogo = styled.img`
-width: 35px;
+width: 30px;
 margin: 0px;
-height: 35px;
+height: 30px;
 pointer-events: none;
 object-fit: contain;
 animation: 2s rotate forwards;
