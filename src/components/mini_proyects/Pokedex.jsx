@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import PokeBallLogo from '../../assets/img/logos/pokeball-logo.svg'
+import PokeBallLogo from '../../assets/icons/poke-logo-2.svg'
 import { usePokeNames } from "../../hooks/usePokeNames";
 import axios from "axios";
 

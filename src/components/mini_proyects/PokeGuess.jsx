@@ -9,8 +9,8 @@ import useSound from 'use-sound'
 import startAudio from '../../assets/sound/clickSound.mp3'
 import { usePokeNames } from '../../hooks/usePokeNames'
 import MainButton from '../ui/MainButton'
-import pokeLogo from '../../assets/icons/pokeLogo.webp'
 import VolumeIcons from '../ui/VolumeIcons'
+import pokeLogo from '../../assets/icons/poke-logo.svg'
 
 
 
@@ -148,7 +148,8 @@ export default function PokeGuess() {
                         <MenuWrapper>
 
                             <VolumeIcons sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
-                            <MainButton $color={'var(--pink-400))'} $background={'var(--blue-100), var(--blue-800)'} $fontsize={'2rem'} icon={<PokeLogo src={pokeLogo} alt="" />} onClick={startGame} >START</MainButton>
+
+                            <StartButton onClick={startGame}><p>START</p><PokeLogo src={pokeLogo} alt="" /></StartButton>
                             <Score $scoreAnim={scoreUp} >Mejor Puntaje: {maxScore}</Score>
                             <PopUpText>{endMsj}</PopUpText>
                         </MenuWrapper>
@@ -196,9 +197,61 @@ export default function PokeGuess() {
 
 }
 
+const StartButton = styled.button`
+background-color: #fff;
+border: 0px;
+width: 80px;
+height: 80px;
+display: flex;
+align-items: center;
+cursor: pointer;
+justify-content: center;
+position: relative;
+&:hover img{
+rotate: 20deg;
+}
+
+& p{
+    position: absolute;
+    transition: 300ms ;
+    left: 4px;
+    font-size: 25px;
+    color: var(--pink-400);
+}
+&:hover p{
+left: -75px;
+}
+`
+
+const PokeLogo = styled.img`
+width: 70px;
+margin: 0px;
+height: 70px;
+pointer-events: none;
+object-fit: contain;
+transition: 300ms;
+animation: 1000ms rotate forwards;
+animation: 3000ms scale infinite;
+@keyframes scale {
+    0%{
+        scale: 1;
+    }
+    60%{
+        scale:1.1;
+    }
+    100%{
+
+    }
+}
+@keyframes rotate {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+`
 
 const Score = styled.p`
-  font-size: 30px;
+  font-size: 25px;
   background: linear-gradient(to right, #ff8400, #fda94e);
     -webkit-background-clip: text;
     background-clip: text;
@@ -259,19 +312,7 @@ ${props => props.$scoreAnim ? 'animation:1500ms scoreup forwards;' : ''}
 }
 `
 
-const PokeLogo = styled.img`
-width: 25px;
-margin: 0px;
-height: 25px;
-pointer-events: none;
-object-fit: contain;
-animation: 1000ms rotate forwards;
-@keyframes rotate {
-    100%{
-        transform: rotate(180deg);
-    }
-}
-`
+
 
 const MenuWrapper = styled.div`
 display: flex;
