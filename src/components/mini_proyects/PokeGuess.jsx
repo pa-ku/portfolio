@@ -208,7 +208,8 @@ cursor: pointer;
 justify-content: center;
 position: relative;
 &:hover img{
-rotate: 20deg;
+rotate: 90deg;
+
 }
 
 & p{
@@ -216,10 +217,12 @@ rotate: 20deg;
     transition: 300ms ;
     left: 4px;
     font-size: 25px;
-    color: var(--pink-400);
+ color: #333;
 }
 &:hover p{
-left: -75px;
+left: -80px;
+border-radius: 10px;
+padding: 4px 7px;
 }
 `
 
@@ -252,7 +255,7 @@ animation: 3000ms scale infinite;
 
 const Score = styled.p`
   font-size: 25px;
-  background: linear-gradient(to right, #ff8400, #fda94e);
+  background: linear-gradient(to right, var(--pink-500),var(--pink-300) );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -319,7 +322,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 gap: 20px;
-width: 100%;
+width: 300px;
 flex-direction:column;
 `
 
