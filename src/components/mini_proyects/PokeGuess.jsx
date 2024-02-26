@@ -91,8 +91,12 @@ export default function PokeGuess() {
 
 
     function timeUp() {
+
         setTime(time + 3)
-        setScoreUp('animation:2s scoreup forwards')
+        setScoreUp('scoreup')
+        setTimeout(() => {
+            setScoreUp('')
+        }, 2000)
     }
 
     function choiceHandler(e) {
@@ -145,7 +149,7 @@ export default function PokeGuess() {
 
                             <VolumeIcons sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
                             <MainButton $background={'var(--blue-100), var(--blue-800)'} $fontsize={'2rem'} icon={<PokeLogo src={pokeLogo} alt="" />} onClick={startGame} >START</MainButton>
-                            <Score $scoreAnim={scoreUp}>Mejor Puntaje: {maxScore}</Score>
+                            <Score $scoreAnim={scoreUp} >Mejor Puntaje: {maxScore}</Score>
                             <PopUpText>{endMsj}</PopUpText>
                         </MenuWrapper>
                     </>
@@ -162,7 +166,7 @@ export default function PokeGuess() {
                             <VolumeIcons sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
                         </div>
                         <TimeContainer>
-                            <ScoreUp>+3</ScoreUp>
+                            <ScoreUp $anim={scoreUp}>+3</ScoreUp>
                             <Timer>{time}s</Timer>
                         </TimeContainer>
                     </AnswerContainer>
@@ -223,28 +227,33 @@ position: relative;
 `
 
 const ScoreUp = styled.p`
-color: #ff8716;
+color: var(--pink-500);
 font-weight: 800;
 font-size: 40px;
 position: absolute;
-right: -20px;
-top: -20px;
-scale: 0px;
+transform-origin: bottom;
+right: 0px;
+left: 0px;
+top: -10px;
+scale: 0.5;
 opacity: 0;
-${props => props.$scoreAnim};
+animation:1500ms ${props => props.$anim} forwards ;
 
 @keyframes scoreup {
     0%{
-        scale: 0;
+        top: -10px;
+        scale: 0.5;
         opacity: 0;
     }
     50%{
         scale: 1;
         opacity: 1;
+        top:-30px;
     }
     100%{
-        scale: 0;
-        opacity: 0;
+        scale: 0.5;
+        opacity:0;
+        top:-10px;
     }
 }
 `
