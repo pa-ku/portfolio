@@ -15,7 +15,7 @@ import VolumeIcons from '../ui/VolumeIcons'
 
 
 export default function PokeGuess() {
-    const { pokeNames } = usePokeNames(251)
+    const { pokeNames } = usePokeNames(300)
     const [currentPoke, setCurrentPoke] = useState('')
     const [rolls, setRolls] = useState([])
     const [showImage, setShowImage] = useState(false)
@@ -36,7 +36,7 @@ export default function PokeGuess() {
     const [playMusic, { stop }] = useSound(payingSound, { volume: music ? 0.2 : 0 })
     const [startSound] = useSound(startAudio, { volume: sound ? 0.3 : 0 })
     const pokeAudio = new Audio(currentPoke && currentPoke.cries.legacy)
-
+    const [scoreUp, setScoreUp] = useState('')
 
     useEffect(() => {
         setLoading(true)
@@ -90,6 +90,11 @@ export default function PokeGuess() {
     }
 
 
+    function timeUp() {
+        setTime(time + 3)
+        setScoreUp('animation:2s scoreup forwards')
+    }
+
     function choiceHandler(e) {
         let value = e.target.value
         pokeAudio.volume = sound ? 0.3 : 0
@@ -101,9 +106,9 @@ export default function PokeGuess() {
             rollNumber()
         }, 2000);
         if (value === currentPoke.name) {
-            setTime(prevTime => time + 2)
-            setAnswers(prevState => ({ ...prevState, right: prevState.right + 1 }))
 
+            setAnswers(prevState => ({ ...prevState, right: prevState.right + 1 }))
+            timeUp()
         }
         else {
             setAnswers(prevState => ({ ...prevState, wrong: prevState.wrong + 1 }))
@@ -140,7 +145,7 @@ export default function PokeGuess() {
 
                             <VolumeIcons sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
                             <MainButton $background={'var(--blue-100), var(--blue-800)'} $fontsize={'2rem'} icon={<PokeLogo src={pokeLogo} alt="" />} onClick={startGame} >START</MainButton>
-                            <Score>Mejor Puntaje: {maxScore}</Score>
+                            <Score $scoreAnim={scoreUp}>Mejor Puntaje: {maxScore}</Score>
                             <PopUpText>{endMsj}</PopUpText>
                         </MenuWrapper>
                     </>
@@ -156,7 +161,10 @@ export default function PokeGuess() {
                             <Answer>Incorrectas: {answers.wrong}</Answer>
                             <VolumeIcons sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
                         </div>
-                        <Timer>{time}s</Timer>
+                        <TimeContainer>
+                            <ScoreUp>+3</ScoreUp>
+                            <Timer>{time}s</Timer>
+                        </TimeContainer>
                     </AnswerContainer>
                 </>)}
 
@@ -208,6 +216,37 @@ const Score = styled.p`
     }
 
     }
+`
+
+const TimeContainer = styled.div`
+position: relative;
+`
+
+const ScoreUp = styled.p`
+color: #ff8716;
+font-weight: 800;
+font-size: 40px;
+position: absolute;
+right: -20px;
+top: -20px;
+scale: 0px;
+opacity: 0;
+${props => props.$scoreAnim};
+
+@keyframes scoreup {
+    0%{
+        scale: 0;
+        opacity: 0;
+    }
+    50%{
+        scale: 1;
+        opacity: 1;
+    }
+    100%{
+        scale: 0;
+        opacity: 0;
+    }
+}
 `
 
 const PokeLogo = styled.img`
