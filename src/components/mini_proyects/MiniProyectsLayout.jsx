@@ -67,8 +67,16 @@ left: ${props => props.$left};
 
 
 export default function MiniProyects() {
-  const proyects = [<PokeGuess />, <Typing />];
-  const proyectsName = ["PokeGuess", "PokeType"];
+  const proyects = [
+    {
+      component: <PokeGuess />,
+      name: 'PokeGuess',
+    },
+    {
+      component: <Typing />,
+      name: 'PokeType',
+    }];
+
   const [selectedPosition, setSelectedPosition] = useState('')
   const [index, setIndex] = useState(0);
 
@@ -83,9 +91,6 @@ export default function MiniProyects() {
         setSelectedPosition('120px')
         break;
 
-      case 2:
-        setSelectedPosition('240px')
-        break;
     }
   }, [index])
 
@@ -101,8 +106,8 @@ export default function MiniProyects() {
           <Selected $left={selectedPosition}></Selected>
           {proyects.map((project, i) => (
             <CheckBox
-              key={i}
-              $text={proyectsName[i]}
+              key={project.name}
+              $text={project.name}
               value={"1"}
               name={"verduras"}
               checked={i === index}
@@ -114,7 +119,7 @@ export default function MiniProyects() {
 
         </NavContainer>
         <ProyectContainer>
-          {proyects[index]}
+          {proyects[index].component}
         </ProyectContainer>
       </Wrapper>
     </>

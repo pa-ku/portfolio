@@ -12,7 +12,8 @@ border-radius: 10px;
 width: 400px;
 position: relative;
 padding-bottom: 10px;
-
+background: linear-gradient(to top, #001f3e, #006a91);
+ 
 & *{
     font-family: "Pixelify Sans", sans-serif;
 }
@@ -23,11 +24,11 @@ width: 100%;
 
 
 const InputWord = styled.input`
-border: 4px solid #80d8ff;
+border: 5px solid #80d8ff;
 width: 100%;
 border-radius:10px 10px 0px 0px;
 font-size: 25px;
-background-color: #a5e3fd;
+background-color: #94dfff;
 text-align: center;
 text-transform: uppercase;
 &:focus{
@@ -43,9 +44,6 @@ display: flex;
 padding: 20px;
 justify-content: center;
 text-transform: uppercase;
- 
-
-
 color: #fff;
 font-size: 40px;
 `
@@ -58,10 +56,10 @@ const Timer = styled.p`
 text-align: center;
 font-size: 25px;
 padding: 10px;
-color: var(--pink-250);
+color: var(--blue-100);
 `
 const Msj = styled.p`
-color: #cacaca;
+color: #fff;
 text-align: center;
 position: absolute;
 font-size: 25px;
