@@ -179,7 +179,7 @@ export default function PokeGuess() {
 
                         <ImageContainer >
                             <PokeImage $show={showImage} src={currentPoke.sprites.front_default} alt="" />
-                            {showImage === true && <PopUpText>Es {currentPoke.name}!</PopUpText>}
+                            {showImage === true && <PokeName>Es {currentPoke.name}!</PokeName>}
                         </ImageContainer>
                         <OptionContainer>
 
@@ -382,14 +382,21 @@ flex-direction: column;
 }
 `
 
-const PopUpText = styled.p`
+const PokeName = styled.p`
 width: 20ch;
 text-align: center;
 font-size: 30px;
 color: var(--pink-400);
 animation: glow 200ms  ease forwards;
-
 `
+const PopUpText = styled.p`
+width: 20ch;
+text-align: center;
+font-size: 25px;
+color: #333;
+animation: glow 200ms  ease forwards;
+`
+
 const ImageContainer = styled.div`
 width: 100%;
 display: flex;
