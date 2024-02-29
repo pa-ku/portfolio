@@ -187,6 +187,7 @@ export default function PokeGuess() {
                         <MenuWrapper>
 
                             <VolumeIcons sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
+                            <StartButton onClick={startGame}><p>START</p><PokeLogo src={pokeLogo} alt="" /></StartButton>
                             <Select onChange={handleSelect} name="" id="">
                                 <Option value="Gen1">Generacion 1</Option>
                                 <Option value="Gen2">Generacion 2</Option>
@@ -194,7 +195,6 @@ export default function PokeGuess() {
                                 <Option value="Gen4">Generacion 4</Option>
 
                             </Select>
-                            <StartButton onClick={startGame}><p>START</p><PokeLogo src={pokeLogo} alt="" /></StartButton>
                             <Score $scoreAnim={scoreUp} >Mejor Puntaje: {maxScore}</Score>
                             <PopUpText>{endMsj}</PopUpText>
                         </MenuWrapper>
@@ -270,7 +270,7 @@ cursor: pointer;
 justify-content: center;
 position: relative;
 &:hover img{
-rotate: 90deg;
+rotate: 25deg;
 
 }
 
