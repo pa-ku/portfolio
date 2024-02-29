@@ -170,10 +170,6 @@ export default function PokeGuess() {
                 setPokeGeneration(386)
                 console.log(value);
                 break;
-            case 'Gen4':
-                setPokeGeneration(493)
-                console.log(value);
-                break;
         }
     }
 
@@ -192,8 +188,6 @@ export default function PokeGuess() {
                                 <Option value="Gen1">Generacion 1</Option>
                                 <Option value="Gen2">Generacion 2</Option>
                                 <Option value="Gen3">Generacion 3</Option>
-                                <Option value="Gen4">Generacion 4</Option>
-
                             </Select>
                             <Score $scoreAnim={scoreUp} >Mejor Puntaje: {maxScore}</Score>
                             <PopUpText>{endMsj}</PopUpText>
