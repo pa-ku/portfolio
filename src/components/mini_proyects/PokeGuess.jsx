@@ -15,7 +15,9 @@ import pokeLogo from '../../assets/icons/poke-logo.svg'
 
 
 export default function PokeGuess() {
-    const { pokeNames } = usePokeNames(300)
+
+    const [pokeGeneration, setPokeGeneration] = useState(151)
+    const { pokeNames } = usePokeNames(pokeGeneration, pokeGeneration)
     const [currentPoke, setCurrentPoke] = useState('')
     const [rolls, setRolls] = useState([])
     const [showImage, setShowImage] = useState(false)
@@ -37,6 +39,9 @@ export default function PokeGuess() {
     const [startSound] = useSound(startAudio, { volume: sound ? 0.3 : 0 })
     const pokeAudio = new Audio(currentPoke && currentPoke.cries.legacy)
     const [scoreUp, setScoreUp] = useState(false)
+    const [rolledNumbers, setRolledNumbers] = useState([])
+
+
 
     useEffect(() => {
         setLoading(true)
@@ -67,6 +72,20 @@ export default function PokeGuess() {
     }, [time])
 
 
+    function handleRollNumber() {
+        let result = Math.floor(Math.random() * 10)
+
+        for (let i = 0; i < 6; i++) {
+            let number
+            do {
+                number = result;
+            } while (rolledNumbers.includes(number));
+
+            setRolledNumbers([...rolledNumbers, number])
+        }
+    }
+
+    console.log
 
     function startGame() {
         rollNumber()
@@ -136,7 +155,27 @@ export default function PokeGuess() {
 
 
 
-
+    function handleSelect(e) {
+        let value = e.target.value
+        switch (value) {
+            case 'Gen1':
+                setPokeGeneration(151)
+                console.log(value);
+                break;
+            case 'Gen2':
+                setPokeGeneration(251)
+                console.log(value);
+                break;
+            case 'Gen3':
+                setPokeGeneration(386)
+                console.log(value);
+                break;
+            case 'Gen4':
+                setPokeGeneration(493)
+                console.log(value);
+                break;
+        }
+    }
 
 
 
@@ -148,7 +187,13 @@ export default function PokeGuess() {
                         <MenuWrapper>
 
                             <VolumeIcons sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
+                            <Select onChange={handleSelect} name="" id="">
+                                <Option value="Gen1">Generacion 1</Option>
+                                <Option value="Gen2">Generacion 2</Option>
+                                <Option value="Gen3">Generacion 3</Option>
+                                <Option value="Gen4">Generacion 4</Option>
 
+                            </Select>
                             <StartButton onClick={startGame}><p>START</p><PokeLogo src={pokeLogo} alt="" /></StartButton>
                             <Score $scoreAnim={scoreUp} >Mejor Puntaje: {maxScore}</Score>
                             <PopUpText>{endMsj}</PopUpText>
@@ -174,8 +219,6 @@ export default function PokeGuess() {
 
                 {isPlaying && loading === false && (
                     <>
-
-
                         <ImageContainer >
                             <PokeImage $show={showImage} src={currentPoke.sprites.front_default} alt="" />
                             {showImage === true && <PokeName>Es {currentPoke.name}!</PokeName>}
@@ -195,6 +238,26 @@ export default function PokeGuess() {
     )
 
 }
+
+
+const Select = styled.select`
+font-size: 20px;
+border: 0px;
+cursor: pointer;
+&:hover{
+    color: var(--blue-900);
+}
+
+`
+
+const Option = styled.option`
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 18px;
+text-align: center;
+border: 0px;
+`
 
 const StartButton = styled.button`
 background-color: #fff;

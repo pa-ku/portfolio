@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 
  **/
 
-export const usePokeNames = (mPokemons) => {
+export const usePokeNames = (mPokemons, renderCondition) => {
     const [pokeNames, setPokeNames] = useState([])
 
     useEffect(() => {
@@ -18,6 +18,6 @@ export const usePokeNames = (mPokemons) => {
                 setPokeNames([...res.data.results.map(poke => poke.name)
                 ]);
             });
-    }, [])
+    }, [renderCondition])
     return { pokeNames }
 }
