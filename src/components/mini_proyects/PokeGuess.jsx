@@ -8,7 +8,6 @@ import payingSound from '../../assets/sound/pokeguess-playing-music2.mp3'
 import useSound from 'use-sound'
 import startAudio from '../../assets/sound/clickSound.mp3'
 import { usePokeNames } from '../../hooks/usePokeNames'
-import MainButton from '../ui/MainButton'
 import VolumeIcons from '../ui/VolumeIcons'
 import pokeLogo from '../../assets/icons/poke-logo.svg'
 
@@ -17,6 +16,14 @@ import pokeLogo from '../../assets/icons/poke-logo.svg'
 export default function PokeGuess() {
 
     const [pokeGeneration, setPokeGeneration] = useState(151)
+    const [maxScore, setMaxScore] = useLocalStorage('gen1Score', { gen1: 0, gen2: 0, gen3: 0 })
+    const [genSelected, setGenSelected] = useLocalStorage('genSelected', {
+        gen1: true,
+        gen2: false,
+        gen3: false,
+        selected: 'gen1',
+        value: maxScore.gen1
+    })
     const { pokeNames } = usePokeNames(pokeGeneration, pokeGeneration)
     const [currentPoke, setCurrentPoke] = useState('')
     const [rolls, setRolls] = useState([])
@@ -29,8 +36,7 @@ export default function PokeGuess() {
     })
     const [shuffle, setShuffle] = useState()
     const [endMsj, setEndMsj] = useState('')
-    const [maxScore, setMaxScore] = useLocalStorage('maxScoreGuessPokemon', answers.right)
-    const { time, setTime, startTimer, resetTimer } = useCountDown(49);
+    const { time, setTime, startTimer, resetTimer } = useCountDown(5);
 
     /* SoundBank */
     const [sound, setSound] = useState(true)
@@ -56,13 +62,30 @@ export default function PokeGuess() {
     }, [rolls])
 
 
-
-
-
     useEffect(() => {
         if (time === 0) {
-            if (answers.right >= maxScore) {
-                setMaxScore(answers.right)
+            if (answers.right >= genSelected.value) {
+            }
+            switch (genSelected.selected) {
+                case 'gen1':
+                    setMaxScore(prevScore => ({
+                        ...prevScore,
+                        gen1: answers.right
+                    }))
+                    break;
+                case 'gen2':
+                    setMaxScore(prevScore => ({
+                        ...prevScore,
+                        gen2: answers.right
+                    }));
+                    break;
+                case 'gen3':
+                    setMaxScore(prevScore => ({
+                        ...prevScore,
+                        gen3: answers.right
+                    }));
+                    break;
+
             }
             setIsPlaying(false)
             resetTimer()
@@ -84,8 +107,6 @@ export default function PokeGuess() {
             setRolledNumbers([...rolledNumbers, number])
         }
     }
-
-    console.log
 
     function startGame() {
         rollNumber()
@@ -160,18 +181,40 @@ export default function PokeGuess() {
         switch (value) {
             case 'Gen1':
                 setPokeGeneration(151)
-                console.log(value);
+                setGenSelected({
+                    gen1: true,
+                    gen2: false,
+                    gen3: false,
+                    selected: 'gen1',
+                    value: maxScore.gen1
+                })
+
+
                 break;
             case 'Gen2':
                 setPokeGeneration(251)
-                console.log(value);
+
+                setGenSelected({
+                    gen1: false,
+                    gen2: true,
+                    gen3: false,
+                    selected: 'gen2',
+                    value: maxScore.gen2
+                })
                 break;
             case 'Gen3':
                 setPokeGeneration(386)
-                console.log(value);
+                setGenSelected({
+                    gen1: false,
+                    gen2: false,
+                    gen3: true,
+                    selected: 'gen3',
+                    value: maxScore.gen3
+                })
                 break;
         }
     }
+
 
 
 
@@ -185,11 +228,13 @@ export default function PokeGuess() {
                             <VolumeIcons sound={sound} setSound={setSound} music={music} setMusic={setMusic} />
                             <StartButton onClick={startGame}><p>START</p><PokeLogo src={pokeLogo} alt="" /></StartButton>
                             <Select onChange={handleSelect} name="" id="">
-                                <Option value="Gen1">Generacion 1</Option>
-                                <Option value="Gen2">Generacion 2</Option>
-                                <Option value="Gen3">Generacion 3</Option>
+                                <Option selected={genSelected.gen1} value="Gen1">Generacion 1</Option>
+                                <Option selected={genSelected.gen2} value="Gen2">Generacion 2</Option>
+                                <Option selected={genSelected.gen3} value="Gen3">Generacion 3</Option>
                             </Select>
-                            <Score $scoreAnim={scoreUp} >Mejor Puntaje: {maxScore}</Score>
+                            <Score $scoreAnim={scoreUp} >Mejor Puntaje: {genSelected.value}
+
+                            </Score>
                             <PopUpText>{endMsj}</PopUpText>
                         </MenuWrapper>
                     </>
