@@ -36,7 +36,7 @@ export default function PokeGuess() {
     })
     const [shuffle, setShuffle] = useState()
     const [endMsj, setEndMsj] = useState('')
-    const { time, setTime, startTimer, resetTimer } = useCountDown(5);
+    const { time, setTime, startTimer, resetTimer } = useCountDown(60);
 
     /* SoundBank */
     const [sound, setSound] = useState(true)
