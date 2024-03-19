@@ -7,6 +7,7 @@ import NodeImage from "../assets/stackicons/nodejsicon.svg";
 import StyledImage from "../assets/stackicons/styledicon.svg";
 import HtmlImage from "../assets/stackicons/htmlicon.svg";
 import GithubIcon from "../assets/stackicons/githubicon.svg";
+import MongoImage from "../assets/stackicons/mongo.svg";
 
 const Wrapper = styled.div`
   display: flex;
@@ -140,12 +141,14 @@ const TextContainer = styled.div`
 `;
 
 const StackContainer = styled.div`
-  width: 90px;
+  width: 80px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   flex-direction: column;
   gap: 10px;
+  height: 100%;
+  padding-top: 10px;
   @media (max-width: 800px) {
     flex-direction: row;
     padding: 10px;
@@ -153,8 +156,8 @@ const StackContainer = styled.div`
     
   }
   & img {
-    width: 35px;
-    height: 35px;
+    width: 33px;
+    height: 33px;
     object-fit: contain;
   }
 `;
@@ -210,6 +213,8 @@ export default function ProyectTemplate({
   href,
   GithubHref,
 }) {
+
+
   return (
     <Wrapper>
       <LogoContainer className="logo-ctn" href={href} target="_blank">
@@ -227,6 +232,8 @@ export default function ProyectTemplate({
           <InfoDescription>{Description}</InfoDescription>
         </TextContainer>
         <StackContainer>
+
+
           {ReactIcon && (
             <img title="React" src={ReactImage} alt="Icono React" />
           )}
@@ -241,6 +248,13 @@ export default function ProyectTemplate({
               title="Styled Components"
               src={StyledImage}
               alt="Icono Styled Components"
+            />
+          )}
+          {MongoIcon && (
+            <img
+              title="MongoDb"
+              src={MongoImage}
+              alt="Icono MongoDb"
             />
           )}
           {HtmlIcon && <img src={HtmlImage} alt="Icono Javascript" />}

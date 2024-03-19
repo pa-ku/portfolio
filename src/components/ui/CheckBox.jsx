@@ -18,7 +18,6 @@ transition: 500ms;
   font-size: 1rem;
   border-radius: 6px;
   cursor: pointer;
-
   &:checked{
     color: #fff;
   }
@@ -27,9 +26,9 @@ transition: 500ms;
     content: "${(props) => props.$text}";
   }
 `;
+
 export default function CheckBox({
   $text,
-
   onChange,
   name,
   value,
@@ -41,7 +40,6 @@ export default function CheckBox({
     <>
       <Input
         value={value}
-  
         $backgroundcolor={$backgroundcolor}
         name={name}
         type="radio"

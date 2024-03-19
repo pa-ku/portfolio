@@ -8,6 +8,7 @@ export const Proyects = [
       tree: "Se mejoro el LCP en un 300%, de 3.2 segundos de carga a 0.8",
     },
   },
+
   {
     name: "Eride",
     title: "E-ride Scooter Store",
@@ -28,5 +29,11 @@ export const Proyects = [
     name: "Huinganco",
     title: "Sitio turistico",
     description: "Sitio de Turismo Utiliza React Router para manejar ",
+  },
+  {
+    name: "Menu",
+    title: "Menu Pauls",
+    description:
+    "Creado con React y utilizando como servidor MongoDb y express, la pagina ofrece la facilidad de filtrar entre productos, asi como de una cuenta administrador para crear y modificar los productos",
   },
 ];

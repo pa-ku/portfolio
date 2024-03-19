@@ -60,7 +60,6 @@ bottom: 0px;
 
 transition: all 500ms;
 left: ${props => props.$left};
-
 `
 
 
