@@ -260,13 +260,16 @@ export default function ProyectTemplate({
           {HtmlIcon && <img src={HtmlImage} alt="Icono Javascript" />}
         </StackContainer>
       </InfoContainer>
-      <GithubCtn
+
+      {GithubHref && <GithubCtn
         title="Proyecto en Github"
+        target="blank"
         href={GithubHref}
         className="github-ctn"
       >
+
         <img src={GithubIcon} alt="" />
-      </GithubCtn>
+      </GithubCtn>}
     </Wrapper>
   );
 }

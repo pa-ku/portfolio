@@ -33,7 +33,7 @@ export default function ProyectLayout() {
     <>
       <ProyectTemplate
         LogoImgSrc={ErideLogo}
-        GithubHref={"https://github.com/pa-ku/FlybondiReact"}
+        /*       GithubHref={"https://github.com/pa-ku/FlybondiReact"} */
         ImgAlt={"Logo Eride"}
         Title={Proyects[1].title}
         Description={Proyects[1].description}
@@ -46,13 +46,13 @@ export default function ProyectLayout() {
       />
       <ProyectTemplate
         LogoImgSrc={MenuLogo}
-        ImgAlt={"Logo Rosco"}
+        ImgAlt={"Logo Menu"}
         BackgroundImg={MenuPageImage}
-        GithubHref={"https://github.com/pa-ku/Rosco"}
+        GithubHref={"https://github.com/pa-ku/menu_client"}
         BackgroundAlt={"Imagen pagina web de flybondi"}
         Title={Proyects[4].title}
         Description={Proyects[4].description}
-        href={"https://rosquewe.netlify.app/"}
+        href={"https://paulsmenu.netlify.app"}
         ReactIcon
         StyledIcon
         MongoIcon
