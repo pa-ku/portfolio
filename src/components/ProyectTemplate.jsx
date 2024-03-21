@@ -170,7 +170,7 @@ const InfoDescription = styled.div``;
 
 const GithubCtn = styled.a`
   background-color: var(--blue-800);
-  padding: 2px;
+  padding: 4px;
   border-radius: 0px 20px 0px 20px;
   position: absolute;
   width: 60px;
@@ -190,7 +190,7 @@ const GithubCtn = styled.a`
   }
   & img {
    width: 100%;
-height: 100%;
+    height: 100%;
     object-fit: contain;
     color: #fff;
     filter: invert(1);
