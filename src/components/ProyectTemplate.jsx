@@ -37,7 +37,7 @@ const Wrapper = styled.div`
 `;
 const LogoContainer = styled.a`
   width: 150px;
-  height: 150px;
+  height: 140px;
   border-radius: 50px;
   background-color: #002742;
   position: absolute;
@@ -46,7 +46,7 @@ const LogoContainer = styled.a`
   align-items: center;
   justify-content: center;
   outline: 5px solid #fff;
-  padding: 10px;
+  padding: 15px;
   outline-offset: 3px;
   @media (max-width: 800px) {
     bottom: 0px;
@@ -144,7 +144,7 @@ const StackContainer = styled.div`
   width: 80px;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   flex-direction: column;
   gap: 10px;
   height: 100%;
@@ -170,11 +170,11 @@ const InfoDescription = styled.div``;
 
 const GithubCtn = styled.a`
   background-color: var(--blue-800);
-  padding: 10px;
+  padding: 2px;
   border-radius: 0px 20px 0px 20px;
   position: absolute;
   width: 60px;
-  height: 40px;
+  height: 35px;
   display: flex;
   right: 0px;
   align-items: center;
@@ -189,8 +189,8 @@ const GithubCtn = styled.a`
     background-color: var(--blue-900);
   }
   & img {
-    height: 30px;
-    width: 30px;
+   width: 100%;
+height: 100%;
     object-fit: contain;
     color: #fff;
     filter: invert(1);
