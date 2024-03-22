@@ -165,7 +165,6 @@ const StackContainer = styled.div`
 const InfoTitle = styled.h2`
   font-size: 20px;
 `;
-
 const InfoDescription = styled.div``;
 
 const GithubCtn = styled.a`
