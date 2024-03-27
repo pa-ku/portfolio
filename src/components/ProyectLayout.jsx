@@ -1,4 +1,3 @@
-import React from "react";
 import ProyectTemplate from "./ProyectTemplate";
 import FlyLogo from "../assets/img/logos/flybondi-logo.webp";
 import FlybondiPageImage from "../assets/img/backgrounds/PageFlybondi.webp";

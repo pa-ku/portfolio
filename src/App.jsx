@@ -59,7 +59,7 @@ function App() {
           <ProyectLayout />
         </ProyectosContainer>
         <ConocimientosContainer>
-          <Title $altButton>Conocimientos</Title>
+          <Title altButton>Conocimientos</Title>
           <Conocimientos />
         </ConocimientosContainer>
 

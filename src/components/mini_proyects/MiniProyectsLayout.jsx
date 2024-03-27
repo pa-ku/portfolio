@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-
+import { useState } from "react";
 import Title from "../Title";
 import styled from "styled-components";
-import Filter from "./Pokedex";
 import CheckBox from "../ui/CheckBox";
 import Typing from "./Typing";
-import PokeGuess from "./PokeGuess";
+import PokeGuess from "./PokeGuess/PokeGuess";
 import { useEffect } from "react";
 
 const Wrapper = styled.div`
@@ -100,7 +98,7 @@ export default function MiniProyects() {
   return (
     <>
       <Wrapper>
-        <Title $altButton>Proyectos Mini</Title>
+        <Title altButton={true}>Proyectos Mini</Title>
         <NavContainer>
           <Selected $left={selectedPosition}></Selected>
           {proyects.map((project, i) => (

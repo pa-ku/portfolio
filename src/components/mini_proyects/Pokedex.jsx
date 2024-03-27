@@ -210,7 +210,7 @@ function handleSelectPoke(poke){
 
 
         <FilterContainer>
-          {query && filterPoke.slice(0, 5).map((poke,index) =>
+          {query && filterPoke.slice(0, 5).map((poke) =>
             <>
               <Item onMouseEnter={() => handleSelectPoke(poke)} key={poke}>
                 <PokeName >
@@ -229,7 +229,6 @@ function handleSelectPoke(poke){
 
             </>
           )
-
           }
         </FilterContainer>
       </PokeWrapper>
