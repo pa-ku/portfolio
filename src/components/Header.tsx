@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import Subtitle from "./Subtitle";
-import SocialMedia from "./SocialMedia";
+import React from 'react'
+import styled from 'styled-components'
+import Subtitle from './Subtitle'
+import SocialMedia from './SocialMedia'
 
-import Title from "./Title";
+import Title from './Title'
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     scale: 0.9;
   }
-`;
+`
 
 const Container = styled.div`
   display: flex;
@@ -38,11 +38,11 @@ const Container = styled.div`
     flex-wrap: wrap;
     padding-inline: 1em;
   }
-`;
+`
 
-type HeaderProps ={
-  description:String;
-  subtitle:String;
+type HeaderProps = {
+  description: String
+  subtitle: String
 }
 
 export default function Header({ description, subtitle }) {
@@ -51,11 +51,11 @@ export default function Header({ description, subtitle }) {
       <Wrapper>
         <Container>
           <Title>Pablo Kuhn</Title>
-          <Subtitle color={"#222"} fontSize={" 1.5rem"}>
+          <Subtitle color={'#222'} fontSize={' 1.5rem'}>
             {subtitle}
           </Subtitle>
 
-          <Subtitle color={"#333"} fontSize={"1rem"}>
+          <Subtitle color={'#333'} fontSize={'1rem'}>
             {description}
           </Subtitle>
           <SocialMedia />
@@ -63,5 +63,5 @@ export default function Header({ description, subtitle }) {
         </Container>
       </Wrapper>
     </>
-  );
+  )
 }

@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-
 /**  
   @params nPokemons = cantidad de pokemons que se llaman a la api
   @params pokeNames = array de los nombres de los pokemons
@@ -9,14 +8,14 @@ import { useEffect, useState } from 'react'
  **/
 
 export const usePokeNames = (mPokemons, renderCondition) => {
-    const [pokeNames, setPokeNames] = useState([])
+  const [pokeNames, setPokeNames] = useState([])
 
-    useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${mPokemons}&offset=0`)
-            .then((res) => {
-                setPokeNames([...res.data.results.map(poke => poke.name)
-                ]);
-            });
-    }, [renderCondition])
-    return { pokeNames }
+  useEffect(() => {
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/?limit=${mPokemons}&offset=0`)
+      .then((res) => {
+        setPokeNames([...res.data.results.map((poke) => poke.name)])
+      })
+  }, [renderCondition])
+  return { pokeNames }
 }

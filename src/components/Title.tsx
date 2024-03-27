@@ -1,12 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
-const TitleStyle = styled.p<{$altButton?:Boolean }>`
+const TitleStyle = styled.p<{ $altButton?: Boolean }>`
   text-align: center;
-  font-size: ${(props) => (props.$altButton ? "2.5rem" : "3.5rem")};
+  font-size: ${(props) => (props.$altButton ? '2.5rem' : '3.5rem')};
   font-weight: 300;
   padding: 0px;
-  background-color: ${props => props.$altButton ? '#fff' : 'var(--pink-50)'};
+  background-color: ${(props) =>
+    props.$altButton ? '#fff' : 'var(--pink-50)'};
   height: 50px;
   display: flex;
   align-items: center;
@@ -16,7 +17,7 @@ const TitleStyle = styled.p<{$altButton?:Boolean }>`
   letter-spacing: -2px;
   z-index: 1;
   &::after {
-    content: "";
+    content: '';
     width: 52%;
     height: 2px;
     bottom: -2px;
@@ -26,9 +27,10 @@ const TitleStyle = styled.p<{$altButton?:Boolean }>`
     background-color: var(--pink-300);
   }
   &::before {
-    content: "";
+    content: '';
     position: absolute;
-    background-color: ${props => props.$altButton ? '#fff' : 'var(--pink-50)'};
+    background-color: ${(props) =>
+      props.$altButton ? '#fff' : 'var(--pink-50)'};
     width: 300px;
     height: 100%;
     animation: 2s titleanimation forwards;
@@ -45,19 +47,18 @@ const TitleStyle = styled.p<{$altButton?:Boolean }>`
       translate: 350px;
     }
   }
-`;
+`
 
-type TitleProps={
-  children:String;
-  altButton?:Boolean;
+type TitleProps = {
+  children: String
+  altButton?: Boolean
 }
 
-const Title:React.FC <TitleProps> = ({ children,
-  altButton}) =>{
+const Title: React.FC<TitleProps> = ({ children, altButton }) => {
   return (
     <>
       <TitleStyle $altButton={altButton}>{children}</TitleStyle>
     </>
-  );
+  )
 }
 export default Title

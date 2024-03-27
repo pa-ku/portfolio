@@ -1,6 +1,6 @@
-import planeSvg from "../assets/img/plane.webp";
-import styled from "styled-components";
-import React from "react";
+/* import planeSvg from '../assets/img/plane.webp' */
+import styled from 'styled-components'
+import React from 'react'
 
 const Plane = styled.img`
   position: absolute;
@@ -92,12 +92,12 @@ const Plane = styled.img`
     width: 70px;
     animation: planeMobile 25s forwards;
   }
-`;
+`
 
-export default function Airplane({src}) {
+export default function Airplane({ src }) {
   return (
     <>
       <Plane src={src} alt="Imagen Avion flybondi" />
     </>
-  );
+  )
 }

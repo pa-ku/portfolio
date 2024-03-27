@@ -1,10 +1,10 @@
-import { useState } from "react";
-import Title from "../Title";
-import styled from "styled-components";
-import CheckBox from "../ui/CheckBox";
-import Typing from "./Typing";
-import PokeGuess from "./PokeGuess/PokeGuess";
-import { useEffect } from "react";
+import { useState } from "react"
+import Title from "../Title"
+import styled from "styled-components"
+import CheckBox from "../ui/CheckBox"
+import Typing from "./Typing"
+import PokeGuess from "./PokeGuess/PokeGuess"
+import { useEffect } from "react"
 
 const Wrapper = styled.div`
   width: 100%;
@@ -14,8 +14,7 @@ const Wrapper = styled.div`
   justify-content: start;
   flex-direction: column;
   gap: 30px;
-`;
-
+`
 
 const NavContainer = styled.div`
   display: grid;
@@ -26,68 +25,61 @@ const NavContainer = styled.div`
   z-index: 0;
   border-radius: 10px;
   position: relative;
-  &:hover .selected{
-scale: 1.1;
-}
-`;
-
-
+  &:hover .selected {
+    scale: 1.1;
+  }
+`
 
 const ProyectContainer = styled.div`
-opacity: 0;
-animation: 1s opacity forwards;
-@keyframes opacity {
-  0%{
-    opacity: 0;
+  opacity: 0;
+  animation: 1s opacity forwards;
+  @keyframes opacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
-  100%{
-    opacity:1;
-  
-  }
-}
 `
 
 const Selected = styled.div`
-position: absolute;
-height: 100%;
-border-radius: 10px;
-background-color: var(--pink-400);
-width: 120px;
-z-index: -11;
-bottom: 0px;
+  position: absolute;
+  height: 100%;
+  border-radius: 10px;
+  background-color: var(--pink-400);
+  width: 120px;
+  z-index: -11;
+  bottom: 0px;
 
-transition: all 500ms;
-left: ${props => props.$left};
+  transition: all 500ms;
+  left: ${(props) => props.$left};
 `
-
-
-
 
 export default function MiniProyects() {
   const proyects = [
     {
       component: <PokeGuess />,
-      name: 'PokeGuess',
+      name: "PokeGuess",
     },
     {
       component: <Typing />,
-      name: 'PokeType',
-    }];
+      name: "PokeType",
+    },
+  ]
 
-  const [selectedPosition, setSelectedPosition] = useState('')
-  const [index, setIndex] = useState(0);
-
+  const [selectedPosition, setSelectedPosition] = useState("")
+  const [index, setIndex] = useState(0)
 
   useEffect(() => {
     switch (index) {
       case 0:
-        setSelectedPosition('0px')
-        break;
+        setSelectedPosition("0px")
+        break
 
       case 1:
-        setSelectedPosition('120px')
-        break;
-
+        setSelectedPosition("120px")
+        break
     }
   }, [index])
 
@@ -109,16 +101,13 @@ export default function MiniProyects() {
               name={"verduras"}
               checked={i === index}
               onClick={() => handleSelected(i)}
-              $backgroundcolor={'var(--pink-250)'}
-              $bordercolor={'var(--pink-700)'}
+              $backgroundcolor={"var(--pink-250)"}
+              $bordercolor={"var(--pink-700)"}
             ></CheckBox>
           ))}
-
         </NavContainer>
-        <ProyectContainer>
-          {proyects[index].component}
-        </ProyectContainer>
+        <ProyectContainer>{proyects[index].component}</ProyectContainer>
       </Wrapper>
     </>
-  );
+  )
 }

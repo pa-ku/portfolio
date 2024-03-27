@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { styled } from "styled-components";
-import gitSvg from "../assets/icons/github.svg";
-import linkedSvg from "../assets/icons/linkedin.svg";
-import emailSvg from "../assets/icons/email.svg";
+import { useState } from 'react'
+import { styled } from 'styled-components'
+import gitSvg from '../assets/icons/github.svg'
+import linkedSvg from '../assets/icons/linkedin.svg'
+import emailSvg from '../assets/icons/email.svg'
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,15 +15,15 @@ const Wrapper = styled.div`
   padding-top: 10px;
 
   position: relative;
-`;
+`
 
 const LinkContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 13px;
-background-color: var(--pink-50);
-`;
+  background-color: var(--pink-50);
+`
 
 const Link = styled.a`
   display: flex;
@@ -33,7 +33,7 @@ const Link = styled.a`
 
   cursor: pointer;
   transition: 0.3s;
-`;
+`
 const MsjToolkit = styled.p`
   background-color: #0daabf;
   padding: 2px 8px;
@@ -60,7 +60,7 @@ const MsjToolkit = styled.p`
       translate: 100px 0px;
     }
   }
-`;
+`
 
 const Icon = styled.img`
   width: 40px;
@@ -72,18 +72,18 @@ const Icon = styled.img`
     scale: 1.1;
     filter: drop-shadow(0 0mm 2mm #9cd9ff);
   }
-`;
+`
 
 export default function SocialBar() {
-  const copymsj = "p4blo.kuhn@gmail.com";
-  const [toolkit, setToolkit] = useState(false);
+  const copymsj = 'p4blo.kuhn@gmail.com'
+  const [toolkit, setToolkit] = useState(false)
 
   function handleCopy() {
-    navigator.clipboard.writeText(copymsj);
-    setToolkit(true);
+    navigator.clipboard.writeText(copymsj)
+    setToolkit(true)
     setTimeout(() => {
-      setToolkit(false);
-    }, 4000);
+      setToolkit(false)
+    }, 4000)
   }
   return (
     <>
@@ -110,5 +110,5 @@ export default function SocialBar() {
         </LinkContainer>
       </Wrapper>
     </>
-  );
+  )
 }

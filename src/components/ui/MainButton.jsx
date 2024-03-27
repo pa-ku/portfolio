@@ -1,6 +1,5 @@
-import React from "react";
-import styled from "styled-components";
-import { useState } from "react";
+import styled from 'styled-components'
+import { useState } from 'react'
 
 const Button = styled.a`
   display: flex;
@@ -19,17 +18,17 @@ const Button = styled.a`
   text-decoration: none;
   z-index: 200;
   font-size: 1.5rem;
-  font-size:${props => props.$fontsize};
+  font-size: ${(props) => props.$fontsize};
   font-weight: 600;
   position: relative;
   gap: 5px;
-  color: ${props => props.$color};
-  background: linear-gradient(to right,${props => props.$background}) ;
-  
+  color: ${(props) => props.$color};
+  background: linear-gradient(to right, ${(props) => props.$background});
+
   &:hover {
-filter: brightness(1.05);
-}
-`;
+    filter: brightness(1.05);
+  }
+`
 
 const MsjToolkit = styled.p`
   background-color: #777;
@@ -46,7 +45,7 @@ const MsjToolkit = styled.p`
   right: 150px;
   letter-spacing: 2px;
   opacity: 0;
-  
+
   animation: 4s toolkitanimation;
   pointer-events: none;
   @keyframes toolkitanimation {
@@ -67,7 +66,7 @@ const MsjToolkit = styled.p`
       scale: 0;
     }
   }
-`;
+`
 
 export default function MainButton({
   href,
@@ -79,15 +78,15 @@ export default function MainButton({
   $fontsize,
   $backgroundcolor,
   $background,
-  $color
+  $color,
 }) {
-  const [toolkit, setToolkit] = useState(false);
+  const [toolkit, setToolkit] = useState(false)
 
   function handleCopy() {
-    setToolkit(true);
+    setToolkit(true)
     setTimeout(() => {
-      setToolkit(false);
-    }, 4000);
+      setToolkit(false)
+    }, 4000)
   }
 
   return (
@@ -107,5 +106,5 @@ export default function MainButton({
         {toolkit === true && <MsjToolkit>En proceso!</MsjToolkit>}
       </Button>
     </>
-  );
+  )
 }

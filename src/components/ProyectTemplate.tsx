@@ -1,13 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import ReactImage from "../assets/stackicons/reacticon.svg"
-import JsImage from "../assets/stackicons/javascripticon.svg"
-import NodeImage from "../assets/stackicons/nodejsicon.svg"
-import StyledImage from "../assets/stackicons/styledicon.svg"
-import HtmlImage from "../assets/stackicons/htmlicon.svg"
-import GithubIcon from "../assets/stackicons/githubicon.svg"
-import MongoImage from "../assets/stackicons/mongo.svg"
-
+import React from 'react'
+import styled from 'styled-components'
+import ReactImage from '../assets/stackicons/reacticon.svg'
+import JsImage from '../assets/stackicons/javascripticon.svg'
+import NodeImage from '../assets/stackicons/nodejsicon.svg'
+import StyledImage from '../assets/stackicons/styledicon.svg'
+import HtmlImage from '../assets/stackicons/htmlicon.svg'
+import GithubIcon from '../assets/stackicons/githubicon.svg'
+import MongoImage from '../assets/stackicons/mongo.svg'
 
 export default function ProyectTemplate({
   LogoImgSrc,
@@ -24,9 +23,8 @@ export default function ProyectTemplate({
   HtmlIcon,
   href,
   GithubHref,
-  PropIcons
+  PropIcons,
 }) {
-  
   const StackIcons = [PropIcons]
 
   return (
@@ -41,17 +39,16 @@ export default function ProyectTemplate({
       </LogoContainer>
       <InfoContainer>
         <TextContainer>
-          {" "}
+          {' '}
           <InfoTitle>{Title}</InfoTitle>
           <InfoDescription>{Description}</InfoDescription>
         </TextContainer>
         <StackContainer>
-
-        {StackIcons.map(icon => (
-          <>
-          <img title="React" src={icon} alt="Icon Stack" />
-          </>
-        ))}
+          {StackIcons.map((icon) => (
+            <>
+              <img title="React" src={icon} alt="Icon Stack" />
+            </>
+          ))}
 
           {ReactIcon && (
             <img title="React" src={ReactImage} alt="Icono React" />
@@ -70,27 +67,24 @@ export default function ProyectTemplate({
             />
           )}
           {MongoIcon && (
-            <img
-              title="MongoDb"
-              src={MongoImage}
-              alt="Icono MongoDb"
-            />
+            <img title="MongoDb" src={MongoImage} alt="Icono MongoDb" />
           )}
           {HtmlIcon && <img src={HtmlImage} alt="Icono Javascript" />}
         </StackContainer>
       </InfoContainer>
 
-      {GithubHref && <GithubCtn
-        title="Proyecto en Github"
-        target="blank"
-        href={GithubHref}
-        className="github-ctn"
-      >
-
-        <img src={GithubIcon} alt="" />
-      </GithubCtn>}
+      {GithubHref && (
+        <GithubCtn
+          title="Proyecto en Github"
+          target="blank"
+          href={GithubHref}
+          className="github-ctn"
+        >
+          <img src={GithubIcon} alt="" />
+        </GithubCtn>
+      )}
     </Wrapper>
-  );
+  )
 }
 
 const Wrapper = styled.div`
@@ -105,7 +99,6 @@ const Wrapper = styled.div`
   @media (max-width: 700px) {
     width: 100%;
     height: max-content;
-    
   }
 
   @keyframes Show {
@@ -118,7 +111,7 @@ const Wrapper = styled.div`
   &:hover .logo-ctn {
     outline-color: #c4edff;
   }
-`;
+`
 const LogoContainer = styled.a`
   width: 150px;
   height: 140px;
@@ -143,7 +136,7 @@ const LogoContainer = styled.a`
     &:hover {
       width: 730px;
       height: 270px;
-      
+
       border-radius: 20px;
       cursor: pointer;
       outline: 0px;
@@ -159,7 +152,7 @@ const LogoContainer = styled.a`
       outline: 4px solid #d7f3ff;
     }
   }
-`;
+`
 
 const InfoContainer = styled.div`
   margin-left: auto;
@@ -179,7 +172,7 @@ const InfoContainer = styled.div`
     padding-top: 20px;
     padding-inline: 10px;
   }
-`;
+`
 
 const LogoImage = styled.img`
   padding: 15px;
@@ -191,7 +184,7 @@ const LogoImage = styled.img`
   @media (max-width: 800px) {
     padding: 10px;
   }
-`;
+`
 
 const MainImage = styled.img`
   width: 100%;
@@ -204,7 +197,7 @@ const MainImage = styled.img`
   border-radius: 50px;
   object-position: top;
   pointer-events: none;
-`;
+`
 
 const TextContainer = styled.div`
   margin-left: 120px;
@@ -222,7 +215,7 @@ const TextContainer = styled.div`
     align-items: center;
     justify-content: center;
   }
-`;
+`
 
 const StackContainer = styled.div`
   width: 80px;
@@ -237,19 +230,18 @@ const StackContainer = styled.div`
     flex-direction: row;
     padding: 10px;
     height: max-content;
-    
   }
   & img {
     width: 33px;
     height: 33px;
     object-fit: contain;
   }
-`;
+`
 
 const InfoTitle = styled.h2`
   font-size: 20px;
-`;
-const InfoDescription = styled.div``;
+`
+const InfoDescription = styled.div``
 
 const GithubCtn = styled.a`
   background-color: var(--blue-800);
@@ -272,10 +264,10 @@ const GithubCtn = styled.a`
     background-color: var(--blue-900);
   }
   & img {
-   width: 100%;
+    width: 100%;
     height: 100%;
     object-fit: contain;
     color: #fff;
     filter: invert(1);
   }
-`;
+`

@@ -1,46 +1,46 @@
 import React from 'react'
-import styled from 'styled-components';
-import VolumeIcons from '../../ui/VolumeIcons';
+import styled from 'styled-components'
+import VolumeIcons from '../../ui/VolumeIcons'
 
-type Props={
-    answersRight:string;
-    answersWrong:string;
-    scoreUp:string;
-    setSound:Function;
-    sound:boolean;
-    time:string;
+type Props = {
+  answersRight: string
+  answersWrong: string
+  scoreUp: string
+  setSound: Function
+  sound: boolean
+  time: string
 }
 
 export default function PlayingUi({
-    answersRight,
-    answersWrong,
-    scoreUp,
-    setSound,
-    sound,
-    time,
-  }) {
-    return (
-      <>
-        <AnswerContainer>
-          <div>
-            <Answer>✓: {answersRight} </Answer>
-            <Answer>𐌢: {answersWrong}</Answer>
-            <VolumeIcons sound={sound} setSound={setSound} />
-          </div>
-          <TimeContainer>
-            <ScoreUp $scoreAnim={scoreUp}>+3</ScoreUp>
-            <Timer $scoreAnim={scoreUp}>{time}s</Timer>
-          </TimeContainer>
-        </AnswerContainer>
-      </>
-    );
-  }
+  answersRight,
+  answersWrong,
+  scoreUp,
+  setSound,
+  sound,
+  time,
+}: Props) {
+  return (
+    <>
+      <AnswerContainer>
+        <div>
+          <Answer>✓: {answersRight} </Answer>
+          <Answer>𐌢: {answersWrong}</Answer>
+          <VolumeIcons sound={sound} setSound={setSound} />
+        </div>
+        <TimeContainer>
+          <ScoreUp $scoreAnim={scoreUp}>+3</ScoreUp>
+          <Timer $scoreAnim={scoreUp}>{time}s</Timer>
+        </TimeContainer>
+      </AnswerContainer>
+    </>
+  )
+}
 
-  const TimeContainer = styled.div`
+const TimeContainer = styled.div`
   position: relative;
-`;
+`
 
-const ScoreUp = styled.p<{$scoreAnim:boolean}>`
+const ScoreUp = styled.p<{ $scoreAnim: boolean }>`
   color: var(--pink-400);
   font-weight: 800;
   font-size: 25px;
@@ -50,7 +50,7 @@ const ScoreUp = styled.p<{$scoreAnim:boolean}>`
   top: -8px;
   scale: 0.5;
   opacity: 0;
-  ${(props) => (props.$scoreAnim ? "animation:1500ms scoreup forwards;" : "")}
+  ${(props) => (props.$scoreAnim ? 'animation:1500ms scoreup forwards;' : '')}
   @keyframes scoreup {
     0% {
       top: -15px;
@@ -73,8 +73,7 @@ const ScoreUp = styled.p<{$scoreAnim:boolean}>`
       top: -15px;
     }
   }
-`;
-
+`
 
 const AnswerContainer = styled.div`
   width: 100%;
@@ -87,14 +86,14 @@ const AnswerContainer = styled.div`
   @media (max-width: 700px) {
     width: 300px;
   }
-`;
+`
 
 const Answer = styled.p`
   font-size: 20px;
   text-transform: uppercase;
-`;
+`
 
-const Timer = styled.p<{$scoreAnim:boolean}>`
+const Timer = styled.p<{ $scoreAnim: boolean }>`
   font-size: 30px;
   color: #111;
   width: 70px;
@@ -102,7 +101,7 @@ const Timer = styled.p<{$scoreAnim:boolean}>`
   align-items: end;
   justify-content: end;
   ${(props) =>
-    props.$scoreAnim ? "animation:timerColor 1500ms forwards;" : ""}
+    props.$scoreAnim ? 'animation:timerColor 1500ms forwards;' : ''}
   @keyframes timerColor {
     0% {
       color: #111;
@@ -118,4 +117,4 @@ const Timer = styled.p<{$scoreAnim:boolean}>`
       color: #111;
     }
   }
-`;
+`

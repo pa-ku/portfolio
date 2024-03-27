@@ -1,8 +1,7 @@
 import React from 'react'
-import styled from 'styled-components';
-import pokeLogo from "../../../assets/icons/poke-logo.svg";
-import VolumeIcons from '../../ui/VolumeIcons';
-
+import styled from 'styled-components'
+import pokeLogo from '../../../assets/icons/poke-logo.svg'
+import VolumeIcons from '../../ui/VolumeIcons'
 
 const MenuWrapper = styled.div`
   display: flex;
@@ -11,7 +10,7 @@ const MenuWrapper = styled.div`
   gap: 20px;
   width: 300px;
   flex-direction: column;
-`;
+`
 
 const StartButton = styled.button`
   background-color: #fff;
@@ -39,7 +38,7 @@ const StartButton = styled.button`
     border-radius: 10px;
     padding: 4px 7px;
   }
-`;
+`
 
 const PokeLogo = styled.img`
   width: 70px;
@@ -65,19 +64,18 @@ const PokeLogo = styled.img`
       transform: rotate(360deg);
     }
   }
-`;
-
+`
 
 type Props = {
-  setGenSelected:Function;
-  setSound:Function;
-  setPokeGeneration:Function;
-  sound:boolean;
-  startGame:Function;
-  scoreUp:Function;
-  endMsj:string;
-  genSelected:any;
-  maxScore:any;
+  setGenSelected: Function
+  setSound: Function
+  setPokeGeneration: Function
+  sound: boolean
+  startGame: Function
+  scoreUp: Function
+  endMsj: string
+  genSelected: any
+  maxScore: any
 }
 
 export default function StartMenu({
@@ -90,40 +88,40 @@ export default function StartMenu({
   endMsj,
   maxScore,
   genSelected,
-}:Props) {
-  function handleSelectedGen(e:any) {
-    let value = e.target.value;
+}: Props) {
+  function handleSelectedGen(e: any) {
+    let value = e.target.value
     switch (value) {
-      case "Gen1":
-        setPokeGeneration(151);
+      case 'Gen1':
+        setPokeGeneration(151)
         setGenSelected({
           gen1: true,
           gen2: false,
           gen3: false,
-          selected: "gen1",
+          selected: 'gen1',
           value: maxScore.gen1,
-        });
-        break;
-      case "Gen2":
-        setPokeGeneration(251);
+        })
+        break
+      case 'Gen2':
+        setPokeGeneration(251)
         setGenSelected({
           gen1: false,
           gen2: true,
           gen3: false,
-          selected: "gen2",
+          selected: 'gen2',
           value: maxScore.gen2,
-        });
-        break;
-      case "Gen3":
-        setPokeGeneration(386);
+        })
+        break
+      case 'Gen3':
+        setPokeGeneration(386)
         setGenSelected({
           gen1: false,
           gen2: false,
           gen3: true,
-          selected: "gen3",
+          selected: 'gen3',
           value: maxScore.gen3,
-        });
-        break;
+        })
+        break
     }
   }
   return (
@@ -163,15 +161,14 @@ const Option = styled.option`
   font-size: 18px;
   text-align: center;
   border: 0px;
-`;
+`
 const PopUpText = styled.p`
   width: 20ch;
   text-align: center;
   font-size: 25px;
   color: #333;
   animation: glow 200ms ease forwards;
-`;
-
+`
 
 const Select = styled.select`
   font-size: 20px;
@@ -180,7 +177,7 @@ const Select = styled.select`
   &:hover {
     color: var(--blue-900);
   }
-`;
+`
 
 const Score = styled.p`
   font-size: 25px;
@@ -203,4 +200,4 @@ const Score = styled.p`
       filter: invert(0);
     }
   }
-`;
+`

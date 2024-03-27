@@ -1,5 +1,4 @@
-import React from "react";
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const Input = styled.input`
   -webkit-appearance: none;
@@ -7,7 +6,7 @@ const Input = styled.input`
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
-transition: 500ms;
+  transition: 500ms;
   font-weight: 500;
   border-color: #717171;
   padding: 3px;
@@ -18,14 +17,15 @@ transition: 500ms;
   font-size: 1rem;
   border-radius: 6px;
   cursor: pointer;
-  &:checked{
+  &:checked {
     color: #fff;
   }
   &::before {
-    font-family:  ${props => props.$font ? '"Pixelify Sans", sans-serif' : ''};
-    content: "${(props) => props.$text}";
+    font-family: ${(props) =>
+      props.$font ? '"Pixelify Sans", sans-serif' : ''};
+    content: '${(props) => props.$text}';
   }
-`;
+`
 
 export default function CheckBox({
   $text,
@@ -34,7 +34,7 @@ export default function CheckBox({
   value,
   onClick,
   $backgroundcolor,
-  $bordercolor
+  $bordercolor,
 }) {
   return (
     <>
@@ -49,5 +49,5 @@ export default function CheckBox({
         $bordercolor={$bordercolor}
       />
     </>
-  );
+  )
 }
