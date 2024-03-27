@@ -70,6 +70,7 @@ type Props = {
   setGenSelected: Function
   setSound: Function
   setPokeGeneration: Function
+  pokeGeneration: any
   sound: boolean
   startGame: Function
   scoreUp: Function
@@ -80,7 +81,7 @@ type Props = {
 
 export default function StartMenu({
   setGenSelected,
-  setPokeGeneration,
+  pokeGeneration,
   sound,
   setSound,
   startGame,
@@ -89,36 +90,40 @@ export default function StartMenu({
   maxScore,
   genSelected,
 }: Props) {
-  function handleSelectedGen(e: any) {
+  function handleSelectedGen(e) {
     let value = e.target.value
     switch (value) {
       case 'Gen1':
-        setPokeGeneration(151)
+        console.log(pokeGeneration)
         setGenSelected({
           gen1: true,
           gen2: false,
           gen3: false,
           selected: 'gen1',
+          pokeNumber: 151,
           value: maxScore.gen1,
         })
         break
       case 'Gen2':
-        setPokeGeneration(251)
+        console.log(pokeGeneration)
         setGenSelected({
           gen1: false,
           gen2: true,
           gen3: false,
           selected: 'gen2',
+          pokeNumber: 251,
           value: maxScore.gen2,
         })
         break
       case 'Gen3':
-        setPokeGeneration(386)
+  
+        console.log(pokeGeneration)
         setGenSelected({
           gen1: false,
           gen2: false,
           gen3: true,
           selected: 'gen3',
+          pokeNumber: 386,
           value: maxScore.gen3,
         })
         break
@@ -137,13 +142,13 @@ export default function StartMenu({
           name="Elegir generacion"
           id="poke-generation"
         >
-          <Option defaultValue={genSelected.gen1} value="Gen1">
+          <Option selected={genSelected.gen1} value="Gen1">
             Generacion 1
           </Option>
-          <Option defaultValue={genSelected.gen2} value="Gen2">
+          <Option selected={genSelected.gen2} value="Gen2">
             Generacion 2
           </Option>
-          <Option defaultValue={genSelected.gen3} value="Gen3">
+          <Option selected={genSelected.gen3} value="Gen3">
             Generacion 3
           </Option>
         </Select>

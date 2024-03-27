@@ -10,7 +10,6 @@ import StartMenu from './StartMenu'
 import PlayingUi from './PlayingUi'
 
 export default function PokeGuess() {
-  const [pokeGeneration, setPokeGeneration] = useState(151)
   const [maxScore, setMaxScore] = useLocalStorage('gen1Score', {
     gen1: 0,
     gen2: 0,
@@ -22,8 +21,9 @@ export default function PokeGuess() {
     gen3: false,
     selected: 'gen1',
     value: maxScore.gen1,
+    pokeNumber: 151,
   })
-  const { pokeNames } = usePokeNames(pokeGeneration)
+  const { pokeNames } = usePokeNames(genSelected.pokeNumber)
   const [currentPoke, setCurrentPoke] = useState('')
   const [rolls, setRolls] = useState([])
   const [showImage, setShowImage] = useState(false)
@@ -75,8 +75,8 @@ export default function PokeGuess() {
       }
       setIsPlaying(false)
       resetTimer()
-      stop()
       setEndMsj('Correctas:' + answers.right + ' Incorrectas: ' + answers.wrong)
+      stop()
     }
   }, [time])
 
@@ -98,7 +98,6 @@ export default function PokeGuess() {
       const randomNumber = Math.floor(Math.random() * pokeNames.length)
       if (!newRolls.includes(randomNumber)) {
         newRolls.push(randomNumber)
-
       }
     }
     setRolls(newRolls)
@@ -161,7 +160,6 @@ export default function PokeGuess() {
         {isPlaying === false && (
           <StartMenu
             setGenSelected={setGenSelected}
-            setPokeGeneration={setPokeGeneration}
             sound={sound}
             setSound={setSound}
             startGame={startGame}
