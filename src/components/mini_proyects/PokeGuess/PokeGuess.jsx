@@ -44,7 +44,6 @@ export default function PokeGuess() {
 
   useEffect(() => {
     setLoading(true);
-    let roll = Math.floor(Math.random() * pokeNames.length) + 1;
     axios.get(`https://pokeapi.co/api/v2/pokemon/${rolls[0]}`).then((res) => {
       const data = res.data;
       setCurrentPoke(data);
@@ -260,7 +259,7 @@ const PokeImage = styled.img`
   width: 250px;
   height: 250px;
   opacity: 0;
-  animation: 400ms show forwards;
+  animation: 600ms show forwards;
   object-fit: contain;
   filter: ${(props) => (props.$show ? " brightness(1)" : " brightness(0)")};
 
@@ -274,9 +273,8 @@ const OptionContainer = styled.div`
   grid-template-columns: repeat(2, 200px);
   gap: 10px;
   opacity: 0;
-  scale: 0.5;
   flex-wrap: wrap;
-  animation: 400ms show forwards;
+  animation: 600ms show forwards;
   @keyframes show {
     100% {
       scale: 1;
