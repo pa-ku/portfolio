@@ -9,6 +9,14 @@ import MenuLogo from '../assets/img/logos/menu-logo.webp'
 import RoscoPageImage from '../assets/img/backgrounds/PageRosco.webp'
 import MenuPageImage from '../assets/img/backgrounds/menuBackground.webp'
 
+import ReactImage from '../assets/stackicons/reacticon.svg'
+import NodeImage from '../assets/stackicons/nodejsicon.svg'
+import StyledImage from '../assets/stackicons/styledicon.svg'
+import MongoImage from '../assets/stackicons/mongo.svg'
+
+/* import JsImage from '../assets/stackicons/javascripticon.svg' */
+/* import HtmlImace from '../assets/stackicons/htmlicon.svg'
+import GithubImage from '../assets/stackicons/githubicon.svg' */
 import styled from 'styled-components'
 
 const Dot = styled.span`
@@ -31,66 +39,59 @@ export default function ProyectLayout() {
   return (
     <>
       <ProyectTemplate
-        LogoImgSrc={ErideLogo}
-        /*       GithubHref={"https://github.com/pa-ku/FlybondiReact"} */
-        ImgAlt={'Logo Eride'}
-        Title={Proyects[1].title}
-        Description={Proyects[1].description}
-        BackgroundImg={EridePageImage}
-        BackgroundAlt={'Imagen pagina web de Xtreme'}
+        logoImgSrc={ErideLogo}
+        /*   githubLink={"https://github.com/pa-ku/FlybondiReact"} */
         href={'https://eridestore.netlify.app/'}
-        ReactIcon
-        StyledIcon
-        NodeIcon
+        imgAlt={'Logo Eride'}
+        title={Proyects[1].title}
+        description={Proyects[1].description}
+        backgroundImg={EridePageImage}
+        backgroundAlt={'Imagen pagina web de Xtreme'}
+        propIcons={[ReactImage, StyledImage, NodeImage]}
       />
       <ProyectTemplate
-        LogoImgSrc={MenuLogo}
-        ImgAlt={'Logo Menu'}
-        BackgroundImg={MenuPageImage}
-        GithubHref={'https://github.com/pa-ku/menu_client'}
-        BackgroundAlt={'Imagen pagina web de flybondi'}
-        Title={Proyects[4].title}
-        Description={Proyects[4].description}
+        logoImgSrc={MenuLogo}
+        imgAlt={'Logo Menu'}
+        backgroundImg={MenuPageImage}
+        githubLink={'https://github.com/pa-ku/menu_client'}
         href={'https://paulsmenu.netlify.app'}
-        ReactIcon
-        StyledIcon
-        MongoIcon
-        NodeIcon
+        backgroundAlt={'Imagen pagina web de flybondi'}
+        title={Proyects[4].title}
+        description={Proyects[4].description}
+        propIcons={[ReactImage, StyledImage, MongoImage, NodeImage]}
       />
       <ProyectTemplate
-        LogoImgSrc={FlyLogo}
-        ImgAlt={'Logo Flybondi'}
-        GithubHref={''}
-        BackgroundImg={FlybondiPageImage}
-        BackgroundAlt={'Imagen pagina web de flybondi'}
-        Title={Proyects[0].title}
-        Description={FlybondiArr.map((item) => (
+        logoImgSrc={FlyLogo}
+        imgAlt={'Logo Flybondi'}
+        githubLink={''}
+        href={'https://cloneflybondi.netlify.app/'}
+        backgroundImg={FlybondiPageImage}
+        backgroundAlt={'Imagen pagina web de flybondi'}
+        title={Proyects[0].title}
+        description={FlybondiArr.map((item) => (
           <p key={item}>
             <Dot>⏵</Dot>
             {item}
           </p>
         ))}
-        href={'https://cloneflybondi.netlify.app/'}
-        ReactIcon
-        StyledIcon
+        propIcons={[ReactImage, StyledImage]}
       />
 
       <ProyectTemplate
-        LogoImgSrc={RoscoLogo}
-        ImgAlt={'Logo Rosco'}
-        BackgroundImg={RoscoPageImage}
-        GithubHref={'https://github.com/pa-ku/Rosco'}
-        BackgroundAlt={'Imagen pagina web de flybondi'}
-        Title={Proyects[2].title}
-        Description={RoscoArr.map((item) => (
+        logoImgSrc={RoscoLogo}
+        imgAlt={'Logo Rosco'}
+        backgroundImg={RoscoPageImage}
+        githubLink={'https://github.com/pa-ku/Rosco'}
+        href={'https://rosquewe.netlify.app/'}
+        backgroundAlt={'Imagen pagina web de flybondi'}
+        title={Proyects[2].title}
+        description={RoscoArr.map((item) => (
           <p key={item}>
             <Dot>⏵</Dot>
             {item}
           </p>
         ))}
-        href={'https://rosquewe.netlify.app/'}
-        ReactIcon
-        StyledIcon
+        propIcons={[ReactImage, StyledImage]}
       />
     </>
   )

@@ -7,12 +7,14 @@ import { useEffect, useState } from 'react'
 
  **/
 
-export const usePokeNames = (mPokemons, renderCondition) => {
+export const usePokeNames = (numberOfPokemons, renderCondition) => {
   const [pokeNames, setPokeNames] = useState([])
 
   useEffect(() => {
     axios
-      .get(`https://pokeapi.co/api/v2/pokemon/?limit=${mPokemons}&offset=0`)
+      .get(
+        `https://pokeapi.co/api/v2/pokemon/?limit=${numberOfPokemons}&offset=0`
+      )
       .then((res) => {
         setPokeNames([...res.data.results.map((poke) => poke.name)])
       })

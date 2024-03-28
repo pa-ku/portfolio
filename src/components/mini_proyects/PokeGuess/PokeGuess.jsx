@@ -23,7 +23,10 @@ export default function PokeGuess() {
     value: maxScore.gen1,
     pokeNumber: 151,
   })
-  const { pokeNames } = usePokeNames(genSelected.pokeNumber)
+  const { pokeNames } = usePokeNames(
+    genSelected.pokeNumber,
+    genSelected.pokeNumber
+  )
   const [currentPoke, setCurrentPoke] = useState('')
   const [rolls, setRolls] = useState([])
   const [showImage, setShowImage] = useState(false)
@@ -35,10 +38,10 @@ export default function PokeGuess() {
   })
   const [shuffle, setShuffle] = useState()
   const [endMsj, setEndMsj] = useState('')
-  const { time, setTime, startTimer, resetTimer } = useCountDown(60)
+  const { time, setTime, startTimer, resetTimer } = useCountDown(40)
   const [scoreUp, setScoreUp] = useState(false)
   /* SoundBank */
-  const [sound, setSound] = useState(true)
+  const [sound, setSound] = useLocalStorage('soundActive', true)
   const [startSound] = useSound(startAudio, { volume: sound ? 0.3 : 0 })
   const pokeAudio = new Audio(currentPoke && currentPoke.cries.legacy)
 
@@ -166,7 +169,7 @@ export default function PokeGuess() {
             scoreUp={scoreUp}
             endMsj={endMsj}
             maxScore={maxScore}
-            genSelected={genSelected} // Pasa genSelected como una prop separada
+            genSelected={genSelected}
           />
         )}
         {isPlaying && (

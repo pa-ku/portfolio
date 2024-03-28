@@ -1,83 +1,46 @@
 import React from 'react'
 import styled from 'styled-components'
-import ReactImage from '../assets/stackicons/reacticon.svg'
-import JsImage from '../assets/stackicons/javascripticon.svg'
-import NodeImage from '../assets/stackicons/nodejsicon.svg'
-import StyledImage from '../assets/stackicons/styledicon.svg'
-import HtmlImage from '../assets/stackicons/htmlicon.svg'
 import GithubIcon from '../assets/stackicons/githubicon.svg'
-import MongoImage from '../assets/stackicons/mongo.svg'
 
 export default function ProyectTemplate({
-  LogoImgSrc,
-  ImgAlt,
-  BackgroundImg,
-  BackgroundAlt,
-  ReactIcon,
-  MongoIcon,
-  NodeIcon,
-  StyledIcon,
-  JSIcon,
-  Title,
-  Description,
-  HtmlIcon,
+  logoImgSrc,
+  imgAlt,
+  backgroundImg,
+  backgroundAlt,
+  title,
+  description,
   href,
-  GithubHref,
-  PropIcons,
+  githubLink,
+  propIcons,
 }) {
-  const StackIcons = [PropIcons]
-
   return (
     <Wrapper>
       <LogoContainer className="logo-ctn" href={href} target="_blank">
-        <LogoImage src={LogoImgSrc} alt={ImgAlt} />
+        <LogoImage src={logoImgSrc} alt={imgAlt} />
         <MainImage
           className="page-img"
-          src={BackgroundImg}
-          alt={BackgroundAlt}
+          src={backgroundImg}
+          alt={backgroundAlt}
         />
       </LogoContainer>
       <InfoContainer>
         <TextContainer>
           {' '}
-          <InfoTitle>{Title}</InfoTitle>
-          <InfoDescription>{Description}</InfoDescription>
+          <InfoTitle>{title}</InfoTitle>
+          <InfoDescription>{description}</InfoDescription>
         </TextContainer>
         <StackContainer>
-          {StackIcons.map((icon) => (
-            <>
-              <img title="React" src={icon} alt="Icon Stack" />
-            </>
+          {propIcons.map((item) => (
+            <img src={item} alt={`icono ${item}`} />
           ))}
-
-          {ReactIcon && (
-            <img title="React" src={ReactImage} alt="Icono React" />
-          )}
-          {NodeIcon && (
-            <img title="NodeJs" src={NodeImage} alt="Icono NodeJs" />
-          )}
-          {JSIcon && (
-            <img title="Javascript" src={JsImage} alt="Icono Javascript" />
-          )}
-          {StyledIcon && (
-            <img
-              title="Styled Components"
-              src={StyledImage}
-              alt="Icono Styled Components"
-            />
-          )}
-          {MongoIcon && (
-            <img title="MongoDb" src={MongoImage} alt="Icono MongoDb" />
-          )}
-          {HtmlIcon && <img src={HtmlImage} alt="Icono Javascript" />}
         </StackContainer>
       </InfoContainer>
 
-      {GithubHref && (
+      {githubLink && (
         <GithubCtn
           title="Proyecto en Github"
           target="blank"
-          href={GithubHref}
+          href={githubLink}
           className="github-ctn"
         >
           <img src={GithubIcon} alt="" />
@@ -109,14 +72,14 @@ const Wrapper = styled.div`
   }
 
   &:hover .logo-ctn {
-    outline-color: #c4edff;
+    outline-color: #cad1d8;
   }
 `
 const LogoContainer = styled.a`
   width: 150px;
   height: 140px;
   border-radius: 50px;
-  background-color: #002742;
+  background-color: #1f4560;
   position: absolute;
   transition: 400ms;
   display: flex;
