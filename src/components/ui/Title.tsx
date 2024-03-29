@@ -23,7 +23,7 @@ const TitleStyle = styled.p<{
   z-index: 1;
   height: max-content;
   color: ${(props) => props.color};
-  height: 60px;
+  height: 40px;
 `
 
 type TitleProps = {

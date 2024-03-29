@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 50ch;
+  width: 40ch;
 
   @media (max-width: 1200px) {
     width: 100%;
@@ -54,7 +54,7 @@ export default function Header({ description, subtitle, title }) {
           <Title color={'#333'} fontSize={'50px'}>
             {title}
           </Title>
-          <Subtitle color={'#222'} fontSize={'40px'}>
+          <Subtitle color={'#222'} fontSize={'30px'}>
             {subtitle}
           </Subtitle>
 
