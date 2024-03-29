@@ -1,7 +1,13 @@
 import styled from 'styled-components'
 import { useState } from 'react'
+import React from 'react'
 
-const Button = styled.a`
+const Button = styled.a<{
+  $backgroundcolor: string
+  $fontsize: string
+  $color: string
+  $background: string
+}>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,6 +74,19 @@ const MsjToolkit = styled.p`
   }
 `
 
+type ButtonProps = {
+  href: string
+  $delay: string
+  icon: string
+  onClick: Function | boolean
+  $toolkit: string
+  children: string
+  $fontsize: string
+  $backgroundcolor: string
+  $background: string
+  $color: string
+}
+
 export default function MainButton({
   href,
   $delay,
@@ -79,7 +98,7 @@ export default function MainButton({
   $backgroundcolor,
   $background,
   $color,
-}) {
+}: ButtonProps) {
   const [toolkit, setToolkit] = useState(false)
 
   function handleCopy() {
@@ -90,21 +109,19 @@ export default function MainButton({
   }
 
   return (
-    <>
-      <Button
-        $background={$background}
-        $backgroundcolor={$backgroundcolor}
-        $fontsize={$fontsize}
-        onClick={$toolkit ? handleCopy : onClick}
-        $delay={$delay}
-        href={href}
-        target="_blank"
-        $color={$color}
-      >
-        {icon}
-        {children}
-        {toolkit === true && <MsjToolkit>En proceso!</MsjToolkit>}
-      </Button>
-    </>
+    <Button
+      $background={$background}
+      $backgroundcolor={$backgroundcolor}
+      $fontsize={$fontsize}
+      onClick={$toolkit ? handleCopy : onClick}
+      $delay={$delay}
+      href={href}
+      target="_blank"
+      $color={$color}
+    >
+      {icon}
+      {children}
+      {toolkit === true && <MsjToolkit>En proceso!</MsjToolkit>}
+    </Button>
   )
 }

@@ -1,16 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import Subtitle from './Subtitle'
+import Subtitle from './ui/Subtitle'
 import SocialMedia from './SocialMedia'
 
-import Title from './Title'
+import Title from './ui/Title'
+import Text from './ui/Text'
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 40ch;
+  width: 50ch;
 
   @media (max-width: 1200px) {
     width: 100%;
@@ -45,19 +46,19 @@ type HeaderProps = {
   subtitle: String
 }
 
-export default function Header({ description, subtitle }) {
+export default function Header({ description, subtitle, title }) {
   return (
     <>
       <Wrapper>
         <Container>
-          <Title>Pablo Kuhn</Title>
-          <Subtitle color={'#222'} fontSize={' 1.5rem'}>
+          <Title color={'#333'} fontSize={'50px'}>
+            {title}
+          </Title>
+          <Subtitle color={'#222'} fontSize={'40px'}>
             {subtitle}
           </Subtitle>
 
-          <Subtitle color={'#333'} fontSize={'1rem'}>
-            {description}
-          </Subtitle>
+          <Text>{description}</Text>
           <SocialMedia />
           {/*    <MainButton  text={"Mas sobre mi"} /> */}
         </Container>

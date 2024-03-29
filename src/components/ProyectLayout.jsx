@@ -24,17 +24,6 @@ const Dot = styled.span`
 `
 
 export default function ProyectLayout() {
-  const FlybondiArr = [
-    Proyects[0].description.one,
-    Proyects[0].description.two,
-    Proyects[0].description.tree,
-  ]
-
-  const RoscoArr = [
-    Proyects[2].description.one,
-    Proyects[2].description.two,
-    Proyects[2].description.tree,
-  ]
 
   return (
     <>
@@ -68,7 +57,7 @@ export default function ProyectLayout() {
         backgroundImg={FlybondiPageImage}
         backgroundAlt={'Imagen pagina web de flybondi'}
         title={Proyects[0].title}
-        description={FlybondiArr.map((item) => (
+        description={Proyects[0].description.map((item) => (
           <p key={item}>
             <Dot>⏵</Dot>
             {item}
@@ -85,7 +74,7 @@ export default function ProyectLayout() {
         href={'https://rosquewe.netlify.app/'}
         backgroundAlt={'Imagen pagina web de flybondi'}
         title={Proyects[2].title}
-        description={RoscoArr.map((item) => (
+        description={Proyects[2].description.map((item) => (
           <p key={item}>
             <Dot>⏵</Dot>
             {item}

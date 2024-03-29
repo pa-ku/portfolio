@@ -111,8 +111,7 @@ const LogoContainer = styled.a`
       opacity: 1;
       z-index: 10;
       border-radius: 20px;
-
-      outline: 4px solid #d7f3ff;
+      outline: 4px solid #cad1d8;
     }
   }
 `

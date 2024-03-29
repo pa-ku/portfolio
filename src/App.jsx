@@ -6,8 +6,10 @@ import Conocimientos from './components/Conocimientos'
 /* IMAGES */
 import Wave from './components/Wave'
 import ProyectLayout from './components/ProyectLayout'
-import Title from './components/Title'
+
 import MiniProyectsLayout from './components/mini_proyects/MiniProyectsLayout'
+import Title from './components/ui/Title'
+import Subtitle from './components/ui/Subtitle'
 
 const Wrapper = styled.div`
   display: flex;
@@ -47,6 +49,7 @@ function App() {
       <Wrapper>
         <Wave />
         <Header
+          title={'Pablo Kuhn'}
           subtitle={'FullStack developer'}
           description={
             'Soy un desarrollador autodidacta, enfocado en la creación de experiencias digitales'
@@ -56,7 +59,7 @@ function App() {
           <ProyectLayout />
         </ProyectosContainer>
         <ConocimientosContainer>
-          <Title altButton>Conocimientos</Title>
+          <Subtitle altButton fontSize='40px'>Conocimientos</Subtitle>
           <Conocimientos />
         </ConocimientosContainer>
 

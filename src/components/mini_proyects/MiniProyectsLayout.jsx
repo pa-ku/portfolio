@@ -1,10 +1,11 @@
-import { useState } from "react"
-import Title from "../Title"
-import styled from "styled-components"
-import CheckBox from "../ui/CheckBox"
-import Typing from "./Typing"
-import PokeGuess from "./PokeGuess/PokeGuess"
-import { useEffect } from "react"
+import { useState } from 'react'
+import Title from '../ui/Title'
+import styled from 'styled-components'
+import CheckBox from '../ui/CheckBox'
+import Typing from './Typing'
+import PokeGuess from './PokeGuess/PokeGuess'
+import { useEffect } from 'react'
+import Subtitle from '../ui/Subtitle'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -60,25 +61,25 @@ export default function MiniProyects() {
   const proyects = [
     {
       component: <PokeGuess />,
-      name: "PokeGuess",
+      name: 'PokeGuess',
     },
     {
       component: <Typing />,
-      name: "PokeType",
+      name: 'PokeType',
     },
   ]
 
-  const [selectedPosition, setSelectedPosition] = useState("")
+  const [selectedPosition, setSelectedPosition] = useState('')
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
     switch (index) {
       case 0:
-        setSelectedPosition("0px")
+        setSelectedPosition('0px')
         break
 
       case 1:
-        setSelectedPosition("120px")
+        setSelectedPosition('120px')
         break
     }
   }, [index])
@@ -90,19 +91,21 @@ export default function MiniProyects() {
   return (
     <>
       <Wrapper>
-        <Title altButton={true}>Proyectos Mini</Title>
+        <Subtitle fontSize="40px" altButton={true}>
+          Mini Proyectos
+        </Subtitle>
         <NavContainer>
           <Selected $left={selectedPosition}></Selected>
           {proyects.map((project, i) => (
             <CheckBox
               key={project.name}
               $text={project.name}
-              value={"1"}
-              name={"verduras"}
+              value={'1'}
+              name={'verduras'}
               checked={i === index}
               onClick={() => handleSelected(i)}
-              $backgroundcolor={"var(--pink-250)"}
-              $bordercolor={"var(--pink-700)"}
+              $backgroundcolor={'var(--pink-250)'}
+              $bordercolor={'var(--pink-700)'}
             ></CheckBox>
           ))}
         </NavContainer>

@@ -11,7 +11,8 @@ import photoshopIcon from '../assets/stackicons/photoshopicon.svg'
 import githubIcon from '../assets/stackicons/githubicon.svg'
 import mongo from '../assets/stackicons/mongo.svg'
 import sql from '../assets/stackicons/sql.svg'
-import Subtitle from './Subtitle'
+import Subtitle from './ui/Subtitle'
+import Text from './ui/Text'
 
 const Wrapper = styled.div`
   display: flex;
@@ -97,7 +98,7 @@ interface IconProps {
   alt: String
 }
 
-function Icon({ text, src, alt }) {
+function Icon({ text, src, alt }: IconProps) {
   return (
     <>
       <IconContainer>
@@ -109,54 +110,67 @@ function Icon({ text, src, alt }) {
 }
 
 export default function Conocimientos() {
+  const design = [
+    { component: figmaIcon, name: 'Figma' },
+    { component: photoshopIcon, name: 'Photoshop' },
+  ]
+  const frontend = [
+    { component: HtmlIcon, name: 'Html' },
+    { component: CssIconn, name: 'Css' },
+    { component: jsIcon, name: 'Javascript' },
+    { component: ReactIcon, name: 'React' },
+    { component: styledicon, name: 'Styled' },
+  ]
+  const backend = [
+    { component: nodejsicon, name: 'Html' },
+    { component: githubIcon, name: 'Html' },
+    { component: mongo, name: 'Css' },
+    { component: sql, name: 'Javascript' },
+  ]
   return (
     <>
       <Wrapper>
-        <ConocimientoContainer>
-          <Subtitle fontSize={'20px'}>Design</Subtitle>
-          <IconWrapper>
-            <Icon
-              text={'Photoshop'}
-              src={photoshopIcon}
-              alt={'icono photoshop'}
-            />
-            <Icon text={'Figma'} src={figmaIcon} alt={'Icono figma'} />
-          </IconWrapper>
-        </ConocimientoContainer>
-
-        <ConocimientoContainer>
-          <Subtitle fontSize={'20px'}>Frontend</Subtitle>
-          <IconWrapper>
-            <Icon text={'Html'} src={HtmlIcon} alt={'Icono Html'} />
-            <Icon text={'Css'} src={CssIconn} alt={'Icono Css'} />
-            <Icon text={'JavaScript'} src={jsIcon} alt={'Icono Javascript'} />
-            <Icon text={'React'} src={ReactIcon} alt={'Icono React'} />
-            <Icon
-              text={'Styled'}
-              src={styledicon}
-              alt={'Icono Styled components'}
-            />
-          </IconWrapper>
-        </ConocimientoContainer>
-
-        <ConocimientoContainer>
-          <Subtitle fontSize={'20px'}>Backend</Subtitle>
-          <IconWrapper>
-            <Icon text={'NodeJs'} src={nodejsicon} alt={'Icono NodeJs'} />
-            <Icon text={'Github'} src={githubIcon} alt={'Icono Github'} />
-            <Icon text={'MongoDb'} src={mongo} alt={'Icono MongoDb'} />
-            <Icon text={'Sql'} src={sql} alt={'Icono SQL'} />
-          </IconWrapper>
-        </ConocimientoContainer>
-
-        <ConocimientoContainer>
-          <Subtitle fontSize={'20px'}>Estudios</Subtitle>
-          <Subtitle fontSize={'14px'}>
-            Codo a codo Full Stack PHP Julio 2022 Curso web de 6 meses orientado
-            a Php, con conocimientos de Sql, Javascript, Css y html
-          </Subtitle>
-        </ConocimientoContainer>
+        <RenderIcons title={'Design'} icons={design} />
+        <RenderIcons title={'FrontEnd'} icons={frontend} />
+        <RenderIcons title={'Backend'} icons={backend} />
+        <RenderIcons
+          title={'Estudios'}
+          text={
+            'Codo a codo Full Stack PHP Julio 2022 Curso web de 6 meses orientado a Php, con conocimientos de Sql, Javascript, Css y html'
+          }
+        />
       </Wrapper>
     </>
   )
 }
+
+export function RenderIcons({ icons, title, text }) {
+  return (
+    <>
+      <ConocimientoContainer>
+        <ConocimientoTitle fontSize={'22px'}>{title}</ConocimientoTitle>
+        {icons ? (
+          <IconWrapper>
+            {icons.map((item) => (
+              <>
+                <Icon
+                  text={item.name}
+                  src={item.component}
+                  alt={`icono ${item.name}`}
+                />
+              </>
+            ))}
+          </IconWrapper>
+        ) : (
+          <Text>{text}</Text>
+        )}
+      </ConocimientoContainer>
+    </>
+  )
+}
+
+const ConocimientoTitle = styled.p`
+  font-weight: 600;
+  font-size: 20px;
+  color: #555;
+`
