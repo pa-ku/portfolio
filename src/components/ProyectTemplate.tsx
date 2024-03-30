@@ -52,11 +52,10 @@ export default function ProyectTemplate({
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
   width: 730px;
-  height: 250px;
+  height: 240px;
   opacity: 0;
-  translate: -0px -10px;
+  translate: -20px -20px;
   animation: 1s Show forwards;
   @media (max-width: 700px) {
     width: 100%;
@@ -66,26 +65,27 @@ const Wrapper = styled.div`
   @keyframes Show {
     100% {
       opacity: 1;
-      translate: -0px -45px;
+      translate: 0px -20px;
     }
   }
 
   &:hover .logo-ctn {
-    outline-color: #cad1d8;
+    outline-color: var(--blue-200);
   }
 `
 const LogoContainer = styled.a`
-  width: 150px;
-  height: 140px;
+  width: 140px;
+  height: 130px;
   border-radius: 50px;
-  background-color: #1f4560;
+  background-color: var(--blue-800);
   position: absolute;
   transition: 400ms;
   display: flex;
   align-items: center;
   justify-content: center;
   outline: 5px solid #fff;
-  padding: 15px;
+  padding: 10px;
+  margin: 13px;
   outline-offset: 3px;
   @media (max-width: 800px) {
     bottom: 0px;
@@ -110,7 +110,7 @@ const LogoContainer = styled.a`
       opacity: 1;
       z-index: 10;
       border-radius: 20px;
-      outline: 4px solid #cad1d8;
+      outline: 4px solid var(--blue-400);
     }
   }
 `
@@ -121,7 +121,7 @@ const InfoContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 650px;
-  height: 250px;
+  height: 240px;
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
   box-shadow: 20px 20px 30px 0px #f3f3f3;
@@ -142,6 +142,9 @@ const LogoImage = styled.img`
   object-fit: contain;
   transition: 300ms;
   pointer-events: none;
+  width: 150px;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 0px #63c5e8);
   @media (max-width: 800px) {
     padding: 10px;
   }
