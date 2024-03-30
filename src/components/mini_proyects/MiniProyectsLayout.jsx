@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Title from '../ui/Title'
 import styled from 'styled-components'
 import CheckBox from '../ui/CheckBox'
 import Typing from './Typing'
@@ -92,20 +91,20 @@ export default function MiniProyects() {
     <>
       <Wrapper>
         <Subtitle fontSize="40px" altButton={true}>
-          Mini Proyectos
+          Mini Juegos
         </Subtitle>
         <NavContainer>
           <Selected $left={selectedPosition}></Selected>
           {proyects.map((project, i) => (
             <CheckBox
               key={project.name}
-              $text={project.name}
+              text={project.name}
               value={'1'}
               name={'verduras'}
               checked={i === index}
               onClick={() => handleSelected(i)}
-              $backgroundcolor={'var(--pink-250)'}
-              $bordercolor={'var(--pink-700)'}
+              backgroundColor={'var(--pink-250)'}
+              borderColor={'var(--pink-700)'}
             ></CheckBox>
           ))}
         </NavContainer>

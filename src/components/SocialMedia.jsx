@@ -65,12 +65,10 @@ const MsjToolkit = styled.p`
 const Icon = styled.img`
   width: 40px;
   height: 40px;
-  transition: 300ms;
-
+  transition: 200ms;
   accent-color: #444;
   &:hover {
     scale: 1.1;
-    filter: drop-shadow(0 0mm 2mm #9cd9ff);
   }
 `
 

@@ -5,7 +5,7 @@ import VolumeIcons from '../../ui/VolumeIcons'
 type Props = {
   answersRight: string
   answersWrong: string
-  scoreUp: string
+  scoreUp: boolean
   setSound: Function
   sound: boolean
   time: string
@@ -28,8 +28,8 @@ export default function PlayingUi({
           <VolumeIcons sound={sound} setSound={setSound} />
         </div>
         <TimeContainer>
-          <ScoreUp $scoreAnim={scoreUp}>+3</ScoreUp>
-          <Timer $scoreAnim={scoreUp}>{time}s</Timer>
+          <ScoreUp scoreAnim={scoreUp}>+3</ScoreUp>
+          <Timer scoreAnim={scoreUp}>{time}s</Timer>
         </TimeContainer>
       </AnswerContainer>
     </>
@@ -40,7 +40,7 @@ const TimeContainer = styled.div`
   position: relative;
 `
 
-const ScoreUp = styled.p<{ $scoreAnim: boolean }>`
+const ScoreUp = styled.p<{ scoreAnim: boolean }>`
   color: var(--pink-400);
   font-weight: 800;
   font-size: 25px;
@@ -50,7 +50,7 @@ const ScoreUp = styled.p<{ $scoreAnim: boolean }>`
   top: -8px;
   scale: 0.5;
   opacity: 0;
-  ${(props) => (props.$scoreAnim ? 'animation:1500ms scoreup forwards;' : '')}
+  ${(props) => (props.scoreAnim ? 'animation:1500ms scoreup forwards;' : '')}
   @keyframes scoreup {
     0% {
       top: -15px;
@@ -93,15 +93,14 @@ const Answer = styled.p`
   text-transform: uppercase;
 `
 
-const Timer = styled.p<{ $scoreAnim: boolean }>`
+const Timer = styled.p<{ scoreAnim: boolean }>`
   font-size: 30px;
   color: #111;
   width: 70px;
   display: flex;
   align-items: end;
   justify-content: end;
-  ${(props) =>
-    props.$scoreAnim ? 'animation:timerColor 1500ms forwards;' : ''}
+  ${(props) => (props.scoreAnim ? 'animation:timerColor 1500ms forwards;' : '')}
   @keyframes timerColor {
     0% {
       color: #111;

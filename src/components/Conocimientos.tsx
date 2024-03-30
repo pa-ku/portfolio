@@ -11,7 +11,6 @@ import photoshopIcon from '../assets/stackicons/photoshopicon.svg'
 import githubIcon from '../assets/stackicons/githubicon.svg'
 import mongo from '../assets/stackicons/mongo.svg'
 import sql from '../assets/stackicons/sql.svg'
-import Subtitle from './ui/Subtitle'
 import Text from './ui/Text'
 
 const Wrapper = styled.div`
@@ -44,40 +43,28 @@ const IconContainer = styled.div`
   flex-direction: column;
   width: 50px;
   position: relative;
-
   &:hover img {
-    /* animation:1s  iconUp forwards; */
     translate: 0px -15px;
     background-color: var(--pink-50);
   }
-
   &:hover p {
-    /*   animation: 500ms textDown forwards 200ms; */
     translate: 0px 18px;
     opacity: 1;
   }
 `
 
-const Icons = styled.img`
+const IconImage = styled.img`
   width: 45px;
   height: 45px;
   transition: 0.3s;
-
   z-index: 100;
   transition: 300ms;
   border-radius: 5px;
-  @keyframes iconShow {
-    100% {
-      scale: 1;
-      opacity: 1;
-    }
-  }
 `
 
 const IconText = styled.p`
   font-weight: 800;
   color: #555;
-
   opacity: 0;
   transition: 0.5s;
   text-align: center;
@@ -91,23 +78,6 @@ const ConocimientoContainer = styled.div`
   flex-direction: column;
   gap: 1em;
 `
-
-interface IconProps {
-  text: String
-  src: String
-  alt: String
-}
-
-function Icon({ text, src, alt }: IconProps) {
-  return (
-    <>
-      <IconContainer>
-        <Icons src={src} alt={alt}></Icons>
-        <IconText>{text}</IconText>
-      </IconContainer>
-    </>
-  )
-}
 
 export default function Conocimientos() {
   const design = [
@@ -144,21 +114,41 @@ export default function Conocimientos() {
   )
 }
 
-export function RenderIcons({ icons, title, text }) {
+interface IconProps {
+  text?: string
+  src?: string
+  alt?: string
+}
+function Icon({ text, src, alt }: IconProps) {
+  return (
+    <>
+      <IconContainer>
+        <IconImage src={src} alt={alt}></IconImage>
+        <IconText>{text}</IconText>
+      </IconContainer>
+    </>
+  )
+}
+
+type RenderIconsProps = {
+  icons?: any
+  title: string
+  text?: string
+}
+
+export function RenderIcons({ icons, title, text }: RenderIconsProps) {
   return (
     <>
       <ConocimientoContainer>
-        <ConocimientoTitle fontSize={'22px'}>{title}</ConocimientoTitle>
+        <ConocimientoTitle>{title}</ConocimientoTitle>
         {icons ? (
           <IconWrapper>
             {icons.map((item) => (
-              <>
-                <Icon
-                  text={item.name}
-                  src={item.component}
-                  alt={`icono ${item.name}`}
-                />
-              </>
+              <Icon
+                text={item.name}
+                src={item.component}
+                alt={`icono ${item.name}`}
+              />
             ))}
           </IconWrapper>
         ) : (

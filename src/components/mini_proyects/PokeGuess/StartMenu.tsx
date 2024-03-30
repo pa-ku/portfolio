@@ -3,6 +3,142 @@ import styled from 'styled-components'
 import pokeLogo from '../../../assets/icons/poke-logo.svg'
 import VolumeIcons from '../../ui/VolumeIcons'
 
+type Props = {
+  setGenSelected: Function
+  setSound: Function
+  setPokeGeneration: Function
+  pokeGeneration: any
+  sound: boolean
+  onClick?: any
+  scoreUp: Function
+  endMsj: string
+  genSelected: any
+  maxScore: any
+  setOldSound: any
+  oldSound: Boolean
+}
+
+export default function StartMenu({
+  setGenSelected,
+  pokeGeneration,
+  sound,
+  setSound,
+  onClick,
+  endMsj,
+  maxScore,
+  genSelected,
+  setOldSound,
+  oldSound,
+}: Props) {
+  function handleSelectedGen(e) {
+    let value = e.target.value
+    switch (value) {
+      case 'Gen1':
+        console.log(pokeGeneration)
+        setGenSelected({
+          gen1: true,
+          gen2: false,
+          gen3: false,
+          selected: 'gen1',
+          pokeNumber: 151,
+          value: maxScore.gen1,
+        })
+        break
+      case 'Gen2':
+        console.log(pokeGeneration)
+        setGenSelected({
+          gen1: false,
+          gen2: true,
+          gen3: false,
+          selected: 'gen2',
+          pokeNumber: 251,
+          value: maxScore.gen2,
+        })
+        break
+      case 'Gen3':
+        console.log(pokeGeneration)
+        setGenSelected({
+          gen1: false,
+          gen2: false,
+          gen3: true,
+          selected: 'gen3',
+          pokeNumber: 386,
+          value: maxScore.gen3,
+        })
+        break
+    }
+  }
+
+  function handleOldSound() {
+    setOldSound(oldSound ? false : true)
+  }
+
+  return (
+    <>
+      <MenuWrapper>
+        <VolumeIcons sound={sound} setSound={setSound} />
+        <StartButton onClick={onClick}>
+          <p>START</p>
+          <PokeLogo src={pokeLogo} alt="" />
+        </StartButton>
+        <CheckBox
+          checked={oldSound}
+          onChange={handleOldSound}
+          type="checkbox"
+        />
+        <Select
+          onChange={handleSelectedGen}
+          name="Elegir generacion"
+          id="poke-generation"
+        >
+          <Option selected={genSelected.gen1} value="Gen1">
+            Generacion 1
+          </Option>
+          <Option selected={genSelected.gen2} value="Gen2">
+            Generacion 2
+          </Option>
+          <Option selected={genSelected.gen3} value="Gen3">
+            Generacion 3
+          </Option>
+        </Select>
+
+        <Score>Mejor Puntaje: {genSelected.value}</Score>
+        <PopUpText>{endMsj}</PopUpText>
+      </MenuWrapper>
+    </>
+  )
+}
+const CheckBox = styled.input`
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 200ms;
+  &::before {
+    position: absolute;
+    content: 'Old Pokemon Sounds';
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: 20px;
+    color: #333;
+    border-radius: 8px;
+    background-color: #e6e6e6;
+    border: 2px solid #c6c6c6;
+    font-size: 16px;
+    transition: 200ms;
+    font-weight: 600;
+  }
+  &:checked::before {
+    background-color: var(--blue-100);
+    color: var(--blue-900);
+    border: 2px solid var(--blue-900);
+  }
+`
+
 const MenuWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -66,99 +202,6 @@ const PokeLogo = styled.img`
   }
 `
 
-type Props = {
-  setGenSelected: Function
-  setSound: Function
-  setPokeGeneration: Function
-  pokeGeneration: any
-  sound: boolean
-  startGame: Function
-  scoreUp: Function
-  endMsj: string
-  genSelected: any
-  maxScore: any
-}
-
-export default function StartMenu({
-  setGenSelected,
-  pokeGeneration,
-  sound,
-  setSound,
-  startGame,
-  scoreUp,
-  endMsj,
-  maxScore,
-  genSelected,
-}: Props) {
-  function handleSelectedGen(e) {
-    let value = e.target.value
-    switch (value) {
-      case 'Gen1':
-        console.log(pokeGeneration)
-        setGenSelected({
-          gen1: true,
-          gen2: false,
-          gen3: false,
-          selected: 'gen1',
-          pokeNumber: 151,
-          value: maxScore.gen1,
-        })
-        break
-      case 'Gen2':
-        console.log(pokeGeneration)
-        setGenSelected({
-          gen1: false,
-          gen2: true,
-          gen3: false,
-          selected: 'gen2',
-          pokeNumber: 251,
-          value: maxScore.gen2,
-        })
-        break
-      case 'Gen3':
-  
-        console.log(pokeGeneration)
-        setGenSelected({
-          gen1: false,
-          gen2: false,
-          gen3: true,
-          selected: 'gen3',
-          pokeNumber: 386,
-          value: maxScore.gen3,
-        })
-        break
-    }
-  }
-  return (
-    <>
-      <MenuWrapper>
-        <VolumeIcons sound={sound} setSound={setSound} />
-        <StartButton onClick={startGame}>
-          <p>START</p>
-          <PokeLogo src={pokeLogo} alt="" />
-        </StartButton>
-        <Select
-          onChange={handleSelectedGen}
-          name="Elegir generacion"
-          id="poke-generation"
-        >
-          <Option selected={genSelected.gen1} value="Gen1">
-            Generacion 1
-          </Option>
-          <Option selected={genSelected.gen2} value="Gen2">
-            Generacion 2
-          </Option>
-          <Option selected={genSelected.gen3} value="Gen3">
-            Generacion 3
-          </Option>
-        </Select>
-        <Score $scoreAnim={scoreUp}>Mejor Puntaje: {genSelected.value}</Score>
-        <PopUpText>{endMsj}</PopUpText>
-      </MenuWrapper>
-    </>
-  )
-}
-
 const Option = styled.option`
   display: flex;
   align-items: center;
@@ -193,12 +236,10 @@ const Score = styled.p`
   animation: glow 2s ease forwards;
   @keyframes glow {
     0% {
-      opacity: 0;
       filter: invert(0.5);
     }
 
     20% {
-      opacity: 1;
       filter: invert(0.5);
     }
     100% {

@@ -2,16 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import Subtitle from './ui/Subtitle'
 import SocialMedia from './SocialMedia'
-
 import Title from './ui/Title'
 import Text from './ui/Text'
+import AboutMe from './AboutMe'
 
-const Wrapper = styled.div`
+const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 40ch;
+  width: 70ch;
 
   @media (max-width: 1200px) {
     width: 100%;
@@ -44,25 +44,25 @@ const Container = styled.div`
 type HeaderProps = {
   description: String
   subtitle: String
+  title: string
 }
 
-export default function Header({ description, subtitle, title }) {
+export default function Header({ description, subtitle, title }: HeaderProps) {
   return (
     <>
-      <Wrapper>
+      <HeaderWrapper>
         <Container>
-          <Title color={'#333'} fontSize={'50px'}>
+          <Title color={'#555'} fontSize={'55px'}>
             {title}
           </Title>
-          <Subtitle color={'#222'} fontSize={'30px'}>
+          <Subtitle color={'#333'} fontSize={'30px'}>
             {subtitle}
           </Subtitle>
-
-          <Text>{description}</Text>
+          <Text width={'40ch'}>{description}</Text>
           <SocialMedia />
-          {/*    <MainButton  text={"Mas sobre mi"} /> */}
+        {/*   <AboutMe /> */}
         </Container>
-      </Wrapper>
+      </HeaderWrapper>
     </>
   )
 }

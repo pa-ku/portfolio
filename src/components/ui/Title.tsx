@@ -29,7 +29,7 @@ const TitleStyle = styled.p<{
 type TitleProps = {
   children: String
   altButton?: Boolean
-  fontSize?: String
+  fontSize?: any
   color?: string
 }
 

@@ -17,7 +17,6 @@ export default function PokeTimer({
   genSelected,
   time,
   setMaxScore,
-  maxScore,
   setEndMsj,
   resetTimer,
   setIsPlaying,

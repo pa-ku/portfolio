@@ -25,7 +25,6 @@ export default function ProyectTemplate({
       </LogoContainer>
       <InfoContainer>
         <TextContainer>
-          {' '}
           <InfoTitle>{title}</InfoTitle>
           <InfoDescription>{description}</InfoDescription>
         </TextContainer>
@@ -57,7 +56,7 @@ const Wrapper = styled.div`
   width: 730px;
   height: 250px;
   opacity: 0;
-  translate: -90px;
+  translate: -0px -10px;
   animation: 1s Show forwards;
   @media (max-width: 700px) {
     width: 100%;
@@ -67,7 +66,7 @@ const Wrapper = styled.div`
   @keyframes Show {
     100% {
       opacity: 1;
-      translate: 0px;
+      translate: -0px -45px;
     }
   }
 

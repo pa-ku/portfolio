@@ -41,9 +41,11 @@ export default function PokeGuess() {
   const { time, setTime, startTimer, resetTimer } = useCountDown(40)
   const [scoreUp, setScoreUp] = useState(false)
   /* SoundBank */
+  const [oldSound, setOldSound] = useLocalStorage('Sound Generation', true)
   const [sound, setSound] = useLocalStorage('soundActive', true)
+  const [actualSound, setActualSound] = useState()
   const [startSound] = useSound(startAudio, { volume: sound ? 0.3 : 0 })
-  const pokeAudio = new Audio(currentPoke && currentPoke.cries.legacy)
+  const pokeAudio = new Audio(actualSound)
 
   useEffect(() => {
     setLoading(true)
@@ -53,6 +55,13 @@ export default function PokeGuess() {
       setLoading(false)
     })
   }, [rolls])
+
+  useEffect(() => {
+    if (currentPoke)
+      setActualSound(
+        oldSound ? currentPoke.cries.legacy : currentPoke.cries.latest
+      )
+  }, [currentPoke])
 
   useEffect(() => {
     if (time === 0) {
@@ -105,14 +114,17 @@ export default function PokeGuess() {
     }
     setRolls(newRolls)
     setShowImage(false)
+
     return newRolls[0]
   }
 
   function choiceHandler(e) {
     let value = e.target.value
+
     pokeAudio.volume = sound ? 0.3 : 0
     isPlaying && pokeAudio.play()
     setShowImage(true)
+
     setTimeout(() => {
       setShowImage(false)
       rollNumber()
@@ -164,12 +176,14 @@ export default function PokeGuess() {
           <StartMenu
             setGenSelected={setGenSelected}
             sound={sound}
+            setOldSound={setOldSound}
             setSound={setSound}
-            startGame={startGame}
+            onClick={startGame}
             scoreUp={scoreUp}
             endMsj={endMsj}
             maxScore={maxScore}
             genSelected={genSelected}
+            oldSound={oldSound}
           />
         )}
         {isPlaying && (

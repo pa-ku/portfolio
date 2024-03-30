@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import React from 'react'
 
-const Input = styled.input`
+const Input = styled.input<{ text?: string }>`
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -21,33 +22,33 @@ const Input = styled.input`
     color: #fff;
   }
   &::before {
-    font-family: ${(props) =>
-      props.$font ? '"Pixelify Sans", sans-serif' : ''};
-    content: '${(props) => props.$text}';
+    content: '${(props) => props.text}';
   }
 `
 
+type CheckBoxProps = {
+  text?: string
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  name?: string
+  value?: string
+  onClick?: (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void
+}
+
 export default function CheckBox({
-  $text,
+  text,
   onChange,
   name,
   value,
   onClick,
-  $backgroundcolor,
-  $bordercolor,
-}) {
+}: CheckBoxProps) {
   return (
-    <>
-      <Input
-        value={value}
-        $backgroundcolor={$backgroundcolor}
-        name={name}
-        type="radio"
-        onChange={onChange}
-        onClick={onClick}
-        $text={$text}
-        $bordercolor={$bordercolor}
-      />
-    </>
+    <Input
+      value={value}
+      name={name}
+      type="radio"
+      onChange={onChange}
+      onClick={onClick}
+      text={text}
+    />
   )
 }

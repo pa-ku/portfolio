@@ -8,7 +8,7 @@ import Wave from './components/Wave'
 import ProyectLayout from './components/ProyectLayout'
 
 import MiniProyectsLayout from './components/mini_proyects/MiniProyectsLayout'
-import Title from './components/ui/Title'
+
 import Subtitle from './components/ui/Subtitle'
 
 const Wrapper = styled.div`
@@ -59,10 +59,11 @@ function App() {
           <ProyectLayout />
         </ProyectosContainer>
         <ConocimientosContainer>
-          <Subtitle altButton fontSize='40px'>Conocimientos</Subtitle>
+          <Subtitle altButton fontSize="40px">
+            Conocimientos
+          </Subtitle>
           <Conocimientos />
         </ConocimientosContainer>
-
         <Wave />
         <MiniProyectsLayout />
       </Wrapper>
