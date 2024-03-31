@@ -84,6 +84,7 @@ const LogoContainer = styled.a`
   align-items: center;
   justify-content: center;
   outline: 5px solid #fff;
+
   padding: 10px;
   margin: 13px;
   outline-offset: 3px;
@@ -110,7 +111,7 @@ const LogoContainer = styled.a`
       opacity: 1;
       z-index: 10;
       border-radius: 20px;
-      outline: 4px solid var(--blue-400);
+   
     }
   }
 `
