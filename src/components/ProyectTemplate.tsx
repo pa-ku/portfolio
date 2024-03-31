@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import GithubIcon from '../assets/stackicons/githubicon.svg'
+import GithubIcon from '../assets/images/stack_logos/githubicon.svg'
 
 export default function ProyectTemplate({
   logoImgSrc,
@@ -76,7 +76,7 @@ const Wrapper = styled.div`
 const LogoContainer = styled.a`
   width: 140px;
   height: 130px;
-  border-radius: 50px;
+  border-radius: 50%;
   background-color: var(--blue-800);
   position: absolute;
   transition: 400ms;
@@ -84,8 +84,8 @@ const LogoContainer = styled.a`
   align-items: center;
   justify-content: center;
   outline: 5px solid #fff;
-
   padding: 10px;
+
   margin: 13px;
   outline-offset: 3px;
   @media (max-width: 800px) {
@@ -99,7 +99,6 @@ const LogoContainer = styled.a`
     &:hover {
       width: 730px;
       height: 270px;
-
       border-radius: 20px;
       cursor: pointer;
       outline: 0px;
@@ -111,7 +110,6 @@ const LogoContainer = styled.a`
       opacity: 1;
       z-index: 10;
       border-radius: 20px;
-   
     }
   }
 `
@@ -121,7 +119,7 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 650px;
+  width: 660px;
   height: 240px;
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
@@ -137,15 +135,17 @@ const InfoContainer = styled.div`
 `
 
 const LogoImage = styled.img`
-  padding: 15px;
+  padding: 20px;
   width: 100%;
   height: 100%;
+  display: flex;
   object-fit: contain;
   transition: 300ms;
   pointer-events: none;
-  width: 150px;
+
+
   -webkit-filter: drop-shadow(5px 5px 5px #222);
-  filter: drop-shadow(5px 5px 0px #63c5e8);
+  filter: drop-shadow(3px 3px 0px #63c5e8);
   @media (max-width: 800px) {
     padding: 10px;
   }
@@ -162,6 +162,7 @@ const MainImage = styled.img`
   border-radius: 50px;
   object-position: top;
   pointer-events: none;
+  border-radius: 50%;
 `
 
 const TextContainer = styled.div`

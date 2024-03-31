@@ -1,18 +1,19 @@
 import ProyectTemplate from './ProyectTemplate'
-import FlyLogo from '../assets/img/logos/flybondi-logo.webp'
-import FlybondiPageImage from '../assets/img/backgrounds/PageFlybondi.webp'
-import EridePageImage from '../assets/img/backgrounds/EridePageImage.webp'
-import ErideLogo from '../assets/img/logos/eride-logo.webp'
 import { Proyects } from '../Proyects'
-import RoscoLogo from '../assets/img/logos/rosco-logo.webp'
-import MenuLogo from '../assets/img/logos/menu-logo.webp'
-import RoscoPageImage from '../assets/img/backgrounds/PageRosco.webp'
-import MenuPageImage from '../assets/img/backgrounds/menuBackground.webp'
+import FlybondiPageImage from '../assets/images/proyect_images/PageFlybondi.webp'
+import EridePageImage from '../assets/images/proyect_images/EridePageImage.webp'
+import RoscoPageImage from '../assets/images/proyect_images/PageRosco.webp'
+import MenuPageImage from '../assets/images/proyect_images/menuBackground.webp'
 
-import ReactImage from '../assets/stackicons/reacticon.svg'
-import NodeImage from '../assets/stackicons/nodejsicon.svg'
-import StyledImage from '../assets/stackicons/styledicon.svg'
-import MongoImage from '../assets/stackicons/mongo.svg'
+import FlyLogo from '../assets/images/proyect_logos/flybondi-logo.webp'
+import ErideLogo from '../assets/images/proyect_logos/eride-logo.webp'
+import RoscoLogo from '../assets/images/proyect_logos/rosco-logo.webp'
+import MenuLogo from '../assets/images/proyect_logos/menu-logo.webp'
+
+import ReactImage from '../assets/images/stack_logos/reacticon.svg'
+import NodeImage from '../assets/images/stack_logos/nodejsicon.svg'
+import StyledImage from '../assets/images/stack_logos/styledicon.svg'
+import MongoImage from '../assets/images/stack_logos/mongo.svg'
 
 /* import JsImage from '../assets/stackicons/javascripticon.svg' */
 /* import HtmlImace from '../assets/stackicons/htmlicon.svg'
@@ -24,7 +25,6 @@ const Dot = styled.span`
 `
 
 export default function ProyectLayout() {
-
   return (
     <>
       <ProyectTemplate

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import pokeLogo from '../../../assets/icons/poke-logo.svg'
+import pokeLogo from '../../../assets/images/icons/poke-logo.svg'
 import VolumeIcons from '../../ui/VolumeIcons'
 
 type Props = {

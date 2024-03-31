@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { styled } from 'styled-components'
-import gitSvg from '../assets/icons/github.svg'
-import linkedSvg from '../assets/icons/linkedin.svg'
-import emailSvg from '../assets/icons/email.svg'
+import gitSvg from '../assets/images/icons/github.svg'
+import linkedSvg from '../assets/images/icons/linkedin.svg'
+import emailSvg from '../assets/images/icons/email.svg'
 
 const Wrapper = styled.div`
   display: flex;

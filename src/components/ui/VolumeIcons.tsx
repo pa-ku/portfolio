@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import soundOn from '../../assets/icons/soundOn.svg'
-import soundOff from '../../assets/icons/soundOff.svg'
-import musicOn from '../../assets/icons/musicOn.svg'
-import musicOff from '../../assets/icons/musicOff.svg'
+import soundOn from '../../assets/images/icons/soundOn.svg'
+import soundOff from '../../assets/images/icons/soundOff.svg'
+import musicOn from '../../assets/images/icons/musicOn.svg'
+import musicOff from '../../assets/images/icons/musicOff.svg'
 
 const VolumeWrapper = styled.div`
   display: flex;
