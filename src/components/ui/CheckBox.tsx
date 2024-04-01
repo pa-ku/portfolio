@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import React from 'react'
 
-const Input = styled.input<{ text?: string }>`
+const Input = styled.input<{ content?: string }>`
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -22,12 +22,12 @@ const Input = styled.input<{ text?: string }>`
     color: #fff;
   }
   &::before {
-    content: '${(props) => props.text}';
+    content: '${(props) => props.content}';
   }
 `
 
 type CheckBoxProps = {
-  text?: string
+  content?: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   name?: string
   value?: string
@@ -35,7 +35,7 @@ type CheckBoxProps = {
 }
 
 export default function CheckBox({
-  text,
+  content,
   onChange,
   name,
   value,
@@ -48,7 +48,7 @@ export default function CheckBox({
       type="radio"
       onChange={onChange}
       onClick={onClick}
-      text={text}
+      content={content}
     />
   )
 }

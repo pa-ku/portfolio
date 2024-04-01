@@ -98,7 +98,7 @@ export default function MiniProyects() {
           {proyects.map((project, i) => (
             <CheckBox
               key={project.name}
-              text={project.name}
+              content={project.name}
               value={'1'}
               name={'verduras'}
               checked={i === index}

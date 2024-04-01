@@ -110,7 +110,7 @@ export default function Conocimientos() {
         <RenderIcons title={'Backend'} icons={backend} />
         <RenderIcons
           title={'Estudios'}
-          text={
+          description={
             'Codo a codo Full Stack PHP Julio 2022 Curso web de 6 meses orientado a Php, con conocimientos de Sql, Javascript, Css y html'
           }
         />
@@ -120,16 +120,17 @@ export default function Conocimientos() {
 }
 
 interface IconProps {
-  text?: string
+  name?: string
   src?: string
   alt?: string
+  iconName?: string
 }
-function Icon({ text, src, alt }: IconProps) {
+function Icon({ iconName, src, alt }: IconProps) {
   return (
     <>
       <IconContainer>
         <IconImage src={src} alt={alt}></IconImage>
-        <IconText>{text}</IconText>
+        <IconText>{iconName}</IconText>
       </IconContainer>
     </>
   )
@@ -138,10 +139,11 @@ function Icon({ text, src, alt }: IconProps) {
 type RenderIconsProps = {
   icons?: any
   title: string
-  text?: string
+  description?: string
+  iconName?: string
 }
 
-export function RenderIcons({ icons, title, text }: RenderIconsProps) {
+export function RenderIcons({ icons, title, description }: RenderIconsProps) {
   return (
     <>
       <ConocimientoContainer>
@@ -150,14 +152,15 @@ export function RenderIcons({ icons, title, text }: RenderIconsProps) {
           <IconWrapper>
             {icons.map((item) => (
               <Icon
-                text={item.name}
+                key={item.name}
+                iconName={item.name}
                 src={item.component}
                 alt={`icono ${item.name}`}
               />
             ))}
           </IconWrapper>
         ) : (
-          <Text>{text}</Text>
+          <Text>{description}</Text>
         )}
       </ConocimientoContainer>
     </>

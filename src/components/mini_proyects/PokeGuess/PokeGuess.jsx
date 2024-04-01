@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 import useLocalStorage from 'use-local-storage'
 import { useCountDown } from '../../../hooks/useCountDown'
-import useSound from 'use-sound'
-import startAudio from '../../../assets/sound/clickSound.mp3'
+import startSound from '../../../assets/sound/clickSound.mp3'
 import { usePokeNames } from '../../../hooks/usePokeNames'
 import StartMenu from './StartMenu'
 import PlayingUi from './PlayingUi'
@@ -44,17 +43,39 @@ export default function PokeGuess() {
   const [oldSound, setOldSound] = useLocalStorage('Sound Generation', true)
   const [sound, setSound] = useLocalStorage('soundActive', true)
   const [actualSound, setActualSound] = useState()
-  const [startSound] = useSound(startAudio, { volume: sound ? 0.3 : 0 })
+  const startAudio = new Audio(startSound)
   const pokeAudio = new Audio(actualSound)
 
   useEffect(() => {
+    startAudio.volume = sound ? 0.3 : 0
+    pokeAudio.volume = sound ? 0.3 : 0
+  }, [[], sound])
+
+  function FindPokemon() {
     setLoading(true)
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${rolls[0]}`).then((res) => {
-      const data = res.data
-      setCurrentPoke(data)
-      setLoading(false)
-    })
-  }, [rolls])
+    let randomPokemon = Math.floor(Math.random() * pokeNames.length)
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${randomPokemon}`)
+      .then((res) => {
+        const data = res.data
+        setCurrentPoke(data)
+        setLoading(false)
+      })
+  }
+
+  function rollNumber() {
+    const newRolls = []
+    while (newRolls.length < 4) {
+      const randomNumber = Math.floor(Math.random() * pokeNames.length)
+      if (!newRolls.includes(randomNumber)) {
+        newRolls.push(randomNumber)
+      }
+    }
+    setRolls(newRolls)
+    setShowImage(false)
+
+    return newRolls[0]
+  }
 
   useEffect(() => {
     if (currentPoke)
@@ -94,38 +115,26 @@ export default function PokeGuess() {
 
   function startGame() {
     rollNumber()
-    startSound()
-    setIsPlaying(true)
+    FindPokemon()
     startTimer()
+
+    startAudio.play()
     setEndMsj('')
     setAnswers({
       right: 0,
       wrong: 0,
     })
-  }
-
-  function rollNumber() {
-    const newRolls = []
-    while (newRolls.length < 4) {
-      const randomNumber = Math.floor(Math.random() * pokeNames.length)
-      if (!newRolls.includes(randomNumber)) {
-        newRolls.push(randomNumber)
-      }
-    }
-    setRolls(newRolls)
-    setShowImage(false)
-
-    return newRolls[0]
+    setIsPlaying(true)
   }
 
   function choiceHandler(e) {
     let value = e.target.value
 
-    pokeAudio.volume = sound ? 0.3 : 0
-    isPlaying && pokeAudio.play()
+    pokeAudio.play()
     setShowImage(true)
 
     setTimeout(() => {
+      FindPokemon()
       setShowImage(false)
       rollNumber()
     }, 2000)
@@ -139,6 +148,7 @@ export default function PokeGuess() {
   function correctBonus() {
     setTime(time + 3)
     setScoreUp(true)
+
     setTimeout(() => {
       setScoreUp(false)
     }, 2000)
@@ -163,8 +173,6 @@ export default function PokeGuess() {
         pokeNames[rolls[1]],
         pokeNames[rolls[2]],
         pokeNames[rolls[3]],
-        /*         pokeNames[rolls[4]],
-        pokeNames[rolls[5]], */
       ])
     )
   }, [currentPoke])
@@ -172,7 +180,7 @@ export default function PokeGuess() {
   return (
     <>
       <PokeWrapper>
-        {isPlaying === false && (
+        {!isPlaying && (
           <StartMenu
             setGenSelected={setGenSelected}
             sound={sound}
@@ -198,7 +206,7 @@ export default function PokeGuess() {
             />
           </>
         )}
-        {isPlaying && loading === false && (
+        {isPlaying && !loading && (
           <>
             <ImageContainer>
               <PokeImage
@@ -206,13 +214,11 @@ export default function PokeGuess() {
                 src={currentPoke.sprites.front_default}
                 alt=""
               />
-              {showImage === true && (
-                <PokeName>Es {currentPoke.name}!</PokeName>
-              )}
+              {showImage && <PokeName>Es {currentPoke.name}!</PokeName>}
             </ImageContainer>
             <OptionContainer>
               {shuffle &&
-                showImage === false &&
+                !showImage &&
                 shuffle.map((name, index) => (
                   <OptionButton
                     key={index}

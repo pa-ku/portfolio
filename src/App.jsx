@@ -10,6 +10,7 @@ import ProyectLayout from './components/ProyectLayout'
 import MiniProyectsLayout from './components/mini_proyects/MiniProyectsLayout'
 
 import Subtitle from './components/ui/Subtitle'
+import { useEffect } from 'react'
 
 const Wrapper = styled.div`
   display: flex;
@@ -44,6 +45,9 @@ const ConocimientosContainer = styled.div`
 `
 
 function App() {
+  console.log('%c Gracias Por visitar mi Pagina!', 'color:#ff67d1;font-size:1rem;font-weight:700')
+  
+  
   return (
     <>
       <Wrapper>

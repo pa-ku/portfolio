@@ -2,6 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 import GithubIcon from '../assets/images/stack_logos/githubicon.svg'
 
+type ProyectTemplate = {
+  logoImgSrc: any
+  imgAlt: string
+  backgroundImg: any
+  backgroundAlt: string
+  title: string
+  description: string
+  href: string
+  githubLink: string
+  propIcons: [string]
+}
+
 export default function ProyectTemplate({
   logoImgSrc,
   imgAlt,
@@ -12,11 +24,11 @@ export default function ProyectTemplate({
   href,
   githubLink,
   propIcons,
-}) {
+}: ProyectTemplate) {
   return (
     <Wrapper>
       <LogoContainer className="logo-ctn" href={href} target="_blank">
-        <LogoImage src={logoImgSrc} alt={imgAlt} />
+        <LogoImage loading="lazy" src={logoImgSrc} alt={imgAlt} />
         <MainImage
           className="page-img"
           src={backgroundImg}
@@ -30,11 +42,10 @@ export default function ProyectTemplate({
         </TextContainer>
         <StackContainer>
           {propIcons.map((item) => (
-            <img src={item} alt={`icono ${item}`} />
+            <img key={item} src={item} alt={`icono ${item}`} />
           ))}
         </StackContainer>
       </InfoContainer>
-
       {githubLink && (
         <GithubCtn
           title="Proyecto en Github"
@@ -42,7 +53,7 @@ export default function ProyectTemplate({
           href={githubLink}
           className="github-ctn"
         >
-          <img src={GithubIcon} alt="" />
+          <img src={GithubIcon} alt="Github Link" />
         </GithubCtn>
       )}
     </Wrapper>
@@ -84,8 +95,6 @@ const LogoContainer = styled.a`
   align-items: center;
   justify-content: center;
   outline: 5px solid #fff;
-
-
   margin: 13px;
   outline-offset: 3px;
   @media (max-width: 800px) {

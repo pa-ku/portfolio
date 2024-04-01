@@ -4,7 +4,6 @@ import Subtitle from './ui/Subtitle'
 import SocialMedia from './SocialMedia'
 import Title from './ui/Title'
 import Text from './ui/Text'
-import AboutMe from './AboutMe'
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -60,7 +59,7 @@ export default function Header({ description, subtitle, title }: HeaderProps) {
           </Subtitle>
           <Text width={'40ch'}>{description}</Text>
           <SocialMedia />
-        {/*   <AboutMe /> */}
+
         </Container>
       </HeaderWrapper>
     </>

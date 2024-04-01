@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import pokeLogo from '../../../assets/images/icons/poke-logo.svg'
+import pokeLogo from '../../../assets/images/icons/poke-logo.webp'
 import VolumeIcons from '../../ui/VolumeIcons'
 
 type Props = {
@@ -33,34 +33,25 @@ export default function StartMenu({
   function handleSelectedGen(e) {
     let value = e.target.value
     switch (value) {
-      case 'Gen1':
+      case 'gen1':
         console.log(pokeGeneration)
         setGenSelected({
-          gen1: true,
-          gen2: false,
-          gen3: false,
           selected: 'gen1',
           pokeNumber: 151,
           value: maxScore.gen1,
         })
         break
-      case 'Gen2':
+      case 'gen2':
         console.log(pokeGeneration)
         setGenSelected({
-          gen1: false,
-          gen2: true,
-          gen3: false,
           selected: 'gen2',
           pokeNumber: 251,
           value: maxScore.gen2,
         })
         break
-      case 'Gen3':
+      case 'gen3':
         console.log(pokeGeneration)
         setGenSelected({
-          gen1: false,
-          gen2: false,
-          gen3: true,
           selected: 'gen3',
           pokeNumber: 386,
           value: maxScore.gen3,
@@ -81,25 +72,22 @@ export default function StartMenu({
           <p>START</p>
           <PokeLogo src={pokeLogo} alt="" />
         </StartButton>
+
         <CheckBox
-          checked={oldSound}
+          defaultChecked={oldSound}
           onChange={handleOldSound}
           type="checkbox"
         />
+
         <Select
           onChange={handleSelectedGen}
           name="Elegir generacion"
           id="poke-generation"
+          value={genSelected.selected}
         >
-          <Option selected={genSelected.gen1} value="Gen1">
-            Generacion 1
-          </Option>
-          <Option selected={genSelected.gen2} value="Gen2">
-            Generacion 2
-          </Option>
-          <Option selected={genSelected.gen3} value="Gen3">
-            Generacion 3
-          </Option>
+          <Option value="gen1">Generacion 1</Option>
+          <Option value="gen2">Generacion 2</Option>
+          <Option value="gen3">Generacion 3</Option>
         </Select>
 
         <Score>Mejor Puntaje: {genSelected.value}</Score>

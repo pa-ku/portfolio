@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Text from './ui/Text'
-import MyImage from '../assets/img/my-img.png'
+import MyImage from '../assets/images/my-img.webp'
 export default function AboutMe() {
   const [aboutMe, setAboutMe] = useState(false)
 
@@ -23,7 +23,7 @@ export default function AboutMe() {
       <AboutMeCtn animationActive={aboutMe}>
         <AboutMeDiv>
           <ImageCtn>
-            <Image src={MyImage} alt="Mi imagen" />
+            <Image loading='lazy' src={MyImage} alt="Mi imagen" />
           </ImageCtn>
           <DescriptionCtn>
             <Text>
