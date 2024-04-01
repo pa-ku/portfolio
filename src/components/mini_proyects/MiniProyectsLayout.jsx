@@ -91,7 +91,7 @@ export default function MiniProyects() {
     <>
       <Wrapper>
         <Subtitle fontSize="40px" altButton={true}>
-          Mini Juegos
+          Mini Proyectos
         </Subtitle>
         <NavContainer>
           <Selected $left={selectedPosition}></Selected>
