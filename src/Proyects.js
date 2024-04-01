@@ -12,7 +12,7 @@ export const Proyects = [
     name: 'Eride',
     title: 'E-ride Scooter Store',
     description:
-      'Un E-commerce de Monopatines, utiliza la Api de MercadoPago para las transacciones, Vercel y una base de datos estatica para mejor carga de la pagina',
+      'Un ecommerce estatico que recibe transacciones con la api de Mercado pago. Cuenta con un filtro de productos, y guardado de favoritos que se almacenan en el Local Storage',
   },
   {
     name: 'Dice',

@@ -11,6 +11,9 @@ import photoshopIcon from '../assets/images/stack_logos/photoshopicon.svg'
 import githubIcon from '../assets/images/stack_logos/githubicon.svg'
 import mongo from '../assets/images/stack_logos/mongo.svg'
 import sql from '../assets/images/stack_logos/sql.svg'
+import TypeIcon from '../assets/images/stack_logos/typescript-ico.svg'
+import ExpressIcon from '../assets/images/stack_logos/express-ico.svg'
+
 import Text from './ui/Text'
 
 const Wrapper = styled.div`
@@ -88,19 +91,21 @@ export default function Conocimientos() {
     { component: HtmlIcon, name: 'Html' },
     { component: CssIconn, name: 'Css' },
     { component: jsIcon, name: 'Javascript' },
+    { component: TypeIcon, name: 'TypeScript' },
     { component: ReactIcon, name: 'React' },
     { component: styledicon, name: 'Styled' },
   ]
   const backend = [
-    { component: nodejsicon, name: 'Html' },
-    { component: githubIcon, name: 'Html' },
-    { component: mongo, name: 'Css' },
-    { component: sql, name: 'Javascript' },
+    { component: nodejsicon, name: 'NodeJs' },
+    { component: ExpressIcon, name: 'Express' },
+    { component: githubIcon, name: 'Github' },
+    { component: mongo, name: 'MongoDb' },
+    { component: sql, name: 'SQL' },
   ]
   return (
     <>
       <Wrapper>
-        <RenderIcons title={'Design'} icons={design} />
+        <RenderIcons title={'Diseño'} icons={design} />
         <RenderIcons title={'FrontEnd'} icons={frontend} />
         <RenderIcons title={'Backend'} icons={backend} />
         <RenderIcons

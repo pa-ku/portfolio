@@ -14,6 +14,8 @@ import ReactImage from '../assets/images/stack_logos/reacticon.svg'
 import NodeImage from '../assets/images/stack_logos/nodejsicon.svg'
 import StyledImage from '../assets/images/stack_logos/styledicon.svg'
 import MongoImage from '../assets/images/stack_logos/mongo.svg'
+import TypescriptImage from '../assets/images/stack_logos/typescript-ico.svg'
+import JsImage from '../assets/images/stack_logos/javascripticon.svg'
 
 /* import JsImage from '../assets/stackicons/javascripticon.svg' */
 /* import HtmlImace from '../assets/stackicons/htmlicon.svg'
@@ -36,7 +38,7 @@ export default function ProyectLayout() {
         description={Proyects[1].description}
         backgroundImg={EridePageImage}
         backgroundAlt={'Imagen pagina web de Xtreme'}
-        propIcons={[ReactImage, StyledImage, NodeImage]}
+        propIcons={[ReactImage, TypescriptImage]}
       />
       <ProyectTemplate
         logoImgSrc={MenuLogo}
@@ -47,7 +49,7 @@ export default function ProyectLayout() {
         backgroundAlt={'Imagen pagina web de flybondi'}
         title={Proyects[4].title}
         description={Proyects[4].description}
-        propIcons={[ReactImage, StyledImage, MongoImage, NodeImage]}
+        propIcons={[ReactImage, TypescriptImage, MongoImage, NodeImage]}
       />
       <ProyectTemplate
         logoImgSrc={FlyLogo}
@@ -63,7 +65,7 @@ export default function ProyectLayout() {
             {item}
           </p>
         ))}
-        propIcons={[ReactImage, StyledImage]}
+        propIcons={[ReactImage, JsImage, StyledImage]}
       />
 
       <ProyectTemplate
@@ -80,7 +82,7 @@ export default function ProyectLayout() {
             {item}
           </p>
         ))}
-        propIcons={[ReactImage, StyledImage]}
+        propIcons={[ReactImage, JsImage, StyledImage]}
       />
     </>
   )

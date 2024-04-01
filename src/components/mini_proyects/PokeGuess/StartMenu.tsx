@@ -124,7 +124,7 @@ const CheckBox = styled.input`
     justify-content: center;
     width: max-content;
     height: 20px;
-    color: #333;
+    color: #999999;
     border-radius: 8px;
     background-color: #e6e6e6;
     border: 2px solid #c6c6c6;

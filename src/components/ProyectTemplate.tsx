@@ -74,8 +74,8 @@ const Wrapper = styled.div`
   }
 `
 const LogoContainer = styled.a`
-  width: 140px;
-  height: 130px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background-color: var(--blue-800);
   position: absolute;
@@ -84,7 +84,7 @@ const LogoContainer = styled.a`
   align-items: center;
   justify-content: center;
   outline: 5px solid #fff;
-  padding: 10px;
+
 
   margin: 13px;
   outline-offset: 3px;
@@ -135,15 +135,13 @@ const InfoContainer = styled.div`
 `
 
 const LogoImage = styled.img`
-  padding: 20px;
+  padding: 30px;
   width: 100%;
   height: 100%;
   display: flex;
   object-fit: contain;
   transition: 300ms;
   pointer-events: none;
-
-
   -webkit-filter: drop-shadow(5px 5px 5px #222);
   filter: drop-shadow(3px 3px 0px #63c5e8);
   @media (max-width: 800px) {
