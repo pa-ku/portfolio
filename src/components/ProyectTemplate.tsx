@@ -201,7 +201,7 @@ const StackContainer = styled.div`
   padding-top: 10px;
   @media (max-width: 800px) {
     flex-direction: row;
-    padding: 10px;
+    padding: 20px;
     height: max-content;
   }
   & img {

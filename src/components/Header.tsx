@@ -14,12 +14,7 @@ const HeaderWrapper = styled.header`
 
   @media (max-width: 1200px) {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    scale: 0.9;
+    padding: 1em;
   }
 `
 
@@ -28,16 +23,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
-  @media (max-width: 1200px) {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-wrap: wrap;
-    padding-inline: 1em;
-  }
 `
 
 type HeaderProps = {
@@ -59,7 +44,6 @@ export default function Header({ description, subtitle, title }: HeaderProps) {
           </Subtitle>
           <Text width={'40ch'}>{description}</Text>
           <SocialMedia />
-
         </Container>
       </HeaderWrapper>
     </>

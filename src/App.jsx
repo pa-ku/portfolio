@@ -2,15 +2,12 @@ import styled from 'styled-components'
 import Header from './components/Header'
 import './index.css'
 import Conocimientos from './components/Conocimientos'
-
-/* IMAGES */
 import Wave from './components/Wave'
 import ProyectLayout from './components/ProyectLayout'
-
 import MiniProyectsLayout from './components/mini_proyects/MiniProyectsLayout'
-
 import Subtitle from './components/ui/Subtitle'
-import { useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
+import { useEffect, useState } from 'react'
 
 const Wrapper = styled.div`
   display: flex;
@@ -45,9 +42,15 @@ const ConocimientosContainer = styled.div`
 `
 
 function App() {
-  console.log('%c Gracias Por visitar mi Pagina!', 'color:#ff67d1;font-size:1rem;font-weight:700')
-  
-  
+
+  const { ref, inView } = useInView({
+    threshold: 0,
+  })
+
+  useEffect(() => {
+    console.log(inView)
+  }, [inView])
+
   return (
     <>
       <Wrapper>
@@ -62,14 +65,14 @@ function App() {
         <ProyectosContainer>
           <ProyectLayout />
         </ProyectosContainer>
-        <ConocimientosContainer>
+        <ConocimientosContainer ref={ref}>
           <Subtitle altButton fontSize="40px">
             Conocimientos
           </Subtitle>
           <Conocimientos />
         </ConocimientosContainer>
         <Wave />
-        <MiniProyectsLayout />
+        <MiniProyectsLayout  />
       </Wrapper>
     </>
   )

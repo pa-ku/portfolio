@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const TextStyle = styled.p<{ fontSize?: string; width?: string }>`
   font-size: 17px;
-  width: ${(props) => props.width};
+  max-width: ${(props) => props.width};
 `
 type TextProps = {
   children: any

@@ -11,6 +11,7 @@ const Text = styled.p<{ fontSize?: string; color?: string }>`
   -webkit-text-fill-color: transparent;
   animation: glow 2s ease forwards;
   font-weight: 600;
+
 `
 
 type SubtitleProps = {
