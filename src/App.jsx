@@ -7,14 +7,14 @@ import ProyectLayout from './components/ProyectLayout'
 import MiniProyectsLayout from './components/mini_proyects/MiniProyectsLayout'
 import Subtitle from './components/ui/Subtitle'
 import { useInView } from 'react-intersection-observer'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
   padding-top: 6em;
-  gap: 7em;
+  gap: 6em;
   flex-direction: column;
   overflow: hidden;
   width: 100%;

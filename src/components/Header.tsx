@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Subtitle from './ui/Subtitle'
 import SocialMedia from './SocialMedia'
+import AboutMe from './AboutMe'
 import Title from './ui/Title'
 import Text from './ui/Text'
 
@@ -11,7 +12,8 @@ const HeaderWrapper = styled.header`
   justify-content: center;
   text-align: center;
   width: 70ch;
-
+  opacity: 0;
+  animation: 1s opacity forwards;
   @media (max-width: 1200px) {
     width: 100%;
     padding: 1em;
@@ -43,6 +45,7 @@ export default function Header({ description, subtitle, title }: HeaderProps) {
             {subtitle}
           </Subtitle>
           <Text width={'40ch'}>{description}</Text>
+          <AboutMe />
           <SocialMedia />
         </Container>
       </HeaderWrapper>

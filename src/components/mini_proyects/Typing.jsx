@@ -12,10 +12,6 @@ const GameWrapper = styled.div`
   position: relative;
   padding-bottom: 10px;
   background: linear-gradient(to top, #001f3e, #006a91);
-
-  & * {
-    font-family: 'Pixelify Sans', sans-serif;
-  }
   @media (max-width: 800px) {
     width: 100%;
   }

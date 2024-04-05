@@ -244,9 +244,6 @@ const PokeWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   position: relative;
-  & * {
-    font-family: 'Pixelify Sans', sans-serif;
-  }
   @media (max-width: 800px) {
     width: 300px;
   }

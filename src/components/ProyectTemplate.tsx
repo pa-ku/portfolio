@@ -26,15 +26,21 @@ export default function ProyectTemplate({
   propIcons,
 }: ProyectTemplate) {
   return (
-    <Wrapper>
+    <WrapperMain>
       <LogoContainer className="logo-ctn" href={href} target="_blank">
-        <LogoImage loading="lazy" src={logoImgSrc} alt={imgAlt} />
+        <LogoImage
+          className="logo-img"
+          loading="lazy"
+          src={logoImgSrc}
+          alt={imgAlt}
+        />
         <MainImage
           className="page-img"
           src={backgroundImg}
           alt={backgroundAlt}
         />
       </LogoContainer>
+
       <InfoContainer>
         <TextContainer>
           <InfoTitle>{title}</InfoTitle>
@@ -56,11 +62,11 @@ export default function ProyectTemplate({
           <img src={GithubIcon} alt="Github Link" />
         </GithubCtn>
       )}
-    </Wrapper>
+    </WrapperMain>
   )
 }
 
-const Wrapper = styled.div`
+const WrapperMain = styled.main`
   display: flex;
   align-items: center;
   width: 730px;
@@ -68,6 +74,10 @@ const Wrapper = styled.div`
   opacity: 0;
   translate: -20px -20px;
   animation: 1s Show forwards;
+
+  &:hover .logo-ctn {
+    outline-color: var(--blue-200);
+  }
   @media (max-width: 700px) {
     width: 100%;
     height: max-content;
@@ -78,10 +88,6 @@ const Wrapper = styled.div`
       opacity: 1;
       translate: 0px -20px;
     }
-  }
-
-  &:hover .logo-ctn {
-    outline-color: var(--blue-200);
   }
 `
 const LogoContainer = styled.a`
@@ -104,6 +110,7 @@ const LogoContainer = styled.a`
     padding: 0px;
     border-radius: 0px 0px 20px 20px;
   }
+
   @media (min-width: 700px) {
     &:hover {
       width: 730px;
@@ -112,12 +119,11 @@ const LogoContainer = styled.a`
       cursor: pointer;
       outline: 0px;
     }
-    &:hover .logo-img {
-      opacity: 0;
+    &:hover .logo-img{
+      display: none;
     }
     &:hover .page-img {
       opacity: 1;
-      z-index: 10;
       border-radius: 20px;
     }
   }
@@ -199,15 +205,15 @@ const StackContainer = styled.div`
   gap: 10px;
   height: 100%;
   padding-top: 10px;
-  @media (max-width: 800px) {
-    flex-direction: row;
-    padding: 20px;
-    height: max-content;
-  }
   & img {
     width: 33px;
     height: 33px;
     object-fit: contain;
+  }
+  @media (max-width: 800px) {
+    flex-direction: row;
+    padding: 20px;
+    height: max-content;
   }
 `
 

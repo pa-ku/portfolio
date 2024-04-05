@@ -12,8 +12,6 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 10px;
-
   position: relative;
 `
 
@@ -30,7 +28,6 @@ const Link = styled.a`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
   cursor: pointer;
   transition: 0.3s;
 `

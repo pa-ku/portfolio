@@ -11,11 +11,9 @@ const Input = styled.input<{ content?: string }>`
   font-weight: 500;
   border-color: #717171;
   padding: 3px;
-  min-width: 20px;
-  padding-inline: 15px;
   color: #222;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.3rem;
   border-radius: 6px;
   cursor: pointer;
   &:checked {
@@ -23,6 +21,7 @@ const Input = styled.input<{ content?: string }>`
   }
   &::before {
     content: '${(props) => props.content}';
+    font-family: Pixelify;
   }
 `
 

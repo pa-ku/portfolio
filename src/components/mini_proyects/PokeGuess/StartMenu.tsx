@@ -107,6 +107,7 @@ const CheckBox = styled.input`
     position: absolute;
     content: 'Old Pokemon Sounds';
     padding: 12px;
+    font-family: Pixelify;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,7 +117,7 @@ const CheckBox = styled.input`
     border-radius: 8px;
     background-color: #e6e6e6;
     border: 2px solid #c6c6c6;
-    font-size: 16px;
+    font-size: 19px;
     transition: 200ms;
     font-weight: 600;
   }

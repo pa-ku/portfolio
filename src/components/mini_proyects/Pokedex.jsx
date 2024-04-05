@@ -11,9 +11,6 @@ const PokeWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  & * {
-    font-family: 'Pixelify Sans', sans-serif;
-  }
   @media (max-width: 700px) {
     display: block;
   }
@@ -28,7 +25,7 @@ const InputFilter = styled.input`
   border: 8px solid #111;
   background-color: #333;
   color: #d9d9d9;
-  font-family: 'Pixelify Sans', sans-serif;
+
   box-shadow: -7px 5px 0px 1px #111;
   &:focus {
     background-color: #444;
@@ -115,7 +112,6 @@ const PokeCardTitle = styled.h2`
   font-size: 20px;
   color: #ffd6d6;
   z-index: 5;
-  font-family: 'Pixelify Sans', sans-serif;
   height: 100%;
   padding-top: 40px;
   padding-left: 45px;

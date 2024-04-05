@@ -4,9 +4,10 @@ import Text from './ui/Text'
 import MyImage from '../assets/images/my-img.webp'
 export default function AboutMe() {
   const [aboutMe, setAboutMe] = useState(false)
-
+  const [displayButton, setDisplayButton] = useState(false)
   function openAboutMe() {
     setAboutMe(aboutMe ? false : true)
+    setDisplayButton(true)
   }
   return (
     <>
@@ -20,24 +21,25 @@ export default function AboutMe() {
         </HeaderButton>
       )}
 
-      <AboutMeCtn animationActive={aboutMe}>
+      <AboutMeCtn display={displayButton} animationActive={aboutMe}>
         <AboutMeDiv>
           <ImageCtn>
-            <Image loading='lazy' src={MyImage} alt="Mi imagen" />
+            <Image loading="lazy" src={MyImage} alt="Mi imagen" />
           </ImageCtn>
           <DescriptionCtn>
             <Text>
-              - Comence mi viaje en el desarrollo web hace 4 años con tutoriales
-              como los de WebDevSimplified, ByteGrad, Conner Ardman, JoshComeaw,
-              Midudev...
+              Comencé mi viaje en el desarrollo web hace 4 años, explorando
+              tutoriales de creadores como WebDevSimplified, ByteGrad, Conner
+              Ardman, JoshComeaw y Midudev..."
             </Text>
             <Text>
-              - Como stack principal utilizo MERN y Typescript con los
-              principios de de desarrollo SOLID y el patron MVC en backend.
+              Mi enfoque principal se centra en la accesibilidad, la
+              escalabilidad y la responsividad de las aplicaciones web.
             </Text>
             <Text>
-              - Con un enfoque en la accesibilidad, escalabilidad, la
-              responsividad de la web
+              Como stack utilizo MERN y Typescript, aplicando los
+              principios de desarrollo SOLID junto con el patrón MVC en el
+              backend.
             </Text>
           </DescriptionCtn>
         </AboutMeDiv>
@@ -47,7 +49,9 @@ export default function AboutMe() {
 }
 
 const DescriptionCtn = styled.div`
-  padding: 10px;
+  & p {
+    font-size: 16px;
+  }
 `
 
 const AboutMeDiv = styled.div`
@@ -73,46 +77,39 @@ const Image = styled.img`
 
 const AboutMeCtn = styled.section<{
   animationActive: boolean
+  display: boolean
 }>`
-  height: 0px;
-  opacity: 0;
-  position: absolute;
-  visibility: hidden;
+  width: 700px;
 
+  display: ${(props) => (props.display ? 'block' : 'none')};
   animation: ${(props) =>
-    props.animationActive ? '500ms open forwards' : '400ms close forwards'};
+    props.animationActive ? '800ms open forwards' : '400ms close forwards'};
   @keyframes open {
     0% {
       height: 0px;
       opacity: 0;
-      position: relative;
     }
     30% {
       opacity: 0;
-      height: 150px;
+      height: 240px;
     }
     100% {
       opacity: 1;
-      visibility: visible;
-      height: 150px;
-      position: relative;
+      height: 240px;
     }
   }
   @keyframes close {
     0% {
       opacity: 1;
-      height: 150px;
-      position: relative;
+      height: 240px;
     }
     30% {
       opacity: 0;
-      height: 150px;
-      position: relative;
+      height: 240px;
     }
     100% {
       opacity: 0;
       height: 0px;
-      position: relative;
     }
   }
 `
@@ -122,7 +119,7 @@ const HeaderButton = styled.button<{ aboutMe: boolean }>`
   border: 0px;
   font-size: 18px;
   cursor: pointer;
-  padding: 15px;
+  padding-bottom: 10px;
   color: ${(props) =>
     props.aboutMe ? 'var(--pink-500);' : ' var(--blue-900);'};
   &:hover {
