@@ -51,7 +51,7 @@ export default function ProyectLayout() {
         description={Proyects[4].description}
         propIcons={[ReactImage, TypescriptImage, MongoImage, NodeImage]}
       />
-      <ProyectTemplate
+    {/*   <ProyectTemplate
         logoImgSrc={FlyLogo}
         imgAlt={'Logo Flybondi'}
         githubLink={''}
@@ -66,7 +66,7 @@ export default function ProyectLayout() {
           </p>
         ))}
         propIcons={[ReactImage, JsImage, StyledImage]}
-      />
+      /> */}
 
       <ProyectTemplate
         logoImgSrc={RoscoLogo}
