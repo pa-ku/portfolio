@@ -77,13 +77,14 @@ const Image = styled.img`
   object-fit: contain;
   height: 100%;
   width: 100%;
+  border-radius: 20px;
 `
 
 const AboutMeCtn = styled.section<{
   animationActive: boolean
   display: boolean
 }>`
-  --height: 280px;
+  --height: 300px;
   box-shadow: 20px 20px 30px 0px #f3f3f3;
 
   background-color: #fff;
