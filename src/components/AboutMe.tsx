@@ -37,9 +37,8 @@ export default function AboutMe() {
               escalabilidad y la responsividad de las aplicaciones web.
             </Text>
             <Text>
-              Como stack utilizo MERN y Typescript, aplicando los
-              principios de desarrollo SOLID junto con el patrón MVC en el
-              backend.
+              Como stack utilizo MERN y Typescript, aplicando los principios de
+              desarrollo SOLID junto con el patrón MVC en el backend.
             </Text>
           </DescriptionCtn>
         </AboutMeDiv>
@@ -65,8 +64,13 @@ const AboutMeDiv = styled.div`
 `
 
 const ImageCtn = styled.div`
-  height: 200px;
+  height: 100%;
+  padding-right: 20px;
   width: 100%;
+  @media (max-width: 700px) {
+    height: 200px;
+    padding: 10px;
+  }
 `
 
 const Image = styled.img`
@@ -79,8 +83,12 @@ const AboutMeCtn = styled.section<{
   animationActive: boolean
   display: boolean
 }>`
-  width: 700px;
+  --height: 280px;
+  box-shadow: 20px 20px 30px 0px #f3f3f3;
 
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 10px;
   display: ${(props) => (props.display ? 'block' : 'none')};
   animation: ${(props) =>
     props.animationActive ? '800ms open forwards' : '400ms close forwards'};
@@ -88,29 +96,39 @@ const AboutMeCtn = styled.section<{
     0% {
       height: 0px;
       opacity: 0;
+      margin-bottom: 0px;
     }
     30% {
       opacity: 0;
-      height: 240px;
+      height: var(--height);
+      margin-bottom: 20px;
     }
     100% {
       opacity: 1;
-      height: 240px;
+      height: var(--height);
+      margin-bottom: 20px;
     }
   }
   @keyframes close {
     0% {
       opacity: 1;
-      height: 240px;
+      height: var(--height);
+      margin-bottom: 20px;
     }
     30% {
       opacity: 0;
-      height: 240px;
+      height: var(--height);
+      margin-bottom: 20px;
     }
     100% {
       opacity: 0;
       height: 0px;
+      margin-bottom: 0px;
     }
+  }
+
+  @media (max-width: 700px) {
+    --height: 490px;
   }
 `
 
