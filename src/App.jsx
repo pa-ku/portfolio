@@ -27,7 +27,7 @@ const ProyectosContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 50px;
-  margin-inline: 15px;
+padding-inline: 10px;
   @media (max-width: 800px) {
     gap: 80px;
   }
@@ -42,7 +42,6 @@ const ConocimientosContainer = styled.div`
 `
 
 function App() {
-
   const { ref, inView } = useInView({
     threshold: 0,
   })
@@ -72,7 +71,7 @@ function App() {
           <Conocimientos />
         </ConocimientosContainer>
         <Wave />
-        <MiniProyectsLayout  />
+        <MiniProyectsLayout />
       </Wrapper>
     </>
   )

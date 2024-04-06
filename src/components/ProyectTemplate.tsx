@@ -103,10 +103,14 @@ const LogoContainer = styled.a`
   outline: 5px solid #fff;
   margin: 13px;
   outline-offset: 3px;
+
   @media (max-width: 800px) {
     bottom: 0px;
+    margin: 0px;
     width: 100%;
     height: 60px;
+    outline: 0px;
+
     padding: 0px;
     border-radius: 0px 0px 20px 20px;
   }
@@ -119,7 +123,7 @@ const LogoContainer = styled.a`
       cursor: pointer;
       outline: 0px;
     }
-    &:hover .logo-img{
+    &:hover .logo-img {
       display: none;
     }
     &:hover .page-img {
