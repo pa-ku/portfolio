@@ -45,7 +45,7 @@ export default function Header({ description, subtitle, title }: HeaderProps) {
             {subtitle}
           </Subtitle>
           <Text width={'40ch'}>{description}</Text>
-          <AboutMe />
+          {/* <AboutMe /> */}
           <SocialMedia />
         </Container>
       </HeaderWrapper>

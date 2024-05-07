@@ -47,7 +47,7 @@ function App() {
   })
 
   useEffect(() => {
-    console.log(inView)
+
   }, [inView])
 
   return (

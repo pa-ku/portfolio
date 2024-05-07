@@ -27,10 +27,8 @@ export default function AboutMe() {
             <Image loading="lazy" src={MyImage} alt="Mi imagen" />
           </ImageCtn>
           <DescriptionCtn>
-            <Text>
-              Comencé mi viaje en el desarrollo web hace 4 años, explorando
-              tutoriales de creadores como WebDevSimplified, ByteGrad, Conner
-              Ardman, JoshComeaw y Midudev..."
+          <Text>
+            Mi viaje en el desarrollo comenzo en el 2022, donde aprendi 
             </Text>
             <Text>
               Mi enfoque principal se centra en la accesibilidad, la
@@ -58,7 +56,7 @@ const AboutMeDiv = styled.div`
   align-items: center;
   justify-content: center;
   text-align: start;
-  @media (max-width: 700px) {
+  @media (max-width: 500px) {
     flex-direction: column;
   }
 `
@@ -67,8 +65,8 @@ const ImageCtn = styled.div`
   height: 100%;
   padding-right: 20px;
   width: 100%;
-  @media (max-width: 700px) {
-    height: 200px;
+  @media (max-width: 500px) {
+    height: 230px;
     padding: 10px;
   }
 `
@@ -128,7 +126,7 @@ const AboutMeCtn = styled.section<{
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 500px) {
     --height: 490px;
   }
 `

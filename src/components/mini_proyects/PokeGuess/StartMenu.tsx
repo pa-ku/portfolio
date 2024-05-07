@@ -34,7 +34,7 @@ export default function StartMenu({
     let value = e.target.value
     switch (value) {
       case 'gen1':
-        console.log(pokeGeneration)
+
         setGenSelected({
           selected: 'gen1',
           pokeNumber: 151,
@@ -42,7 +42,7 @@ export default function StartMenu({
         })
         break
       case 'gen2':
-        console.log(pokeGeneration)
+  
         setGenSelected({
           selected: 'gen2',
           pokeNumber: 251,
@@ -50,7 +50,6 @@ export default function StartMenu({
         })
         break
       case 'gen3':
-        console.log(pokeGeneration)
         setGenSelected({
           selected: 'gen3',
           pokeNumber: 386,
