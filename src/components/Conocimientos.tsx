@@ -83,25 +83,25 @@ const ConocimientoContainer = styled.div`
 `
 
 export default function Conocimientos() {
-  const design = [
-    { component: figmaIcon, name: 'Figma' },
-    { component: photoshopIcon, name: 'Photoshop' },
-  ]
-  const frontend = [
-    { component: HtmlIcon, name: 'Html' },
-    { component: CssIconn, name: 'Css' },
-    { component: jsIcon, name: 'Javascript' },
-    { component: TypeIcon, name: 'TypeScript' },
-    { component: ReactIcon, name: 'React' },
-    { component: styledicon, name: 'Styled' },
-  ]
-  const backend = [
-    { component: nodejsicon, name: 'NodeJs' },
-    { component: ExpressIcon, name: 'Express' },
-    { component: githubIcon, name: 'Github' },
-    { component: mongo, name: 'MongoDb' },
-    { component: sql, name: 'SQL' },
-  ]
+  const design = new Map([
+    ['Figma', figmaIcon],
+    ['Photoshop', photoshopIcon],
+  ])
+  const frontend = new Map([
+    ['Html', HtmlIcon],
+    ['Css', CssIconn],
+    ['Javascript', jsIcon],
+    ['TypeScript', TypeIcon],
+    ['React', ReactIcon],
+    ['Styled', styledicon],
+  ])
+  const backend = new Map([
+    ['NodeJs', nodejsicon],
+    ['Express', ExpressIcon],
+    ['Github', githubIcon],
+    ['MongoDb', mongo],
+    ['SQL', sql],
+  ])
   return (
     <>
       <Wrapper>
@@ -129,7 +129,7 @@ function Icon({ iconName, src, alt }: IconProps) {
   return (
     <>
       <IconContainer>
-        <IconImage loading='lazy' src={src} alt={alt}></IconImage>
+        <IconImage loading="lazy" src={src} alt={alt}></IconImage>
         <IconText>{iconName}</IconText>
       </IconContainer>
     </>
@@ -150,12 +150,12 @@ export function RenderIcons({ icons, title, description }: RenderIconsProps) {
         <ConocimientoTitle>{title}</ConocimientoTitle>
         {icons ? (
           <IconWrapper>
-            {icons.map((item) => (
+        {[...icons].map(([name, component]) => (
               <Icon
-                key={item.name}
-                iconName={item.name}
-                src={item.component}
-                alt={`icono ${item.name}`}
+                key={name}
+                iconName={name}
+                src={component}
+                alt={`icono ${name}`}
               />
             ))}
           </IconWrapper>
