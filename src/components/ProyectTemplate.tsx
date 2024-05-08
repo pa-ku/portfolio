@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import GithubIcon from '../assets/images/stack_logos/githubicon.svg'
 
 type ProyectTemplate = {
-  logoImgSrc: any
+  LogoSrc: string
   imgAlt: string
-  backgroundImg: any
+  ImgSrc: string
   backgroundAlt: string
   title: string
   description: string
@@ -15,10 +15,8 @@ type ProyectTemplate = {
 }
 
 export default function ProyectTemplate({
-  logoImgSrc,
-  imgAlt,
-  backgroundImg,
-  backgroundAlt,
+  LogoSrc,
+  ImgSrc,
   title,
   description,
   href,
@@ -32,8 +30,9 @@ export default function ProyectTemplate({
   }
 
   return (
-    <WrapperMain>
-      <LogoContainer
+    <Wrapper>
+      <LogoCtn
+        title="Navegar a la url"
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}
         className="logo-ctn"
@@ -43,16 +42,16 @@ export default function ProyectTemplate({
         <LogoImage
           className="logo-img"
           loading="lazy"
-          src={logoImgSrc}
-          alt={imgAlt}
+          src={LogoSrc}
+          alt={`logo de ${title}`}
         />
-      </LogoContainer>
-      <InfoContainer>
+      </LogoCtn>
+      <InfoCtn>
         <MainImage
           isHover={isHover}
           className="page-img"
-          src={backgroundImg}
-          alt={backgroundAlt}
+          src={ImgSrc}
+          alt={`imagen de ${title}`}
         />
         <TextContainer>
           <InfoTitle>{title}</InfoTitle>
@@ -63,7 +62,7 @@ export default function ProyectTemplate({
             <img key={item} src={item} alt={`icono ${item}`} />
           ))}
         </StackContainer>
-      </InfoContainer>
+      </InfoCtn>
       {githubLink && (
         <GithubCtn
           title="Proyecto en Github"
@@ -74,18 +73,18 @@ export default function ProyectTemplate({
           <img src={GithubIcon} alt="Github Link" />
         </GithubCtn>
       )}
-    </WrapperMain>
+    </Wrapper>
   )
 }
 
-const WrapperMain = styled.main`
+const Wrapper = styled.section`
   display: flex;
   align-items: center;
   width: 730px;
   height: 240px;
   opacity: 0;
   translate: -20px -20px;
-  animation: 1s Show forwards;
+  animation: 600ms Show forwards;
 
   &:hover .logo-ctn {
     outline-color: var(--blue-200);
@@ -102,7 +101,7 @@ const WrapperMain = styled.main`
     }
   }
 `
-const LogoContainer = styled.a`
+const LogoCtn = styled.a`
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -121,7 +120,6 @@ const LogoContainer = styled.a`
       cursor: pointer;
       background-color: var(--blue-700);
       outline-offset: -1px;
-      
     }
   }
   @media (max-width: 800px) {
@@ -135,7 +133,7 @@ const LogoContainer = styled.a`
   }
 `
 
-const InfoContainer = styled.div`
+const InfoCtn = styled.div`
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -161,7 +159,7 @@ const LogoImage = styled.img`
   height: 100%;
   display: flex;
   object-fit: contain;
- 
+
   transition: 300ms;
   pointer-events: none;
   -webkit-filter: drop-shadow(5px 5px 5px #222);
@@ -172,17 +170,16 @@ const LogoImage = styled.img`
 `
 
 const MainImage = styled.img`
- width: 660px;
+  width: 660px;
   height: 100%;
   object-position: top;
   pointer-events: none;
   object-fit: cover;
-  transition: 500ms;
+  transition: 200ms ease-in;
   z-index: 2;
-  opacity: ${props => props.isHover ? '1' : '0'};
+  opacity: ${(props) => (props.isHover ? '1' : '0')};
   position: absolute;
   border-radius: 20px;
-
 `
 
 const TextContainer = styled.div`

@@ -96,6 +96,7 @@ export default function Typing() {
         `https://pokeapi.co/api/v2/pokemon?limit=150`
       )
       setPokemon(pokeApi.data.results)
+      console.log("type fetch");
     }
     dataPokemon()
   }, [])

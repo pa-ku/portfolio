@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 /**  
-  @params nPokemons = cantidad de pokemons que se llaman a la api
+  @params numberOfPokemons = cantidad de pokemons que se llaman a la api
   @params pokeNames = array de los nombres de los pokemons
 
  **/
@@ -17,7 +17,9 @@ export const usePokeNames = (numberOfPokemons, renderCondition) => {
       )
       .then((res) => {
         setPokeNames([...res.data.results.map((poke) => poke.name)])
+        console.log('pokecall')
       })
   }, [renderCondition])
+
   return { pokeNames }
 }

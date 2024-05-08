@@ -21,19 +21,19 @@ const Wrapper = styled.div`
   padding-bottom: 10em;
 `
 
-const ProyectosContainer = styled.div`
+const ProyectosCtn = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 50px;
-padding-inline: 10px;
+  padding-inline: 10px;
   @media (max-width: 800px) {
     gap: 80px;
   }
 `
 
-const ConocimientosContainer = styled.div`
+const ConocimientoCtn = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,9 +46,7 @@ function App() {
     threshold: 0,
   })
 
-  useEffect(() => {
-
-  }, [inView])
+  useEffect(() => {}, [inView])
 
   return (
     <>
@@ -61,16 +59,16 @@ function App() {
             'Soy un desarrollador autodidacta, enfocado en la creación de experiencias digitales'
           }
         />
-        <ProyectosContainer>
+        <ProyectosCtn>
           <ProyectLayout />
-        </ProyectosContainer>
-        <ConocimientosContainer ref={ref}>
+        </ProyectosCtn>
+        <ConocimientoCtn ref={ref}>
           <Subtitle altButton fontSize="40px">
             Conocimientos
           </Subtitle>
           <Conocimientos />
-        </ConocimientosContainer>
-        <Wave />
+        </ConocimientoCtn>
+     
         <MiniProyectsLayout />
       </Wrapper>
     </>

@@ -28,7 +28,7 @@ const NavContainer = styled.div`
   z-index: 0;
   border-radius: 10px;
   position: relative;
-  
+
   &:hover .selected {
     scale: 1.1;
   }
@@ -37,7 +37,7 @@ const NavContainer = styled.div`
 const ProyectContainer = styled.div`
   opacity: 0;
   animation: 1s opacity forwards;
- 
+
   @keyframes opacity {
     0% {
       opacity: 0;
@@ -104,7 +104,6 @@ export default function MiniProyects() {
             <CheckBox
               key={project.name}
               content={project.name}
-              value={'1'}
               name={'proyect'}
               checked={i === index}
               onClick={() => handleSelected(i)}

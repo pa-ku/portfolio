@@ -158,6 +158,7 @@ export default function Filter() {
   const [pokeData, setPokeData] = useState({})
   const [loading, setLoading] = useState(true)
 
+  
   useEffect(() => {
     setLoading(true)
 

@@ -22,7 +22,7 @@ export default function PokeGuess() {
     value: maxScore.gen1,
     pokeNumber: 151,
   })
-  const { pokeNames } = usePokeNames(
+  const { pokeNames, StartFetch } = usePokeNames(
     genSelected.pokeNumber,
     genSelected.pokeNumber
   )
@@ -114,6 +114,7 @@ export default function PokeGuess() {
   }, [time])
 
   function startGame() {
+
     rollNumber()
     FindPokemon()
     startTimer()

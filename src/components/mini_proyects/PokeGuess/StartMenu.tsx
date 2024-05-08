@@ -20,7 +20,6 @@ type Props = {
 
 export default function StartMenu({
   setGenSelected,
-  pokeGeneration,
   sound,
   setSound,
   onClick,
@@ -34,7 +33,6 @@ export default function StartMenu({
     let value = e.target.value
     switch (value) {
       case 'gen1':
-
         setGenSelected({
           selected: 'gen1',
           pokeNumber: 151,
@@ -42,7 +40,6 @@ export default function StartMenu({
         })
         break
       case 'gen2':
-  
         setGenSelected({
           selected: 'gen2',
           pokeNumber: 251,
@@ -72,29 +69,49 @@ export default function StartMenu({
           <PokeLogo src={pokeLogo} alt="" />
         </StartButton>
 
-        <CheckBox
-          defaultChecked={oldSound}
-          onChange={handleOldSound}
-          type="checkbox"
-        />
+        <OptionsCtn>
+          <CheckBox
+            defaultChecked={oldSound}
+            onChange={handleOldSound}
+            type="checkbox"
+          />
 
-        <Select
-          onChange={handleSelectedGen}
-          name="Elegir generacion"
-          id="poke-generation"
-          value={genSelected.selected}
-        >
-          <Option value="gen1">Generacion 1</Option>
-          <Option value="gen2">Generacion 2</Option>
-          <Option value="gen3">Generacion 3</Option>
-        </Select>
+          <Select
+            onChange={handleSelectedGen}
+            name="Elegir generacion"
+            id="poke-generation"
+            value={genSelected.selected}
+          >
+            <Option value="gen1">Generacion 1</Option>
+            <Option value="gen2">Generacion 2</Option>
+            <Option value="gen3">Generacion 3</Option>
+          </Select>
 
-        <Score>Mejor Puntaje: {genSelected.value}</Score>
-        <PopUpText>{endMsj}</PopUpText>
+          <Score>Mejor Puntaje: {genSelected.value}</Score>
+          <PopUpText>{endMsj}</PopUpText>
+        </OptionsCtn>
       </MenuWrapper>
     </>
   )
 }
+
+const MenuWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  flex-direction: column;
+`
+
+const OptionsCtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+`
+
 const CheckBox = styled.input`
   cursor: pointer;
   position: relative;
@@ -125,15 +142,6 @@ const CheckBox = styled.input`
     color: var(--blue-900);
     border: 2px solid var(--blue-900);
   }
-`
-
-const MenuWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  width: 300px;
-  flex-direction: column;
 `
 
 const StartButton = styled.button`
