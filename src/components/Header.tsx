@@ -46,9 +46,15 @@ export default function Header({ description, subtitle, title }: HeaderProps) {
           </Subtitle>
           <Text width={'40ch'}>{description}</Text>
           {/* <AboutMe /> */}
-          <SocialMedia />
+          <SocialCtn>
+            <SocialMedia />
+          </SocialCtn>
         </Container>
       </HeaderWrapper>
     </>
   )
 }
+
+const SocialCtn = styled.div`
+  padding-top: 10px;
+`
