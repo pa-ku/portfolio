@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import GithubIcon from '../assets/images/stack_logos/githubicon.svg'
 
@@ -25,23 +25,35 @@ export default function ProyectTemplate({
   githubLink,
   propIcons,
 }: ProyectTemplate) {
+  const [isHover, setIsHover] = useState(false)
+
+  function handleHover() {
+    setIsHover(isHover ? false : true)
+  }
+
   return (
     <WrapperMain>
-      <LogoContainer className="logo-ctn" href={href} target="_blank">
+      <LogoContainer
+        onMouseEnter={handleHover}
+        onMouseLeave={handleHover}
+        className="logo-ctn"
+        href={href}
+        target="_blank"
+      >
         <LogoImage
           className="logo-img"
           loading="lazy"
           src={logoImgSrc}
           alt={imgAlt}
         />
+      </LogoContainer>
+      <InfoContainer>
         <MainImage
+          isHover={isHover}
           className="page-img"
           src={backgroundImg}
           alt={backgroundAlt}
         />
-      </LogoContainer>
-
-      <InfoContainer>
         <TextContainer>
           <InfoTitle>{title}</InfoTitle>
           <InfoDescription>{description}</InfoDescription>
@@ -96,40 +108,30 @@ const LogoContainer = styled.a`
   border-radius: 50%;
   background-color: var(--blue-800);
   position: absolute;
-  transition: 400ms;
   display: flex;
   align-items: center;
+  z-index: 6;
   justify-content: center;
   outline: 5px solid #fff;
   margin: 13px;
   outline-offset: 3px;
-
+  transition: 200ms;
+  @media (min-width: 700px) {
+    &:hover {
+      cursor: pointer;
+      background-color: var(--blue-700);
+      outline-offset: -1px;
+      
+    }
+  }
   @media (max-width: 800px) {
     bottom: 0px;
     margin: 0px;
     width: 100%;
     height: 60px;
     outline: 0px;
-
     padding: 0px;
     border-radius: 0px 0px 20px 20px;
-  }
-
-  @media (min-width: 700px) {
-    &:hover {
-      width: 730px;
-      height: 270px;
-      border-radius: 20px;
-      cursor: pointer;
-      outline: 0px;
-    }
-    &:hover .logo-img {
-      display: none;
-    }
-    &:hover .page-img {
-      opacity: 1;
-      border-radius: 20px;
-    }
   }
 `
 
@@ -159,6 +161,7 @@ const LogoImage = styled.img`
   height: 100%;
   display: flex;
   object-fit: contain;
+ 
   transition: 300ms;
   pointer-events: none;
   -webkit-filter: drop-shadow(5px 5px 5px #222);
@@ -169,17 +172,17 @@ const LogoImage = styled.img`
 `
 
 const MainImage = styled.img`
-  width: 100%;
+ width: 660px;
   height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  z-index: 2;
-  position: absolute;
-  transition: 400ms;
-  border-radius: 50px;
   object-position: top;
   pointer-events: none;
-  border-radius: 50%;
+  object-fit: cover;
+  transition: 500ms;
+  z-index: 2;
+  opacity: ${props => props.isHover ? '1' : '0'};
+  position: absolute;
+  border-radius: 20px;
+
 `
 
 const TextContainer = styled.div`
@@ -234,6 +237,7 @@ const GithubCtn = styled.a`
   width: 60px;
   height: 35px;
   display: flex;
+  z-index: 1;
   right: 0px;
   align-items: center;
   justify-content: center;

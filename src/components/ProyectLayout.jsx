@@ -73,7 +73,7 @@ export default function ProyectLayout() {
         imgAlt={'Logo Rosco'}
         backgroundImg={RoscoPageImage}
         githubLink={'https://github.com/pa-ku/Rosco'}
-        href={'https://rosquewe.netlify.app/'}
+        href={'https://roscogame.netlify.app/'}
         backgroundAlt={'Imagen pagina web de flybondi'}
         title={Proyects[2].title}
         description={Proyects[2].description.map((item) => (
