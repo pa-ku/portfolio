@@ -1,3 +1,7 @@
+.env
+node_modules
+
+
 # Build and Release Folders
 bin-debug/
 bin-release/
@@ -7,7 +11,7 @@ bin-release/
 # Other files and folders
 .settings/
 
-# Executables
+# Executable
 *.swf
 *.air
 *.ipa

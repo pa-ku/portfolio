@@ -129,7 +129,7 @@ function Icon({ iconName, src, alt }: IconProps) {
   return (
     <>
       <IconContainer>
-        <IconImage src={src} alt={alt}></IconImage>
+        <IconImage loading='lazy' src={src} alt={alt}></IconImage>
         <IconText>{iconName}</IconText>
       </IconContainer>
     </>
