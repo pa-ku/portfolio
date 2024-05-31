@@ -13,6 +13,8 @@ import mongo from '../assets/images/stack_logos/mongo.svg'
 import sql from '../assets/images/stack_logos/sql.svg'
 import TypeIcon from '../assets/images/stack_logos/typescript-ico.svg'
 import ExpressIcon from '../assets/images/stack_logos/express-ico.svg'
+import cssmodulesIcon from '../assets/images/stack_logos/css_modules.svg'
+import tailwindIco from '../assets/images/stack_logos/tailwind.svg'
 
 import Text from './ui/Text'
 
@@ -32,6 +34,7 @@ const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 500px;
   gap: 1.5em;
   background-color: var(--pink-50);
   border-radius: 20px;
@@ -51,8 +54,8 @@ const IconContainer = styled.div`
     background-color: var(--pink-50);
   }
   &:hover p {
-    translate: 0px 18px;
     opacity: 1;
+    translate: 0px 18px;
   }
 `
 
@@ -89,11 +92,13 @@ export default function Conocimientos() {
   ])
   const frontend = new Map([
     ['Html', HtmlIcon],
-    ['Css', CssIconn],
     ['Javascript', jsIcon],
     ['TypeScript', TypeIcon],
     ['React', ReactIcon],
+    ['Css', CssIconn],
+    ['Tailwind', tailwindIco],
     ['Styled', styledicon],
+    ['CssModules', cssmodulesIcon],
   ])
   const backend = new Map([
     ['NodeJs', nodejsicon],

@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 const Container = styled.div`
   position: absolute;
   top: 0;
-  left: 0;
+  left: 10;
   width: 100%;
   z-index: -1;
   overflow: hidden;
@@ -14,8 +14,8 @@ const Container = styled.div`
 const Svg = styled.svg`
   position: relative;
   display: block;
-
   height: 1000px;
+
 `
 
 const Path = styled.path`

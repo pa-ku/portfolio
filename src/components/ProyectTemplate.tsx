@@ -109,12 +109,13 @@ const LogoCtn = styled.a`
   position: absolute;
   display: flex;
   align-items: center;
-  z-index: 6;
   justify-content: center;
+  z-index: 6;
   outline: 5px solid #fff;
   margin: 13px;
   outline-offset: 3px;
   transition: 200ms;
+
   @media (min-width: 700px) {
     &:hover {
       cursor: pointer;
@@ -123,13 +124,16 @@ const LogoCtn = styled.a`
     }
   }
   @media (max-width: 800px) {
-    bottom: 0px;
+    bottom: -30px;
+    width: 80px;
+    height: 80px;
     margin: 0px;
-    width: 100%;
-    height: 60px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 50%;
     outline: 0px;
     padding: 0px;
-    border-radius: 0px 0px 20px 20px;
   }
 `
 
