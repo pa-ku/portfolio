@@ -6,12 +6,25 @@ const Text = styled.p<{ fontSize?: string; color?: string }>`
   animation: 1s subtitleAnimation forwards;
   font-size: ${(props) => props.fontSize};
   color: ${(props) => props.color};
-  background: linear-gradient(to right, var(--pink-400), #ff9831);
+  background: linear-gradient(
+    to right,
+    var(--pink-400),
+    #ff9831,
+    var(--pink-400)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: glow 2s ease forwards;
+  animation: glowText 4s linear infinite;
+  background-size: 200%;
   font-weight: 600;
-
+  @keyframes glowText {
+    from {
+      background-position: 0% center;
+    }
+    to {
+      background-position: -200% center;
+    }
+  }
 `
 
 type SubtitleProps = {

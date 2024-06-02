@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Subtitle from './ui/Subtitle'
 import SocialMedia from './SocialMedia'
-import AboutMe from './AboutMe'
-import Title from './ui/Title'
 import Text from './ui/Text'
 
 const HeaderWrapper = styled.header`
@@ -18,6 +16,26 @@ const HeaderWrapper = styled.header`
     width: 100%;
     padding: 1em;
   }
+`
+
+const Title = styled.h1`
+  text-align: center;
+  padding: 0px;
+  width: max-content;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  pointer-events: none;
+  letter-spacing: -2px;
+  z-index: 1;
+  height: max-content;
+  height: 55px;
+  font-size: 4rem;
+  background: linear-gradient(to top, #767676, #4d4d4d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `
 
 const Container = styled.div`
@@ -38,14 +56,12 @@ export default function Header({ description, subtitle, title }: HeaderProps) {
     <>
       <HeaderWrapper>
         <Container>
-          <Title color={'#555'} fontSize={'55px'}>
-            {title}
-          </Title>
-          <Subtitle color={'#333'} fontSize={'30px'}>
+          <Title>{title}</Title>
+          <Subtitle color={'#333'} fontSize={'2.2rem'}>
             {subtitle}
           </Subtitle>
           <Text width={'40ch'}>{description}</Text>
-          {/* <AboutMe /> */}
+
           <SocialCtn>
             <SocialMedia />
           </SocialCtn>

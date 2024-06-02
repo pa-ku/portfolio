@@ -63,7 +63,7 @@ function App() {
           <ProyectLayout />
         </ProyectosCtn>
         <ConocimientoCtn ref={ref}>
-          <Subtitle altButton fontSize="40px">
+          <Subtitle altButton fontSize="3rem">
             Conocimientos
           </Subtitle>
           <Conocimientos />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import jsIcon from '../assets/images/stack_logos/javascripticon.svg'
 import CssIconn from '../assets/images/stack_logos/cssicon.svg'
@@ -13,7 +13,6 @@ import mongo from '../assets/images/stack_logos/mongo.svg'
 import sql from '../assets/images/stack_logos/sql.svg'
 import TypeIcon from '../assets/images/stack_logos/typescript-ico.svg'
 import ExpressIcon from '../assets/images/stack_logos/express-ico.svg'
-import cssmodulesIcon from '../assets/images/stack_logos/css_modules.svg'
 import tailwindIco from '../assets/images/stack_logos/tailwind.svg'
 
 import Text from './ui/Text'
@@ -26,36 +25,87 @@ const Wrapper = styled.div`
   gap: 3em;
   max-width: 60ch;
   padding-inline: 1em;
-
-  text-align: center;
 `
 
 const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 500px;
-  gap: 1.5em;
-  background-color: var(--pink-50);
+  width: 500px;
+  gap: 10px;
   border-radius: 20px;
   padding: 0.8em 2em;
   flex-wrap: wrap;
+  position: relative;
+  @media(max-width:700px){
+  width: 100%;
+  }
 `
-
+const ConocimientoTitle = styled.p`
+  font-weight: 600;
+  font-size: 6rem;
+  color: #f4f4f4;
+  position: absolute;
+  transform: translate(0px, -80px);
+  text-align: center;
+  left: 0px;
+  right: 0px;
+  pointer-events: none;
+  z-index: -1;
+  user-select: none;
+  background: linear-gradient(to top, #fff, #f3f3f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  @media(max-width:700px){
+  font-size: 5rem;
+  transform: translate(0px, -70px);
+  }
+`
 const IconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 50px;
+  width: 100px;
+  height: 100px;
+  background-color: var(--pink-50);
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid var(--pink-100);
   position: relative;
+  &:hover{
+    border: 2px solid var(--pink-200);
+  }
   &:hover img {
     translate: 0px -15px;
-    background-color: var(--pink-50);
+
   }
   &:hover p {
     opacity: 1;
     translate: 0px 18px;
+   color: var(--pink-300);
+  }
+
+  &::before {
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y),
+      #ffb3c023,
+      transparent 10%
+    );
+    position: absolute;
+    pointer-events: none;
+    border-radius: inherit;
+    content: '';
+    opacity: 0;
+    transition: opacity 500ms;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+  }
+  &:hover::before {
+    opacity: 1;
   }
 `
 
@@ -98,7 +148,6 @@ export default function Conocimientos() {
     ['Css', CssIconn],
     ['Tailwind', tailwindIco],
     ['Styled', styledicon],
-    ['CssModules', cssmodulesIcon],
   ])
   const backend = new Map([
     ['NodeJs', nodejsicon],
@@ -107,6 +156,9 @@ export default function Conocimientos() {
     ['MongoDb', mongo],
     ['SQL', sql],
   ])
+
+  const itemRef = useRef(null)
+
   return (
     <>
       <Wrapper>
@@ -131,9 +183,20 @@ interface IconProps {
   iconName?: string
 }
 function Icon({ iconName, src, alt }: IconProps) {
+  const itemRef = useRef(null)
+  const handleMouseMove = (e) => {
+    const card = itemRef.current
+    const rect = card.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+
+    card.style.setProperty('--mouse-x', `${x}px`)
+    card.style.setProperty('--mouse-y', `${y}px`)
+  }
+
   return (
     <>
-      <IconContainer>
+      <IconContainer ref={itemRef} onMouseMove={handleMouseMove}>
         <IconImage loading="lazy" src={src} alt={alt}></IconImage>
         <IconText>{iconName}</IconText>
       </IconContainer>
@@ -155,7 +218,7 @@ export function RenderIcons({ icons, title, description }: RenderIconsProps) {
         <ConocimientoTitle>{title}</ConocimientoTitle>
         {icons ? (
           <IconWrapper>
-        {[...icons].map(([name, component]) => (
+            {[...icons].map(([name, component]) => (
               <Icon
                 key={name}
                 iconName={name}
@@ -171,9 +234,3 @@ export function RenderIcons({ icons, title, description }: RenderIconsProps) {
     </>
   )
 }
-
-const ConocimientoTitle = styled.p`
-  font-weight: 600;
-  font-size: 20px;
-  color: #555;
-`

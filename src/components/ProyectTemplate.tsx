@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import GithubIcon from '../assets/images/stack_logos/githubicon.svg'
 
@@ -25,14 +25,25 @@ export default function ProyectTemplate({
 }: ProyectTemplate) {
   const [isHover, setIsHover] = useState(false)
 
+  const cardRef = useRef(null)
   function handleHover() {
     setIsHover(isHover ? false : true)
+  }
+
+  const handleMouseMove = (e) => {
+    const card = cardRef.current
+    const rect = card.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+
+    card.style.setProperty('--mouse-x', `${x}px`)
+    card.style.setProperty('--mouse-y', `${y}px`)
   }
 
   return (
     <Wrapper>
       <LogoCtn
-        title="Navegar a la url"
+        title="Ver pagina"
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}
         className="logo-ctn"
@@ -46,7 +57,7 @@ export default function ProyectTemplate({
           alt={`logo de ${title}`}
         />
       </LogoCtn>
-      <InfoCtn>
+      <InfoCtn ref={cardRef} onMouseMove={handleMouseMove}>
         <MainImage
           isHover={isHover}
           className="page-img"
@@ -85,7 +96,6 @@ const Wrapper = styled.section`
   opacity: 0;
   translate: -20px -20px;
   animation: 600ms Show forwards;
-
   &:hover .logo-ctn {
     outline-color: var(--blue-200);
   }
@@ -141,6 +151,7 @@ const InfoCtn = styled.div`
   margin-left: auto;
   display: flex;
   align-items: center;
+  position: relative;
   justify-content: space-between;
   width: 660px;
   height: 240px;
@@ -154,6 +165,27 @@ const InfoCtn = styled.div`
     padding-bottom: 60px;
     padding-top: 20px;
     padding-inline: 10px;
+  }
+  &::before {
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y),
+      #e9e9e952,
+      transparent 40%
+    );
+    position: absolute;
+    pointer-events: none;
+    border-radius: inherit;
+    content: '';
+    opacity: 0;
+    transition: opacity 500ms;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+  }
+  &:hover::before {
+    opacity: 1;
   }
 `
 

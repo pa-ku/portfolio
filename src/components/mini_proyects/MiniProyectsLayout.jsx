@@ -95,7 +95,7 @@ export default function MiniProyects() {
   return (
     <>
       <Wrapper>
-        <Subtitle fontSize="40px" altButton={true}>
+        <Subtitle fontSize="3rem" altButton={true}>
           Mini Proyectos
         </Subtitle>
         <NavContainer>
