@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import CheckBox from '../ui/CheckBox'
 import Typing from './Typing'
-import PokeGuess from './PokeGuess/PokeGuess'
+import StartMenu from './PokeGuess/StartMenu'
 import { useEffect } from 'react'
 import Subtitle from '../ui/Subtitle'
 
@@ -64,7 +64,7 @@ const Selected = styled.div`
 export default function MiniProyects() {
   const proyects = [
     {
-      component: <PokeGuess />,
+      component: <StartMenu />,
       name: 'PokeGuess',
     },
     {

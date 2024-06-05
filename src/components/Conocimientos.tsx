@@ -37,8 +37,8 @@ const IconWrapper = styled.div`
   padding: 0.8em 2em;
   flex-wrap: wrap;
   position: relative;
-  @media(max-width:700px){
-  width: 100%;
+  @media (max-width: 700px) {
+    width: 100%;
   }
 `
 const ConocimientoTitle = styled.p`
@@ -56,9 +56,9 @@ const ConocimientoTitle = styled.p`
   background: linear-gradient(to top, #fff, #f3f3f3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  @media(max-width:700px){
-  font-size: 5rem;
-  transform: translate(0px, -70px);
+  @media (max-width: 700px) {
+    font-size: 5rem;
+    transform: translate(0px, -70px);
   }
 `
 const IconContainer = styled.div`
@@ -72,24 +72,24 @@ const IconContainer = styled.div`
   padding: 40px;
   border-radius: 20px;
   border: 2px solid var(--pink-100);
+  filter: blur(0);
   position: relative;
-  &:hover{
+  &:hover {
     border: 2px solid var(--pink-200);
   }
   &:hover img {
     translate: 0px -15px;
-
   }
   &:hover p {
     opacity: 1;
     translate: 0px 18px;
-   color: var(--pink-300);
+    color: var(--pink-300);
   }
 
   &::before {
     background: radial-gradient(
       800px circle at var(--mouse-x) var(--mouse-y),
-      #ffb3c023,
+      #fc637c21,
       transparent 10%
     );
     position: absolute;

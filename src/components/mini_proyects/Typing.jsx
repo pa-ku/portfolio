@@ -96,7 +96,6 @@ export default function Typing() {
         `https://pokeapi.co/api/v2/pokemon?limit=150`
       )
       setPokemon(pokeApi.data.results)
-      console.log("type fetch");
     }
     dataPokemon()
   }, [])
@@ -105,7 +104,7 @@ export default function Typing() {
   const [score, setScore] = useState(0)
   const [inputWord, setInputWord] = useState('')
   const [playing, setPlaying] = useState(false)
-  const { time, startTimer, resetTimer } = useCountDown(40)
+  const { time, startTimer, resetTimer } = useCountDown(30)
   const [maxScore, setMaxScore] = useLocalStorage('maxSore', 0)
 
   function newWord() {

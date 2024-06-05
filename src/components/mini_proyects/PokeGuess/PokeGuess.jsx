@@ -1,86 +1,41 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import axios from 'axios'
-import useLocalStorage from 'use-local-storage'
-import { useCountDown } from '../../../hooks/useCountDown'
-import startSound from '../../../assets/sound/clickSound.mp3'
-import { usePokeNames } from '../../../hooks/usePokeNames'
-import StartMenu from './StartMenu'
-import PlayingUi from './PlayingUi'
 
-export default function PokeGuess() {
-  const [maxScore, setMaxScore] = useLocalStorage('gen1Score', {
-    gen1: 0,
-    gen2: 0,
-    gen3: 0,
-  })
-  const [genSelected, setGenSelected] = useLocalStorage('genSelected', {
-    gen1: true,
-    gen2: false,
-    gen3: false,
-    selected: 'gen1',
-    value: maxScore.gen1,
-    pokeNumber: 151,
-  })
-  const { pokeNames, StartFetch } = usePokeNames(
-    genSelected.pokeNumber,
-    genSelected.pokeNumber
-  )
-  const [currentPoke, setCurrentPoke] = useState('')
-  const [rolls, setRolls] = useState([])
+export default function PokeGuess({
+  genSelected,
+  setMaxScore,
+  legacySound,
+  setScoreUp,
+  setIsPlaying,
+  answers,
+  setAnswers,
+  time,
+  setTime,
+  resetTimer,
+  sound,
+  setEndMsj,
+  rolls,
+  rollNumber,
+  currentPoke,
+  loading,
+  poke_names,
+  FindPokemon
+}) {
   const [showImage, setShowImage] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [loading, setLoading] = useState(true)
-  const [answers, setAnswers] = useState({
-    right: 0,
-    wrong: 0,
-  })
   const [shuffle, setShuffle] = useState()
-  const [endMsj, setEndMsj] = useState('')
-  const { time, setTime, startTimer, resetTimer } = useCountDown(40)
-  const [scoreUp, setScoreUp] = useState(false)
-  /* SoundBank */
-  const [oldSound, setOldSound] = useLocalStorage('Sound Generation', true)
-  const [sound, setSound] = useLocalStorage('soundActive', true)
+  /* SOUNDBANK */
   const [actualSound, setActualSound] = useState()
-  const startAudio = new Audio(startSound)
   const pokeAudio = new Audio(actualSound)
-
+  
   useEffect(() => {
-    startAudio.volume = sound ? 0.3 : 0
+    
     pokeAudio.volume = sound ? 0.3 : 0
   }, [[], sound])
-
-  function FindPokemon() {
-    setLoading(true)
-    let randomPokemon = Math.floor(Math.random() * pokeNames.length)
-    axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${randomPokemon}`)
-      .then((res) => {
-        const data = res.data
-        setCurrentPoke(data)
-        setLoading(false)
-      })
-  }
-
-  function rollNumber() {
-    const newRolls = []
-    while (newRolls.length < 4) {
-      const randomNumber = Math.floor(Math.random() * pokeNames.length)
-      if (!newRolls.includes(randomNumber)) {
-        newRolls.push(randomNumber)
-      }
-    }
-    setRolls(newRolls)
-    setShowImage(false)
-
-    return newRolls[0]
-  }
 
   useEffect(() => {
     if (currentPoke)
       setActualSound(
-        oldSound ? currentPoke.cries.legacy : currentPoke.cries.latest
+        legacySound ? currentPoke.cries.legacy : currentPoke.cries.latest
       )
   }, [currentPoke])
 
@@ -113,21 +68,6 @@ export default function PokeGuess() {
     }
   }, [time])
 
-  function startGame() {
-
-    rollNumber()
-    FindPokemon()
-    startTimer()
-
-    startAudio.play()
-    setEndMsj('')
-    setAnswers({
-      right: 0,
-      wrong: 0,
-    })
-    setIsPlaying(true)
-  }
-
   function choiceHandler(e) {
     let value = e.target.value
 
@@ -135,7 +75,7 @@ export default function PokeGuess() {
     setShowImage(true)
 
     setTimeout(() => {
-      FindPokemon()
+        FindPokemon() 
       setShowImage(false)
       rollNumber()
     }, 2000)
@@ -168,87 +108,44 @@ export default function PokeGuess() {
   }
 
   useEffect(() => {
-    setShuffle(
-      shuffleArray([
-        currentPoke.name,
-        pokeNames[rolls[1]],
-        pokeNames[rolls[2]],
-        pokeNames[rolls[3]],
-      ])
-    )
-  }, [currentPoke])
+    if (currentPoke.name) {
+      setShuffle(
+        shuffleArray([
+          currentPoke.name,
+          poke_names[rolls[1]],
+          poke_names[rolls[2]],
+          poke_names[rolls[3]],
+        ])
+      )
+    }
+  }, [currentPoke, rolls])
 
   return (
     <>
-      <PokeWrapper>
-        {!isPlaying && (
-          <StartMenu
-            setGenSelected={setGenSelected}
-            sound={sound}
-            setOldSound={setOldSound}
-            setSound={setSound}
-            onClick={startGame}
-            scoreUp={scoreUp}
-            endMsj={endMsj}
-            maxScore={maxScore}
-            genSelected={genSelected}
-            oldSound={oldSound}
-          />
-        )}
-        {isPlaying && (
-          <>
-            <PlayingUi
-              answersRight={answers.right}
-              answersWrong={answers.wrong}
-              scoreUp={scoreUp}
-              setSound={setSound}
-              sound={sound}
-              time={time}
+      {!loading && (
+        <>
+          <ImageContainer>
+            <PokeImage
+              $show={showImage}
+              src={currentPoke.sprites.front_default}
+              alt=""
             />
-          </>
-        )}
-        {isPlaying && !loading && (
-          <>
-            <ImageContainer>
-              <PokeImage
-                $show={showImage}
-                src={currentPoke.sprites.front_default}
-                alt=""
-              />
-              {showImage && <PokeName>Es {currentPoke.name}!</PokeName>}
-            </ImageContainer>
-            <OptionContainer>
-              {shuffle &&
-                !showImage &&
-                shuffle.map((name, index) => (
-                  <OptionButton
-                    key={index}
-                    value={name}
-                    onClick={choiceHandler}
-                  >
-                    {name}
-                  </OptionButton>
-                ))}
-            </OptionContainer>
-          </>
-        )}
-      </PokeWrapper>
+            {showImage && <PokeName>Es {currentPoke.name}!</PokeName>}
+          </ImageContainer>
+          <OptionContainer>
+            {shuffle &&
+              !showImage &&
+              shuffle.map((name, index) => (
+                <OptionButton key={index} value={name} onClick={choiceHandler}>
+                  {name}
+                </OptionButton>
+              ))}
+          </OptionContainer>
+        </>
+      )}
     </>
   )
 }
-
-const PokeWrapper = styled.div`
-  width: 400px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-  @media (max-width: 800px) {
-    width: 300px;
-  }
-`
 
 const PokeName = styled.p`
   width: 20ch;

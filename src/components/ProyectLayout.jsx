@@ -1,13 +1,13 @@
 import ProyectTemplate from './ProyectTemplate'
 import { proyects } from '../Proyects'
 
-
 export default function ProyectLayout() {
   return (
     <>
       {proyects.map(
         ({ title, description, img, logo, github, href, stack }) => (
           <ProyectTemplate
+            key={title}
             title={title}
             description={description}
             ImgSrc={img}
