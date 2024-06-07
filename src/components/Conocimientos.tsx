@@ -69,9 +69,10 @@ const IconContainer = styled.div`
   width: 100px;
   height: 100px;
   background-color: var(--pink-50);
+  box-shadow: 5px 5px 10px #ededed;
   padding: 40px;
   border-radius: 20px;
-  border: 2px solid var(--pink-100);
+
   filter: blur(0);
   position: relative;
   &:hover {

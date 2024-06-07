@@ -28,10 +28,12 @@ export default function PlayingUi({
           <VolumeIcons sound={sound} setSound={setSound} />
         </div>
         <TimeContainer>
+
           <Score scoreup={scoreUp}>+3</Score>
           <Timer scoreup={scoreUp}>{time}s</Timer>
         </TimeContainer>
       </AnswerContainer>
+   
     </>
   )
 }

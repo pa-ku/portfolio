@@ -15,7 +15,6 @@ const Svg = styled.svg`
   position: relative;
   display: block;
   height: 1000px;
-
 `
 
 const Path = styled.path`

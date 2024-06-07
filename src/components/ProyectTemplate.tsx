@@ -157,8 +157,6 @@ const InfoCtn = styled.div`
   height: 240px;
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
-  z-index: 2;
-
   box-shadow: 20px 20px 30px 0px #f3f3f3;
   @media (max-width: 800px) {
     flex-direction: column;
@@ -185,7 +183,7 @@ const InfoCtn = styled.div`
     width: 100%;
     left: 0px;
     top: 0px;
-    z-index: 1;
+
   }
   &:hover::before {
     opacity: 1;
@@ -215,7 +213,7 @@ const MainImage = styled.img`
   pointer-events: none;
   object-fit: cover;
   transition: 200ms ease-in;
-  z-index: 2;
+
   opacity: ${(props) => (props.isHover ? '1' : '0')};
   position: absolute;
   border-radius: 20px;

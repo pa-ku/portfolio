@@ -1,109 +1,66 @@
-import { useState } from 'react'
-import { styled } from 'styled-components'
+import { useRef } from 'react'
 import gitSvg from '../assets/images/icons/github.svg'
 import linkedSvg from '../assets/images/icons/linkedin.svg'
 import emailSvg from '../assets/images/icons/email.svg'
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 13px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-`
-
-const LinkContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 13px;
-  background-color: var(--pink-50);
-`
-
-const Link = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  cursor: pointer;
-  transition: 0.3s;
-`
-const MsjToolkit = styled.p`
-  background-color: #0daabf;
-  padding: 2px 8px;
-  color: white;
-  width: max-content;
-  font-weight: 800;
-  position: absolute;
-  right: 100px;
-  z-index: -1;
-  animation: 4s toolkitanimation forwards;
-  pointer-events: none;
-
-  @keyframes toolkitanimation {
-    0% {
-      translate: 100px 0px;
-    }
-    10% {
-      translate: -50px 0px;
-    }
-    80% {
-      translate: -50px 0px;
-    }
-    100% {
-      translate: 100px 0px;
-    }
-  }
-`
-
-const Icon = styled.img`
-  width: 40px;
-  height: 40px;
-  transition: 200ms;
-  accent-color: #444;
-  &:hover {
-    scale: 1.1;
-  }
-`
+import ContactModal from './ContactModal'
 
 export default function SocialBar() {
-  const copymsj = 'p4blo.kuhn@gmail.com'
-  const [toolkit, setToolkit] = useState(false)
+  const modalRef = useRef(null)
 
-  function handleCopy() {
-    navigator.clipboard.writeText(copymsj)
-    setToolkit(true)
-    setTimeout(() => {
-      setToolkit(false)
-    }, 4000)
+  function openModal() {
+    if (!modalRef.current) {
+      return
+    }
+    modalRef.current.hasAttribute('open')
+      ? modalRef.current.close()
+      : modalRef.current.showModal()
   }
+
   return (
     <>
-      <Wrapper>
-        {toolkit === true && <MsjToolkit>Email Copiado!</MsjToolkit>}
-        <LinkContainer>
-          <Link onClick={handleCopy} title="Copiar Email">
-            <Icon src={emailSvg} alt="" />
-          </Link>
-          <Link
-            href="https://github.com/pa-ku?tab=repositories"
-            target="_blank"
-            title="Github"
-          >
-            <Icon src={gitSvg} alt="" />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/pablokuhn/"
-            target="_blank"
-            title="LinkedIn"
-          >
-            <Icon src={linkedSvg} alt="" />
-          </Link>
-        </LinkContainer>
-      </Wrapper>
+      <ContactModal modalRef={modalRef} />
+      <section className="flex gap-3">
+        <button
+          className="cursor-pointer"
+          onClick={openModal}
+          title="Enviar email"
+        >
+          <img
+            className="w-10 h-10 duration-200 hover:scale-110"
+            src={emailSvg}
+            alt="icono email"
+          />
+        </button>
+
+        <SocialIcon
+          href={'https://github.com/pa-ku?tab=repositories'}
+          icon={gitSvg}
+          title={'github'}
+        />
+        <SocialIcon
+          href={'https://www.linkedin.com/in/pablokuhn/'}
+          icon={linkedSvg}
+          title={'linkedIn'}
+        />
+      </section>
     </>
+  )
+}
+
+function SocialIcon({ href, icon, title }) {
+  return (
+    <a
+      className="cursor-pointer"
+      href={href}
+      target="_blank"
+      title={title}
+      rel="noreferrer"
+    >
+      <img
+        className="w-10 h-10 duration-200 hover:scale-110"
+        src={icon}
+        alt={`ìcono ${title}`}
+      />
+    </a>
   )
 }
