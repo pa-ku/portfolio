@@ -31,29 +31,30 @@ const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 500px;
-  gap: 10px;
+  width: 400px;
+  gap: 5px;
   border-radius: 20px;
   padding: 0.8em 2em;
   flex-wrap: wrap;
   position: relative;
+
   @media (max-width: 700px) {
     width: 100%;
   }
 `
 const ConocimientoTitle = styled.p`
   font-weight: 600;
-  font-size: 6rem;
+  font-size: 3rem;
   color: #f4f4f4;
   position: absolute;
-  transform: translate(0px, -80px);
+  transform: translate(0px, -50px);
   text-align: center;
   left: 0px;
   right: 0px;
   pointer-events: none;
   z-index: -1;
   user-select: none;
-  background: linear-gradient(to top, #fff, #f3f3f3);
+  background: linear-gradient(to top, #fff, #eaeaea);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   @media (max-width: 700px) {
@@ -66,25 +67,21 @@ const IconContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100px;
-  height: 100px;
-  background-color: var(--pink-50);
-  box-shadow: 5px 5px 10px #ededed;
-  padding: 40px;
+  width: 80px;
+  height: 80px;
+  background-color: #ededed;
+  padding:18px;
   border-radius: 20px;
-
-  filter: blur(0);
   position: relative;
   &:hover {
-    border: 2px solid var(--pink-200);
+    outline: 2px solid var(--pink-200);
   }
-  &:hover img {
-    translate: 0px -15px;
-  }
+
   &:hover p {
     opacity: 1;
-    translate: 0px 18px;
-    color: var(--pink-300);
+  }
+  &:hover img {
+    opacity: 0;
   }
 
   &::before {
@@ -98,7 +95,7 @@ const IconContainer = styled.div`
     border-radius: inherit;
     content: '';
     opacity: 0;
-    transition: opacity 500ms;
+    transition: opacity 200ms;
     height: 100%;
     width: 100%;
     left: 0px;
@@ -111,23 +108,28 @@ const IconContainer = styled.div`
 `
 
 const IconImage = styled.img`
-  width: 45px;
-  height: 45px;
   transition: 0.3s;
   z-index: 100;
-  transition: 300ms;
+  width: 100px;
+  height: 100px;
+  transition: 200ms;
   border-radius: 5px;
+
+  & svg {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 const IconText = styled.p`
   font-weight: 800;
-  color: #555;
   opacity: 0;
-  transition: 0.5s;
+  transition: 0.2s;
   text-align: center;
   position: absolute;
-  translate: 5px 20px;
-  font-size: 14px;
+  font-size: 0.8rem;
+  border-radius: 20px;
+  z-index: 100;
 `
 
 const ConocimientoContainer = styled.div`
@@ -142,23 +144,21 @@ export default function Conocimientos() {
     ['Photoshop', photoshopIcon],
   ])
   const frontend = new Map([
-    ['Html', HtmlIcon],
-    ['Javascript', jsIcon],
-    ['TypeScript', TypeIcon],
     ['React', ReactIcon],
-    ['Css', CssIconn],
+    ['TypeScript', TypeIcon],
+    ['Javascript', jsIcon],
     ['Tailwind', tailwindIco],
     ['Styled', styledicon],
+    ['Css', CssIconn],
+    ['Html', HtmlIcon],
   ])
   const backend = new Map([
-    ['NodeJs', nodejsicon],
     ['Express', ExpressIcon],
-    ['Github', githubIcon],
+    ['NodeJs', nodejsicon],
     ['MongoDb', mongo],
     ['SQL', sql],
+    ['Github', githubIcon],
   ])
-
-  const itemRef = useRef(null)
 
   return (
     <>
@@ -198,8 +198,13 @@ function Icon({ iconName, src, alt }: IconProps) {
   return (
     <>
       <IconContainer ref={itemRef} onMouseMove={handleMouseMove}>
-        <IconImage loading="lazy" src={src} alt={alt}></IconImage>
-        <IconText>{iconName}</IconText>
+        <IconImage
+          className="w-full h-full"
+          loading="lazy"
+          src={src}
+          alt={alt}
+        ></IconImage>
+        <IconText className='text-pink-700'>{iconName}</IconText>
       </IconContainer>
     </>
   )
@@ -218,7 +223,7 @@ export function RenderIcons({ icons, title, description }: RenderIconsProps) {
       <ConocimientoContainer>
         <ConocimientoTitle>{title}</ConocimientoTitle>
         {icons ? (
-          <IconWrapper>
+          <IconWrapper className="">
             {[...icons].map(([name, component]) => (
               <Icon
                 key={name}
