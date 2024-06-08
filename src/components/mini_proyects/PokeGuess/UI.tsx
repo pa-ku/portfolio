@@ -22,25 +22,53 @@ export default function PlayingUi({
   return (
     <>
       <AnswerContainer>
-        <div>
-          <Answer>✓: {answersRight} </Answer>
-          <Answer>𐌢: {answersWrong}</Answer>
-          <VolumeIcons sound={sound} setSound={setSound} />
+        <div className="flex flex-col gap-2 items-start">
+          <p className="flex stroke-gray-600 text-gray-600  text-xl justify-center items-center">
+            <svg
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              width="30px"
+              height="30px"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+              <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+              <path d="M3 12h6" />
+              <path d="M15 12h6" />
+            </svg>
+            {answersRight}
+          </p>
+          <p className="flex stroke-gray-600 text-gray-600  text-xl justify-center items-center">
+            <svg
+              width="30px"
+              height="30px"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M20.04 16.048a9 9 0 0 0 -12.083 -12.09m-2.32 1.678a9 9 0 1 0 12.737 12.719" />
+              <path d="M9.884 9.874a3 3 0 1 0 4.24 4.246m.57 -3.441a3.012 3.012 0 0 0 -1.41 -1.39" />
+              <path d="M3 12h6m7 0h5" />
+              <path d="M3 3l18 18" />
+            </svg>
+            {answersWrong}
+          </p>
         </div>
-        <TimeContainer>
-
+        <aside className="relative flex flex-col justify-end items-end">
           <Score scoreup={scoreUp}>+3</Score>
           <Timer scoreup={scoreUp}>{time}s</Timer>
-        </TimeContainer>
+          <VolumeIcons sound={sound} setSound={setSound} />
+        </aside>
       </AnswerContainer>
-   
     </>
   )
 }
-
-const TimeContainer = styled.div`
-  position: relative;
-`
 
 const Score = styled.p<{ scoreup: boolean }>`
   color: var(--pink-400);
@@ -88,11 +116,6 @@ const AnswerContainer = styled.div`
   @media (max-width: 700px) {
     width: 300px;
   }
-`
-
-const Answer = styled.p`
-  font-size: 20px;
-  text-transform: uppercase;
 `
 
 const Timer = styled.p<{ scoreup: boolean }>`

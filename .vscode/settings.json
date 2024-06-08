@@ -10,5 +10,6 @@
     "explorerExclude.backup": {},
     "cSpell.words": [
         "javascripticon"
-    ]
+    ],
+    "headwind.runOnSave": false
 }

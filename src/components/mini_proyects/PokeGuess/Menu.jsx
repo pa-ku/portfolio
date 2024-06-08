@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import pokeLogo from '../../../assets/images/icons/poke-logo.webp'
 import VolumeIcons from '../../ui/VolumeIcons'
 import useLocalStorage from 'use-local-storage'
-import PokeGuess from './PokeGuess'
-import PlayingUi from './PlayingUi'
+import PokeGuess from './Game'
+import PlayingUi from './UI'
 import startSound from '../../../assets/sound/clickSound.mp3'
 import { useCountDown } from '../../../hooks/useCountDown'
 import { poke_names } from '../../../../data'
@@ -83,7 +83,7 @@ export default function StartMenu() {
   }
 
   function selectPokemonSound() {
-    setLegacySound(legacySound ? false : true)
+    setLegacySound(!legacySound)
   }
 
   async function FindPokemon() {
@@ -123,35 +123,57 @@ export default function StartMenu() {
   return (
     <>
       {!isPlaying && (
-        <MenuWrapper>
-          <VolumeIcons sound={sound} setSound={setSound} />
+        <footer className="flex flex-col items-center">
           <StartButton onClick={startGame}>
             <p>START</p>
             <PokeLogo src={pokeLogo} alt="" />
           </StartButton>
 
-          <OptionsCtn>
-            <CheckBox
+          <section className="flex flex-col gap-4">
+            <VolumeIcons sound={sound} setSound={setSound} />
+
+            <input
+              className="h-10 relative w-full 
+              cursor-pointer
+              flex
+              before:font-pixel
+              before:text-white
+              before:duration-200
+              before:p-2
+              before:text-black
+              before:bg-gray-400
+               before:h-max 
+               before:w-full
+               before:text-xl
+               before:text-center
+               before:rounded-md
+               before:content-['Legacy_Sounds']
+               checked:before:bg-[var(--blue-850)]
+               checked:before:text-white
+               "
               defaultChecked={legacySound}
               onChange={selectPokemonSound}
               type="checkbox"
             />
 
-            <Select
+            <select
+              className="font-sans-Pixelify w-full text-center text-xl bg-[var(--blue-100)] p-2  rounded-md"
               onChange={selectGeneration}
               name="Elegir generacion"
               id="poke-generation"
               value={genSelected.selected}
             >
-              <Option value="gen1">Generacion 1</Option>
-              <Option value="gen2">Generacion 2</Option>
-              <Option value="gen3">Generacion 3</Option>
-            </Select>
+              <option value="gen1">Gen 1</option>
+              <option value="gen2">Gen 2</option>
+              <option value="gen3">Gen 3</option>
+            </select>
 
-            <Score>Mejor Puntaje: {genSelected.value}</Score>
+            <p className="text-xl text-[var(--pink-400)]">
+              Mejor Puntaje {genSelected.value}
+            </p>
             <PopUpText>{endMsj}</PopUpText>
-          </OptionsCtn>
-        </MenuWrapper>
+          </section>
+        </footer>
       )}
       {isPlaying && (
         <>
@@ -203,56 +225,6 @@ const PokeWrapper = styled.div`
     width: 300px;
   }
 `
-
-const MenuWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 300px;
-  flex-direction: column;
-`
-
-const OptionsCtn = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 20px;
-  padding: 30px;
-`
-
-const CheckBox = styled.input`
-  cursor: pointer;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 200ms;
-  &::before {
-    position: absolute;
-    content: 'Old Pokemon Sounds';
-    padding: 12px;
-    font-family: Pixelify;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: max-content;
-    height: 20px;
-    color: #999999;
-    border-radius: 8px;
-    background-color: #e6e6e6;
-    border: 2px solid #c6c6c6;
-    font-size: 19px;
-    transition: 200ms;
-    font-weight: 600;
-  }
-  &:checked::before {
-    background-color: var(--blue-100);
-    color: var(--blue-900);
-    border: 2px solid var(--blue-900);
-  }
-`
-
 const StartButton = styled.button`
   background-color: #fff;
   border: 0px;
@@ -307,48 +279,10 @@ const PokeLogo = styled.img`
   }
 `
 
-const Option = styled.option`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  text-align: center;
-  border: 0px;
-`
 const PopUpText = styled.p`
   width: 20ch;
   text-align: center;
   font-size: 25px;
   color: #333;
   animation: glow 200ms ease forwards;
-`
-
-const Select = styled.select`
-  font-size: 20px;
-  border: 0px;
-  cursor: pointer;
-  &:hover {
-    color: var(--blue-900);
-  }
-`
-
-const Score = styled.p`
-  font-size: 25px;
-  background: linear-gradient(to right, var(--pink-500), var(--pink-300));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: glow 2s ease forwards;
-  @keyframes glow {
-    0% {
-      filter: invert(0.5);
-    }
-
-    20% {
-      filter: invert(0.5);
-    }
-    100% {
-      filter: invert(0);
-    }
-  }
 `

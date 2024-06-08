@@ -19,16 +19,15 @@ export default function PokeGuess({
   currentPoke,
   loading,
   poke_names,
-  FindPokemon
+  FindPokemon,
 }) {
   const [showImage, setShowImage] = useState(false)
   const [shuffle, setShuffle] = useState()
   /* SOUNDBANK */
   const [actualSound, setActualSound] = useState()
   const pokeAudio = new Audio(actualSound)
-  
+
   useEffect(() => {
-    
     pokeAudio.volume = sound ? 0.3 : 0
   }, [[], sound])
 
@@ -75,7 +74,7 @@ export default function PokeGuess({
     setShowImage(true)
 
     setTimeout(() => {
-        FindPokemon() 
+      FindPokemon()
       setShowImage(false)
       rollNumber()
     }, 2000)
@@ -136,9 +135,14 @@ export default function PokeGuess({
             {shuffle &&
               !showImage &&
               shuffle.map((name, index) => (
-                <OptionButton key={index} value={name} onClick={choiceHandler}>
+                <button
+                  className="text-white p-4 text-2xl rounded-md bg-gradient-to-tr hover:duration-200 from-pink-500 to-red-400  duration-500 hover:from-blue-400 uppercase hover:to-cyan-400"
+                  key={index}
+                  value={name}
+                  onClick={choiceHandler}
+                >
                   {name}
-                </OptionButton>
+                </button>
               ))}
           </OptionContainer>
         </>
@@ -197,22 +201,5 @@ const OptionContainer = styled.div`
   }
   @media (max-width: 700px) {
     grid-template-columns: repeat(2, 1fr);
-  }
-`
-
-const OptionButton = styled.button`
-  width: 100%;
-  background-color: #333;
-  border: 0px;
-  border-radius: 10px;
-  font-size: 25px;
-  color: #fff;
-  transition: 200ms;
-  padding: 10px;
-  text-transform: uppercase;
-  cursor: pointer;
-  &:hover {
-    color: #4ebdc7;
-    scale: 1.05;
   }
 `

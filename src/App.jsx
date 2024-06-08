@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
-  padding-top: 6em;
+  padding-top: 5em;
   gap: 6em;
   flex-direction: column;
   overflow: hidden;
@@ -38,37 +38,25 @@ const ConocimientoCtn = styled.section`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 70px;
+  gap: 2em;
 `
 
 function App() {
-  const { ref, inView } = useInView({
-    threshold: 0,
-  })
-
-  useEffect(() => {}, [inView])
-
   return (
     <>
       <Wrapper>
         <Wave />
-        <Header
-          title={'Pablo Kuhn'}
-          subtitle={'FullStack developer'}
-          description={
-            'Soy un desarrollador autodidacta, enfocado en la creación de experiencias digitales'
-          }
-        />
+        <Header />
         <ProyectosCtn>
           <ProyectLayout />
         </ProyectosCtn>
-        <ConocimientoCtn ref={ref}>
+        <ConocimientoCtn>
           <Subtitle altButton fontSize="3rem">
             Conocimientos
           </Subtitle>
           <Conocimientos />
         </ConocimientoCtn>
-     
+
         <MiniProyectsLayout />
       </Wrapper>
     </>

@@ -23,12 +23,7 @@ export default function ProyectTemplate({
   githubLink,
   propIcons,
 }: ProyectTemplate) {
-  const [isHover, setIsHover] = useState(false)
-
   const cardRef = useRef(null)
-  function handleHover() {
-    setIsHover(isHover ? false : true)
-  }
 
   const handleMouseMove = (e) => {
     const card = cardRef.current
@@ -42,37 +37,45 @@ export default function ProyectTemplate({
 
   return (
     <Wrapper>
-      <LogoCtn
-        title="Ver pagina"
-        onMouseEnter={handleHover}
-        onMouseLeave={handleHover}
-        className="logo-ctn"
-        href={href}
-        target="_blank"
+      <InfoCtn
+        className="relative flex gap-2"
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
       >
-        <LogoImage
-          className="logo-img"
-          loading="lazy"
-          src={LogoSrc}
-          alt={`logo de ${title}`}
-        />
-      </LogoCtn>
-      <InfoCtn ref={cardRef} onMouseMove={handleMouseMove}>
-        <MainImage
-          isHover={isHover}
-          className="page-img"
-          src={ImgSrc}
-          alt={`imagen de ${title}`}
-        />
-        <TextContainer>
-          <InfoTitle>{title}</InfoTitle>
-          <InfoDescription>{description}</InfoDescription>
-        </TextContainer>
+        <div className="w-full md:ml-20">
+          <h2 className="text-xl font-bold text-gray-700">{title}</h2>
+          <p className="text-gray-600">{description}</p>
+        </div>
         <StackContainer>
           {propIcons.map((item, index) => (
             <img key={index} src={item} alt={`icono ${item}`} />
           ))}
         </StackContainer>
+
+        <a
+          title="Ver pagina"
+          className="peer hover:brightness-105 md:-left-16 z-10 md:absolute flex rounded-xl md:rounded-full w-max h-max duration-200 cursor-pointer b-2 object-contain  hover:outline-offset-4 bg-gradient-to-bl from-[var(--blue-500)] to-[var(--blue-700)] shadow-sm 
+          items-center 
+          justify-center
+          px-3
+          md:p-0
+          text-white
+          "
+          href={href}
+          target="_blank"
+        >
+          <img
+            className="object-contain drop-shadow-md p-2 brightness-140 w-20 h-14 p-2  md:w-[7.5em] md:h-[7.5em] peer  md:p-7"
+            loading="lazy"
+            src={LogoSrc}
+            alt={`logo de ${title}`}
+          />
+        </a>
+        <img
+          className="absolute object-cover object-top w-full h-full duration-200 opacity-0 pointer-events-none md:peer-hover:opacity-100 rounded-3xl"
+          src={ImgSrc}
+          alt={`imagen de ${title}`}
+        />
       </InfoCtn>
       {githubLink && (
         <GithubCtn
@@ -96,54 +99,15 @@ const Wrapper = styled.section`
   opacity: 0;
   translate: -20px -20px;
   animation: 600ms Show forwards;
-  &:hover .logo-ctn {
-    outline-color: var(--blue-200);
-  }
   @media (max-width: 700px) {
     width: 100%;
     height: max-content;
   }
-
   @keyframes Show {
     100% {
       opacity: 1;
       translate: 0px -20px;
     }
-  }
-`
-const LogoCtn = styled.a`
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background-color: var(--blue-800);
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 6;
-  outline: 5px solid #fff;
-  margin: 13px;
-  outline-offset: 3px;
-  transition: 200ms;
-
-  @media (min-width: 700px) {
-    &:hover {
-      cursor: pointer;
-      background-color: var(--blue-700);
-      outline-offset: -1px;
-    }
-  }
-  @media (max-width: 800px) {
-    bottom: -30px;
-    width: 80px;
-    height: 80px;
-    margin: 0px;
-    right: 0;
-    left: 0;
-    margin: auto;
-    border-radius: 50%;
-    outline: 0px;
-    padding: 0px;
   }
 `
 
@@ -158,21 +122,12 @@ const InfoCtn = styled.div`
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
   box-shadow: 20px 20px 30px 0px #f3f3f3;
-  @media (max-width: 800px) {
-    flex-direction: column;
-    width: 100%;
-    height: max-content;
-    padding-bottom: 60px;
-    padding-top: 20px;
-    padding-inline: 10px;
-  }
   &::before {
     background: radial-gradient(
       800px circle at var(--mouse-x) var(--mouse-y),
-      #bcebff36,
+      #bcebff2a,
       transparent 40%
     );
-
     position: absolute;
     pointer-events: none;
     border-radius: inherit;
@@ -183,57 +138,18 @@ const InfoCtn = styled.div`
     width: 100%;
     left: 0px;
     top: 0px;
-
   }
   &:hover::before {
     opacity: 1;
   }
-`
 
-const LogoImage = styled.img`
-  padding: 30px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  object-fit: contain;
-
-  transition: 300ms;
-  pointer-events: none;
-  -webkit-filter: drop-shadow(5px 5px 5px #222);
-  filter: drop-shadow(3px 3px 0px #63c5e8);
   @media (max-width: 800px) {
-    padding: 10px;
-  }
-`
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    align-items: start;
 
-const MainImage = styled.img`
-  width: 660px;
-  height: 100%;
-  object-position: top;
-  pointer-events: none;
-  object-fit: cover;
-  transition: 200ms ease-in;
-
-  opacity: ${(props) => (props.isHover ? '1' : '0')};
-  position: absolute;
-  border-radius: 20px;
-`
-
-const TextContainer = styled.div`
-  margin-left: 120px;
-  height: 100%;
-  width: 100%;
-  text-align: start;
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  justify-content: center;
-  @media (max-width: 800px) {
-    margin: 0px;
-    gap: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 1em 1em;
   }
 `
 
@@ -253,15 +169,11 @@ const StackContainer = styled.div`
   }
   @media (max-width: 800px) {
     flex-direction: row;
-    padding: 20px;
+    width: 100%;
+    justify-content: start;
     height: max-content;
   }
 `
-
-const InfoTitle = styled.h2`
-  font-size: 20px;
-`
-const InfoDescription = styled.div``
 
 const GithubCtn = styled.a`
   background-color: var(--blue-800);

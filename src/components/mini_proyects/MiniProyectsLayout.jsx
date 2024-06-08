@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import CheckBox from '../ui/CheckBox'
 import Typing from './Typing'
-import StartMenu from './PokeGuess/StartMenu'
+import StartMenu from './PokeGuess/Menu'
 import { useEffect } from 'react'
 import Subtitle from '../ui/Subtitle'
 
@@ -21,23 +21,18 @@ const Wrapper = styled.div`
 
 const NavContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 120px);
+  grid-template-columns: repeat(2, var(--checkbox-width));
   align-items: center;
   justify-content: center;
-  background-color: var(--pink-50);
+  background-color: var(--blue-100);
   z-index: 0;
   border-radius: 10px;
   position: relative;
-
-  &:hover .selected {
-    scale: 1.1;
-  }
 `
 
 const ProyectContainer = styled.div`
   opacity: 0;
   animation: 1s opacity forwards;
-
   @keyframes opacity {
     0% {
       opacity: 0;
@@ -52,11 +47,10 @@ const Selected = styled.div`
   position: absolute;
   height: 100%;
   border-radius: 10px;
-  background-color: var(--pink-400);
-  width: 120px;
+  background-color: var(--blue-600);
   z-index: -11;
   bottom: 0px;
-
+  width: var(--checkbox-width);
   transition: all 500ms;
   left: ${(props) => props.$left};
 `
@@ -65,28 +59,15 @@ export default function MiniProyects() {
   const proyects = [
     {
       component: <StartMenu />,
-      name: 'PokeGuess',
+      name: 'Poke Guess',
     },
     {
       component: <Typing />,
-      name: 'PokeType',
+      name: 'Poke Type',
     },
   ]
 
-  const [selectedPosition, setSelectedPosition] = useState('')
   const [index, setIndex] = useState(0)
-
-  useEffect(() => {
-    switch (index) {
-      case 0:
-        setSelectedPosition('0px')
-        break
-
-      case 1:
-        setSelectedPosition('120px')
-        break
-    }
-  }, [index])
 
   function handleSelected(i) {
     setIndex(i)
@@ -96,10 +77,14 @@ export default function MiniProyects() {
     <>
       <Wrapper>
         <Subtitle fontSize="3rem" altButton={true}>
-          Mini Proyectos
+          Mini Juegos
         </Subtitle>
         <NavContainer>
-          <Selected $left={selectedPosition}></Selected>
+          <Selected
+            className={
+              (index == 1 && 'left-[var(--checkbox-width)]') || 'left-[0px]'
+            }
+          ></Selected>
           {proyects.map((project, i) => (
             <CheckBox
               key={project.name}
@@ -107,8 +92,6 @@ export default function MiniProyects() {
               name={'proyect'}
               checked={i === index}
               onClick={() => handleSelected(i)}
-              backgroundColor={'var(--pink-250)'}
-              borderColor={'var(--pink-700)'}
             ></CheckBox>
           ))}
         </NavContainer>

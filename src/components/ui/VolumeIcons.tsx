@@ -9,9 +9,7 @@ const VolumeWrapper = styled.div`
   display: flex;
   align-items: start;
   justify-content: start;
-
   gap: 10px;
-  width: 100%;
 `
 
 const VolumeContainer = styled.div`
@@ -28,9 +26,6 @@ const VolumeLabel = styled.label`
   width: 100%;
   height: 100%;
   cursor: pointer;
-  &:hover .volume-icon {
-    scale: 1.1;
-  }
 `
 
 const VolumeIcon = styled.img`
@@ -78,8 +73,15 @@ export default function VolumeIcons({
         )}
 
         {setSound && (
-          <VolumeContainer>
-            <VolumeLabel htmlFor="sound">
+          <VolumeContainer className="hover:brightness-110">
+            <VolumeLabel
+              htmlFor="sound"
+              className={
+                sound
+                  ? 'bg-[var(--blue-850)] duration-200 rounded-md p-1 accent-white'
+                  : 'bg-gray-400 duration-200 rounded-md p-1 accent-white'
+              }
+            >
               <VolumeIcon
                 className="volume-icon"
                 src={sound ? soundOn : soundOff}

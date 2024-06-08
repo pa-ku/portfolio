@@ -10,15 +10,12 @@ const Input = styled.input<{ content?: string }>`
   transition: 500ms;
   font-weight: 500;
   border-color: #717171;
-  padding: 3px;
-  color: #222;
+  padding: 2px;
+
   text-align: center;
   font-size: 1.3rem;
   border-radius: 6px;
   cursor: pointer;
-  &:checked {
-    color: #fff;
-  }
   &::before {
     content: '${(props) => props.content}';
     font-family: Pixelify;
@@ -42,6 +39,7 @@ export default function CheckBox({
 }: CheckBoxProps) {
   return (
     <Input
+      className="before:text-gray-600 "
       value={value}
       name={name}
       type="radio"

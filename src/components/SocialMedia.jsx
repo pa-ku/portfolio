@@ -4,6 +4,24 @@ import linkedSvg from '../assets/images/icons/linkedin.svg'
 import emailSvg from '../assets/images/icons/email.svg'
 import ContactModal from './ContactModal'
 
+function SocialIcon({ href, icon, title }) {
+  return (
+    <a
+      className="hover:bg-[var(--blue-200)] cursor-pointer bg-[var(--blue-50)] rounded-full p-1"
+      href={href}
+      target="_blank"
+      title={title}
+      rel="noreferrer"
+    >
+      <img
+        className="w-9 h-9 duration-200 "
+        src={icon}
+        alt={`ìcono ${title}`}
+      />
+    </a>
+  )
+}
+
 export default function SocialBar() {
   const modalRef = useRef(null)
 
@@ -19,14 +37,14 @@ export default function SocialBar() {
   return (
     <>
       <ContactModal modalRef={modalRef} />
-      <section className="flex gap-3">
+      <section className="flex gap-3 ">
         <button
-          className="cursor-pointer"
+          className="cursor-pointer hover:bg-[var(--blue-200)] bg-[var(--blue-50)] rounded-full p-1 "
           onClick={openModal}
           title="Enviar email"
         >
           <img
-            className="w-10 h-10 duration-200 hover:scale-110"
+            className="w-9 h-9 duration-200 "
             src={emailSvg}
             alt="icono email"
           />
@@ -44,23 +62,5 @@ export default function SocialBar() {
         />
       </section>
     </>
-  )
-}
-
-function SocialIcon({ href, icon, title }) {
-  return (
-    <a
-      className="cursor-pointer"
-      href={href}
-      target="_blank"
-      title={title}
-      rel="noreferrer"
-    >
-      <img
-        className="w-10 h-10 duration-200 hover:scale-110"
-        src={icon}
-        alt={`ìcono ${title}`}
-      />
-    </a>
   )
 }
