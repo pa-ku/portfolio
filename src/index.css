@@ -23,11 +23,14 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: Poppins, sans-serif;
   margin: 0;
   /* remove TouchMobile */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: Poppins, sans-serif;
 }
 :root {
   --blue-50: #e5f5fb;
@@ -47,13 +50,14 @@
   --pink-50: #fff8fa;
   --pink-100: #fae1e3;
   --pink-200: #ffdbde;
-  --pink-250: #ffcfd3;
+  --pink-250: #ffa4b3;
   --pink-300: #ff8fa2;
   --pink-400: #ff5e78;
   --pink-500: #fd3657;
-  --pink-600: #b01c34;
+  --pink-600: #df2141;
   --pink-700: #633a41;
   --pink-800: #700c1c;
+  --pink-800: #5e0514;
 
   --checkbox-width: 140px;
 }
@@ -78,4 +82,19 @@
 
 body {
   background-color: var(--pink-0);
+}
+
+.button {
+  @apply flex rounded-xl w-max h-9 cursor-pointer bg-[var(--blue-50)]  items-center justify-center px-3  shadow-slate-100 hover:bg-[var(--blue-200)];
+}
+.accent-button {
+  @apply flex rounded-xl w-max h-9  cursor-pointer bg-[var(--blue-850)]  items-center justify-center px-3 hover:bg-[var(--blue-800)];
+}
+
+.pixel {
+  font-family: pixelify;
+}
+
+.bottom-shadow {
+  box-shadow: 0px 4em #999;
 }

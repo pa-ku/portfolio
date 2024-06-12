@@ -3,21 +3,20 @@ import gitSvg from '../assets/images/icons/github.svg'
 import linkedSvg from '../assets/images/icons/linkedin.svg'
 import emailSvg from '../assets/images/icons/email.svg'
 import ContactModal from './ContactModal'
-
+import cvSvg from '../assets/svg/cv.svg'
+import codepenSvg from '../assets/svg/codepen.svg'
 function SocialIcon({ href, icon, title }) {
   return (
     <a
-      className="hover:bg-[var(--blue-200)] cursor-pointer bg-[var(--blue-50)] rounded-full p-1"
+      className="relative flex items-center justify-center p-1 rounded-full cursor-pointer hover:bg-secondary-200 bg-secondary-50 group"
       href={href}
       target="_blank"
-      title={title}
       rel="noreferrer"
     >
-      <img
-        className="w-9 h-9 duration-200 "
-        src={icon}
-        alt={`ìcono ${title}`}
-      />
+      <span className=" absolute px-3 text-white duration-150 rounded-md opacity-0 pointer-events-none -bottom-7 group-hover:opacity-100 bg-slate-400  w-max h-max ">
+        {title}
+      </span>
+      <img className="w-9 h-9 " src={icon} alt={`ìcono ${title}`} />
     </a>
   )
 }
@@ -39,27 +38,36 @@ export default function SocialBar() {
       <ContactModal modalRef={modalRef} />
       <section className="flex gap-3 ">
         <button
-          className="cursor-pointer hover:bg-[var(--blue-200)] bg-[var(--blue-50)] rounded-full p-1 "
+          className="p-1 rounded-full cursor-pointer hover:bg-secondary-200 bg-secondary-50 group flex items-center justify-center relative"
           onClick={openModal}
           title="Enviar email"
         >
-          <img
-            className="w-9 h-9 duration-200 "
-            src={emailSvg}
-            alt="icono email"
-          />
+          <span className=" absolute px-3 text-white duration-150 rounded-md opacity-0 pointer-events-none group-hover:opacity-100 bg-slate-400  -bottom-7 w-max h-max ">
+            Contacto
+          </span>
+          <img className="w-9 h-9 " src={emailSvg} alt="icono email" />
         </button>
 
         <SocialIcon
           href={'https://github.com/pa-ku?tab=repositories'}
           icon={gitSvg}
-          title={'github'}
+          title={'Github'}
         />
         <SocialIcon
           href={'https://www.linkedin.com/in/pablokuhn/'}
           icon={linkedSvg}
-          title={'linkedIn'}
+          title={'LinkedIn'}
         />
+        <SocialIcon
+          href={'https://codepen.io/ciclistasinlicencia'}
+          icon={codepenSvg}
+          title={'Codepen'}
+        />
+        {/*     <SocialIcon
+          href={'https://www.linkedin.com/in/pablokuhn/'}
+          icon={cvSvg}
+          title={'Curriculum'}
+        /> */}
       </section>
     </>
   )

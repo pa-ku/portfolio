@@ -123,7 +123,7 @@ export default function StartMenu() {
   return (
     <>
       {!isPlaying && (
-        <footer className="flex flex-col items-center">
+        <footer className=" flex flex-col items-center">
           <StartButton onClick={startGame}>
             <p>START</p>
             <PokeLogo src={pokeLogo} alt="" />
@@ -136,11 +136,9 @@ export default function StartMenu() {
               className="h-10 relative w-full 
               cursor-pointer
               flex
-              before:font-pixel
-              before:text-white
               before:duration-200
               before:p-2
-              before:text-black
+              before:text-gray-700
               before:bg-gray-400
                before:h-max 
                before:w-full
@@ -149,15 +147,14 @@ export default function StartMenu() {
                before:rounded-md
                before:content-['Legacy_Sounds']
                checked:before:bg-[var(--blue-850)]
-               checked:before:text-white
-               "
+               checked:before:text-white"
               defaultChecked={legacySound}
               onChange={selectPokemonSound}
               type="checkbox"
             />
 
             <select
-              className="font-sans-Pixelify w-full text-center text-xl bg-[var(--blue-100)] p-2  rounded-md"
+              className="w-full cursor-pointer text-center text-xl bg-[var(--blue-300)] p-2 rounded-md"
               onChange={selectGeneration}
               name="Elegir generacion"
               id="poke-generation"
@@ -168,7 +165,7 @@ export default function StartMenu() {
               <option value="gen3">Gen 3</option>
             </select>
 
-            <p className="text-xl text-[var(--pink-400)]">
+            <p className=" text-xl text-[var(--pink-400)]">
               Mejor Puntaje {genSelected.value}
             </p>
             <PopUpText>{endMsj}</PopUpText>
@@ -226,7 +223,6 @@ const PokeWrapper = styled.div`
   }
 `
 const StartButton = styled.button`
-  background-color: #fff;
   border: 0px;
   width: 80px;
   height: 80px;
@@ -261,6 +257,7 @@ const PokeLogo = styled.img`
   object-fit: contain;
   transition: 300ms;
   animation: 1000ms rotate forwards;
+
   animation: 3000ms scale infinite;
   @keyframes scale {
     0% {

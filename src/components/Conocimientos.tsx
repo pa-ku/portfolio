@@ -14,13 +14,14 @@ import sql from '../assets/images/stack_logos/sql.svg'
 import TypeIcon from '../assets/images/stack_logos/typescript-ico.svg'
 import ExpressIcon from '../assets/images/stack_logos/express-ico.svg'
 import tailwindIco from '../assets/images/stack_logos/tailwind.svg'
-import Text from './ui/Text'
+import Subtitle from './ui/Subtitle'
 
 const IconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
   width: 80px;
   height: 80px;
   background-color: #f8f8f8;
@@ -109,7 +110,10 @@ export default function Conocimientos() {
 
   return (
     <>
-      <section className="bg-gradient-to-r rounded-xl flex flex-col flex-wrap items-center justify-center w-full gap-6 px-2">
+      <section
+        className=" rounded-xl flex flex-col flex-wrap items-center justify-center w-full gap-6 px-2 "
+      >
+        <Subtitle fontSize="3rem">Conocimientos</Subtitle>
         <RenderIcons icons={design} />
         <RenderIcons icons={frontend} />
         <RenderIcons icons={backend} />
@@ -129,7 +133,6 @@ export function RenderIcons({ icons, description }: RenderIconsProps) {
   return (
     <>
       <div className="p-2 relative flex flex-col justify-center items-center w-full md:w-[30em]">
-        {icons ? (
           <div className="flex flex-wrap justify-center gap-3">
             {[...icons].map(([name, component]) => (
               <Icon
@@ -140,9 +143,6 @@ export function RenderIcons({ icons, description }: RenderIconsProps) {
               />
             ))}
           </div>
-        ) : (
-          <Text>{description}</Text>
-        )}
       </div>
     </>
   )

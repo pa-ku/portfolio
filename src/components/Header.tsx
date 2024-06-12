@@ -13,6 +13,7 @@ const Title = styled.h1`
   font-size: 4rem;
   background: linear-gradient(to top, #767676, #4d4d4d);
   -webkit-background-clip: text;
+  
   -webkit-text-fill-color: transparent;
 `
 
@@ -21,7 +22,7 @@ export default function Header() {
     <>
       <header className="flex flex-col justify-center items-center">
         <Title>Pablo Kuhn</Title>
-        <Subtitle fontSize={'2rem'}>FullStack Developer</Subtitle>
+        <Subtitle fontSize={'2rem'}>FrontEnd Developer</Subtitle>
         <p className="text-gray-600 text-center w-80">
           Autodidacta enfocado en la creación de experiencias digitales
         </p>

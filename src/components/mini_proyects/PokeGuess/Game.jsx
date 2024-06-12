@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import Subtitle from '../../ui/Subtitle'
 
 export default function PokeGuess({
   genSelected,
@@ -23,7 +24,6 @@ export default function PokeGuess({
 }) {
   const [showImage, setShowImage] = useState(false)
   const [shuffle, setShuffle] = useState()
-  /* SOUNDBANK */
   const [actualSound, setActualSound] = useState()
   const pokeAudio = new Audio(actualSound)
 
@@ -129,14 +129,20 @@ export default function PokeGuess({
               src={currentPoke.sprites.front_default}
               alt=""
             />
-            {showImage && <PokeName>Es {currentPoke.name}!</PokeName>}
+            {showImage && (
+              <Subtitle fontSize='2em'>
+                Es {currentPoke.name}!
+              </Subtitle>
+            )}
           </ImageContainer>
+
           <OptionContainer>
             {shuffle &&
               !showImage &&
               shuffle.map((name, index) => (
                 <button
-                  className="text-white p-4 text-2xl rounded-md bg-gradient-to-tr hover:duration-200 from-pink-500 to-red-400  duration-500 hover:from-blue-400 uppercase hover:to-cyan-400"
+                  className="text-white px-3 py-2 text-xl rounded-md  hover:duration-200 bg-slate-600
+                   duration-500 hover:bg-[var(--blue-900)] uppercase"
                   key={index}
                   value={name}
                   onClick={choiceHandler}
@@ -151,20 +157,12 @@ export default function PokeGuess({
   )
 }
 
-const PokeName = styled.p`
-  width: 20ch;
-  text-align: center;
-  font-size: 30px;
-  color: var(--pink-400);
-  animation: glow 200ms ease forwards;
-`
 
 const ImageContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-
   pointer-events: none;
   flex-direction: column;
 `
@@ -188,9 +186,8 @@ const PokeImage = styled.img`
 const OptionContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 200px);
-  gap: 10px;
+  gap: 5px;
   opacity: 0;
-
   flex-wrap: wrap;
   animation: 600ms show forwards;
   @keyframes show {

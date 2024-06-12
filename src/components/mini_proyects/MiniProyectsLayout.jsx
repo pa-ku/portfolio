@@ -1,30 +1,15 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import CheckBox from '../ui/CheckBox'
 import Typing from './Typing'
 import StartMenu from './PokeGuess/Menu'
-import { useEffect } from 'react'
-import Subtitle from '../ui/Subtitle'
 
-const Wrapper = styled.div`
-  width: 100%;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  flex-direction: column;
-  gap: 30px;
-  * {
-    font-family: 'Pixelify', sans-serif;
-  }
-`
+import Subtitle from '../ui/Subtitle'
 
 const NavContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, var(--checkbox-width));
   align-items: center;
   justify-content: center;
-  background-color: var(--blue-100);
   z-index: 0;
   border-radius: 10px;
   position: relative;
@@ -47,7 +32,7 @@ const Selected = styled.div`
   position: absolute;
   height: 100%;
   border-radius: 10px;
-  background-color: var(--blue-600);
+  background-color: var(--pink-400);
   z-index: -11;
   bottom: 0px;
   width: var(--checkbox-width);
@@ -66,37 +51,50 @@ export default function MiniProyects() {
       name: 'Poke Type',
     },
   ]
-
   const [index, setIndex] = useState(0)
-
-  function handleSelected(i) {
-    setIndex(i)
-  }
 
   return (
     <>
-      <Wrapper>
+      <footer className="font-pixel w-full h-[35em] gap-5 flex items-center flex-col justify-start">
         <Subtitle fontSize="3rem" altButton={true}>
-          Mini Juegos
+          Fancy a break?
         </Subtitle>
-        <NavContainer>
+
+        <NavContainer className=" bg-gray-200 text-gray-600">
           <Selected
             className={
               (index == 1 && 'left-[var(--checkbox-width)]') || 'left-[0px]'
             }
           ></Selected>
           {proyects.map((project, i) => (
-            <CheckBox
+            <input
+              className="
+              flex
+              h-10
+              before:duration-700
+            before:w-full
+            before:h-full
+            before:flex
+            before:text-xl
+            before:items-center
+            before:justify-center
+            before:text-center
+            before:cursor-pointer
+            before:content-[attr(content)]
+            appearance-none
+checked:before:text-white
+            "
+              type="checkbox"
               key={project.name}
               content={project.name}
               name={'proyect'}
               checked={i === index}
-              onClick={() => handleSelected(i)}
-            ></CheckBox>
+              onClick={() => setIndex(i)}
+            ></input>
           ))}
         </NavContainer>
         <ProyectContainer>{proyects[index].component}</ProyectContainer>
-      </Wrapper>
+      </footer>
     </>
   )
 }
