@@ -14,7 +14,7 @@ import sql from '../assets/images/stack_logos/sql.svg'
 import TypeIcon from '../assets/images/stack_logos/typescript-ico.svg'
 import ExpressIcon from '../assets/images/stack_logos/express-ico.svg'
 import tailwindIco from '../assets/images/stack_logos/tailwind.svg'
-import Subtitle from './ui/Subtitle'
+import Subtitle from './Subtitle'
 
 const IconContainer = styled.div`
   display: flex;

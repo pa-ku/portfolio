@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import VolumeIcons from '../../ui/VolumeIcons'
+import VolumeIcons from '../../VolumeIcons'
 
 type Props = {
   answersRight: string

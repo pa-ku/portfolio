@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import pokeLogo from '../../../assets/images/icons/poke-logo.webp'
-import VolumeIcons from '../../ui/VolumeIcons'
+import VolumeIcons from '../../VolumeIcons'
 import useLocalStorage from 'use-local-storage'
 import PokeGuess from './Game'
 import PlayingUi from './UI'

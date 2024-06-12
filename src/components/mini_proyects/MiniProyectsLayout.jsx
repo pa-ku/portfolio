@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Typing from './Typing'
 import StartMenu from './PokeGuess/Menu'
 
-import Subtitle from '../ui/Subtitle'
+import Subtitle from '../Subtitle'
 
 const NavContainer = styled.div`
   display: grid;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Subtitle from '../../ui/Subtitle'
+import Subtitle from '../../Subtitle'
 
 export default function PokeGuess({
   genSelected,

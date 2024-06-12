@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Subtitle from './ui/Subtitle'
+import Subtitle from './Subtitle'
 import SocialMedia from './SocialMedia'
 
 const Title = styled.h1`
