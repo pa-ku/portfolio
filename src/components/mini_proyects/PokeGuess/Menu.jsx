@@ -76,6 +76,7 @@ export default function StartMenu() {
         setGenSelected({
           selected: 'gen3',
           pokeNumber: 386,
+          R,
           value: maxScore.gen3,
         })
         break
@@ -123,13 +124,13 @@ export default function StartMenu() {
   return (
     <>
       {!isPlaying && (
-        <footer className=" flex flex-col items-center">
+        <footer className=' flex flex-col items-center'>
           <StartButton onClick={startGame}>
             <p>START</p>
-            <PokeLogo src={pokeLogo} alt="" />
+            <PokeLogo src={pokeLogo} alt='' />
           </StartButton>
 
-          <section className="flex flex-col gap-4">
+          <section className='flex flex-col gap-4'>
             <VolumeIcons sound={sound} setSound={setSound} />
 
             <input
@@ -150,22 +151,22 @@ export default function StartMenu() {
                checked:before:text-white"
               defaultChecked={legacySound}
               onChange={selectPokemonSound}
-              type="checkbox"
+              type='checkbox'
             />
 
             <select
-              className="w-full cursor-pointer text-center text-xl bg-[var(--blue-300)] p-2 rounded-md"
+              className='w-full cursor-pointer text-center text-xl bg-[var(--blue-300)] p-2 rounded-md'
               onChange={selectGeneration}
-              name="Elegir generacion"
-              id="poke-generation"
+              name='Elegir generacion'
+              id='poke-generation'
               value={genSelected.selected}
             >
-              <option value="gen1">Gen 1</option>
-              <option value="gen2">Gen 2</option>
-              <option value="gen3">Gen 3</option>
+              <option value='gen1'>Gen 1</option>
+              <option value='gen2'>Gen 2</option>
+              <option value='gen3'>Gen 3</option>
             </select>
 
-            <p className=" text-xl text-[var(--pink-400)]">
+            <p className=' text-xl text-[var(--pink-400)]'>
               Mejor Puntaje {genSelected.value}
             </p>
             <PopUpText>{endMsj}</PopUpText>

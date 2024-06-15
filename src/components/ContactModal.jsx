@@ -34,7 +34,7 @@ export default function ContactModal({ modalRef }) {
     )
   }
 
-  function sendForm() {
+  function sendForm({}) {
     if (isValidForm()) {
       fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
@@ -80,7 +80,7 @@ export default function ContactModal({ modalRef }) {
         ref={modalRef}
         className="right-0 left-0 m-auto z-50 bg-pink-50 rounded-lg w-full md:w-[35em]"
       >
-        <div className=" flex gap-2 flex-col items-start py-3 px-4   ">
+        <div className="flex gap-2 flex-col items-start py-3 px-4   ">
           <form method="dialog" className="flex w-full gap-2 flex-col">
             <div className="p-1 flex w-full justify-between items-center">
               <h2 className="text-2xl text-gray-700">Contacto</h2>

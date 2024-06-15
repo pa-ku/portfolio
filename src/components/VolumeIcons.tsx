@@ -56,26 +56,26 @@ export default function VolumeIcons({
       <VolumeWrapper>
         {setMusic && (
           <VolumeContainer>
-            <VolumeLabel htmlFor="music">
+            <VolumeLabel htmlFor='music'>
               <VolumeIcon
-                className="volume-icon"
+                className='volume-icon'
                 src={music ? musicOn : musicOff}
-                alt=""
+                alt=''
               />
               <VolumeCheckbox
-                id="music"
+                id='music'
                 defaultChecked={music}
                 onClick={() => setMusic(music ? false : true)}
-                type="checkbox"
+                type='checkbox'
               />
             </VolumeLabel>
           </VolumeContainer>
         )}
 
         {setSound && (
-          <VolumeContainer className="hover:brightness-110">
+          <VolumeContainer className='hover:brightness-110'>
             <VolumeLabel
-              htmlFor="sound"
+              htmlFor='sound'
               className={
                 sound
                   ? 'bg-[var(--blue-850)] duration-200 rounded-md p-1 accent-white'
@@ -83,15 +83,15 @@ export default function VolumeIcons({
               }
             >
               <VolumeIcon
-                className="volume-icon"
+                className='volume-icon'
                 src={sound ? soundOn : soundOff}
-                alt=""
+                alt=''
               />
               <VolumeCheckbox
-                id="sound"
+                id='sound'
                 defaultChecked={sound}
                 onClick={() => setSound(sound ? false : true)}
-                type="checkbox"
+                type='checkbox'
               />
             </VolumeLabel>
           </VolumeContainer>
