@@ -8,7 +8,7 @@ import MiniProyectsLayout from './components/mini_proyects/MiniProyectsLayout'
 function App() {
   return (
     <>
-      <div className="flex gap-28 w-full flex-col items-center justify-center pt-20">
+      <div className= "flex gap-28 w-full flex-col items-center justify-center pt-20">
         <Wave />
         <Header />
         <ProyectLayout />

@@ -3,7 +3,7 @@
         "**/.git": false,
         "**/.svn": false,
         "**/.hg": true,
-        "**/CVS": true,
+        "**/CVS": false,
         "**/.DS_Store": true,
         "**/Thumbs.db": true
     },
