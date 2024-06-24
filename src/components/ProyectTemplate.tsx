@@ -24,11 +24,11 @@ export default function ProyectTemplate({
   propIcons,
 }: ProyectTemplate) {
   return (
-    <div className="px-4">
-      <InfoCtn className="relative flex gap-2">
-        <div className="w-full md:ml-20">
-          <h2 className="text-xl font-bold text-gray-700">{title}</h2>
-          <p className="text-gray-600">{description}</p>
+    <div className='px-4'>
+      <InfoCtn className='relative flex gap-2 h-56'>
+        <div className='w-full md:ml-20'>
+          <h2 className='text-xl font-bold text-gray-700'>{title}</h2>
+          <p className='text-gray-600'>{description}</p>
           <ActionButtons
             githubLink={githubLink}
             href={href}
@@ -42,21 +42,21 @@ export default function ProyectTemplate({
         </StackContainer>
 
         <a
-          title="Ver pagina"
-          className="peer outline outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-[var(--pink-250)] to-[var(--pink-300)] shadow-sm hidden md:flex items-center justify-cente  group"
+          title='Ver pagina'
+          className='peer outline outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-[var(--pink-250)] to-[var(--pink-300)] shadow-sm hidden md:flex items-center justify-cente  group'
           href={href}
-          target="_blank"
+          target='_blank'
         >
           <img
-            className=" object-contain drop-shadow-md p-6 brightness-140 w-28 h-28 peer"
-            loading="lazy"
+            className=' object-contain drop-shadow-md p-6 brightness-140 w-28 h-28 peer'
+            loading='lazy'
             src={LogoSrc}
             alt={`logo de ${title}`}
           />
         </a>
 
         <img
-          className="absolute -left-5 peer-hover:-left-0 object-cover object-top w-full h-full duration-200 opacity-0 pointer-events-none peer-hover:opacity-100 rounded-3xl"
+          className='absolute object-cover object-top w-full h-full duration-200 opacity-0 pointer-events-none peer-hover:opacity-100 rounded-3xl'
           src={ImgSrc}
           alt={`imagen de ${title}`}
         />
@@ -68,17 +68,17 @@ export default function ProyectTemplate({
 function ActionButtons({ href, LogoSrc, githubLink }) {
   return (
     <>
-      <span className="flex py-2 items-center gap-2">
+      <span className='flex py-2 items-center gap-2'>
         <a
-          className="accent-button md:hidden"
-          title="Proyecto en Github"
-          target="blank"
+          className='accent-button md:hidden'
+          title='Proyecto en Github'
+          target='blank'
           href={href}
         >
           <img
             src={LogoSrc}
-            className=" drop-shadow-md p-1 brightness-140 w-full h-full "
-            alt="Github Link"
+            className=' drop-shadow-md p-1 brightness-140 w-full h-full '
+            alt='Github Link'
           />
         </a>
 
@@ -92,15 +92,15 @@ function ActionButtons({ href, LogoSrc, githubLink }) {
         </a> */}
 
         <a
-          className="button"
-          title="Proyecto en Github"
-          target="blank"
+          className='button'
+          title='Proyecto en Github'
+          target='blank'
           href={githubLink}
         >
           <img
             src={gitSvg}
-            className=" drop-shadow-md p-1 brightness-140 w-full h-full"
-            alt="Github Link"
+            className=' drop-shadow-md p-1 brightness-140 w-full h-full'
+            alt='Github Link'
           />
         </a>
       </span>
@@ -114,7 +114,7 @@ const InfoCtn = styled.div`
   position: relative;
   justify-content: center;
   width: 660px;
-  padding-block: 2em;
+  padding-block: 1em;
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 20px 20px 30px 0px #f3f3f3;
@@ -131,11 +131,11 @@ const StackContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
   height: 100%;
   & img {
-    width: 33px;
-    height: 33px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
   }
   @media (max-width: 800px) {

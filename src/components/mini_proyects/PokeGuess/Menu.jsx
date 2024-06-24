@@ -27,7 +27,7 @@ export default function StartMenu() {
     pokeNumber: 151,
   })
   const [scoreUp, setScoreUp] = useState(false)
-  const { time, setTime, startTimer, resetTimer } = useCountDown(25)
+  const { time, setTime, startTimer, resetTimer } = useCountDown(20)
   const [answers, setAnswers] = useState({
     right: 0,
     wrong: 0,
