@@ -26,6 +26,7 @@ const IconContainer = styled.div`
   height: 80px;
   background-color: #f8f8f8;
   padding: 18px;
+ 
   border-radius: 50%;
   position: relative;
   outline: 2px solid #f0f0f0;
