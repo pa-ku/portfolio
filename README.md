@@ -1,5 +1,13 @@
 ## 🧠 Donde mis creaciones se almacenan
 Aquí encontrarás una colección de mis proyectos destacados
+
+### 🚀 Tecnologías principales
+- _Frontend_: React, TypeScript, tailwind.
+- _Backend_: Express,MongoDb.
+- _Futuro_: Explorando React Native para incurcuionar en mobile.
+
+## Proyectos
+
 ### 🎨 Quantum - Design System
 Esta pensado para utilizarse con Tailwind con un enfoque Copy Paste, sin necesidad de utilizar javascript.
 #### _Destacado:_
@@ -14,7 +22,3 @@ Este Marketplace de Monopatines creado con express ofrece pagos online con merca
 - _Modificación_: Se puede modificar todo la informacion de un elemento desde la web
 - _Modificaciones_: generales: Permiten realizar incrementos de precios a toda una categoria elegida
 
-## 🚀 Tecnologías principales
-_Frontend_: React, TypeScript, tailwind.
-_Backend_: Express,MongoDb.
-_Futuro_: Explorando React Native para incurcuionar en mobile.
