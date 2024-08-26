@@ -56,7 +56,7 @@ export default function ProyectTemplate({
         </a>
 
         <img
-          className='absolute object-cover object-top w-full h-full duration-200 opacity-0 pointer-events-none peer-hover:opacity-100 rounded-3xl'
+          className='absolute object-cover object-top w-full h-full duration-200 opacity-0 pointer-events-none peer-hover:opacity-100 rounded-3xl '
           src={ImgSrc}
           alt={`imagen de ${title}`}
         />

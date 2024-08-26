@@ -30,7 +30,7 @@ export const proyects = [
     logo: quantum_logo,
     github: 'https://github.com/pa-ku/quantum_design',
     href: 'https://quantumui.netlify.app',
-    stack: [reactico, tailwindico],
+    stack: [typeico,reactico, tailwindico],
   },
   {
     title: 'E-ride Scooter Store',

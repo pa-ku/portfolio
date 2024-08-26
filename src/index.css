@@ -98,3 +98,13 @@ body {
 .bottom-shadow {
   box-shadow: 0px 4em #999;
 }
+
+.animate-card {
+  animation: card 1s forwards;
+}
+
+@keyframes card {
+100%{
+  translate: 0px -100%;
+}
+}
