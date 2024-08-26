@@ -1,4 +1,24 @@
-# El lugar donde mis ideas se almacenan
-- La mayoria de mis proyectos son con React, typescript y styled components, aun asi algunos de los proyectos van adquiriendo complejidad con NodeJs y con ideas de utilizar ReactNative a futuro
-- Los minijuegos estan alimentados con la API de pokemon , son una forma de mostrar mi amor por los mismos 🎮, y de forma interactiva mostrar algunos de mis conocimientos
-- Si bien el portfolio no cuenta con todos mis conocimientos y proyectos ( como en unity ) son un reflejo de los proyectos a los cuales e invertido el mayor tiempo y estudio para hacerlos lo mejor posible
+## 🧠 Donde mis creaciones se almacenan
+Aquí encontrarás una colección de mis proyectos destacados
+
+### 🚀 Tecnologías principales
+- _Frontend_: React, TypeScript, tailwind.
+- _Backend_: Express,MongoDb.
+- _Futuro_: Explorando React Native para incurcuionar en mobile.
+
+## Proyectos
+
+### 🎨 Quantum - Design System
+Esta pensado para utilizarse con Tailwind con un enfoque Copy Paste, sin necesidad de utilizar javascript.
+#### _Destacado:_
+- _Animaciones_:Creadas con Css ofrecen un rendimiento optimo.
+- _Nativo_: En quantum se busca utilizar las etiquetas html nativas para aprovechar su potencial ej:dialog, input Checkbox .
+- _Accesibilidad_: Los componentes ofrecen buen contraste, asi como accesibilidad con el teclado, aria labels y mas.
+
+### 🛴 E-ride - Ecommerce
+Este Marketplace de Monopatines creado con express ofrece pagos online con mercadopago, y permite agregar/editar productos online ingresando como administrador.
+#### _Destacado:_
+- _filtros_: Puede buscar por variadas categorias (Rango de precio, marca, potencia, descuentos)
+- _Modificación_: Se puede modificar todo la informacion de un elemento desde la web
+- _Modificaciones_: generales: Permiten realizar incrementos de precios a toda una categoria elegida
+
