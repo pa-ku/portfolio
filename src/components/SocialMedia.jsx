@@ -5,18 +5,19 @@ import emailSvg from '../assets/images/icons/email.svg'
 import ContactModal from './ContactModal'
 import cvSvg from '../assets/svg/cv.svg'
 import codepenSvg from '../assets/svg/codepen.svg'
+import pdf from '../../public/cv_pablokuhn.pdf'
 function SocialIcon({ href, icon, title }) {
   return (
     <a
-      className="relative flex items-center justify-center p-1 rounded-full cursor-pointer hover:bg-secondary-200 bg-secondary-50 group"
+      className='relative flex items-center justify-center p-1 rounded-full cursor-pointer hover:bg-secondary-200 bg-secondary-50 group'
       href={href}
-      target="_blank"
-      rel="noreferrer"
+      target='_blank'
+      rel='noreferrer'
     >
-      <span className=" absolute px-3 text-white duration-150 rounded-md opacity-0 pointer-events-none -bottom-7 group-hover:opacity-100 bg-slate-400  w-max h-max ">
+      <span className=' absolute px-3 text-white duration-150 rounded-md opacity-0 pointer-events-none -bottom-7 group-hover:opacity-100 bg-slate-400  w-max h-max '>
         {title}
       </span>
-      <img className="w-9 h-9 " src={icon} alt={`ìcono ${title}`} />
+      <img className='w-9 h-9 ' src={icon} alt={`ìcono ${title}`} />
     </a>
   )
 }
@@ -36,16 +37,16 @@ export default function SocialBar() {
   return (
     <>
       <ContactModal modalRef={modalRef} />
-      <section className="flex gap-3 ">
+      <section className='flex gap-3 '>
         <button
-          className="p-1 rounded-full cursor-pointer hover:bg-secondary-200 bg-secondary-50 group flex items-center justify-center relative"
+          className='p-1 rounded-full cursor-pointer hover:bg-secondary-200 bg-secondary-50 group flex items-center justify-center relative'
           onClick={openModal}
-          title="Enviar email"
+          title='Enviar email'
         >
-          <span className=" absolute px-3 text-white duration-150 rounded-md opacity-0 pointer-events-none group-hover:opacity-100 bg-slate-400  -bottom-7 w-max h-max ">
+          <span className=' absolute px-3 text-white duration-150 rounded-md opacity-0 pointer-events-none group-hover:opacity-100 bg-slate-400  -bottom-7 w-max h-max '>
             Contacto
           </span>
-          <img className="w-9 h-9 " src={emailSvg} alt="icono email" />
+          <img className='w-9 h-9 ' src={emailSvg} alt='icono email' />
         </button>
 
         <SocialIcon
@@ -58,16 +59,8 @@ export default function SocialBar() {
           icon={linkedSvg}
           title={'LinkedIn'}
         />
-        <SocialIcon
-          href={'https://codepen.io/ciclistasinlicencia'}
-          icon={codepenSvg}
-          title={'Codepen'}
-        />
-        {/*     <SocialIcon
-          href={'https://www.linkedin.com/in/pablokuhn/'}
-          icon={cvSvg}
-          title={'Curriculum'}
-        /> */}
+
+        <SocialIcon href={pdf} icon={cvSvg} title={'Curriculum'} />
       </section>
     </>
   )
