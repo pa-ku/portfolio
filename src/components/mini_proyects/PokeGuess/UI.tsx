@@ -71,7 +71,7 @@ export default function PlayingUi({
 }
 
 const Score = styled.p<{ scoreup: boolean }>`
-  color: var(--pink-400);
+  color: var(--primary-400);
   font-weight: 800;
   font-size: 25px;
   position: absolute;
@@ -131,10 +131,10 @@ const Timer = styled.p<{ scoreup: boolean }>`
       color: #111;
     }
     30% {
-      color: var(--pink-400);
+      color: var(--primary-400);
     }
     60% {
-      color: var(--pink-400);
+      color: var(--primary-400);
     }
 
     100% {

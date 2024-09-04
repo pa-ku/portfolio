@@ -32,7 +32,7 @@ const Selected = styled.div`
   position: absolute;
   height: 100%;
   border-radius: 10px;
-  background-color: var(--pink-400);
+  background-color: var(--primary-400);
   z-index: -11;
   bottom: 0px;
   width: var(--checkbox-width);
@@ -55,12 +55,12 @@ export default function MiniProyects() {
 
   return (
     <>
-      <footer className="font-pixel w-full h-[35em] gap-5 flex items-center flex-col justify-start">
-        <Subtitle fontSize="3rem" altButton={true}>
+      <footer className='font-pixel w-full h-[35em] gap-5 flex items-center flex-col justify-start'>
+        <Subtitle fontSize='3rem' altButton={true}>
           Fancy a break?
         </Subtitle>
 
-        <NavContainer className=" bg-gray-200 text-gray-600">
+        <NavContainer className=' bg-gray-200 text-gray-600'>
           <Selected
             className={
               (index == 1 && 'left-[var(--checkbox-width)]') || 'left-[0px]'
@@ -68,7 +68,7 @@ export default function MiniProyects() {
           ></Selected>
           {proyects.map((project, i) => (
             <input
-              className="
+              className='
               flex
               h-10
               before:duration-700
@@ -83,8 +83,8 @@ export default function MiniProyects() {
             before:content-[attr(content)]
             appearance-none
 checked:before:text-white
-            "
-              type="checkbox"
+            '
+              type='checkbox'
               key={project.name}
               content={project.name}
               name={'proyect'}

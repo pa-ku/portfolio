@@ -21,23 +21,21 @@ const IconContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
   width: 80px;
   height: 80px;
   background-color: #f8f8f8;
   padding: 18px;
- 
   border-radius: 50%;
   position: relative;
   outline: 2px solid #f0f0f0;
   &:hover {
-    outline: 2px solid var(--pink-200);
+    outline: 2px solid var(--primary-400);
   }
   & p {
     translate: 0px 40px;
-    background-color: var(--pink-200);
+    background-color: var(--primary-400);
     padding: 0px 7px;
-    color: var(--pink-500);
+    color: white;
   }
   &:hover p {
     opacity: 1;
@@ -48,7 +46,7 @@ const IconContainer = styled.div`
   &::before {
     background: radial-gradient(
       800px circle at var(--mouse-x) var(--mouse-y),
-      #fc637d27,
+      #fc637d3f,
       transparent 5%
     );
     position: absolute;
@@ -56,7 +54,7 @@ const IconContainer = styled.div`
     border-radius: inherit;
     content: '';
     opacity: 0;
-    transition: opacity 200ms;
+
     height: 100%;
     width: 100%;
     left: 0px;
@@ -72,14 +70,14 @@ const IconImage = styled.img`
   z-index: 100;
   width: 100px;
   height: 100px;
-  transition: 200ms;
+
   border-radius: 5px;
 `
 
 const IconText = styled.p`
   font-weight: 800;
   opacity: 0;
-  transition: 0.2s;
+  transition: 100ms;
   text-align: center;
   position: absolute;
   font-size: 0.8rem;
@@ -111,10 +109,8 @@ export default function Conocimientos() {
 
   return (
     <>
-      <section
-        className=" rounded-xl flex flex-col flex-wrap items-center justify-center w-full gap-6 px-2 "
-      >
-        <Subtitle fontSize="3rem">Conocimientos</Subtitle>
+      <section className=' rounded-xl flex flex-col flex-wrap items-center justify-center w-full gap-6 px-2 '>
+        <Subtitle fontSize='3rem'>Conocimientos</Subtitle>
         <RenderIcons icons={design} />
         <RenderIcons icons={frontend} />
         <RenderIcons icons={backend} />
@@ -133,17 +129,17 @@ interface IconProps {
 export function RenderIcons({ icons, description }: RenderIconsProps) {
   return (
     <>
-      <div className="p-2 relative flex flex-col justify-center items-center w-full md:w-[30em]">
-          <div className="flex flex-wrap justify-center gap-3">
-            {[...icons].map(([name, component]) => (
-              <Icon
-                key={name}
-                iconName={name}
-                src={component}
-                alt={`icono ${name}`}
-              />
-            ))}
-          </div>
+      <div className='p-2 relative flex flex-col justify-center items-center w-full md:w-[30em]'>
+        <div className='flex flex-wrap justify-center gap-3'>
+          {[...icons].map(([name, component]) => (
+            <Icon
+              key={name}
+              iconName={name}
+              src={component}
+              alt={`icono ${name}`}
+            />
+          ))}
+        </div>
       </div>
     </>
   )
@@ -163,14 +159,14 @@ function Icon({ iconName, src, alt }: IconProps) {
 
   return (
     <>
-      <IconContainer className="" ref={itemRef} onMouseMove={handleMouseMove}>
+      <IconContainer className='' ref={itemRef} onMouseMove={handleMouseMove}>
         <IconImage
-          className="w-full h-full drop-shadow-md"
-          loading="lazy"
+          className='w-full h-full drop-shadow-md'
+          loading='lazy'
           src={src}
           alt={alt}
         ></IconImage>
-        <IconText className="text-[var(--pink-300)]">{iconName}</IconText>
+        <IconText className='text-primary-300'>{iconName}</IconText>
       </IconContainer>
     </>
   )

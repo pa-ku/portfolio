@@ -8,9 +8,9 @@ const Text = styled.p<{ fontSize?: string; color?: string }>`
   color: ${(props) => props.color};
   background: linear-gradient(
     to right,
-    var(--pink-400),
+    var(--primary-400),
     #ff9831,
-    var(--pink-400)
+    var(--primary-400)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -31,11 +31,17 @@ type SubtitleProps = {
   children: any
   fontSize?: string
   color?: string
+  className: string
 }
 
-export default function Subtitle({ children, fontSize, color }: SubtitleProps) {
+export default function Subtitle({
+  children,
+  className,
+  fontSize,
+  color,
+}: SubtitleProps) {
   return (
-    <Text color={color} fontSize={fontSize}>
+    <Text className={className} color={color} fontSize={fontSize}>
       {children}
     </Text>
   )

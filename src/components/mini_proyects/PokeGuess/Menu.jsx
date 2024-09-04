@@ -166,7 +166,7 @@ export default function StartMenu() {
               <option value='gen3'>Gen 3</option>
             </select>
 
-            <p className=' text-xl text-[var(--pink-400)]'>
+            <p className=' text-xl text-primary-400'>
               Mejor Puntaje {genSelected.value}
             </p>
             <PopUpText>{endMsj}</PopUpText>

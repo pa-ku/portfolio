@@ -47,17 +47,17 @@ body {
   --darkblue-400: #85c7f6;
   --darkblue-800: #003256;
 
-  --pink-50: #fff8fa;
-  --pink-100: #fae1e3;
-  --pink-200: #ffdbde;
-  --pink-250: #ffa4b3;
-  --pink-300: #ff8fa2;
-  --pink-400: #ff5e78;
-  --pink-500: #fd3657;
-  --pink-600: #df2141;
-  --pink-700: #633a41;
-  --pink-800: #700c1c;
-  --pink-800: #5e0514;
+  --primary-50: #fff8f9;
+  --primary-100: #fec2cc;
+  --primary-200: #fe9faf;
+  --primary-300: #fe7c91;
+  --primary-400: #fd5874;
+  --primary-500: #fd3556;
+  --primary-600: #fd1239;
+  --primary-700: #e80229;
+  --primary-800: #c50222;
+  --primary-900: #a2021c;
+  --primary-1000: #7e0116;
 
   --checkbox-width: 140px;
 }
@@ -65,23 +65,19 @@ body {
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 14px;
-  background-color: var(--pink-200);
+  background-color: var(--primary-200);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--pink-300);
-  border: 3px solid var(--pink-200);
+  background-color: var(--primary-300);
+  border: 3px solid var(--primary-200);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--pink-500);
+  background-color: var(--primary-500);
 }
 /* SELECTION */
 ::selection {
   color: white;
-  background: var(--pink-300);
-}
-
-body {
-  background-color: var(--pink-0);
+  background: var(--primary-300);
 }
 
 .button {
@@ -104,7 +100,7 @@ body {
 }
 
 @keyframes card {
-100%{
-  translate: 0px -100%;
-}
+  100% {
+    translate: 0px -100%;
+  }
 }

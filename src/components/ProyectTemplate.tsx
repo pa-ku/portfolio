@@ -43,7 +43,7 @@ export default function ProyectTemplate({
 
         <a
           title='Ver pagina'
-          className='peer outline outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-[var(--pink-250)] to-[var(--pink-300)] shadow-sm hidden md:flex items-center justify-cente  group'
+          className='peer outline outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-primary-200 to-primary-300 shadow-sm hidden md:flex items-center justify-cente  group'
           href={href}
           target='_blank'
         >

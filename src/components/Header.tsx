@@ -1,32 +1,20 @@
 import React from 'react'
-import styled from 'styled-components'
 import Subtitle from './Subtitle'
 import SocialMedia from './SocialMedia'
-
-const Title = styled.h1`
-  text-align: center;
-  font-weight: 600;
-  letter-spacing: -2px;
-  z-index: 1;
-  height: max-content;
-  height: 80px;
-  font-size: 4rem;
-  background: linear-gradient(to top, #767676, #4d4d4d);
-  -webkit-background-clip: text;
-  
-  -webkit-text-fill-color: transparent;
-`
 
 export default function Header() {
   return (
     <>
-      <header className="flex flex-col justify-center items-center">
-        <Title>Pablo Kuhn</Title>
-        <Subtitle fontSize={'2rem'}>FrontEnd Developer</Subtitle>
-        <p className="text-gray-600 text-center w-80">
+      <header className='flex flex-col justify-center items-center'>
+        <h1 className='text-7xl text-transparent font-extrabold bg-clip-text bg-gradient-to-t from-gray-500 to-gray-700'>
+          Pablo Kuhn
+        </h1>
+        <Subtitle className='text-4xl'>FrontEnd Developer</Subtitle>
+
+        <p className='text-black text-center w-80'>
           Autodidacta enfocado en la creación de experiencias digitales
         </p>
-        <div className="pt-1">
+        <div className='pt-1'>
           <SocialMedia />
         </div>
       </header>

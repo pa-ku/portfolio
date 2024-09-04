@@ -15,19 +15,19 @@ export default {
       },
       colors: {
         primary: {
-          50: 'var(--pink-50)',   // Asegurate de que `--pink-50` está definido en tu CSS
-          100: 'var(--pink-100)',
-          200: 'var(--pink-200)',
-          300: 'var(--pink-300)',
-          400: 'var(--pink-400)',
-          500: 'var(--pink-500)',
-          600: 'var(--pink-600)',
-          700: 'var(--pink-700)',
-          800: 'var(--pink-800)',
-          900: 'var(--pink-900)',
+          100: 'var(--primary-100)',
+          200: 'var(--primary-200)',
+          300: 'var(--primary-300)',
+          400: 'var(--primary-400)',
+          500: 'var(--primary-500)',
+          600: 'var(--primary-600)',
+          700: 'var(--primary-700)',
+          800: 'var(--primary-800)',
+          900: 'var(--primary-900)',
         },
+
         secondary: {
-          50: 'var(--blue-50)',  // Asegurate de que `--blue-50` está definido en tu CSS
+          50: 'var(--blue-50)', // Asegurate de que `--blue-50` está definido en tu CSS
           100: 'var(--blue-100)',
           200: 'var(--blue-200)',
           300: 'var(--blue-300)',
