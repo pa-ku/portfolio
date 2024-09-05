@@ -1,7 +1,9 @@
 import erideLogo from './assets/images/proyect_logos/eride-logo.webp'
 import erideImg from './assets/images/proyect_images/EridePageImage.webp'
 import quantum_image from './assets/images/proyect_images/quantum_image.webp'
+import chaugluten_image from './assets/images/proyect_images/chaugluten.webp'
 import quantum_logo from './assets/images/proyect_logos/quantum_logo.png'
+import chaugluten from './assets/images/proyect_logos/chaugluten.webp'
 
 import reactico from './assets/images/stack_logos/reacticon.svg'
 import nodeico from './assets/images/stack_logos/nodejsicon.svg'
@@ -9,6 +11,7 @@ import styleico from './assets/images/stack_logos/styledicon.svg'
 import mongoico from './assets/images/stack_logos/mongo.svg'
 import typeico from './assets/images/stack_logos/typescript-ico.svg'
 import tailwindico from './assets/images/stack_logos/tailwind.svg'
+import nextjs from './assets/images/stack_logos/nextjs.svg'
 
 export const proyects = [
   /*   {
@@ -30,7 +33,17 @@ export const proyects = [
     logo: quantum_logo,
     github: 'https://github.com/pa-ku/quantum_design',
     href: 'https://quantumui.netlify.app',
-    stack: [typeico,reactico, tailwindico],
+    stack: [reactico, typeico, tailwindico],
+  },
+  {
+    title: 'Menu ChauGluten',
+    description:
+      'Un Menu online que te ofrece filtros favoritos, analiticas, con la opción de ingresar como admin y agregar,modificar y ver tu menu desde una interface intuitiva',
+    img: chaugluten_image,
+    logo: chaugluten,
+    github: 'https://github.com/pa-ku/quantum_design',
+    href: 'https://chaugluten.vercel.app/',
+    stack: [nextjs, typeico, tailwindico, mongoico],
   },
   {
     title: 'E-ride Scooter Store',

@@ -10,10 +10,12 @@ import figmaIcon from '../assets/images/stack_logos/figmaicon.svg'
 import photoshopIcon from '../assets/images/stack_logos/photoshopicon.svg'
 import githubIcon from '../assets/images/stack_logos/githubicon.svg'
 import mongo from '../assets/images/stack_logos/mongo.svg'
-import sql from '../assets/images/stack_logos/sql.svg'
+import sql from '../assets/images/stack_logos/sql.png'
 import TypeIcon from '../assets/images/stack_logos/typescript-ico.svg'
 import ExpressIcon from '../assets/images/stack_logos/express-ico.svg'
 import tailwindIco from '../assets/images/stack_logos/tailwind.svg'
+import NextjsIcon from '../assets/images/stack_logos/nextjs.svg'
+import prismaIcon from '../assets/images/stack_logos/prisma.svg'
 import Subtitle from './Subtitle'
 
 const IconContainer = styled.div`
@@ -91,6 +93,7 @@ export default function Conocimientos() {
     ['Photoshop', photoshopIcon],
   ])
   const frontend = new Map([
+    ['NextJs', NextjsIcon],
     ['React', ReactIcon],
     ['TypeScript', TypeIcon],
     ['Javascript', jsIcon],
@@ -101,6 +104,8 @@ export default function Conocimientos() {
   ])
   const backend = new Map([
     ['Express', ExpressIcon],
+    ['Prisma', prismaIcon],
+
     ['NodeJs', nodejsicon],
     ['MongoDb', mongo],
     ['SQL', sql],
