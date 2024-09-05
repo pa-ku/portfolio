@@ -3,7 +3,7 @@ import Header from './components/Header'
 import Conocimientos from './components/Conocimientos'
 import Wave from './components/Wave'
 import ProyectLayout from './components/ProyectLayout'
-import MiniProyectsLayout from './components/mini_proyects/MiniProyectsLayout'
+
 
 function App() {
   return (
@@ -13,7 +13,6 @@ function App() {
         <Header />
         <ProyectLayout />
         <Conocimientos />
-{/*         <MiniProyectsLayout /> */}
       </div>
     </>
   )

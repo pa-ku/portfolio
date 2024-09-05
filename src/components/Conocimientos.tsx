@@ -105,7 +105,7 @@ export default function Conocimientos() {
   const backend = new Map([
     ['Express', ExpressIcon],
     ['Prisma', prismaIcon],
-
+  
     ['NodeJs', nodejsicon],
     ['MongoDb', mongo],
     ['SQL', sql],
