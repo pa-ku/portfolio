@@ -4,7 +4,7 @@ import { proyects } from '../Proyects'
 export default function ProyectLayout() {
   return (
     <>
-      <div className="flex flex-col gap-20">
+      <div className='flex flex-col gap-20'>
         {proyects.map(
           ({ title, description, img, logo, github, href, stack }) => (
             <ProyectTemplate

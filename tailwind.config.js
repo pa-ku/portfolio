@@ -8,6 +8,10 @@ export default {
       fontFamily: {
         pixel: ['Pixelify'],
       },
+
+      animation: {
+        balance: 'animate-balance 2s infinite linear',
+      },
       writingMode: {
         upright: 'text-orientation: upright',
         'vertical-lr': 'writing-mode: vertical-lr',

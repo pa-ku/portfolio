@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import gitSvg from '../assets/images/icons/github.svg'
 
@@ -16,16 +16,34 @@ type ProyectTemplate = {
 
 export default function ProyectTemplate({
   LogoSrc,
-  ImgSrc,
+  ImgSrc: videoSrc,
   title,
   description,
   href,
   githubLink,
   propIcons,
 }: ProyectTemplate) {
+  const [hover, setHover] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const handleMouseEnter = () => {
+    setHover(true)
+    if (videoRef.current) {
+      videoRef.current.play()
+    }
+  }
+
+  const handleMouseLeave = () => {
+    setHover(false)
+    if (videoRef.current) {
+      videoRef.current.pause()
+      videoRef.current.currentTime = 0 // Reset el video al principio si es necesario
+    }
+  }
+
   return (
     <div className='px-4'>
-      <InfoCtn className='relative flex gap-2 h-56'>
+      <InfoCtn className={` h-64 relative flex  duration-500`}>
         <div className='w-full md:ml-20'>
           <h2 className='text-xl font-bold text-gray-700'>{title}</h2>
           <p className='text-gray-600'>{description}</p>
@@ -42,24 +60,28 @@ export default function ProyectTemplate({
         </StackContainer>
 
         <a
-          title='Ver pagina'
-          className='peer outline outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-primary-200 to-primary-300 shadow-sm hidden md:flex items-center justify-cente  group'
+          className=' peer outline outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-primary-200 to-primary-300 shadow-sm hidden md:flex items-center justify-cente  group'
           href={href}
           target='_blank'
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           <img
-            className=' object-contain drop-shadow-md p-6 brightness-140 w-28 h-28 peer'
+            className=' group-hover:animate-balance object-contain drop-shadow-md p-6 brightness-140 w-28 h-28 peer'
             loading='lazy'
             src={LogoSrc}
             alt={`logo de ${title}`}
           />
         </a>
 
-        <img
-          className='absolute object-cover object-top w-full h-full duration-200 opacity-0 pointer-events-none peer-hover:opacity-100 rounded-3xl '
-          src={ImgSrc}
-          alt={`imagen de ${title}`}
-        />
+        <video
+          ref={videoRef}
+          className='peer-hover:h-80 absolute object-fill object-top w-full duration-200 opacity-0 pointer-events-none h-full peer-hover:opacity-100 rounded-3xl '
+          width='800'
+          height='600'
+        >
+          <source type='video/mp4' src={videoSrc} />
+        </video>
       </InfoCtn>
     </div>
   )

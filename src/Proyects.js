@@ -29,7 +29,7 @@ export const proyects = [
     description: [
       'Design system enfocado en el uso facil de componentes para Tailwind y React',
     ],
-    img: quantum_image,
+    img: 'https://github.com/user-attachments/assets/6eb664be-7fcd-4a06-ade5-0680bcd24336',
     logo: quantum_logo,
     github: 'https://github.com/pa-ku/quantum_design',
     href: 'https://quantumui.netlify.app',
@@ -39,9 +39,9 @@ export const proyects = [
     title: 'Menu ChauGluten',
     description:
       'Un Menu online que te ofrece filtros favoritos, analiticas, con la opción de ingresar como admin y agregar,modificar y ver tu menu desde una interface intuitiva',
-    img: chaugluten_image,
+    img: 'https://github.com/user-attachments/assets/3d264d8c-84c2-41dd-bed3-c4e15f0585a6',
     logo: chaugluten,
-    github: 'https://github.com/pa-ku/quantum_design',
+    github: 'https://github.com/pa-ku/chau_gluten_menu',
     href: 'https://chaugluten.vercel.app/',
     stack: [nextjs, typeico, tailwindico, mongoico],
   },
@@ -49,7 +49,8 @@ export const proyects = [
     title: 'E-ride Scooter Store',
     description:
       'Un ecommerce estatico que recibe transacciones con la api de Mercado pago. Cuenta con un filtro de productos, y guardado de favoritos que se almacenan en el Local Storage',
-    img: erideImg,
+
+    img: 'https://github.com/user-attachments/assets/a102f5e8-c735-4dc0-a27c-0ccf5287f300',
     logo: erideLogo,
     github: 'https://github.com/pa-ku/eride_client',
     href: 'https://eridestore.netlify.app/',
