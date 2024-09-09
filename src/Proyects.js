@@ -1,8 +1,7 @@
 import erideLogo from './assets/images/proyect_logos/eride-logo.webp'
-import erideImg from './assets/images/proyect_images/EridePageImage.webp'
-import quantum_image from './assets/images/proyect_images/quantum_image.webp'
-import chaugluten_image from './assets/images/proyect_images/chaugluten.webp'
 import quantum_logo from './assets/images/proyect_logos/quantum_logo.png'
+import palete_logo from './assets/images/proyect_logos/paleteLogo.png'
+import tejabot_logo from './assets/images/proyect_logos/tejabotLogo.png'
 import chaugluten from './assets/images/proyect_logos/chaugluten.webp'
 
 import reactico from './assets/images/stack_logos/reacticon.svg'
@@ -55,5 +54,27 @@ export const proyects = [
     github: 'https://github.com/pa-ku/eride_client',
     href: 'https://eridestore.netlify.app/',
     stack: [reactico, styleico],
+  },
+  {
+    title: 'Tejabot',
+    description:
+      'Te permite realizar reservas de una forma automatica en las canchas de padel del Tejadito, automatizando el proceso con puppeteer',
+
+    img: 'https://github.com/user-attachments/assets/a9f20cd7-80ab-4f3c-a009-f729d083d753',
+    logo: tejabot_logo,
+    github: 'https://github.com/pa-ku/tejabot',
+    href: 'https://tejabot.vercel.app/',
+    stack: [nextjs, tailwindico],
+  },
+  {
+    title: 'Tailwind Palete',
+    description:
+      'Es una solucion a crear rapidamente una gama de colores consistente, que te permite agregarlo de una forma rapida',
+
+    img: 'https://github.com/user-attachments/assets/082c6aab-4fe3-423f-ac9e-a7e96f790578',
+    logo: palete_logo,
+    github: 'https://github.com/pa-ku/tailwind_palete',
+    href: 'https://tailwind-palete.vercel.app/',
+    stack: [reactico, tailwindico],
   },
 ]

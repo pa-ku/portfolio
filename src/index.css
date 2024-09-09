@@ -47,6 +47,17 @@ body {
   --darkblue-400: #85c7f6;
   --darkblue-800: #003256;
 
+  --secundary-100: #eaf6fb;
+  --secundary-200: #c8e6f3;
+  --secundary-300: #a7d7ec;
+  --secundary-400: #85c8e5;
+  --secundary-500: #63b9de;
+  --secundary-600: #42aad7;
+  --secundary-700: #2a97c6;
+  --secundary-800: #237da4;
+  --secundary-900: #1c6482;
+  --secundary-1000: #154a61;
+
   --primary-50: #fff8f9;
   --primary-100: #fec2cc;
   --primary-200: #fe9faf;

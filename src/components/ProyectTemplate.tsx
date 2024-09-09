@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import gitSvg from '../assets/images/icons/github.svg'
 
@@ -22,19 +22,17 @@ export default function ProyectTemplate({
   href,
   githubLink,
   propIcons,
+  extraProyect,
 }: ProyectTemplate) {
-  const [hover, setHover] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   const handleMouseEnter = () => {
-    setHover(true)
     if (videoRef.current) {
       videoRef.current.play()
     }
   }
 
   const handleMouseLeave = () => {
-    setHover(false)
     if (videoRef.current) {
       videoRef.current.pause()
       videoRef.current.currentTime = 0 // Reset el video al principio si es necesario
@@ -60,14 +58,18 @@ export default function ProyectTemplate({
         </StackContainer>
 
         <a
-          className=' peer outline outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-primary-200 to-primary-300 shadow-sm hidden md:flex items-center justify-cente  group'
+          className={`${
+            extraProyect
+              ? 'from-secundary-600 to-secundary-300 '
+              : 'to-primary-300 from-primary-200'
+          }' peer outline outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-primary-200  shadow-sm hidden hover:animate-balance md:flex items-center justify-cente group'`}
           href={href}
           target='_blank'
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
           <img
-            className=' group-hover:animate-balance object-contain drop-shadow-md p-6 brightness-140 w-28 h-28 peer'
+            className='  object-contain drop-shadow-md p-6 brightness-140 w-28 h-28 peer'
             loading='lazy'
             src={LogoSrc}
             alt={`logo de ${title}`}
@@ -76,7 +78,7 @@ export default function ProyectTemplate({
 
         <video
           ref={videoRef}
-          className='peer-hover:h-80 absolute object-fill object-top w-full duration-200 opacity-0 pointer-events-none h-full peer-hover:opacity-100 rounded-3xl '
+          className='peer-hover:h-80 absolute object-fill object-top w-full duration-300 opacity-0 pointer-events-none h-full peer-hover:opacity-100 rounded-3xl '
           width='800'
           height='600'
         >

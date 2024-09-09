@@ -29,7 +29,18 @@ export default {
           800: 'var(--primary-800)',
           900: 'var(--primary-900)',
         },
-
+        secundary: {
+          100: 'var(--secundary-100)',
+          200: 'var(--secundary-200)',
+          300: 'var(--secundary-300)',
+          400: 'var(--secundary-400)',
+          500: 'var(--secundary-500)',
+          600: 'var(--secundary-600)',
+          700: 'var(--secundary-700)',
+          800: 'var(--secundary-800)',
+          900: 'var(--secundary-900)',
+          1000: 'var(--secundary-1000)',
+        },
         secondary: {
           50: 'var(--blue-50)', // Asegurate de que `--blue-50` está definido en tu CSS
           100: 'var(--blue-100)',

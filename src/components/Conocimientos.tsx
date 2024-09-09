@@ -17,6 +17,7 @@ import tailwindIco from '../assets/images/stack_logos/tailwind.svg'
 import NextjsIcon from '../assets/images/stack_logos/nextjs.svg'
 import prismaIcon from '../assets/images/stack_logos/prisma.svg'
 import Subtitle from './Subtitle'
+import puppeterIcon from '../assets/images/stack_logos/puppeteer.png'
 
 const IconContainer = styled.div`
   display: flex;
@@ -105,11 +106,11 @@ export default function Conocimientos() {
   const backend = new Map([
     ['Express', ExpressIcon],
     ['Prisma', prismaIcon],
-  
     ['NodeJs', nodejsicon],
     ['MongoDb', mongo],
     ['SQL', sql],
     ['Github', githubIcon],
+    ['Puppeteer', puppeterIcon],
   ])
 
   return (
