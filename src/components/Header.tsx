@@ -9,7 +9,7 @@ export default function Header() {
         <h1 className='text-7xl text-transparent font-extrabold bg-clip-text bg-gradient-to-t from-gray-500 to-gray-700'>
           Pablo Kuhn
         </h1>
-        <Subtitle className='text-4xl'>FrontEnd Developer</Subtitle>
+        <Subtitle className='text-4xl'>Full-Stack Developer</Subtitle>
 
         <p className='text-black text-center w-80'>
           Autodidacta enfocado en la creación de experiencias digitales
