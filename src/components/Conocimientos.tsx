@@ -137,7 +137,7 @@ interface IconProps {
 export function RenderIcons({ icons, description }: RenderIconsProps) {
   return (
     <>
-      <div className='p-2 relative flex flex-col justify-center items-center w-full md:w-[30em] '>
+      <div className='animate-opacity p-2 relative flex flex-col justify-center items-center w-full md:w-[30em] '>
         <div className='flex flex-wrap justify-center gap-4 gap-y-6'>
           {[...icons].map(([name, component]) => (
             <Icon

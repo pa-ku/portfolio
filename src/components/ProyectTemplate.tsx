@@ -40,7 +40,7 @@ export default function ProyectTemplate({
   }
 
   return (
-    <div className='px-4'>
+    <div className='px-4 animate-slide'>
       <InfoCtn className={` h-64 relative flex  duration-500`}>
         <div className='w-full md:ml-20'>
           <h2 className='text-xl font-bold text-gray-700'>{title}</h2>

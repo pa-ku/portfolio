@@ -10,7 +10,7 @@ export default {
       },
 
       animation: {
-        balance: 'animate-balance 2s infinite linear',
+        balance: 'animate-balance 1500ms infinite linear',
       },
       writingMode: {
         upright: 'text-orientation: upright',
