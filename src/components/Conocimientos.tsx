@@ -36,12 +36,14 @@ const IconContainer = styled.div`
   }
   & p {
     translate: 0px 40px;
-    background-color: var(--primary-400);
+background-color: #f0f0f0;
     padding: 0px 7px;
-    color: white;
+    color: #000000;
   }
   &:hover p {
     opacity: 1;
+    color: white;
+    background-color: var(--primary-400);
   }
   &:hover img {
   }
@@ -49,7 +51,7 @@ const IconContainer = styled.div`
   &::before {
     background: radial-gradient(
       800px circle at var(--mouse-x) var(--mouse-y),
-      #fc637d3f,
+      #fc637d27,
       transparent 5%
     );
     position: absolute;
@@ -79,7 +81,7 @@ const IconImage = styled.img`
 
 const IconText = styled.p`
   font-weight: 800;
-  opacity: 0;
+
   transition: 100ms;
   text-align: center;
   position: absolute;
@@ -115,7 +117,7 @@ export default function Conocimientos() {
 
   return (
     <>
-      <section className=' rounded-xl flex flex-col flex-wrap items-center justify-center w-full gap-6 px-2 '>
+      <section className=' rounded-xl flex flex-col flex-wrap items-center justify-center w-full gap-7 px-2 '>
         <Subtitle fontSize='3rem'>Conocimientos</Subtitle>
         <RenderIcons icons={design} />
         <RenderIcons icons={frontend} />
@@ -135,8 +137,8 @@ interface IconProps {
 export function RenderIcons({ icons, description }: RenderIconsProps) {
   return (
     <>
-      <div className='p-2 relative flex flex-col justify-center items-center w-full md:w-[30em]'>
-        <div className='flex flex-wrap justify-center gap-3'>
+      <div className='p-2 relative flex flex-col justify-center items-center w-full md:w-[30em] '>
+        <div className='flex flex-wrap justify-center gap-4 gap-y-6'>
           {[...icons].map(([name, component]) => (
             <Icon
               key={name}
