@@ -9,7 +9,7 @@ import pdf from '../../public/cv_pablokuhn.pdf'
 function SocialIcon({ href, icon, title }) {
   return (
     <a
-      className='relative flex items-center justify-center p-1 rounded-full cursor-pointer hover:bg-secondary-200 bg-secondary-50 group stroke-slate-400'
+      className='relative flex items-center justify-center p-1 rounded-full cursor-pointer hover:bg-secondary-50  group stroke-slate-400'
       href={href}
       target='_blank'
       rel='noreferrer'
@@ -39,7 +39,7 @@ export default function SocialBar() {
       <ContactModal modalRef={modalRef} />
       <section className='flex gap-3 '>
         <button
-          className='p-1 rounded-full cursor-pointer hover:bg-secondary-200 bg-secondary-50 group flex items-center justify-center relative'
+          className='p-1 rounded-full cursor-pointer hover:bg-secondary-50 group flex items-center justify-center relative'
           onClick={openModal}
           title='Enviar email'
         >
