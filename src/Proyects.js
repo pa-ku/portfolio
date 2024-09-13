@@ -13,16 +13,6 @@ import tailwindico from './assets/images/stack_logos/tailwind.svg'
 import nextjs from './assets/images/stack_logos/nextjs.svg'
 
 export const proyects = [
-  /*   {
-    title: 'Anda palla Gluten',
-    description:
-      'El Menu de bar sin tacc ofrece la facilidad de filtrar productos, crearlos eliminarlos y modificarlos todo desde el navegador con una cuenta administrador',
-    img: erideImg,
-    logo: sintacImg,
-    github: '',
-    href: 'https://paulsmenu.netlify.app',
-    stack: [reactico, typeico, nodeico, mongoico, tailwindico],
-  }, */
   {
     title: 'Quantum Ui ',
     description: [
@@ -35,16 +25,6 @@ export const proyects = [
     stack: [reactico, typeico, tailwindico],
   },
   {
-    title: 'Menu ChauGluten',
-    description:
-      'Un Menu online que te ofrece filtros favoritos, analiticas, con la opción de ingresar como admin y agregar,modificar y ver tu menu desde una interface intuitiva',
-    img: 'https://github.com/user-attachments/assets/3d264d8c-84c2-41dd-bed3-c4e15f0585a6',
-    logo: chaugluten,
-    github: 'https://github.com/pa-ku/chau_gluten_menu',
-    href: 'https://chaugluten.vercel.app/',
-    stack: [nextjs, typeico, tailwindico, mongoico],
-  },
-  {
     title: 'E-ride Scooter Store',
     description:
       'Un ecommerce estatico que recibe transacciones con la api de Mercado pago. Cuenta con un filtro de productos, y guardado de favoritos que se almacenan en el Local Storage',
@@ -54,6 +34,16 @@ export const proyects = [
     github: 'https://github.com/pa-ku/eride_client',
     href: 'https://eridestore.netlify.app/',
     stack: [reactico, styleico],
+  },
+  {
+    title: 'Menu ChauGluten',
+    description:
+      'Un Menu online que te ofrece filtros favoritos, analiticas, con la opción de ingresar como admin y agregar,modificar y ver tu menu desde una interface intuitiva',
+    img: 'https://github.com/user-attachments/assets/3d264d8c-84c2-41dd-bed3-c4e15f0585a6',
+    logo: chaugluten,
+    github: 'https://github.com/pa-ku/chau_gluten_menu',
+    href: 'https://chaugluten.vercel.app/',
+    stack: [nextjs, typeico, tailwindico, mongoico],
   },
   {
     title: 'Tejabot',

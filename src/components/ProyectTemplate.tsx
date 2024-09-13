@@ -78,7 +78,7 @@ export default function ProyectTemplate({
 
         <video
           ref={videoRef}
-          className='peer-hover:h-80 absolute object-fill object-top w-full duration-300 opacity-0 pointer-events-none h-full peer-hover:opacity-100 rounded-3xl '
+          className='peer-hover:h-72 absolute object-cover object-top w-full duration-300 opacity-0 pointer-events-none h-full peer-hover:opacity-100 rounded-3xl '
           width='800'
           height='600'
         >

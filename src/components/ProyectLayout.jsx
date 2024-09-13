@@ -24,16 +24,16 @@ export default function ProyectLayout() {
               />
             )
           )}
-        {
+        {!showMore && (
           <button
             onClick={() => setShowMore(!showMore)}
             className=' bg-secondary-50 text-secundary-600 hover:bg-secundary-500 hover:text-secundary-200 w-max m-auto px-4 py-3 text-lg rounded-lg'
             target='_blank'
             rel='noreferrer'
           >
-            {showMore ? 'Ver menos' : 'Ver más proyectos'}
+            {!showMore && 'Ver más proyectos'}
           </button>
-        }
+        )}
       </div>
     </>
   )
