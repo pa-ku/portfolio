@@ -55,7 +55,7 @@ export default function ProyectTemplate({
           {propIcons.map(({ image, name }, index) => (
             <span className='relative group h-8 items-center flex' key={index}>
               <img src={image} alt={`icono ${image}`} />
-              <p className='pointer-events-none w-max left-5 group-hover:opacity-100 opacity-0 duration-300  absolute group-hover:left-10  '>
+              <p className='pointer-events-none w-max left-6 group-hover:opacity-100 opacity-0 duration-300  absolute group-hover:left-10 py-1 pr-2 rounded-lg shadow- bg-white  text-secundary-600'>
                 {name}
               </p>
             </span>
