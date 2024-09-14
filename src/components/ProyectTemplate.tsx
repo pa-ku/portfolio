@@ -41,7 +41,7 @@ export default function ProyectTemplate({
 
   return (
     <div className='px-4 animate-slide'>
-      <InfoCtn className={` h-60 relative flex  duration-500`}>
+      <InfoCtn className='shadow-lg shadow-gray-100 h-60 relative flex  duration-500'>
         <div className='w-full md:ml-20'>
           <h2 className='text-xl font-bold text-gray-700'>{title}</h2>
           <p className='text-gray-600'>{description}</p>
@@ -55,7 +55,7 @@ export default function ProyectTemplate({
           {propIcons.map(({ image, name }, index) => (
             <span className='relative group h-8 items-center flex' key={index}>
               <img src={image} alt={`icono ${image}`} />
-              <p className='pointer-events-none w-max left-6 group-hover:opacity-100 opacity-0 duration-300  absolute group-hover:left-10 py-1 pr-2 rounded-lg shadow- bg-white  text-secundary-600'>
+              <p className='pointer-events-none w-max left-6 group-hover:opacity-100 opacity-0 duration-300  absolute group-hover:left-11 py-1 px-3 -z-10 rounded-r-lg shadow- bg-secundary-600  text-white'>
                 {name}
               </p>
             </span>
@@ -80,7 +80,11 @@ export default function ProyectTemplate({
             alt={`logo de ${title}`}
           />
         </a>
-        <span className={`${extraProyect ? 'text-secundary-600' : 'text-primary-600' } -left-36 pointer-events-none peer-hover:opacity-100 duration-200  opacity-0 absolute`}>
+        <span
+          className={`${
+            extraProyect ? 'text-secundary-600' : 'text-primary-600'
+          } -left-36 pointer-events-none peer-hover:opacity-100 duration-200  opacity-0 absolute`}
+        >
           Ir a la web
         </span>
 
@@ -113,16 +117,6 @@ function ActionButtons({ href, LogoSrc, githubLink }) {
             alt='Github Link'
           />
         </a>
-
-        {/*      <a
-          className="accent-button text-white shadow-inner shadow-slate-700 "
-          title="Proyecto en Github"
-          target="blank"
-          href={href}
-        >
-          <span className="drop-shadow-sm"> Saber mas</span>
-        </a> */}
-
         <a
           className='size-10 hover:bg-secundary-200 rounded-full'
           title='Proyecto en Github'
@@ -149,7 +143,7 @@ const InfoCtn = styled.div`
   padding-block: 1em;
   background-color: #fff;
   border-radius: 20px;
-  box-shadow: 20px 20px 30px 0px #f3f3f3;
+
   @media (max-width: 800px) {
     flex-direction: column;
     width: 100%;

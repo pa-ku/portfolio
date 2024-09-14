@@ -39,9 +39,9 @@ export const proyects = [
     href: 'https://eridestore.netlify.app/',
     stack: [
       { image: react, name: 'React' },
-      { image: nodejs, name: 'Node Js' },
-      { image: mongodb, name: 'Mongo Db' },
-      { image: styledcomponents, name: 'Styled Components' },
+      { image: nodejs, name: 'Node' },
+      { image: mongodb, name: 'Mongo' },
+      { image: styledcomponents, name: 'Styled.C' },
     ],
   },
   {
@@ -53,10 +53,10 @@ export const proyects = [
     github: 'https://github.com/pa-ku/chau_gluten_menu',
     href: 'https://chaugluten.vercel.app/',
     stack: [
-      { image: nextjs, name: 'Next Js' },
+      { image: nextjs, name: 'Next' },
       { image: typescript, name: 'Typescript' },
       { image: tailwind, name: 'Tailwind' },
-      { image: mongodb, name: 'Mongo Db' },
+      { image: mongodb, name: 'Mongo' },
     ],
   },
   {
@@ -69,7 +69,7 @@ export const proyects = [
     github: 'https://github.com/pa-ku/tejabot',
     href: 'https://tejabot.vercel.app/',
     stack: [
-      { image: nextjs, name: 'Next Js' },
+      { image: nextjs, name: 'Next' },
       { image: tailwind, name: 'Tailwind' },
     ],
   },
