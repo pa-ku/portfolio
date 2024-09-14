@@ -67,7 +67,7 @@ export default function ProyectTemplate({
             extraProyect
               ? 'from-secundary-600 to-secundary-300 '
               : 'to-primary-300 from-primary-200'
-          }' peer outline outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-primary-200  shadow-sm hidden hover:animate-balance md:flex items-center justify-cente group'`}
+          }' peer outline  outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-primary-200  shadow-sm hidden hover:animate-balance md:flex items-center justify-cente group'`}
           href={href}
           target='_blank'
           onMouseEnter={handleMouseEnter}
@@ -80,6 +80,9 @@ export default function ProyectTemplate({
             alt={`logo de ${title}`}
           />
         </a>
+        <span className={`${extraProyect ? 'text-secundary-600' : 'text-primary-600' } -left-36 pointer-events-none peer-hover:opacity-100 duration-200  opacity-0 absolute`}>
+          Ir a la web
+        </span>
 
         <video
           ref={videoRef}
@@ -121,7 +124,7 @@ function ActionButtons({ href, LogoSrc, githubLink }) {
         </a> */}
 
         <a
-          className='button'
+          className='size-10 hover:bg-secundary-200 rounded-full'
           title='Proyecto en Github'
           target='blank'
           href={githubLink}

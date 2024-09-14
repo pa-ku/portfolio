@@ -69,8 +69,8 @@ export const proyects = [
     github: 'https://github.com/pa-ku/tejabot',
     href: 'https://tejabot.vercel.app/',
     stack: [
-      { nextjs, name: 'Next Js' },
-      { tailwind, name: 'Tailwind' },
+      { image: nextjs, name: 'Next Js' },
+      { image: tailwind, name: 'Tailwind' },
     ],
   },
   {
@@ -83,8 +83,8 @@ export const proyects = [
     github: 'https://github.com/pa-ku/tailwind_palete',
     href: 'https://tailwind-palete.vercel.app/',
     stack: [
-      { react, name: 'React' },
-      { tailwind, name: 'Tailwind' },
+      { image: react, name: 'React' },
+      { image: tailwind, name: 'Tailwind' },
     ],
   },
 ]
