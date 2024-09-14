@@ -4,7 +4,6 @@ import linkedSvg from '../assets/images/icons/linkedin.svg'
 import emailSvg from '../assets/images/icons/email.svg'
 import ContactModal from './ContactModal'
 import cvSvg from '../assets/svg/cv.svg'
-import codepenSvg from '../assets/svg/codepen.svg'
 import pdf from '../../public/cv_pablokuhn.pdf'
 function SocialIcon({ href, icon, title }) {
   return (

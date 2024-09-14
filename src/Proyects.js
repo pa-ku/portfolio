@@ -4,12 +4,12 @@ import palete_logo from './assets/images/proyect_logos/paleteLogo.png'
 import tejabot_logo from './assets/images/proyect_logos/tejabotLogo.png'
 import chaugluten from './assets/images/proyect_logos/chaugluten.webp'
 
-import reactico from './assets/images/stack_logos/reacticon.svg'
-import nodeico from './assets/images/stack_logos/nodejsicon.svg'
-import styleico from './assets/images/stack_logos/styledicon.svg'
-import mongoico from './assets/images/stack_logos/mongo.svg'
-import typeico from './assets/images/stack_logos/typescript-ico.svg'
-import tailwindico from './assets/images/stack_logos/tailwind.svg'
+import react from './assets/images/stack_logos/reacticon.svg'
+import nodejs from './assets/images/stack_logos/nodejsicon.svg'
+import styledcomponents from './assets/images/stack_logos/styledicon.svg'
+import mongodb from './assets/images/stack_logos/mongo.svg'
+import typescript from './assets/images/stack_logos/typescript-ico.svg'
+import tailwind from './assets/images/stack_logos/tailwind.svg'
 import nextjs from './assets/images/stack_logos/nextjs.svg'
 
 export const proyects = [
@@ -22,7 +22,7 @@ export const proyects = [
     logo: quantum_logo,
     github: 'https://github.com/pa-ku/quantum_design',
     href: 'https://quantumui.netlify.app',
-    stack: [reactico, typeico, tailwindico],
+    stack: [react, typescript, tailwind],
   },
   {
     title: 'E-ride Scooter Store',
@@ -33,7 +33,7 @@ export const proyects = [
     logo: erideLogo,
     github: 'https://github.com/pa-ku/eride_client',
     href: 'https://eridestore.netlify.app/',
-    stack: [reactico, styleico],
+    stack: [react, nodejs, mongodb, styledcomponents],
   },
   {
     title: 'Menu ChauGluten',
@@ -43,7 +43,7 @@ export const proyects = [
     logo: chaugluten,
     github: 'https://github.com/pa-ku/chau_gluten_menu',
     href: 'https://chaugluten.vercel.app/',
-    stack: [nextjs, typeico, tailwindico, mongoico],
+    stack: [nextjs, typescript, tailwind, mongodb],
   },
   {
     title: 'Tejabot',
@@ -54,7 +54,7 @@ export const proyects = [
     logo: tejabot_logo,
     github: 'https://github.com/pa-ku/tejabot',
     href: 'https://tejabot.vercel.app/',
-    stack: [nextjs, tailwindico],
+    stack: [nextjs, tailwind],
   },
   {
     title: 'Tailwind Palete',
@@ -65,6 +65,6 @@ export const proyects = [
     logo: palete_logo,
     github: 'https://github.com/pa-ku/tailwind_palete',
     href: 'https://tailwind-palete.vercel.app/',
-    stack: [reactico, tailwindico],
+    stack: [react, tailwind],
   },
 ]
