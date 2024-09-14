@@ -52,8 +52,13 @@ export default function ProyectTemplate({
           />
         </div>
         <StackContainer>
-          {propIcons.map((item, index) => (
-            <img key={index} src={item} alt={`icono ${item}`} />
+          {propIcons.map(({ image, name }, index) => (
+            <span className='relative group h-8 items-center flex' key={index}>
+              <img src={image} alt={`icono ${image}`} />
+              <p className='pointer-events-none w-max left-5 group-hover:opacity-100 opacity-0 duration-300  absolute group-hover:left-10  '>
+                {name}
+              </p>
+            </span>
           ))}
         </StackContainer>
 

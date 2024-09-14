@@ -22,7 +22,11 @@ export const proyects = [
     logo: quantum_logo,
     github: 'https://github.com/pa-ku/quantum_design',
     href: 'https://quantumui.netlify.app',
-    stack: [react, typescript, tailwind],
+    stack: [
+      { image: react, name: 'React' },
+      { image: typescript, name: 'Typescript' },
+      { image: tailwind, name: 'Tailwind' },
+    ],
   },
   {
     title: 'E-ride Scooter Store',
@@ -33,7 +37,12 @@ export const proyects = [
     logo: erideLogo,
     github: 'https://github.com/pa-ku/eride_client',
     href: 'https://eridestore.netlify.app/',
-    stack: [react, nodejs, mongodb, styledcomponents],
+    stack: [
+      { image: react, name: 'React' },
+      { image: nodejs, name: 'Node Js' },
+      { image: mongodb, name: 'Mongo Db' },
+      { image: styledcomponents, name: 'Styled Components' },
+    ],
   },
   {
     title: 'Menu ChauGluten',
@@ -43,7 +52,12 @@ export const proyects = [
     logo: chaugluten,
     github: 'https://github.com/pa-ku/chau_gluten_menu',
     href: 'https://chaugluten.vercel.app/',
-    stack: [nextjs, typescript, tailwind, mongodb],
+    stack: [
+      { image: nextjs, name: 'Next Js' },
+      { image: typescript, name: 'Typescript' },
+      { image: tailwind, name: 'Tailwind' },
+      { image: mongodb, name: 'Mongo Db' },
+    ],
   },
   {
     title: 'Tejabot',
@@ -54,7 +68,10 @@ export const proyects = [
     logo: tejabot_logo,
     github: 'https://github.com/pa-ku/tejabot',
     href: 'https://tejabot.vercel.app/',
-    stack: [nextjs, tailwind],
+    stack: [
+      { nextjs, name: 'Next Js' },
+      { tailwind, name: 'Tailwind' },
+    ],
   },
   {
     title: 'Tailwind Palete',
@@ -65,6 +82,9 @@ export const proyects = [
     logo: palete_logo,
     github: 'https://github.com/pa-ku/tailwind_palete',
     href: 'https://tailwind-palete.vercel.app/',
-    stack: [react, tailwind],
+    stack: [
+      { react, name: 'React' },
+      { tailwind, name: 'Tailwind' },
+    ],
   },
 ]
