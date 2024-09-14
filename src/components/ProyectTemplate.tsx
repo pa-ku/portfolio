@@ -67,7 +67,7 @@ export default function ProyectTemplate({
             extraProyect
               ? 'from-secundary-600 to-secundary-300 '
               : 'to-primary-300 from-primary-200'
-          }' peer outline  outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-primary-200  shadow-sm hidden hover:animate-balance md:flex items-center justify-cente group'`}
+          }' peer outline  outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-primary-200  shadow-sm hidden md:flex items-center justify-cente group'`}
           href={href}
           target='_blank'
           onMouseEnter={handleMouseEnter}
