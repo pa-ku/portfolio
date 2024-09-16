@@ -11,8 +11,10 @@ export default function Header() {
         </h1>
         <Subtitle className='text-4xl'>Full-Stack Developer</Subtitle>
 
-        <p className='text-black text-center w-80'>
-          Autodidacta enfocado en la creación de experiencias digitales
+        <p className='text-black text-center w-96'>
+          Soy un desarrolador autodidacta que siempre esta buscando aprender
+          cosas nuevas, avido Padelero 🥎 Ciclista 🚴‍♂️ Guitarrista 🎸 y apasionado
+          acampante 🏕️
         </p>
         <div className='pt-1'>
           <SocialMedia />
