@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <>
       <div className='relative py-20 justify-center items-center '>
-        <header className='w-[40em] px-5'>
+        <header className='md:w-[40em] px-5'>
           <div className=' animate-opacity w-full  flex flex-col justify-start items-start'>
             <h1 className='text-6xl font-extrabold '>Pablo Kuhn</h1>
             <p className='text-black'>

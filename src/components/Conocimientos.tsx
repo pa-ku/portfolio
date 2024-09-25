@@ -1,3 +1,5 @@
+import react from '@vitejs/plugin-react-swc'
+
 import jsIcon from '../assets/images/stack_logos/javascripticon.svg'
 import CssIconn from '../assets/images/stack_logos/cssicon.svg'
 import ReactIcon from '../assets/images/stack_logos/reacticon.svg'
@@ -44,39 +46,38 @@ export default function Conocimientos() {
   ])
 
   return (
-    <>
-      <section className=' rounded-xl flex flex-col flex-wrap items-center justify-center w-full gap-12 px-2 '>
-        <h2 className='border-b-2 border-black text-4xl font-bold'>Conocimientos</h2>
-        <RenderIcons icons={design} />
-        <RenderIcons icons={frontend} />
-        <RenderIcons icons={backend} />
-      </section>
-    </>
+    <section className=' rounded-xl flex flex-col flex-wrap items-center justify-center w-full gap-12 px-2 '>
+      <h2 className='border-b-2 border-black text-4xl font-bold'>
+        Conocimientos
+      </h2>
+      <RenderIcons icons={design} />
+      <RenderIcons icons={frontend} />
+      <RenderIcons icons={backend} />
+    </section>
   )
 }
 
 export function RenderIcons({ icons }: RenderIconsProps) {
   return (
-    <>
-      <div className='animate-opacity p-2 relative w-[40em] flex flex-col justify-start items-start   '>
-        <div className='flex flex-wrap justify-start  gap-x-5 gap-y-2 '>
-          {[...icons].map(([name, component]) => (
-            <>
-              <div className='size-16 rounded-full flex flex-col items-center justify-center'>
-                <img
-                  className=' size-10 object-contain'
-                  key={name}
-                  src={component}
-                  alt={`icono ${name}`}
-                />
+    <div className='animate-opacity p-2 relative md:w-[40em] flex flex-col justify-start items-start   '>
+      <div className='size-22 flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2 '>
+        {[...icons].map(([name, component]) => (
+          <div
+            key={name}
+            className='size-16 rounded-full flex flex-col items-center justify-center'
+          >
+            <img
+              className='size-10 object-contain'
+              key={name}
+              src={component}
+              alt={`icono ${name}`}
+            />
 
-                <p>{name}</p>
-              </div>
-            </>
-          ))}
-        </div>
+            <p>{name}</p>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   )
 }
 

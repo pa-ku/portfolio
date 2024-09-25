@@ -13,7 +13,7 @@ function SocialIcon({ href, icon, title }) {
       target='_blank'
       rel='noreferrer'
     >
-      <span className=' absolute px-3 text-secundary-600 duration-150 rounded-md opacity-0 pointer-events-none -bottom-7 group-hover:opacity-100 w-max h-max '>
+      <span className=' absolute px-3 text-black duration-150 rounded-md opacity-0 pointer-events-none -bottom-7 group-hover:opacity-100 w-max h-max '>
         {title}
       </span>
       <img className='w-9 h-9 ' src={icon} alt={`ìcono ${title}`} />
@@ -42,7 +42,7 @@ export default function SocialBar() {
           onClick={openModal}
           title='Enviar email'
         >
-          <span className=' absolute px-3 text-secundary-600 duration-150 rounded-md opacity-0 pointer-events-none group-hover:opacity-100 -bottom-7 w-max h-max '>
+          <span className=' absolute px-3 text-black duration-150 rounded-md opacity-0 pointer-events-none group-hover:opacity-100 -bottom-7 w-max h-max '>
             Contacto
           </span>
           <img className='w-9 h-9 ' src={emailSvg} alt='icono email' />
