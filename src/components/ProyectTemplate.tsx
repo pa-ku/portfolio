@@ -41,7 +41,7 @@ export default function ProyectTemplate({
 
   return (
     <div className='flex items-center md:flex-row py-4 md:py-0 flex-col  shadow-lg shadow-gray-100 rounded-xl md:w-[40em] relative justify-between animate-slide '>
-      <InfoCtn className='md:h-60 relative flex  duration-500'>
+      <InfoCtn className='md:h-60 relative flex duration-500'>
         <div className='w-full md:ml-20'>
           <h2 className='text-xl font-bold text-gray-700'>{title}</h2>
           <p className='text-gray-600'>{description}</p>
@@ -56,16 +56,16 @@ export default function ProyectTemplate({
           title='sitio web'
           className={`${
             extraProyect
-              ? 'from-gray-600 to-gray-300 '
-              : 'to-primary-400 from-primary-300 '
-          }' peer outline  outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-primary-200  shadow-sm hidden md:flex items-center justify-cente group'`}
+              ? 'bg-gray-600 '
+              : 'bg-black '
+          }' peer outline  outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl  shadow-sm hidden md:flex items-center justify-cente group'`}
           href={href}
           target='_blank'
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
           <img
-            className=' object-contain drop-shadow-md p-6 brightness-140 w-28 h-28 peer'
+            className=' object-contain   drop-shadow-md p-6 brightness-140 w-28 h-28 peer'
             loading='lazy'
             src={LogoSrc}
             alt={`logo de ${title}`}
