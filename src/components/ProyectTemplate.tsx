@@ -40,8 +40,8 @@ export default function ProyectTemplate({
   }
 
   return (
-    <div className='px-4 animate-slide '>
-      <InfoCtn className=' shadow-lg w-[40em] shadow-gray-100 h-60 relative flex  duration-500'>
+    <div className='flex items-center md:flex-row py-4 md:py-0 flex-col  shadow-lg shadow-gray-100 rounded-xl md:w-[40em] relative justify-between animate-slide '>
+      <InfoCtn className='md:h-60 relative flex  duration-500'>
         <div className='w-full md:ml-20'>
           <h2 className='text-xl font-bold text-gray-700'>{title}</h2>
           <p className='text-gray-600'>{description}</p>
@@ -51,16 +51,6 @@ export default function ProyectTemplate({
             LogoSrc={LogoSrc}
           />
         </div>
-        <StackContainer>
-          {propIcons.map(({ image, name }, index) => (
-            <span className='relative group h-8 items-center flex' key={index}>
-              <img src={image} alt={`icono ${image}`} />
-              <p className='pointer-events-none w-max left-6 group-hover:opacity-100 opacity-0 duration-300  absolute group-hover:left-11 py-1 px-3 -z-10 rounded-r-lg shadow- bg-gray-900  text-white'>
-                {name}
-              </p>
-            </span>
-          ))}
-        </StackContainer>
 
         <a
           title='sitio web'
@@ -90,6 +80,20 @@ export default function ProyectTemplate({
           <source type='video/mp4' src={videoSrc} />
         </video>
       </InfoCtn>
+      <div className='md:w-10 px-5 md:px-0 gap-x-3 md:gap-x-0 gap-y-3 flex bg-white w-full md:items-start justify-start md:flex-col'>
+        {propIcons.map(({ image, name }, index) => (
+          <div className=' relative group md:h-8 items-center flex' key={index}>
+            <img
+              className='size-8 object-contain'
+              src={image}
+              alt={`icono ${image}`}
+            />
+            <p className='absolute md:relative pointer-events-none w-max -translate-x-5 group-hover:opacity-100 opacity-0 duration-300  group-hover:translate-x-2 py-1 md:px-3 -z-20 rounded-r-lg shadow- bg-gray-900  text-white'>
+              {name}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
@@ -110,7 +114,7 @@ function ActionButtons({ href, LogoSrc, githubLink }) {
             alt='Github Link'
           />
         </a>
-    {/*     <a
+        {/*     <a
           className=' bg-gray-800 hover:bg-gray-600 text-white py-1 px-4 rounded-xl'
           title='Proyecto en Github'
           target='blank'
@@ -149,26 +153,5 @@ const InfoCtn = styled.div`
     flex-direction: column;
     width: 100%;
     padding: 1em 1em;
-  }
-`
-
-const StackContainer = styled.div`
-  width: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 7px;
-  height: 100%;
-  & img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-  }
-  @media (max-width: 800px) {
-    flex-direction: row;
-    width: 100%;
-    justify-content: start;
-    height: max-content;
   }
 `
