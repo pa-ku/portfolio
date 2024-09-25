@@ -16,6 +16,7 @@ import ExpressIcon from '../assets/images/stack_logos/express-ico.svg'
 import tailwindIco from '../assets/images/stack_logos/tailwind.svg'
 import NextjsIcon from '../assets/images/stack_logos/nextjs.svg'
 import prismaIcon from '../assets/images/stack_logos/prisma.svg'
+import electron from '../assets/images/stack_logos/electron.svg'
 import Subtitle from './Subtitle'
 import puppeterIcon from '../assets/images/stack_logos/puppeteer.png'
 
@@ -100,6 +101,7 @@ export default function Conocimientos() {
     ['React', ReactIcon],
     ['TypeScript', TypeIcon],
     ['Javascript', jsIcon],
+    ['Electron', electron],
     ['Tailwind', tailwindIco],
     ['Styled', styledicon],
     ['Css', CssIconn],
@@ -117,7 +119,7 @@ export default function Conocimientos() {
 
   return (
     <>
-      <section className=' rounded-xl flex flex-col flex-wrap items-center justify-center w-full gap-7 px-2 '>
+      <section className=' rounded-xl flex flex-col flex-wrap items-center justify-center w-full gap-12 px-2 '>
         <Subtitle fontSize='3rem'>Conocimientos</Subtitle>
         <RenderIcons icons={design} />
         <RenderIcons icons={frontend} />

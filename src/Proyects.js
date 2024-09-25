@@ -3,6 +3,7 @@ import quantum_logo from './assets/images/proyect_logos/quantum_logo.png'
 import palete_logo from './assets/images/proyect_logos/paleteLogo.png'
 import tejabot_logo from './assets/images/proyect_logos/tejabotLogo.png'
 import chaugluten from './assets/images/proyect_logos/chaugluten.webp'
+import codiplus from './assets/images/proyect_logos/codiplus.webp'
 
 import react from './assets/images/stack_logos/reacticon.svg'
 import nodejs from './assets/images/stack_logos/nodejsicon.svg'
@@ -10,7 +11,11 @@ import styledcomponents from './assets/images/stack_logos/styledicon.svg'
 import mongodb from './assets/images/stack_logos/mongo.svg'
 import typescript from './assets/images/stack_logos/typescript-ico.svg'
 import tailwind from './assets/images/stack_logos/tailwind.svg'
+import electron from './assets/images/stack_logos/electron.svg'
 import nextjs from './assets/images/stack_logos/nextjs.svg'
+import css from './assets/images/stack_logos/cssicon.svg'
+import js from './assets/images/stack_logos/javascripticon.svg'
+
 
 export const proyects = [
   {
@@ -44,6 +49,21 @@ export const proyects = [
       { image: styledcomponents, name: 'Styled.C' },
     ],
   },
+
+  {
+    title: 'Codi.plus',
+    description:
+      'Es un fork del proyecto de codi.link, adaptado a desktop con electron, donde se agregan nuevos themes y funcionalidades como tailwind.',
+    img: 'https://github.com/user-attachments/assets/7f74d22e-6fe2-4769-8319-cbe6f60d0012',
+    logo: codiplus,
+    github: 'https://github.com/pa-ku/codi.plus.desktop',
+    href: 'https://codeplusweb.vercel.app/',
+    stack: [
+      { image: js, name: 'Javascript' },
+      { image: css, name: 'Css' },
+      { image: electron, name: 'Electron' },
+    ],
+  },
   {
     title: 'Menu ChauGluten',
     description:
@@ -58,7 +78,7 @@ export const proyects = [
       { image: tailwind, name: 'Tailwind' },
       { image: mongodb, name: 'Mongo' },
     ],
-  },
+  }, 
   {
     title: 'Tejabot',
     description:

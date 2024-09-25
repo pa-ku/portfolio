@@ -6,7 +6,7 @@ export default function ProyectLayout() {
   const [showMore, setShowMore] = useState(false)
   return (
     <>
-      <div className='flex flex-col gap-10'>
+      <div className='flex flex-col gap-10 pb-20 '>
         {proyects
           .slice(0, showMore ? 5 : 3)
           .map(

@@ -58,7 +58,7 @@ body {
   --secundary-900: #1c6482;
   --secundary-1000: #154a61;
 
-  --primary-50: #fff8f9;
+  --primary-50: #fffafa;
   --primary-100: #fec2cc;
   --primary-200: #fe9faf;
   --primary-300: #fe7c91;
@@ -87,8 +87,8 @@ body {
 }
 /* SELECTION */
 ::selection {
-  color: white;
-  background: var(--primary-300);
+color: white;
+background: #2595be80;
 }
 
 .button {

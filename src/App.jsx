@@ -7,10 +7,8 @@ import ProyectLayout from './components/ProyectLayout'
 function App() {
   return (
     <>
-      <div className='flex gap-28 w-full flex-col items-center justify-center py-20'>
-        <Wave />
+      <div className='flex  w-full flex-col items-center justify-center pb-20'>
         <Header />
-
         <ProyectLayout />
         <Conocimientos />
       </div>
