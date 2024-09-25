@@ -8,7 +8,7 @@ export default function ProyectLayout() {
     <>
       <div className='flex flex-col gap-10 pb-20 '>
         {proyects
-          .slice(0, showMore ? 5 : 3)
+          .slice(0, showMore ? 9 : 3)
           .map(
             ({ title, description, img, logo, github, href, stack }, index) => (
               <ProyectTemplate
@@ -25,14 +25,16 @@ export default function ProyectLayout() {
             )
           )}
         {!showMore && (
-          <button
-            onClick={() => setShowMore(!showMore)}
-            className=' bg-secondary-50 text-secundary-600 hover:bg-secundary-500 hover:text-secundary-200 w-max m-auto px-4 py-3 text-lg rounded-lg'
-            target='_blank'
-            rel='noreferrer'
-          >
-            {!showMore && 'Ver más proyectos'}
-          </button>
+          <div className='w-full flex items-center justify-center'>
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className='w-max px-4 py-3 rounded-lg font-bold  border-black hover:bg-black hover:text-white'
+              target='_blank'
+              rel='noreferrer'
+            >
+              {!showMore && '+ Ver más proyectos'}
+            </button>
+          </div>
         )}
       </div>
     </>

@@ -4,11 +4,11 @@ import SocialMedia from './SocialMedia'
 export default function Header() {
   return (
     <>
-      <div className='relative  py-20  '>
-        <header className='w-[40em] flex justify-center'>
+      <div className='relative py-20 justify-center items-center '>
+        <header className='w-[40em] px-5'>
           <div className=' animate-opacity w-full  flex flex-col justify-start items-start'>
             <h1 className='text-6xl font-extrabold '>Pablo Kuhn</h1>
-            <p className='text-black  w-[40em]'>
+            <p className='text-black'>
               Soy un <b>desarrolador frontend , fullstack</b> autodidacta que
               siempre esta buscando aprender cosas nuevas, avido Padelero 🥎
               Ciclista 🚴‍♂️ Guitarrista 🎸 y apasionado acampante 🏕️

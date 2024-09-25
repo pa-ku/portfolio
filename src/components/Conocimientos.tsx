@@ -1,5 +1,3 @@
-import React, { useRef } from 'react'
-import styled from 'styled-components'
 import jsIcon from '../assets/images/stack_logos/javascripticon.svg'
 import CssIconn from '../assets/images/stack_logos/cssicon.svg'
 import ReactIcon from '../assets/images/stack_logos/reacticon.svg'
@@ -10,86 +8,14 @@ import figmaIcon from '../assets/images/stack_logos/figmaicon.svg'
 import photoshopIcon from '../assets/images/stack_logos/photoshopicon.svg'
 import githubIcon from '../assets/images/stack_logos/githubicon.svg'
 import mongo from '../assets/images/stack_logos/mongo.svg'
-import sql from '../assets/images/stack_logos/sql.png'
+import sql from '../assets/images/stack_logos/sql.svg'
 import TypeIcon from '../assets/images/stack_logos/typescript-ico.svg'
 import ExpressIcon from '../assets/images/stack_logos/express-ico.svg'
 import tailwindIco from '../assets/images/stack_logos/tailwind.svg'
 import NextjsIcon from '../assets/images/stack_logos/nextjs.svg'
 import prismaIcon from '../assets/images/stack_logos/prisma.svg'
 import electron from '../assets/images/stack_logos/electron.svg'
-import Subtitle from './Subtitle'
-import puppeterIcon from '../assets/images/stack_logos/puppeteer.png'
-
-const IconContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 80px;
-  height: 80px;
-  background-color: #f8f8f8;
-  padding: 18px;
-  border-radius: 50%;
-  position: relative;
-  outline: 2px solid #f0f0f0;
-  &:hover {
-    outline: 2px solid var(--primary-400);
-  }
-  & p {
-    translate: 0px 40px;
-background-color: #f0f0f0;
-    padding: 0px 7px;
-    color: #000000;
-  }
-  &:hover p {
-    opacity: 1;
-    color: white;
-    background-color: var(--primary-400);
-  }
-  &:hover img {
-  }
-
-  &::before {
-    background: radial-gradient(
-      800px circle at var(--mouse-x) var(--mouse-y),
-      #fc637d27,
-      transparent 5%
-    );
-    position: absolute;
-    pointer-events: none;
-    border-radius: inherit;
-    content: '';
-    opacity: 0;
-
-    height: 100%;
-    width: 100%;
-    left: 0px;
-    top: 0px;
-  }
-  &:hover::before {
-    opacity: 1;
-  }
-`
-
-const IconImage = styled.img`
-  transition: 0.3s;
-  z-index: 100;
-  width: 100px;
-  height: 100px;
-
-  border-radius: 5px;
-`
-
-const IconText = styled.p`
-  font-weight: 800;
-
-  transition: 100ms;
-  text-align: center;
-  position: absolute;
-  font-size: 0.8rem;
-  border-radius: 20px;
-  z-index: 100;
-`
+import puppeterIcon from '../assets/images/stack_logos/puppeteer.svg'
 
 export default function Conocimientos() {
   const design = new Map([
@@ -99,12 +25,12 @@ export default function Conocimientos() {
   const frontend = new Map([
     ['NextJs', NextjsIcon],
     ['React', ReactIcon],
-    ['TypeScript', TypeIcon],
-    ['Javascript', jsIcon],
+    ['JavaScript', jsIcon],
     ['Electron', electron],
     ['Tailwind', tailwindIco],
     ['Styled', styledicon],
     ['Css', CssIconn],
+    ['TypeScript', TypeIcon],
     ['Html', HtmlIcon],
   ])
   const backend = new Map([
@@ -120,7 +46,7 @@ export default function Conocimientos() {
   return (
     <>
       <section className=' rounded-xl flex flex-col flex-wrap items-center justify-center w-full gap-12 px-2 '>
-        <Subtitle fontSize='3rem'>Conocimientos</Subtitle>
+        <h2 className='border-b-2 border-black text-4xl font-bold'>Conocimientos</h2>
         <RenderIcons icons={design} />
         <RenderIcons icons={frontend} />
         <RenderIcons icons={backend} />
@@ -129,55 +55,27 @@ export default function Conocimientos() {
   )
 }
 
-interface IconProps {
-  name?: string
-  src?: string
-  alt?: string
-  iconName?: string
-}
-
-export function RenderIcons({ icons, description }: RenderIconsProps) {
+export function RenderIcons({ icons }: RenderIconsProps) {
   return (
     <>
-      <div className='animate-opacity p-2 relative flex flex-col justify-center items-center w-full md:w-[30em] '>
-        <div className='flex flex-wrap justify-center gap-4 gap-y-6'>
+      <div className='animate-opacity p-2 relative w-[40em] flex flex-col justify-start items-start   '>
+        <div className='flex flex-wrap justify-start  gap-x-5 gap-y-2 '>
           {[...icons].map(([name, component]) => (
-            <Icon
-              key={name}
-              iconName={name}
-              src={component}
-              alt={`icono ${name}`}
-            />
+            <>
+              <div className='size-16 rounded-full flex flex-col items-center justify-center'>
+                <img
+                  className=' size-10 object-contain'
+                  key={name}
+                  src={component}
+                  alt={`icono ${name}`}
+                />
+
+                <p>{name}</p>
+              </div>
+            </>
           ))}
         </div>
       </div>
-    </>
-  )
-}
-
-function Icon({ iconName, src, alt }: IconProps) {
-  const itemRef = useRef(null)
-  const handleMouseMove = (e) => {
-    const card = itemRef.current
-    const rect = card.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-
-    card.style.setProperty('--mouse-x', `${x}px`)
-    card.style.setProperty('--mouse-y', `${y}px`)
-  }
-
-  return (
-    <>
-      <IconContainer className='' ref={itemRef} onMouseMove={handleMouseMove}>
-        <IconImage
-          className='w-full h-full drop-shadow-md'
-          loading='lazy'
-          src={src}
-          alt={alt}
-        ></IconImage>
-        <IconText className='text-primary-300'>{iconName}</IconText>
-      </IconContainer>
     </>
   )
 }

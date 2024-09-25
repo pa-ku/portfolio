@@ -40,8 +40,8 @@ export default function ProyectTemplate({
   }
 
   return (
-    <div className='px-4 animate-slide'>
-      <InfoCtn className='shadow-lg shadow-gray-100 h-60 relative flex  duration-500'>
+    <div className='px-4 animate-slide '>
+      <InfoCtn className=' shadow-lg w-[40em] shadow-gray-100 h-60 relative flex  duration-500'>
         <div className='w-full md:ml-20'>
           <h2 className='text-xl font-bold text-gray-700'>{title}</h2>
           <p className='text-gray-600'>{description}</p>
@@ -55,7 +55,7 @@ export default function ProyectTemplate({
           {propIcons.map(({ image, name }, index) => (
             <span className='relative group h-8 items-center flex' key={index}>
               <img src={image} alt={`icono ${image}`} />
-              <p className='pointer-events-none w-max left-6 group-hover:opacity-100 opacity-0 duration-300  absolute group-hover:left-11 py-1 px-3 -z-10 rounded-r-lg shadow- bg-secundary-600  text-white'>
+              <p className='pointer-events-none w-max left-6 group-hover:opacity-100 opacity-0 duration-300  absolute group-hover:left-11 py-1 px-3 -z-10 rounded-r-lg shadow- bg-gray-900  text-white'>
                 {name}
               </p>
             </span>
@@ -63,10 +63,11 @@ export default function ProyectTemplate({
         </StackContainer>
 
         <a
+          title='sitio web'
           className={`${
             extraProyect
-              ? 'from-secundary-600 to-secundary-300 '
-              : 'to-primary-300 from-primary-200'
+              ? 'from-gray-600 to-gray-300 '
+              : 'to-primary-400 from-primary-300 '
           }' peer outline  outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl from-primary-200  shadow-sm hidden md:flex items-center justify-cente group'`}
           href={href}
           target='_blank'
@@ -74,20 +75,12 @@ export default function ProyectTemplate({
           onMouseLeave={handleMouseLeave}
         >
           <img
-            className='  object-contain drop-shadow-md p-6 brightness-140 w-28 h-28 peer'
+            className=' object-contain drop-shadow-md p-6 brightness-140 w-28 h-28 peer'
             loading='lazy'
             src={LogoSrc}
             alt={`logo de ${title}`}
           />
         </a>
-        <span
-          className={`${
-            extraProyect ? 'text-secundary-600' : 'text-primary-600'
-          } -left-36 pointer-events-none peer-hover:opacity-100 duration-200  opacity-0 absolute`}
-        >
-          Ir a la web
-        </span>
-
         <video
           ref={videoRef}
           className='peer-hover:h-72 absolute object-cover object-top w-full duration-300 opacity-0 pointer-events-none h-full peer-hover:opacity-100 rounded-3xl '
@@ -117,17 +110,26 @@ function ActionButtons({ href, LogoSrc, githubLink }) {
             alt='Github Link'
           />
         </a>
+    {/*     <a
+          className=' bg-gray-800 hover:bg-gray-600 text-white py-1 px-4 rounded-xl'
+          title='Proyecto en Github'
+          target='blank'
+          href={githubLink}
+        >
+          Documentación
+        </a> */}
         <a
-          className='size-10 hover:bg-secundary-200 rounded-full'
+          className='flex items-center gap-2 font-bold hover:text-white hover:bg-gray-800 group justify-center h-8 border-2 border-black py-1 px-4 rounded-xl'
           title='Proyecto en Github'
           target='blank'
           href={githubLink}
         >
           <img
             src={gitSvg}
-            className=' drop-shadow-md p-1 brightness-140 w-full h-full'
+            className='group-hover:invert object-contain size-6'
             alt='Github Link'
           />
+          Repo
         </a>
       </span>
     </>
@@ -139,7 +141,6 @@ const InfoCtn = styled.div`
   align-items: center;
   position: relative;
   justify-content: center;
-  width: 660px;
   padding-block: 1em;
   background-color: #fff;
   border-radius: 20px;
