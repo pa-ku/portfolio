@@ -135,13 +135,13 @@ background: #2595be80;
 }
 
 .animate-slide {
-  animation: slide 1500ms forwards;
+  animation: slide 1300ms forwards;
 }
 
 @keyframes slide {
   from {
     opacity: 0;
-    translate: -70px;
+    translate: -40px;
   }
   to {
     opacity: 1;
