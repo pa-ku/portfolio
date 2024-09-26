@@ -1,25 +1,31 @@
 import React from 'react'
 import SocialMedia from './SocialMedia'
-
+import selfie from '../assets/selfie.webp'
 
 export default function Header() {
   return (
     <>
-      <div className='relative py-20 justify-center items-center '>
-        <header className='md:w-[40em] px-5'>
-          
-          <div className=' animate-opacity w-full  flex flex-col justify-start items-start'>
-            <h1 className='text-6xl font-extrabold '>Pablo Kuhn</h1>
-            <p className='text-black'>
+      <div className='relative py-20 flex '>
+        <header className='md:w-[30em]'>
+          <div className=' animate-opacity w-full  flex flex-col '>
+            <h1 className='text-6xl font-extrabold text-center md:text-start '>
+              Pablo Kuhn
+            </h1>
+            <p className='text-black text-center md:text-start'>
               Soy un <b>desarrolador frontend , fullstack</b> autodidacta que
               siempre esta buscando aprender cosas nuevas, avido Padelero 🥎
               Ciclista 🚴‍♂️ Guitarrista 🎸 y apasionado acampante 🏕️
             </p>
-            <div className='pt-1'>
-              <SocialMedia />
-            </div>
+          </div>
+          <div className='pt-2 justify-center flex md:justify-start'>
+            <SocialMedia />
           </div>
         </header>
+        <img
+          className='hidden md:block size-44'
+          src={selfie}
+          alt='image of myself'
+        />
       </div>
     </>
   )

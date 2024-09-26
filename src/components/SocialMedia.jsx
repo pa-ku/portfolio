@@ -36,9 +36,9 @@ export default function SocialBar() {
   return (
     <>
       <ContactModal modalRef={modalRef} />
-      <section className='flex gap-1 '>
+      <section className='flex gap-1 w-max '>
         <button
-          className='p-1 rounded-full cursor-pointer hover:bg-white group flex items-center justify-center relative'
+          className='p-1 rounded-full cursor-pointer  group flex items-center justify-center relative'
           onClick={openModal}
           title='Enviar email'
         >
