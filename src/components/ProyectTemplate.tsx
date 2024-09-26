@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import gitSvg from '../assets/images/icons/github.svg'
 
@@ -25,14 +25,17 @@ export default function ProyectTemplate({
   extraProyect,
 }: ProyectTemplate) {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [showProyect, ShowProyect] = useState(false)
 
   const handleMouseEnter = () => {
+    ShowProyect(true)
     if (videoRef.current) {
       videoRef.current.play()
     }
   }
 
   const handleMouseLeave = () => {
+    ShowProyect(false)
     if (videoRef.current) {
       videoRef.current.pause()
       videoRef.current.currentTime = 0 // Reset el video al principio si es necesario
@@ -55,31 +58,31 @@ export default function ProyectTemplate({
         <a
           title='sitio web'
           className={`${
-            extraProyect
-              ? 'bg-gray-600 '
-              : 'bg-black '
-          }' peer outline  outline-4 outline-white -left-14 z-10 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl  shadow-sm hidden md:flex items-center justify-cente group'`}
+            extraProyect ? 'bg-gray-600 ' : 'bg-black '
+          }' peer outline z-20 outline-4 outline-white -left-14 absolute rounded-full w-max h-max duration-200 cursor-pointer b-2 bg-gradient-to-bl  shadow-sm hidden md:flex items-center justify-cente group'`}
           href={href}
           target='_blank'
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
           <img
-            className=' object-contain   drop-shadow-md p-6 brightness-140 w-28 h-28 peer'
+            className=' object-contain drop-shadow-md p-6 brightness-140 w-28 h-28 peer'
             loading='lazy'
             src={LogoSrc}
             alt={`logo de ${title}`}
           />
         </a>
-        <video
-          ref={videoRef}
-          className='peer-hover:h-72 absolute object-cover object-top w-full duration-300 opacity-0 pointer-events-none h-full peer-hover:opacity-100 rounded-3xl '
-          width='800'
-          height='600'
-        >
-          <source type='video/mp4' src={videoSrc} />
-        </video>
       </InfoCtn>
+      <video
+        ref={videoRef}
+        className={`${
+          showProyect ? 'opacity-100' : 'opacity-0'
+        } z-10 peer-hover:h-72 absolute object-cover object-top w-full duration-300  pointer-events-none h-full peer-hover:opacity-100 rounded-3xl`}
+        width='800'
+        height='600'
+      >
+        <source type='video/mp4' src={videoSrc} />
+      </video>
       <div className='md:w-10 px-5 md:px-0 gap-x-3 md:gap-x-0 gap-y-3 flex bg-white w-full md:items-start justify-start md:flex-col'>
         {propIcons.map(({ image, name }, index) => (
           <div className=' relative group md:h-8 items-center flex' key={index}>

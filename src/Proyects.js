@@ -36,7 +36,7 @@ export const proyects = [
   {
     title: 'E-ride Scooter Store',
     description:
-      'Un ecommerce estatico que recibe transacciones con la api de Mercado pago. Cuenta con un filtro de productos, y guardado de favoritos que se almacenan en el Local Storage',
+      'Es un ecommerce de monopatines electricos, que ofrece compras online mediante la API de mercado pago, los usuarios tambien pueden registrase y guardar sus productos favoritos. para el admin una UI que permite hacer un CRUD de todos los productos',
 
     img: 'https://github.com/user-attachments/assets/a102f5e8-c735-4dc0-a27c-0ccf5287f300',
     logo: erideLogo,

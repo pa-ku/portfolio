@@ -8,11 +8,11 @@ function App() {
   return (
     <>
       <div className='flex w-full flex-col items-center justify-start pb-20'>
-        <img
+    {/*     <img
           className='opacity-10 absolute bg-gradient-to-t from-white to-transparent'
           src={starsBg}
           alt='fondo de estrellas'
-        />
+        /> */}
         <Header />
         <ProyectLayout />
         <Conocimientos />
