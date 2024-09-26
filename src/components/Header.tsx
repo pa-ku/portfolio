@@ -8,7 +8,7 @@ export default function Header() {
       <div className='relative py-20 flex '>
         <header className='md:w-[30em]'>
           <div className=' w-full  flex flex-col '>
-            <h1 className='text-6xl font-extrabold text-center md:text-start '>
+            <h1 className='text-5xl text-center md:text-start '>
               Pablo Kuhn
             </h1>
             <p className='  md:h-24 text-black text-center md:text-start'>
