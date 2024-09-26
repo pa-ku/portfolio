@@ -76,7 +76,7 @@ export default function ProyectTemplate({
       <video
         ref={videoRef}
         className={`${
-          showProyect ? 'border-4 opacity-100 h-72' : 'opacity-0'
+          showProyect ? 'border-4 opacity-100 h-80' : 'opacity-0'
         } z-10  absolute object-cover object-top w-full duration-300  pointer-events-none h-full rounded-3xl`}
         width='800'
         height='600'
