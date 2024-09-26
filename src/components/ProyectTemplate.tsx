@@ -76,8 +76,8 @@ export default function ProyectTemplate({
       <video
         ref={videoRef}
         className={`${
-          showProyect ? 'opacity-100' : 'opacity-0'
-        } z-10 peer-hover:h-72 absolute object-cover object-top w-full duration-300  pointer-events-none h-full peer-hover:opacity-100 rounded-3xl`}
+          showProyect ? 'border-4 opacity-100 h-72' : 'opacity-0'
+        } z-10  absolute object-cover object-top w-full duration-300  pointer-events-none h-full rounded-3xl`}
         width='800'
         height='600'
       >
