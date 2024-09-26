@@ -7,17 +7,17 @@ export default function Header() {
     <>
       <div className='relative py-20 flex '>
         <header className='md:w-[30em]'>
-          <div className=' animate-opacity w-full  flex flex-col '>
+          <div className=' w-full  flex flex-col '>
             <h1 className='text-6xl font-extrabold text-center md:text-start '>
               Pablo Kuhn
             </h1>
-            <p className='text-black text-center md:text-start'>
+            <p className='  md:h-24 text-black text-center md:text-start'>
               Soy un <b>desarrolador frontend , fullstack</b> autodidacta que
               siempre esta buscando aprender cosas nuevas, avido Padelero 🥎
               Ciclista 🚴‍♂️ Guitarrista 🎸 y apasionado acampante 🏕️
             </p>
           </div>
-          <div className='pt-2 justify-center flex md:justify-start'>
+          <div className='pt-2 h-11 justify-center flex md:justify-start'>
             <SocialMedia />
           </div>
         </header>

@@ -135,7 +135,7 @@ background: #2595be80;
 }
 
 .animate-slide {
-  animation: slide 1300ms forwards;
+  animation: slide 900ms forwards;
 }
 
 @keyframes slide {
