@@ -50,9 +50,9 @@ export default function Conocimientos() {
       <h2 className='border-b-2 border-black text-4xl font-bold'>
         Conocimientos
       </h2>
-      <RenderIcons icons={design} />
       <RenderIcons icons={frontend} />
       <RenderIcons icons={backend} />
+      <RenderIcons icons={design} />
     </section>
   )
 }
