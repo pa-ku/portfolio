@@ -52,7 +52,7 @@ export const proyects = [
   {
     title: 'Codi.plus',
     description:
-      'Es un fork del proyecto de codi.link, adaptado a desktop con electron, donde se agregan nuevos themes y funcionalidades como tailwind.',
+      'Es un fork del editor de codigo codi.link, se adapto a windows linux y macOS desktop utilizando electron, cuenta con nuevos themes y más funcionalidades como tailwind y snippets',
     img: 'https://github.com/user-attachments/assets/7f74d22e-6fe2-4769-8319-cbe6f60d0012',
     logo: codiplus,
     github: 'https://github.com/pa-ku/codi.plus.desktop',
