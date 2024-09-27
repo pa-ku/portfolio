@@ -1,4 +1,4 @@
-import react from '@vitejs/plugin-react-swc'
+import React from 'react'
 
 import jsIcon from '../assets/images/stack_logos/javascripticon.svg'
 import CssIconn from '../assets/images/stack_logos/cssicon.svg'
@@ -36,6 +36,7 @@ export default function Conocimientos() {
     ['Css', CssIconn],
     ['TypeScript', TypeIcon],
     ['Html', HtmlIcon],
+    ['Jest', jest],
   ])
   const backend = new Map([
     ['Express', ExpressIcon],
@@ -45,6 +46,7 @@ export default function Conocimientos() {
     ['SQL', sql],
     ['Github', githubIcon],
     ['Puppeteer', puppeterIcon],
+
   ])
 
   return (
@@ -85,7 +87,6 @@ export function RenderIcons({ icons }: RenderIconsProps) {
 
 type RenderIconsProps = {
   icons?: any
-  title: string
   description?: string
   iconName?: string
 }
