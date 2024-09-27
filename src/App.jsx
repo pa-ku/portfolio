@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Conocimientos from './components/Conocimientos'
 import ProyectLayout from './components/ProyectLayout'
 import starsBg from './assets/stars.svg'
+import Study from './components/Study'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Header />
         <ProyectLayout />
         <Conocimientos />
+        <Study></Study>
       </div>
     </>
   )

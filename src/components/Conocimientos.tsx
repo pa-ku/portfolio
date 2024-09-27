@@ -18,6 +18,8 @@ import NextjsIcon from '../assets/images/stack_logos/nextjs.svg'
 import prismaIcon from '../assets/images/stack_logos/prisma.svg'
 import electron from '../assets/images/stack_logos/electron.svg'
 import puppeterIcon from '../assets/images/stack_logos/puppeteer.svg'
+import jest from '../assets/images/stack_logos/jest.svg'
+
 
 export default function Conocimientos() {
   const design = new Map([
@@ -46,7 +48,7 @@ export default function Conocimientos() {
   ])
 
   return (
-    <section className=' rounded-xl flex flex-col flex-wrap items-center justify-center w-full gap-12 px-2 '>
+    <section className=' rounded-xl pb-20 flex flex-col flex-wrap items-center justify-center w-full gap-12 px-2 '>
       <h2 className='border-b-2 border-black text-4xl font-bold'>
         Conocimientos
       </h2>
@@ -59,7 +61,7 @@ export default function Conocimientos() {
 
 export function RenderIcons({ icons }: RenderIconsProps) {
   return (
-    <div className='animate-opacity p-2 relative md:w-[40em] flex flex-col justify-start items-start   '>
+    <div className='animate-opacity  p-2 relative md:w-[40em] flex flex-col justify-start items-start   '>
       <div className='size-22 flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2 '>
         {[...icons].map(([name, component]) => (
           <div
