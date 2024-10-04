@@ -20,7 +20,6 @@ import electron from '../assets/images/stack_logos/electron.svg'
 import puppeterIcon from '../assets/images/stack_logos/puppeteer.svg'
 import jest from '../assets/images/stack_logos/jest.svg'
 
-
 export default function Conocimientos() {
   const design = new Map([
     ['Figma', figmaIcon],
@@ -46,7 +45,6 @@ export default function Conocimientos() {
     ['SQL', sql],
     ['Github', githubIcon],
     ['Puppeteer', puppeterIcon],
-
   ])
 
   return (
@@ -63,7 +61,7 @@ export default function Conocimientos() {
 
 export function RenderIcons({ icons }: RenderIconsProps) {
   return (
-    <div className='animate-opacity  p-2 relative md:w-[40em] flex flex-col justify-start items-start   '>
+    <div className='animate-opacity w-full p-2 relative md:w-[40em] flex flex-col justify-start items-start   '>
       <div className='size-22 flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2 '>
         {[...icons].map(([name, component]) => (
           <div

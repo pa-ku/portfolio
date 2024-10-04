@@ -2,11 +2,11 @@ import React from 'react'
 
 export default function Study() {
   return (
-    <section className='flex  flex-col items-center gap-10'>
+    <section className='flex flex-col items-center gap-10'>
       <h2 className='text-center w-max border-b-2 border-black text-4xl font-bold'>
         Estudios
       </h2>
-      <div className='w-[40em] space-y-6'>
+      <div className='w-full px-3 md:w-[40em] space-y-6'>
         <div>
           <b>Codo a codo 2.0</b> <span>Full stack developer PHP</span>{' '}
           <span className='text-gray-400'>2023</span>
