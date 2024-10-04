@@ -62,7 +62,7 @@ export default function Conocimientos() {
 export function RenderIcons({ icons }: RenderIconsProps) {
   return (
     <div className='animate-opacity w-full p-2 relative md:w-[40em] flex flex-col justify-start items-start   '>
-      <div className='size-22 flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2 '>
+      <div className='size-22 w-full flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2 '>
         {[...icons].map(([name, component]) => (
           <div
             key={name}
