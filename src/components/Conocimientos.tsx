@@ -1,5 +1,6 @@
 import React from 'react'
 
+declare module '*.svg'
 import jsIcon from '../assets/images/stack_logos/javascripticon.svg'
 import CssIconn from '../assets/images/stack_logos/cssicon.svg'
 import ReactIcon from '../assets/images/stack_logos/reacticon.svg'

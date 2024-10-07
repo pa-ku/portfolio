@@ -11,6 +11,7 @@ import styledcomponents from './assets/images/stack_logos/styledicon.svg'
 import mongodb from './assets/images/stack_logos/mongo.svg'
 import typescript from './assets/images/stack_logos/typescript-ico.svg'
 import tailwind from './assets/images/stack_logos/tailwind.svg'
+import puppeteer from './assets/images/stack_logos/puppeteer.svg'
 import electron from './assets/images/stack_logos/electron.svg'
 import nextjs from './assets/images/stack_logos/nextjs.svg'
 import css from './assets/images/stack_logos/cssicon.svg'
@@ -35,7 +36,7 @@ export const proyects = [
   {
     title: 'E-ride Scooter Store',
     description:
-      'Es un ecommerce de monopatines electricos, que ofrece compras online mediante la API de mercado pago, los usuarios tambien pueden registrase y guardar sus productos favoritos. para el admin una UI que permite hacer un CRUD de todos los productos',
+      'Ecommerce de monopatines electricos, ofrece compras online mediante la API de mercado pago. Los usuarios pueden registrase y guardar sus productos favoritos, para el admin una UI que permite hacer un CRUD de todos los productos',
 
     img: 'https://github.com/user-attachments/assets/a102f5e8-c735-4dc0-a27c-0ccf5287f300',
     logo: erideLogo,
@@ -63,25 +64,25 @@ export const proyects = [
       { image: electron, name: 'Electron' },
     ],
   },
-  {
+  /*   {
     title: 'Menu ChauGluten',
     description:
       'Un Menu online que te ofrece filtros, favoritos, con la opción de ingresar como admin y agregar,modificar y ver tu menu desde una interface intuitiva',
     img: 'https://github.com/user-attachments/assets/3d264d8c-84c2-41dd-bed3-c4e15f0585a6',
     logo: chaugluten,
     github: 'https://github.com/pa-ku/chau_gluten_menu',
-    href: 'https://chaugluten.vercel.app/',
+    href: 'https://chaugluten.vercel.app/',|
     stack: [
       { image: nextjs, name: 'Next' },
       { image: typescript, name: 'Typescript' },
       { image: tailwind, name: 'Tailwind' },
       { image: mongodb, name: 'Mongo' },
     ],
-  },
+  }, */
   {
     title: 'Tejabot',
     description:
-      'Es un bot automatizado que realiza reservas a canchas de padel, te permite guardar tu usario de forma local y activar un timer para realizar la reserva cuando quieras',
+      'Te permita de forma automatizada junto con puppeteer relalizar reservas a canchas de padel, te permite guardar tu usario de forma local y activar un timer para realizar la reserva al momento que quieras',
 
     img: 'https://github.com/user-attachments/assets/a9f20cd7-80ab-4f3c-a009-f729d083d753',
     logo: tejabot_logo,
@@ -89,6 +90,7 @@ export const proyects = [
     href: 'https://tejabot.vercel.app/',
     stack: [
       { image: nextjs, name: 'Next' },
+      { image: puppeteer, name: 'Puppeteer' },
       { image: tailwind, name: 'Tailwind' },
     ],
   },
